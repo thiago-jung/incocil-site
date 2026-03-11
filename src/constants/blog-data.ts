@@ -7,7 +7,8 @@ export const BLOG_POSTS = [
         date: "10 Mar, 2026",
         type: "article",
         slug: "manutencao-preditiva-cilindros",
-        image: "/images/Cilindros-hid9.jpg"
+        image: "/images/Cilindros-hid9.jpg",
+        content: ""
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "dQw4w9WgXcQ", // Exemplo de ID do YouTube
         slug: "processo-brunimento-video",
-        image: "/images/Brunimento1.jpg"
+        image: "/images/Brunimento1.jpg",
+        content: ""
     }
 ];
