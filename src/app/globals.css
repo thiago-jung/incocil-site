@@ -1,10 +1,28 @@
 @import "tailwindcss";
 
-@theme {
+/*@theme {
     --color-industrial-blue: #1e40af;
     --color-industrial-dark: #0f172a;
-    --color-industrial-accent: #facc15;
+    --color-industrial-accent: #facc15;*/
 
+    /* Fontes */
+    /*--font-sans: "Inter", ui-sans-serif, system-ui;
+    --font-display: "Montserrat", ui-sans-serif, system-ui;
+}*/
+
+@theme {
+    /* Trocamos o azul industrial por um verde profundo e confiável */
+    --color-industrial-blue: #15803d; /* green-700 */
+    --color-industrial-dark: #064e3b; /* emerald-950 - um fundo verde muito escuro */
+    --color-industrial-accent: #facc15; /* Mantemos o amarelo, que combina bem com verde */
+    /* "Truque" para o teste: redefinimos as variáveis de azul do Tailwind
+       para valores de verde. Assim, onde você usou 'bg-blue-600', ele ficará verde
+       automaticamente sem precisar mexer nos componentes. */
+    --color-blue-50: var(--color-emerald-50);
+    --color-blue-400: var(--color-emerald-400);
+    --color-blue-500: var(--color-emerald-500);
+    --color-blue-600: var(--color-emerald-600);
+    --color-blue-700: var(--color-emerald-700);
     /* Fontes */
     --font-sans: "Inter", ui-sans-serif, system-ui;
     --font-display: "Montserrat", ui-sans-serif, system-ui;
