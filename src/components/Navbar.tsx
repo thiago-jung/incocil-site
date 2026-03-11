@@ -22,7 +22,7 @@ export default function Navbar() {
                 {/* Logo - Agora clicável para voltar ao topo/home */}
                 <Link href="/" className="flex items-center gap-2">
                     <img
-                        src={isScrolled ? "/images/incocil.png" : "/images/logo-incocil_white.png"}
+                        src={isScrolled ? "/images/incocil.png" : "/images/incocil.png"}
                         alt="Incocil Logo"
                         className="h-10 w-auto"
                     />
