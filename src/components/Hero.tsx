@@ -65,13 +65,28 @@ export default function Hero({ dict, lang }: HeroProps) {
                     transition={{ duration: 0.8 }}
                     className="relative hidden lg:block"
                 >
-                    <div className="aspect-square bg-gradient-to-br from-blue-600 to-indigo-900 rounded-3xl rotate-3 flex items-center justify-center p-12 shadow-2xl">
-                        <div className="w-full h-full border-2 border-white/20 rounded-2xl border-dashed flex items-center justify-center">
-                            <span className="text-white/20 font-black text-8xl uppercase">
-                                {lang === "pt" ? "Cilindro" : "Cylinder"}
-                            </span>
+                    {/* Elemento Visual */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8 }}
+                        className="relative hidden lg:block"
+                    >
+                        {/* Container com rotação e sombra para manter o estilo moderno */}
+                        <div className="relative aspect-square rounded-3xl rotate-3 overflow-hidden shadow-2xl border-4 border-white/10 group">
+                            <img
+                                src="/images/image_2026-03-08_153643541.png"
+                                alt={lang === "pt" ? "Fachada da Fábrica Incocil" : "Incocil Factory Building"}
+                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+
+                            {/* Overlay sutil em azul para harmonizar com a paleta da marca */}
+                            <div className="absolute inset-0 bg-blue-600/10 mix-blend-multiply transition-opacity group-hover:opacity-0" />
+
+                            {/* Gradiente na borda inferior para dar profundidade */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent" />
                         </div>
-                    </div>
+                    </motion.div>
                 </motion.div>
             </div>
         </section>

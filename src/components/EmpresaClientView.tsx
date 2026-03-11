@@ -56,13 +56,18 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-slate-100 rounded-3xl h-[450px] overflow-hidden relative shadow-2xl">
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
+                    <div className="bg-slate-100 rounded-3xl h-[450px] overflow-hidden relative shadow-2xl group border-4 border-white/10">
+                        {/* Gradiente para dar profundidade e contraste com o texto ao redor */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10 transition-opacity group-hover:opacity-40" />
+
                         <img
-                            src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop"
-                            alt="Fábrica Incocil"
-                            className="w-full h-full object-cover"
+                            src="/images/incocil-predio.png"
+                            alt={dict.lang === "pt" ? "Fachada da Fábrica Incocil" : "Incocil Factory Building"}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
+
+                        {/* Overlay sutil em azul para manter a identidade visual da marca */}
+                        <div className="absolute inset-0 bg-blue-600/5 mix-blend-multiply pointer-events-none" />
                     </div>
                 </div>
             </section>

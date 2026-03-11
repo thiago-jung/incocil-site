@@ -61,11 +61,24 @@ export default function BentoFeatures({ dict }: BentoProps) {
                     {/* Card Pequeno 1 - Localização */}
                     <motion.div
                         whileHover={{ y: -5 }}
-                        className="bg-slate-900 rounded-3xl p-6 flex flex-col items-center justify-center text-center group border border-slate-800"
+                        className="relative bg-slate-900 rounded-3xl overflow-hidden group border border-slate-800"
                     >
-                        <Globe className="text-blue-500 mb-4 group-hover:scale-110 transition-transform" size={32} />
-                        <h3 className="text-white font-bold">{dict.card_small_1.title}</h3>
-                        <p className="text-slate-500 text-xs mt-2">{dict.card_small_1.description}</p>
+                        {/* Imagem de Fundo do Robô */}
+                        <img
+                            src="/images/RoboDeSolda3.jpg"
+                            alt={dict.card_small_1.title}
+                            className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
+                        />
+
+                        {/* Overlay para legibilidade */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+
+                        <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                            <h3 className="text-white font-bold text-lg">{dict.card_small_1.title}</h3>
+                            <p className="text-slate-400 text-xs mt-2 leading-relaxed">
+                                {dict.card_small_1.description}
+                            </p>
+                        </div>
                     </motion.div>
 
                     {/* Card Pequeno 2 - Rapidez */}
