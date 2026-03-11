@@ -64,10 +64,23 @@ export default function Footer({ dict, lang }: FooterProps) {
               <div>
                   <h4 className="text-white font-bold mb-6">{footer?.follow_us || "Siga-nos"}</h4>
                   <div className="flex gap-4">
-                      <a href="#" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+                      {/* Link Instagram */}
+                      <a
+                          href={company.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                      >
                           <Instagram size={20} />
                       </a>
-                      <a href="#" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
+
+                      {/* Link LinkedIn */}
+                      <a
+                          href={company.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                      >
                           <Linkedin size={20} />
                       </a>
                   </div>
