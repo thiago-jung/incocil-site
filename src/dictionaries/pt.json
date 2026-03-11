@@ -35,22 +35,16 @@
   "stats": [
     {
       "label": "Anos de Experiência",
-      "value": 40,
+      "value": 45,
       "suffix": "+",
       "iconKey": "factory"
     },
     {
-      "label": "Cilindros Entregues",
-      "value": 12500,
+      "label": "Países Atendidos",
+      "value": 4,
       "suffix": "+",
       "iconKey": "shield"
     },
-    {
-      "label": "Clientes Atendidos",
-      "value": 100,
-      "suffix": "+",
-      "iconKey": "users"
-    }
   ],
   "navbar": {
     "home": "Início",

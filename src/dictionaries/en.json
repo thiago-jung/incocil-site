@@ -40,17 +40,11 @@
       "iconKey": "factory"
     },
     {
-      "label": "Cylinders Delivered",
-      "value": 12500,
+      "label": "Countries Served",
+      "value": 4,
       "suffix": "+",
       "iconKey": "shield"
     },
-    {
-      "label": "Clients Served",
-      "value": 100,
-      "suffix": "+",
-      "iconKey": "users"
-    }
   ],
   "navbar": {
     "home": "Home",
