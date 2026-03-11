@@ -58,5 +58,53 @@ export const BLOG_POSTS = [
         slug: "apresentacao-incocil-linha-patrol",
         image: "/images/incocil-predio.png",
         content: "Um vídeo institucional que abre as portas da nossa fábrica. Conheça as instalações da Incocil, nossa capacidade técnica e os rigorosos padrões de qualidade que aplicamos na fabricação dos cilindros hidráulicos da marca PATROL®️."
+    },
+    {
+        id: 6,
+        title: "Cilindro Hidráulico Telescópico 4 Estágios - Dupla Ação",
+        excerpt: "Projeto e fabricação de cilindro hidráulico telescópico de dupla ação, desenvolvido para atuar também na posição horizontal.",
+        category: "Projetos",
+        date: "15 Ago, 2023",
+        type: "video",
+        youtubeId: "ozOIxbLX0AM", // Substitua pelo ID real do vídeo do YouTube
+        slug: "cilindro-telescopico-4-estagios-dupla-acao",
+        image: "/images/Cilindros-hid6.png",
+        content: "Projeto e fabricação de cilindro hidráulico telescópico, dupla ação (pode ser utilizado na horizontal). O projeto contempla entrada e saída de óleo na lateral do tubo, porém poderiam ser configuradas na extremidade da haste, conforme a necessidade específica do cliente."
+    },
+    {
+        id: 7,
+        title: "Teste de Sincronismo em Cilindros Mestre-Escravo",
+        excerpt: "Veja na prática o teste de sincronismo em cilindros hidráulicos dupla ação operando com batente frontal limitador.",
+        category: "Técnico",
+        date: "10 Jul, 2023",
+        type: "video",
+        youtubeId: "oyBx4Mt5L9I", // Substitua pelo ID real do vídeo do YouTube
+        slug: "teste-sincronismo-cilindros-mestre-escravo",
+        image: "/images/Cilindros-hid8.png",
+        content: "Demonstração do teste de sincronismo em cilindros hidráulicos dupla ação, montados no formato Mestre-Escravo. Ambos os cilindros foram fabricados com batente frontal para limitar o curso no fechamento. Este tipo de batente é comumente utilizado para a inclusão de calços que limitam o curso diretamente no equipamento."
+    },
+    {
+        id: 8,
+        title: "Cilindro Hidráulico Telescópico de 4 Estágios (190Bar)",
+        excerpt: "Análise técnica de cilindro com alimentação externa capaz de exercer até 19 toneladas de força no estágio maior.",
+        category: "Aplicações",
+        date: "05 Jun, 2023",
+        type: "video",
+        youtubeId: "XCjN7T4wYHU", // Substitua pelo ID real do vídeo do YouTube
+        slug: "cilindro-telescopico-4-estagios-190bar",
+        image: "/images/Cilindros-hid2.png",
+        content: "Apresentação de um Cilindro Hidráulico 4 estágios Dupla Ação com alimentação de entrada e saída de óleo no tubo externo. Trabalhando a 190Bar de pressão, este modelo exerce uma força de 1,6Ton no estágio menor e de impressionantes 19Ton no estágio maior."
+    },
+    {
+        id: 9,
+        title: "Cilindros Telescópicos Customizados para Grandes Cursos",
+        excerpt: "Solução de engenharia para quando se necessita de um equipamento super compacto fechado, mas com grande alcance aberto.",
+        category: "Projetos",
+        date: "20 Mai, 2023",
+        type: "video",
+        youtubeId: "1e6izCgOskY", // Substitua pelo ID real do vídeo do YouTube
+        slug: "cilindros-telescopicos-customizados",
+        image: "/images/Cilindros-hid5.png",
+        content: "Neste desenvolvimento customizado, a engenharia da Incocil focou em possibilitar um pequeno comprimento quando totalmente recolhido, conseguindo atingir um comprimento aberto superior ao seu comprimento fechado (cursos superiores ao tamanho original). É a solução ideal quando se deseja utilizar somente 1 cilindro para grandes cursos ou quando o espaço de instalação é extremamente limitado."
     }
 ];
