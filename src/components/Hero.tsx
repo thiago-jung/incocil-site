@@ -3,9 +3,14 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
-export default function Hero() {
+interface HeroProps {
+    dict: any;
+    lang: string;
+}
+
+export default function Hero({ dict, lang }: HeroProps) {
     const scrollToServices = () => {
-        document.getElementById('servicos')?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
     };
 
     return (
@@ -19,17 +24,21 @@ export default function Hero() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6 }}
                 >
+                    {/* Badge Traduzido */}
                     <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
-                        Tecnologia Hidráulica & Pneumática
+                        {dict.subtitle}
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 leading-tight">
-                        Inovação em <br />
+
+                    {/* Título com Gradient - Note que aqui usamos o título do dict */}
+                    <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tighter">
+                        {dict.title.split(" ").slice(0, -1).join(" ")}{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                            Cilindros.
+                            {dict.title.split(" ").pop()}
                         </span>
                     </h1>
+
                     <p className="text-xl text-slate-400 mb-10 max-w-lg leading-relaxed font-light">
-                        Desenvolvimento e fabricação com rigor técnico em Porto Alegre para os setores mais exigentes do Brasil.
+                        {dict.description}
                     </p>
 
                     <div className="flex flex-wrap gap-4">
@@ -37,17 +46,19 @@ export default function Hero() {
                             onClick={scrollToServices}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all hover:shadow-[0_0_20px_rgba(37,99,235,0.4)] active:scale-95"
                         >
-                            Nossos Produtos <ArrowRight size={20} />
+                            {dict.cta_main} <ArrowRight size={20} />
                         </button>
-                        <Link href="/contato">
+
+                        {/* Link ajustado com o prefixo do idioma */}
+                        <Link href={`/${lang}/contato`}>
                             <button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all">
-                                Falar com Especialista <MessageSquare size={20} />
+                                {dict.cta_secondary} <MessageSquare size={20} />
                             </button>
                         </Link>
                     </div>
                 </motion.div>
 
-                {/* Elemento Visual - Simulando uma peça técnica */}
+                {/* Elemento Visual */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -56,7 +67,9 @@ export default function Hero() {
                 >
                     <div className="aspect-square bg-gradient-to-br from-blue-600 to-indigo-900 rounded-3xl rotate-3 flex items-center justify-center p-12 shadow-2xl">
                         <div className="w-full h-full border-2 border-white/20 rounded-2xl border-dashed flex items-center justify-center">
-                            <span className="text-white/20 font-black text-8xl uppercase">Cilindro</span>
+                            <span className="text-white/20 font-black text-8xl uppercase">
+                                {lang === "pt" ? "Cilindro" : "Cylinder"}
+                            </span>
                         </div>
                     </div>
                 </motion.div>

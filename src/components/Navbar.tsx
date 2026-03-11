@@ -3,10 +3,16 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link"; // Já estava aqui, agora vamos usar
+import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navbar() {
+export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+
+    if (!dict) {
+        console.warn("Navbar: 'dict' is undefined. Check if you passed it as a prop.");
+        return null;
+    }
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -30,24 +36,33 @@ export default function Navbar() {
 
                 {/* Desktop Menu - Substituímos <a> por <Link> */}
                 <div className={`hidden md:flex gap-8 font-medium ${isScrolled ? "text-slate-600" : "text-slate-200"}`}>
-                    <Link href="/" className="hover:text-blue-500 transition-colors">Início</Link>
+                    <Link href={`/${lang}`}>{dict.home}</Link>
+                    <Link href={`/${lang}/#servicos`}>{dict.products}</Link>
+                    <Link href={`/${lang}/empresa`}>{dict.company}</Link>
+                    <Link href={`/${lang}/blog`} className="hover:text-blue-500 transition-colors">{dict.blog}</Link>
+                    <Link href={`/${lang}/contato`}>{dict.contact}</Link>
 
-                    {/* Se você quiser que "Produtos" role para a seção na mesma página: */}
-                    <a href="#servicos" className="hover:text-blue-500 transition-colors">Produtos</a>
+                    {/*<Link href="/" className="hover:text-blue-500 transition-colors">Início</Link>*/}
 
-                    <Link href="/empresa" className="hover:text-blue-500 transition-colors">A Empresa</Link>
-                    <Link href="/blog" className="hover:text-blue-500 transition-colors">Blog</Link>
-                    <Link href="/contato" className="hover:text-blue-500 transition-colors">Contato</Link>
+                    {/*<Link href="/#servicos" className="hover:text-blue-500 transition-colors">Produtos</Link>*/}
+
+                    {/*<Link href="/empresa" className="hover:text-blue-500 transition-colors">A Empresa</Link>*/}
+                    {/*<Link href="/contato" className="hover:text-blue-500 transition-colors">Contato</Link>*/}
                 </div>
 
-                {/* CTA Button - Envolvendo o botão com um link para a página de contato */}
+                {/* CTA Button - Desktop */}
                 <div className="hidden md:block">
-                    <Link href="/contato">
+                    {/* Adicionamos o ${lang} no link e o {dict.quote} no texto */}
+                    <Link href={`/${lang}/contato`}>
                         <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 transition-all active:scale-95">
-                            <Phone size={18} /> Orçamento
+                            <Phone size={18} /> {dict.quote}
                         </button>
                     </Link>
                 </div>
+
+
+                {/* Seletor de Idioma simples */}
+                <LanguageSwitcher currentLang={lang} />
 
                 {/* Mobile Toggle */}
                 <div className="md:hidden text-blue-600 cursor-pointer">
@@ -60,14 +75,16 @@ export default function Navbar() {
 
                 {/* E o menu mobile em si (que aparece quando isOpen é true) */}
                 {isOpen && (
-                    <div className="absolute top-full left-0 w-full bg-white shadow-xl py-6 flex flex-col items-center gap-6 md:hidden">
-                        <Link href="/" onClick={() => setIsOpen(false)}>Início</Link>
-                        <Link href="/empresa" onClick={() => setIsOpen(false)}>A Empresa</Link>
-                        <Link href="/blog" onClick={() => setIsOpen(false)}>Blog</Link>
-                        <Link href="/contato" onClick={() => setIsOpen(false)}>Contato</Link>
+                    <div className="...">
+                        <Link href={`/${lang}`} onClick={() => setIsOpen(false)}>{dict.home}</Link>
+                        <Link href={`/${lang}/#servicos`} onClick={() => setIsOpen(false)}>{dict.products}</Link>
+                        <Link href={`/${lang}/empresa`} onClick={() => setIsOpen(false)}>{dict.company}</Link>
+                        <Link href={`/${lang}/blog`} onClick={() => setIsOpen(false)}>{dict.blog}</Link>
+                        <Link href={`/${lang}/contato`} onClick={() => setIsOpen(false)}>{dict.contact}</Link>
                     </div>
                 )}
             </div>
+
         </nav>
     );
 }

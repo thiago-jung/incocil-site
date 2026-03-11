@@ -1,0 +1,370 @@
+{
+  "about": {
+    "title_start": "Specialists in the development of",
+    "title_accent": "Hydraulic Cylinders.",
+    "description": "Located in Porto Alegre, INCOCIL® meets the most demanding needs of the agricultural, road, and industrial sectors.",
+    "items": [
+      "In-house Manufacturing",
+      "Extended Warranty",
+      "Specialized Maintenance"
+    ],
+    "badge_year": "2026",
+    "badge_text": "Industrial Excellence"
+  },
+  "bento": {
+    "title_start": "Why trust",
+    "title_accent": "Incocil?",
+    "subtitle": "Technical excellence in every detail of the production process.",
+    "card_large": {
+      "title": "High Precision Honing",
+      "description": "Unique processing capacity for diameters up to 500mm, ensuring perfect roughness and absolute sealing in extreme conditions."
+    },
+    "card_medium": {
+      "title": "Custom Engineering",
+      "description": "We develop special cylinders based on your specific application needs."
+    },
+    "card_small_1": {
+      "title": "Based in Porto Alegre",
+      "description": "Agile logistics for all of Brazil and international shipping."
+    },
+    "card_small_2": {
+      "title": "Agile Delivery",
+      "description": "Reduced lead times for manufacturing and maintenance."
+    }
+  },
+  "stats": [
+    {
+      "label": "Years of Experience",
+      "value": 40,
+      "suffix": "+",
+      "iconKey": "factory"
+    },
+    {
+      "label": "Cylinders Delivered",
+      "value": 12500,
+      "suffix": "+",
+      "iconKey": "shield"
+    },
+    {
+      "label": "Clients Served",
+      "value": 100,
+      "suffix": "+",
+      "iconKey": "users"
+    }
+  ],
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "company": "Company",
+    "contact": "Contact",
+    "blog": "Blog",
+    "quote": "Get a Quote"
+  },
+  "hero": {
+    "title": "Inovation in Cylinders",
+    "subtitle": "Hydraulic & Pneumatic Technology",
+    "description": "Technical engineering and manufacturing in Porto Alegre for Brazil's most demanding sectors.",
+    "cta_main": "Our Products",
+    "cta_secondary": "Talk to Specialist"
+  },
+  "ui": {
+    "industrial_line": "Specialized Industrial Line",
+    "view_details": "Manufacturing Details & Applications",
+    "ideal_apps": "Ideal Applications",
+    "customizations": "Customizations",
+    "send_request": "Send via WhatsApp",
+    "back_home": "Back to Home",
+    "loading": "Loading...",
+    "preparing_chat": "Preparing conversation...",
+    "form_name": "Full Name",
+    "form_email": "Corporate Email",
+    "form_phone": "Phone/WhatsApp",
+    "form_message": "Your Needs",
+    "form_placeholder": "Tell us about the dimensions or application of the cylinder...",
+    "form_success_title": "Conversation Started!",
+    "form_success_desc": "A new WhatsApp tab has been opened to speak with our technical team about ",
+    "form_another_request": "Send another request",
+    "whatsapp_greeting": "Hello Incocil!",
+    "whatsapp_quote_request": "I would like to request a quote.",
+    "whatsapp_interest": "Interest",
+    "form_placeholder_sub": "Please fill in the fields below"
+  },
+  "blog": {
+    "title_start": "Industrial",
+    "title_accent": "Insights",
+    "subtitle": "Technical knowledge on hydraulics, pneumatics, and engineering.",
+    "watch_video": "Watch Video",
+    "read_article": "Read Article"
+  },
+  "footer": {
+    "about": "Specialist in manufacturing and maintenance of hydraulic and pneumatic cylinders from Porto Alegre to all of Brazil.",
+    "follow_us": "Follow Us",
+    "rights": "All rights reserved."
+  },
+  "company": {
+    "name": "INCOCIL",
+    "full_name": "Incocil - Hydraulic and Pneumatic Cylinders",
+    "phone": "+55 51 8446-8231",
+    "email": "incocil@incocil.com.br",
+    "address": "310 Ricardo Leonidas Ribas Ave - Porto Alegre/RS - Brazil",
+    "location": "Industrial District – Restinga",
+    "zip_code": "91790-005"
+  },
+  "about_page": {
+    "hero_title_start": "Tradition and",
+    "hero_title_accent": "Technology",
+    "hero_subtitle": "From Porto Alegre, transforming steel and precision into hydraulic solutions for the entire national territory.",
+    "history_title_start": "More than manufacturing, we",
+    "history_title_accent": "develop",
+    "history_title_end": "your project.",
+    "history_description": "INCOCIL® was born from the need to deliver cylinders that withstand the severe conditions of the Brazilian agricultural and industrial sectors. Strategically located in the Restinga Industrial District, our plant features high-precision honing and assembly processes.",
+    "stat_nacional_label": "National",
+    "stat_honing_label": "Honing Capacity",
+    "pillars_title": "Our Pillars",
+    "pillars": [
+      {
+        "title": "Quality",
+        "desc": "Technical rigor in every seal and finish."
+      },
+      {
+        "title": "Precision",
+        "desc": "Custom development for complex demands."
+      },
+      {
+        "title": "Partnership",
+        "desc": "Focus on the success of our customers' operations."
+      }
+    ],
+    "cta_title": "Ready to elevate your operation?",
+    "cta_button": "Request Technical Quote"
+  },
+
+
+
+  "services": [
+    {
+      "title": "Stainless Steel Hydraulic Cylinder",
+      "slug": "stainless-steel-hydraulic-cylinder",
+      "description": "Engineered for maximum durability and total corrosion resistance in aggressive environments.",
+      "longDescription": "Developed and manufactured by INCOCIL specifically for the agricultural, chemical, and food sectors, featuring 100% stainless steel construction to withstand extreme conditions.",
+      "features": [
+        "100% Stainless steel construction (Tube, rod, head, and base)",
+        "Total resistance to corrosion from agrochemicals and moisture",
+        "Higher durability with reduced maintenance downtime costs",
+        "Custom-made projects according to required dimensions and force",
+        "High-performance sealing to prevent leaks"
+      ],
+      "applications": [
+        "Agricultural sprayers and planters",
+        "Fertilizing and irrigation machinery",
+        "Marine environments or areas subject to chemical agents",
+        "Food and pharmaceutical industries (Critical hygiene)"
+      ],
+      "technicalDetails": {
+        "title": "Quality and National Manufacturing",
+        "content": "Each unit is machined and tested in-house, following strict standards for dimensional precision and absolute sealing in harsh environments.",
+        "extras": [
+          "Polished or chromed rods",
+          "Special Viton or Premium Polyurethane seals",
+          "Integrated position sensor options"
+        ]
+      }
+    },
+    {
+      "title": "Master-Slave Cylinder",
+      "slug": "master-slave-cylinder",
+      "description": "High-precision synchronized systems for uniform heavy load movement.",
+      "longDescription": "Solutions designed for applications requiring perfect synchronism between two or more actuators, ensuring leveling and precision in movement.",
+      "features": [
+        "Millimetric synchronism between cylinders",
+        "Uniform load distribution",
+        "Integrated control valves",
+        "Heavy-duty construction for intensive use",
+        "Reduction of complex external electronic components"
+      ],
+      "applications": [
+        "Large-scale lifting tables",
+        "Synchronized industrial presses",
+        "Platform lifting systems",
+        "Precision movement equipment"
+      ],
+      "technicalDetails": {
+        "title": "Advanced Hydraulic Synchronism",
+        "content": "Our master-slave systems eliminate the need for expensive external sensors through an intelligent and precise internal hydraulic design.",
+        "extras": [
+          "Calculated sizing for real load capacity",
+          "High-pressure leak testing",
+          "Industrial epoxy paint finish"
+        ]
+      }
+    },
+    {
+      "title": "Telescopic Cylinder",
+      "slug": "telescopic-hydraulic-cylinder",
+      "description": "Compact solutions for long strokes, ideal for confined spaces.",
+      "longDescription": "Multi-stage cylinders that allow for long reach while maintaining an extremely reduced and compact closed length.",
+      "features": [
+        "Multiple stages (2 to 5 stages according to project)",
+        "Space-saving optimized design",
+        "High-pressure seals between stages",
+        "Ground and chromed rods",
+        "High-resistance nylon guides"
+      ],
+      "applications": [
+        "Dump trucks",
+        "Hydraulic freight elevators",
+        "Extensible platforms",
+        "Agricultural machinery with telescopic arms"
+      ],
+      "technicalDetails": {
+        "title": "Multi-Stage Engineering",
+        "content": "We develop telescopic projects focused on lateral stability and smoothness during stage transitions.",
+        "extras": [
+          "Reinforced internal stops",
+          "Air bleeding systems",
+          "End-of-stroke cushioning"
+        ]
+      }
+    },
+    {
+      "title": "Single and Double-Acting Cylinder",
+      "slug": "single-and-double-acting-cylinder",
+      "description": "Versatility and robustness for various industrial and agricultural power applications.",
+      "longDescription": "The pillars of industrial hydraulic force, offering extreme reliability for linear power movements in any sector.",
+      "features": [
+        "Available in various mounting types (Clevis, Flange, Trunnion)",
+        "Return by gravity, spring, or hydraulic power",
+        "1045 steel rods with hard chrome plating",
+        "H8 precision honed barrels",
+        "Easy maintenance and part replacement"
+      ],
+      "applications": [
+        "Various agricultural implements",
+        "Presses and guillotines",
+        "Industrial process automation",
+        "Road equipment"
+      ],
+      "technicalDetails": {
+        "title": "INCOCIL Manufacturing Standard",
+        "content": "We use certified raw materials and automated welding processes to ensure each cylinder withstands continuous operation cycles.",
+        "extras": [
+          "High-temperature seals available on request",
+          "Custom painting according to customer standards",
+          "Individual pressure test certificate"
+        ]
+      }
+    },
+    {
+      "title": "Hydraulic Cylinders",
+      "slug": "hydraulic-cylinders",
+      "description": "Excellence and warranty for a wide range of industrial and agricultural applications.",
+      "longDescription": "Our complete line of hydraulic cylinders serves from simple projects to complex power systems across Brazil.",
+      "features": [
+        "Manufacturing according to sample or technical drawing",
+        "Wide range of diameters and strokes",
+        "Anti-corrosion surface treatments",
+        "Weight-optimized designs",
+        "Certified national origin warranty"
+      ],
+      "applications": [
+        "Metallurgical Industry",
+        "Mining Sector",
+        "Construction Equipment",
+        "Heavy Agricultural Machinery"
+      ],
+      "technicalDetails": {
+        "title": "Technical Development",
+        "content": "Our engineering team is available to assist in the correct sizing of the actuator for your specific application.",
+        "extras": [
+          "3D drawings for project integration",
+          "Stress and fatigue analysis",
+          "Specialized after-sales support"
+        ]
+      }
+    },
+    {
+      "title": "Pneumatic Cylinders",
+      "slug": "pneumatic-cylinders",
+      "description": "On-demand manufacturing and specialized maintenance focused on efficiency.",
+      "longDescription": "Compressed air-powered actuators designed for fast, clean, and efficient automation in modern production lines.",
+      "features": [
+        "Lightweight aluminum or steel construction",
+        "High-speed operation cycles",
+        "Lube-free operation (optional)",
+        "Low noise level",
+        "Compact dimensions for easy installation"
+      ],
+      "applications": [
+        "Automated assembly lines",
+        "Packaging industry",
+        "Sorting and grading systems",
+        "Textile and food industries"
+      ],
+      "technicalDetails": {
+        "title": "Automation and Speed",
+        "content": "Our pneumatic cylinders follow international standards to ensure interchangeability in imported and domestic machines.",
+        "extras": [
+          "Adjustable pneumatic cushioning",
+          "Magnetic piston for proximity sensors",
+          "Stainless steel versions for sanitary areas"
+        ]
+      }
+    },
+    {
+      "title": "Honing Services",
+      "slug": "honing-services",
+      "description": "Capability from ø 25.40 to ø 500mm with reduced lead times.",
+      "longDescription": "Ultra-precision abrasive machining process to ensure perfect geometry and roughness inside cylinder barrels.",
+      "features": [
+        "Technical capacity for large diameters (up to 500mm)",
+        "Strict control of roughness (Ra and Rz)",
+        "Vertical and horizontal honing",
+        "Correction of ovality and tapering",
+        "Mirrored finish for maximum seal life"
+      ],
+      "applications": [
+        "Cylinder barrel recovery",
+        "Industrial tube machining",
+        "Special barrel manufacturing",
+        "Hole adjustment in cast parts"
+      ],
+      "technicalDetails": {
+        "title": "Surface Technology",
+        "content": "Correct honing is the secret to perfect sealing and the durability of any hydraulic or pneumatic system.",
+        "extras": [
+          "Digital profilometer inspection",
+          "Differentiated deadlines for urgencies",
+          "Long-length honing capability"
+        ]
+      }
+    },
+    {
+      "title": "Maintenance",
+      "slug": "maintenance",
+      "description": "Complete recovery with the same warranty as a new cylinder.",
+      "longDescription": "Specialized overhaul and technical recovery service for cylinders of any brand, restoring factory performance.",
+      "features": [
+        "Complete seal kit replacement",
+        "Preventive or corrective internal honing",
+        "Recovery or replacement of scratched rods",
+        "High-pressure bench testing",
+        "Technical maintenance report"
+      ],
+      "applications": [
+        "Fleet preventive maintenance",
+        "Emergency repairs to avoid downtime",
+        "Technical upgrades for old cylinders",
+        "Imported actuator recovery"
+      ],
+      "technicalDetails": {
+        "title": "INCOCIL Quality Warranty",
+        "content": "A cylinder recovered at INCOCIL undergoes the same pressure and sealing tests as new equipment, ensuring total safety.",
+        "extras": [
+          "Pick-up and delivery available on request",
+          "High-layer hard chrome on rods",
+          "Robotized welding for clevis recovery"
+        ]
+      }
+    }
+  ]
+}

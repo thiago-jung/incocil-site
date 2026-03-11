@@ -1,0 +1,362 @@
+{
+  "about": {
+    "title_start": "Especialistas no desenvolvimento de",
+    "title_accent": "Cilindros Hidráulicos.",
+    "description": "Localizada em Porto Alegre, a INCOCIL® atende as demandas mais exigentes dos setores agrícola, rodoviário e industrial.",
+    "items": [
+      "Fabricação Própria",
+      "Garantia Estendida",
+      "Manutenção Especializada"
+    ],
+    "badge_year": "2026",
+    "badge_text": "Excelência Industrial"
+  },
+  "bento": {
+    "title_start": "Por que confiar na",
+    "title_accent": "Incocil?",
+    "subtitle": "Excelência técnica em cada detalhe do processo produtivo.",
+    "card_large": {
+      "title": "Brunimento de Alta Precisão",
+      "description": "Capacidade única de processamento para diâmetros de até 500mm, garantindo rugosidade perfeita e vedação absoluta em condições extremas."
+    },
+    "card_medium": {
+      "title": "Engenharia Sob Medida",
+      "description": "Desenvolvemos cilindros especiais baseados na sua necessidade específica de aplicação."
+    },
+    "card_small_1": {
+      "title": "Base em Porto Alegre",
+      "description": "Logística ágil para todo o RS e Brasil."
+    },
+    "card_small_2": {
+      "title": "Entrega Ágil",
+      "description": "Prazos reduzidos em fabricação e manutenção."
+    }
+  },
+  "stats": [
+    {
+      "label": "Anos de Experiência",
+      "value": 40,
+      "suffix": "+",
+      "iconKey": "factory"
+    },
+    {
+      "label": "Cilindros Entregues",
+      "value": 12500,
+      "suffix": "+",
+      "iconKey": "shield"
+    },
+    {
+      "label": "Clientes Atendidos",
+      "value": 100,
+      "suffix": "+",
+      "iconKey": "users"
+    }
+  ],
+  "navbar": {
+    "home": "Início",
+    "products": "Produtos",
+    "company": "A Empresa",
+    "blog": "Blog",
+    "contact": "Contato",
+    "quote": "Orçamento"
+  },
+  "hero": {
+    "title": "Inovação em Cilindros",
+    "subtitle": "Tecnologia Hidráulica & Pneumática",
+    "description": "Desenvolvimento e fabricação com rigor técnico em Porto Alegre para os setores mais exigentes do Brasil.",
+    "cta_main": "Nossos Produtos",
+    "cta_secondary": "Falar com Especialista"
+  },
+  "ui": {
+    "industrial_line": "Linha Industrial Especializada",
+    "view_details": "Detalhes de Fabricação e Aplicações",
+    "ideal_apps": "Aplicações Ideais",
+    "customizations": "Customizações",
+    "send_request": "Enviar Solicitação",
+    "back_home": "Voltar para o Início",
+    "loading": "Carregando...",
+    "form_name": "Nome Completo",
+    "form_email": "E-mail Corporativo",
+    "form_phone": "Telefone/WhatsApp",
+    "form_message": "Sua Necessidade",
+    "form_placeholder": "Fale sobre as dimensões ou aplicação do cilindro...",
+    "form_success_title": "Conversa Iniciada!",
+    "form_success_desc": "O seu WhatsApp abriu uma nova aba para falar com a nossa equipa técnica.",
+    "preparing_chat": "Preparando conversa...",
+    "form_another_request": "Enviar outra solicitação",
+    "whatsapp_greeting": "Olá Incocil!",
+    "whatsapp_quote_request": "Gostaria de solicitar um orçamento.",
+    "whatsapp_interest": "Interesse",
+    "form_placeholder_sub": "Preencha os campos abaixo"
+  },
+  "blog": {
+    "title_start": "Insights",
+    "title_accent": "Industriais",
+    "subtitle": "Conhecimento técnico sobre hidráulica, pneumática e engenharia.",
+    "watch_video": "Assistir Vídeo",
+    "read_article": "Ler Artigo"
+  },
+  "footer": {
+    "about": "Especialista na fabricação e manutenção de cilindros hidráulicos e pneumáticos desde Porto Alegre para todo o Brasil.",
+    "follow_us": "Siga-nos",
+    "rights": "Todos os direitos reservados."
+  },
+  "company": {
+    "name": "INCOCIL",
+    "full_name": "Incocil - Cilindros Hidráulicos e Pneumáticos",
+    "phone": "+55 51 8446-8231",
+    "email": "incocil@incocil.com.br",
+    "address": "Av. Ricardo Leônidas Ribas, 310",
+    "location": "Restinga, Porto Alegre - RS",
+    "zip_code": "91790-005"
+  },
+  "about_page": {
+    "hero_title_start": "Tradição e",
+    "hero_title_accent": "Tecnologia",
+    "hero_subtitle": "Desde Porto Alegre, transformando aço e precisão em soluções hidráulicas para todo o território nacional.",
+    "history_title_start": "Mais do que fabricar, nós",
+    "history_title_accent": "desenvolvemos",
+    "history_title_end": "o seu projeto.",
+    "history_description": "A INCOCIL® nasceu da necessidade de entregar cilindros que suportem as condições severas do setor agrícola e industrial brasileiro. Localizada estrategicamente no Distrito Industrial da Restinga, nossa planta conta com processos de brunimento e montagem de alta precisão.",
+    "stat_nacional_label": "Nacional",
+    "stat_honing_label": "Capacidade de Brunimento",
+    "pillars_title": "Nossos Pilares",
+    "pillars": [
+      {
+        "title": "Qualidade",
+        "desc": "Rigor técnico em cada vedação e acabamento."
+      },
+      {
+        "title": "Precisão",
+        "desc": "Desenvolvimento sob medida para demandas complexas."
+      },
+      {
+        "title": "Parceria",
+        "desc": "Foco no sucesso da operação de nossos clientes."
+      }
+    ],
+    "cta_title": "Pronto para elevar o nível da sua operação?",
+    "cta_button": "Solicitar Orçamento Técnico"
+  },
+
+
+  "services": [
+    {
+      "title": "Cilindro Hidráulico Inox",
+      "slug": "stainless-steel-hydraulic-cylinder",
+      "description": "Desenvolvidos para máxima durabilidade e resistência total à corrosão em ambientes agressivos.",
+      "longDescription": "Projetados e fabricados pela INCOCIL especialmente para os setores agrícola, químico e alimentício, com construção 100% em aço inoxidável para suportar condições extremas.",
+      "features": [
+        "Construção 100% em aço inoxidável (Tubo, haste, cabeçote e fundo)",
+        "Resistência total à corrosão por defensivos químicos e humidade",
+        "Maior durabilidade com redução de custo por parada de manutenção",
+        "Projetos sob medida conforme dimensões e força necessária",
+        "Vedação de alto desempenho para evitar vazamentos"
+      ],
+      "applications": [
+        "Pulverizadores agrícolas e plantadeiras",
+        "Máquinas de adubação e irrigação",
+        "Ambientes marítimos ou sujeitos a agentes químicos",
+        "Indústria alimentícia e farmacêutica (Higiene crítica)"
+      ],
+      "technicalDetails": {
+        "title": "Qualidade e Fabricação Nacional",
+        "content": "Cada unidade é usinada e testada internamente, seguindo padrões rigorosos de precisão dimensional e vedação absoluta em ambientes severos.",
+        "extras": [
+          "Hastes polidas ou cromadas",
+          "Vedações especiais em Viton ou Poliuretano",
+          "Opções com sensores de posição integrados"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro Mestre-Escravo",
+      "slug": "master-slave-cylinder",
+      "description": "Sistemas sincronizados de alta precisão para movimentação uniforme de cargas pesadas.",
+      "longDescription": "Soluções projetadas para aplicações que exigem o sincronismo perfeito entre dois ou mais atuadores, garantindo nivelamento e precisão no movimento.",
+      "features": [
+        "Sincronismo milimétrico entre os cilindros",
+        "Distribuição uniforme de carga",
+        "Válvulas de controle integradas",
+        "Construção robusta para uso intensivo",
+        "Redução de componentes eletrónicos complexos"
+      ],
+      "applications": [
+        "Mesas elevatórias de grande porte",
+        "Prensas industriais sincronizadas",
+        "Sistemas de içamento de plataformas",
+        "Equipamentos de movimentação de precisão"
+      ],
+      "technicalDetails": {
+        "content": "Os nossos sistemas mestre-escravo eliminam a necessidade de sensores externos caros através de um design hidráulico interno inteligente e preciso.",
+        "extras": [
+          "Dimensionamento calculado para carga real",
+          "Teste de estanqueidade em alta pressão",
+          "Acabamento em pintura industrial epóxi"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro Telescópico",
+      "slug": "telescopic-hydraulic-cylinder",
+      "description": "Soluções compactas para grandes cursos de atuação, ideal para espaços confinados.",
+      "longDescription": "Cilindros de múltiplos estágios que permitem atingir grandes alcances mantendo um comprimento fechado extremamente reduzido e compacto.",
+      "features": [
+        "Múltiplos estágios (2 a 5 estágios conforme projeto)",
+        "Design otimizado para economia de espaço",
+        "Vedações de alta pressão entre estágios",
+        "Hastes retificadas e cromadas",
+        "Guias de nylon de alta resistência"
+      ],
+      "applications": [
+        "Camiões basculantes",
+        "Elevadores hidráulicos de carga",
+        "Plataformas extensíveis",
+        "Máquinas agrícolas com braços telescópicos"
+      ],
+      "technicalDetails": {
+        "content": "Desenvolvemos projetos telescópicos com foco na estabilidade lateral e na suavidade da transição entre os estágios do cilindro.",
+        "extras": [
+          "Batentes internos reforçados",
+          "Sistemas de purga de ar",
+          "Amortecimento de final de curso"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro Simples e Dupla Ação",
+      "slug": "single-and-double-acting-cylinder",
+      "description": "Versatilidade e robustez para diversas aplicações industriais e agrícolas de força.",
+      "longDescription": "Os pilares da força hidráulica industrial, oferecendo confiabilidade extrema para movimentos lineares de potência em qualquer setor.",
+      "features": [
+        "Disponível em diversos tipos de fixação (Olhal, Flange, Munhão)",
+        "Retorno por gravidade, mola ou potência hidráulica",
+        "Hastes em aço 1045 com cromo duro",
+        "Camisas brunidas com precisão H8",
+        "Fácil manutenção e reposição de peças"
+      ],
+      "applications": [
+        "Implementos agrícolas diversos",
+        "Prensas e guilhotinas",
+        "Automação de processos industriais",
+        "Equipamentos rodoviários"
+      ],
+      "technicalDetails": {
+        "content": "Utilizamos matéria-prima certificada e processos de soldagem automatizada para garantir que cada cilindro suporte ciclos contínuos de operação.",
+        "extras": [
+          "Vedações para alta temperatura sob consulta",
+          "Pintura personalizada conforme norma do cliente",
+          "Certificado de teste de pressão individual"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Hidráulicos",
+      "slug": "hydraulic-cylinders",
+      "description": "Excelência e garantia para os mais variados tipos de aplicações industriais e agrícolas.",
+      "longDescription": "A nossa linha completa de cilindros hidráulicos atende desde projetos simples até os mais complexos sistemas de força de Porto Alegre para o Brasil.",
+      "features": [
+        "Fabricação conforme amostra ou desenho técnico",
+        "Ampla gama de diâmetros e cursos",
+        "Tratamentos superficiais anticorrosão",
+        "Projetos otimizados para redução de peso",
+        "Garantia de procedência nacional"
+      ],
+      "applications": [
+        "Indústria Metalúrgica",
+        "Setor de Mineração",
+        "Equipamentos de Construção Civil",
+        "Maquinário Agrícola pesado"
+      ],
+      "technicalDetails": {
+        "content": "Contamos com equipa de engenharia para auxiliar no dimensionamento correto do atuador para a sua aplicação específica.",
+        "extras": [
+          "Desenhos em 3D para integração no seu projeto",
+          "Análise de esforços e fadiga",
+          "Suporte pós-venda especializado"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Pneumáticos",
+      "slug": "pneumatic-cylinders",
+      "description": "Fabricação sob demanda e manutenção especializada com foco em eficiência.",
+      "longDescription": "Atuadores movidos a ar comprimido projetados para automação rápida, limpa e eficiente em linhas de produção modernas.",
+      "features": [
+        "Construção leve em alumínio ou aço",
+        "Alta velocidade de ciclo de operação",
+        "Funcionamento isento de lubrificação (opcional)",
+        "Baixo nível de ruído",
+        "Dimensões compactas para fácil instalação"
+      ],
+      "applications": [
+        "Linhas de montagem automatizadas",
+        "Indústria de embalagens",
+        "Sistemas de separação e triagem",
+        "Indústria têxtil e alimentícia"
+      ],
+      "technicalDetails": {
+        "content": "Os nossos cilindros pneumáticos seguem normas internacionais para garantir a intercambiabilidade em máquinas importadas e nacionais.",
+        "extras": [
+          "Amortecimento pneumático regulável",
+          "Êmbolo magnético para sensores de proximidade",
+          "Versões em INOX para áreas sanitárias"
+        ]
+      }
+    },
+    {
+      "title": "Serviços de Brunimento",
+      "slug": "honing-services",
+      "description": "Capacidade de ø 25,40 até ø 500mm com prazos reduzidos.",
+      "longDescription": "Processo de usinagem por abrasão de altíssima precisão para garantir a geometria e rugosidade perfeita no interior de camisas de cilindros.",
+      "features": [
+        "Capacidade técnica para grandes diâmetros (até 500mm)",
+        "Controle rigoroso de rugosidade (Ra e Rz)",
+        "Brunimento vertical e horizontal",
+        "Correção de ovalização e conicidade",
+        "Acabamento espelhado para máxima vida útil das vedações"
+      ],
+      "applications": [
+        "Recuperação de camisas de cilindros",
+        "Usinagem de tubos industriais",
+        "Fabricação de camisas especiais",
+        "Ajuste de furos em peças fundidas"
+      ],
+      "technicalDetails": {
+        "content": "O brunimento correto é o segredo para a vedação perfeita e a durabilidade de qualquer sistema hidráulico ou pneumático.",
+        "extras": [
+          "Inspeção com rugosímetro digital",
+          "Prazos diferenciados para urgências",
+          "Capacidade de brunimento em grandes comprimentos"
+        ]
+      }
+    },
+    {
+      "title": "Manutenção",
+      "slug": "maintenance",
+      "description": "Recuperação completa com a mesma garantia de um cilindro novo.",
+      "longDescription": "Serviço especializado de reforma e recuperação técnica para cilindros de qualquer marca, devolvendo o desempenho de fábrica.",
+      "features": [
+        "Substituição completa de kits de vedação",
+        "Brunimento interno preventivo ou corretivo",
+        "Recuperação ou troca de hastes riscadas",
+        "Teste de bancada em alta pressão",
+        "Laudo técnico de manutenção"
+      ],
+      "applications": [
+        "Manutenção preventiva de frotas",
+        "Reformas emergenciais para evitar paradas",
+        "Atualização técnica de cilindros antigos",
+        "Recuperação de atuadores importados"
+      ],
+      "technicalDetails": {
+        "content": "Um cilindro recuperado na INCOCIL passa pelos mesmos testes de pressão e vedação de um equipamento novo, garantindo total segurança.",
+        "extras": [
+          "Retirada e entrega sob consulta",
+          "Cromo duro de alta camada nas hastes",
+          "Solda robotizada para recuperação de olhais"
+        ]
+      }
+    }
+  ]
+}

@@ -24,13 +24,14 @@ export default function NotFound() {
                         <Settings size={64} className="animate-spin-slow" />
                     </div>
 
-                    <h1 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter">
-                        Componente não <br />
-                        <span className="text-blue-600">encontrado.</span>
+                    <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tighter">
+                        Component not found <br />
+                        <span className="text-blue-600 text-2xl md:text-3xl uppercase">Componente não encontrado</span>
                     </h1>
 
                     <p className="text-slate-500 mb-12 text-lg leading-relaxed">
-                        Parece que a página que você está procurando saiu de linha ou foi movida para outro setor.
+                        It seems the page you are looking for is offline or moved. <br />
+                        <span className="text-sm italic">Parece que a página que você está procurando saiu de linha ou foi movida para outro setor.</span>
                     </p>
 
                     <div className="flex flex-col gap-4">
@@ -38,14 +39,14 @@ export default function NotFound() {
                             href="/"
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/25 active:scale-95"
                         >
-                            <Home size={20} /> Voltar para o Início
+                            <Home size={20} /> Return to Home / Voltar ao Início
                         </Link>
 
                         <Link
                             href="/contato"
                             className="text-slate-500 hover:text-blue-600 font-bold flex items-center justify-center gap-2 transition-colors py-2"
                         >
-                            <ArrowLeft size={18} /> Relatar erro técnico
+                            <ArrowLeft size={18} /> Technical Support / Suporte Técnico
                         </Link>
                     </div>
                 </motion.div>
@@ -53,14 +54,14 @@ export default function NotFound() {
 
             {/* CSS inline para a animação lenta da engrenagem */}
             <style jsx global>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
-        }
-      `}</style>
+                @keyframes spin-slow {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                .animate-spin-slow {
+                    animation: spin-slow 8s linear infinite;
+                }
+            `}</style>
         </div>
     );
 }
