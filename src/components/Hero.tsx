@@ -23,9 +23,9 @@ export default function Hero() {
                         Tecnologia Hidráulica & Pneumática
                     </span>
                     <h1 className="text-5xl md:text-7xl font-display font-black text-white mb-6 leading-tight">
-                        Precisão em <br />
+                        Inovação em <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
-                            Movimento.
+                            Cilindros.
                         </span>
                     </h1>
                     <p className="text-xl text-slate-400 mb-10 max-w-lg leading-relaxed font-light">

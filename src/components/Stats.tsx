@@ -33,10 +33,9 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 }
 
 const STATS = [
-    { label: "Anos de Experiência", value: 15, suffix: "+", icon: Factory },
+    { label: "Anos de Experiência", value: 40, suffix: "+", icon: Factory },
     { label: "Cilindros Entregues", value: 12500, suffix: "+", icon: ShieldCheck },
-    { label: "Clientes Atendidos", value: 850, suffix: "+", icon: Users },
-    { label: "Capacidade (mm)", value: 500, suffix: "ø", icon: Award },
+    { label: "Clientes Atendidos", value: 100, suffix: "+", icon: Users },
 ];
 
 export default function Stats() {

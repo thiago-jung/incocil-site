@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 // Usando a fonte Inter para aquele visual moderno e limpo
 const inter = Inter({ subsets: ["latin"] });
@@ -54,15 +57,31 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="pt-BR">
-            <body className={`${inter.className} antialiased bg-white text-slate-900`}>
+            <head>
+                {/* Google Analytics 4 - Substitui o 'G-XXXXXXXXXX' pelo teu ID real depois */}
+                <Script
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`}
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+                </Script>
+            </head>
+            <body className={`${inter.className} antialiased`}>
                 {children}
+
+                {/* Vercel Metrics */}
+                <Analytics />
+                <SpeedInsights />
+
                 <WhatsAppButton />
             </body>
         </html>
