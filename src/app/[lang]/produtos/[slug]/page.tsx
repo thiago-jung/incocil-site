@@ -5,6 +5,48 @@ import Footer from "@/components/Footer";
 import ProductForm from "@/components/ProductForm";
 import { CheckCircle2 } from "lucide-react";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion"; // Vamos criar este abaixo
+import { Metadata } from 'next';
+
+
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ lang: 'pt' | 'en', slug: string }>
+}): Promise<Metadata> {
+    const { lang, slug } = await params;
+    const dict = await getDictionary(lang);
+
+    // Encontra o produto específico no dicionário
+    const product = dict.services.find((s: any) => s.slug === slug);
+
+    if (!product) {
+        return { title: 'Produto não encontrado | INCOCIL' };
+    }
+
+    const ogImage = product.image || "/images/og-main.jpg";
+
+    return {
+        title: product.title,
+        description: product.description,
+        openGraph: {
+            title: `${product.title} | INCOCIL`,
+            description: product.description,
+            images: [
+                {
+                    url: product.image,
+                    alt: product.title,
+                }
+            ],
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: product.title,
+            description: product.description,
+            images: [product.image],
+        }
+    };
+}
 
 export default async function PaginaProduto({
     params

@@ -147,6 +147,7 @@
     {
       "title": "Cilindro Hidráulico Inox",
       "slug": "stainless-steel-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Desenvolvidos para máxima durabilidade e resistência total à corrosão em ambientes agressivos.",
       "longDescription": "Projetados e fabricados pela INCOCIL especialmente para os setores agrícola, químico e alimentício, com construção 100% em aço inoxidável para suportar condições extremas.",
       "features": [
@@ -175,6 +176,7 @@
     {
       "title": "Cilindro Mestre-Escravo",
       "slug": "master-slave-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Sistemas sincronizados de alta precisão para movimentação uniforme de cargas pesadas.",
       "longDescription": "Soluções projetadas para aplicações que exigem o sincronismo perfeito entre dois ou mais atuadores, garantindo nivelamento e precisão no movimento.",
       "features": [
@@ -202,6 +204,7 @@
     {
       "title": "Cilindro Telescópico",
       "slug": "telescopic-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Soluções compactas para grandes cursos de atuação, ideal para espaços confinados.",
       "longDescription": "Cilindros de múltiplos estágios que permitem atingir grandes alcances mantendo um comprimento fechado extremamente reduzido e compacto.",
       "features": [
@@ -229,6 +232,7 @@
     {
       "title": "Cilindro Simples e Dupla Ação",
       "slug": "single-and-double-acting-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Versatilidade e robustez para diversas aplicações industriais e agrícolas de força.",
       "longDescription": "Os pilares da força hidráulica industrial, oferecendo confiabilidade extrema para movimentos lineares de potência em qualquer setor.",
       "features": [
@@ -256,6 +260,7 @@
     {
       "title": "Cilindros Hidráulicos",
       "slug": "hydraulic-cylinders",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Excelência e garantia para os mais variados tipos de aplicações industriais e agrícolas.",
       "longDescription": "A nossa linha completa de cilindros hidráulicos atende desde projetos simples até os mais complexos sistemas de força de Porto Alegre para o Brasil.",
       "features": [
@@ -283,6 +288,7 @@
     {
       "title": "Cilindros Pneumáticos",
       "slug": "pneumatic-cylinders",
+      "image": "/images/pneumatico.png",
       "description": "Fabricação sob demanda e manutenção especializada com foco em eficiência.",
       "longDescription": "Atuadores movidos a ar comprimido projetados para automação rápida, limpa e eficiente em linhas de produção modernas.",
       "features": [
@@ -310,6 +316,7 @@
     {
       "title": "Serviços de Brunimento",
       "slug": "honing-services",
+      "image": "/images/brunimento.png",
       "description": "Capacidade de ø 25,40 até ø 500mm com prazos reduzidos.",
       "longDescription": "Processo de usinagem por abrasão de altíssima precisão para garantir a geometria e rugosidade perfeita no interior de camisas de cilindros.",
       "features": [
@@ -337,6 +344,7 @@
     {
       "title": "Manutenção",
       "slug": "maintenance",
+      "image": "/images/manutencao.png",
       "description": "Recuperação completa com a mesma garantia de um cilindro novo.",
       "longDescription": "Serviço especializado de reforma e recuperação técnica para cilindros de qualquer marca, devolvendo o desempenho de fábrica.",
       "features": [

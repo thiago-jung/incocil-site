@@ -5,6 +5,39 @@ import { getDictionary } from "@/get-dictionaries";
 import { notFound } from "next/navigation";
 import { Calendar, ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+    params
+}: {
+    params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+    const { slug } = await params;
+
+    // Encontra o post pelo slug
+    const post = BLOG_POSTS.find((p) => p.slug === slug);
+
+    if (!post) {
+        return { title: 'Artigo não encontrado | Blog INCOCIL' };
+    }
+
+    return {
+        title: post.title,
+        description: post.excerpt,
+        openGraph: {
+            title: `${post.title} | Blog INCOCIL`,
+            description: post.excerpt,
+            images: [
+                {
+                    url: post.image,
+                    alt: post.title,
+                }
+            ],
+            type: 'article',
+        }
+    };
+}
+
 
 export default async function BlogPostPage({
     params

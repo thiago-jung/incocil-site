@@ -148,6 +148,7 @@
     {
       "title": "Stainless Steel Hydraulic Cylinder",
       "slug": "stainless-steel-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Engineered for maximum durability and total corrosion resistance in aggressive environments.",
       "longDescription": "Developed and manufactured by INCOCIL specifically for the agricultural, chemical, and food sectors, featuring 100% stainless steel construction to withstand extreme conditions.",
       "features": [
@@ -176,6 +177,7 @@
     {
       "title": "Master-Slave Cylinder",
       "slug": "master-slave-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "High-precision synchronized systems for uniform heavy load movement.",
       "longDescription": "Solutions designed for applications requiring perfect synchronism between two or more actuators, ensuring leveling and precision in movement.",
       "features": [
@@ -204,6 +206,7 @@
     {
       "title": "Telescopic Cylinder",
       "slug": "telescopic-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Compact solutions for long strokes, ideal for confined spaces.",
       "longDescription": "Multi-stage cylinders that allow for long reach while maintaining an extremely reduced and compact closed length.",
       "features": [
@@ -232,6 +235,7 @@
     {
       "title": "Single and Double-Acting Cylinder",
       "slug": "single-and-double-acting-cylinder",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Versatility and robustness for various industrial and agricultural power applications.",
       "longDescription": "The pillars of industrial hydraulic force, offering extreme reliability for linear power movements in any sector.",
       "features": [
@@ -260,6 +264,7 @@
     {
       "title": "Hydraulic Cylinders",
       "slug": "hydraulic-cylinders",
+      "image": "/images/Cilindros-hid1.png",
       "description": "Excellence and warranty for a wide range of industrial and agricultural applications.",
       "longDescription": "Our complete line of hydraulic cylinders serves from simple projects to complex power systems across Brazil.",
       "features": [
@@ -288,6 +293,7 @@
     {
       "title": "Pneumatic Cylinders",
       "slug": "pneumatic-cylinders",
+      "image": "/images/pneumatico.png",
       "description": "On-demand manufacturing and specialized maintenance focused on efficiency.",
       "longDescription": "Compressed air-powered actuators designed for fast, clean, and efficient automation in modern production lines.",
       "features": [
@@ -316,6 +322,7 @@
     {
       "title": "Honing Services",
       "slug": "honing-services",
+      "image": "/images/brunimento.png",
       "description": "Capability from ø 25.40 to ø 500mm with reduced lead times.",
       "longDescription": "Ultra-precision abrasive machining process to ensure perfect geometry and roughness inside cylinder barrels.",
       "features": [
@@ -344,6 +351,7 @@
     {
       "title": "Maintenance",
       "slug": "maintenance",
+      "image": "/images/manutencao.png",
       "description": "Complete recovery with the same warranty as a new cylinder.",
       "longDescription": "Specialized overhaul and technical recovery service for cylinders of any brand, restoring factory performance.",
       "features": [
