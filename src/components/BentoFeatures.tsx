@@ -23,19 +23,35 @@ export default function BentoFeatures({ dict }: BentoProps) {
                 <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-full md:h-[600px]">
 
                     {/* Card Grande - Destaque Principal */}
+                    {/* Card Grande - Destaque Principal (Brunimento) */}
                     <motion.div
                         whileHover={{ y: -5 }}
                         className="md:col-span-2 md:row-span-2 bg-slate-950 rounded-3xl p-8 relative overflow-hidden group border border-slate-800"
                     >
-                        <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                            <Gauge size={200} className="text-white" />
-                        </div>
-                        <div className="relative z-10 h-full flex flex-col justify-end">
-                            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6">
-                                <ShieldCheck className="text-white" />
-                            </div>
-                            <h3 className="text-3xl font-bold text-white mb-4">{dict.card_large.title}</h3>
-                            <p className="text-slate-400 leading-relaxed">
+                        {/* Imagem de Fundo - Usando a foto de Brunimento para alinhar com o conteúdo */}
+                        <img
+                            src="/images/brunimento.jpg"
+                            alt={dict.card_large.title}
+                            className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700"
+                        />
+
+                        {/* Overlay de Gradiente para garantir leitura do texto */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-transparent to-slate-950/50" />
+
+                        {/* Ícone Decorativo - Gauge (Mantido com z-index para ficar sobre a imagem) */}
+                        {/*<div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity z-10">*/}
+                        {/*    <Gauge size={200} className="text-white" />*/}
+                        {/*</div>*/}
+
+                        {/* Conteúdo do Card */}
+                        <div className="relative z-20 h-full flex flex-col justify-end">
+                            {/*<div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-600/20">*/}
+                                {/*<ShieldCheck className="text-white" />*/}
+                            {/*</div>*/}
+                            <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">
+                                {dict.card_large.title}
+                            </h3>
+                            <p className="text-slate-400 leading-relaxed max-w-md">
                                 {dict.card_large.description}
                             </p>
                         </div>
@@ -44,17 +60,32 @@ export default function BentoFeatures({ dict }: BentoProps) {
                     {/* Card Médio - Engenharia */}
                     <motion.div
                         whileHover={{ y: -5 }}
-                        className="md:col-span-2 bg-blue-50 rounded-3xl p-8 flex flex-col justify-between group border border-blue-100"
+                        className="md:col-span-2 bg-white rounded-3xl p-8 flex flex-col justify-between group border border-slate-100 relative overflow-hidden shadow-sm"
                     >
-                        <div className="flex justify-between items-start">
-                            <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm">
-                                <PenTool className="text-blue-600" />
-                            </div>
-                            <span className="text-blue-600/30 font-black text-4xl">01</span>
+                        {/* Imagem de Fundo Técnica - Sugestão: banner-home-2 ou uma nova de projeto */}
+                        <img
+                            src="/images/1582053802156.jpg"
+                            alt={dict.card_medium.title}
+                            className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-110 transition-transform duration-700"
+                        />
+
+                        {/* Overlay de suavização */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-0/90 to-transparent pointer-events-none" />
+
+                        <div className="relative z-10 flex justify-between items-start">
+                            {/*<div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-md border border-blue-50">*/}
+                            {/*    <PenTool className="text-blue-600" />*/}
+                            {/*</div>*/}
+                            {/*<span className="text-blue-600/20 font-black text-5xl">01</span>*/}
                         </div>
-                        <div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2">{dict.card_medium.title}</h3>
-                            <p className="text-slate-600 text-sm">{dict.card_medium.description}</p>
+
+                        <div className="relative z-10">
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">
+                                {dict.card_medium.title}
+                            </h3>
+                            <p className="text-slate-600 text-sm leading-relaxed max-w-sm">
+                                {dict.card_medium.description}
+                            </p>
                         </div>
                     </motion.div>
 
