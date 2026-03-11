@@ -87,7 +87,8 @@
     "whatsapp_greeting": "Olá Incocil!",
     "whatsapp_quote_request": "Gostaria de solicitar um orçamento.",
     "whatsapp_interest": "Interesse",
-    "form_placeholder_sub": "Preencha os campos abaixo"
+    "form_placeholder_sub": "Preencha os campos abaixo",
+    "back_to_blog": "Voltar ao Blog"
   },
   "blog": {
     "title_start": "Insights",

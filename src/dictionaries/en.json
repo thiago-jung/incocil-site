@@ -87,7 +87,8 @@
     "whatsapp_greeting": "Hello Incocil!",
     "whatsapp_quote_request": "I would like to request a quote.",
     "whatsapp_interest": "Interest",
-    "form_placeholder_sub": "Please fill in the fields below"
+    "form_placeholder_sub": "Please fill in the fields below",
+    "back_to_blog": "Back to Blog"
   },
   "blog": {
     "title_start": "Industrial",
