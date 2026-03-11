@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Gauge, Zap, Globe, PenTool, ShieldCheck } from "lucide-react";
-
+import Image from "next/image";
 interface BentoProps {
     dict: any;
 }
@@ -29,10 +29,12 @@ export default function BentoFeatures({ dict }: BentoProps) {
                         className="md:col-span-2 md:row-span-2 bg-slate-950 rounded-3xl p-8 relative overflow-hidden group border border-slate-800"
                     >
                         {/* Imagem de Fundo - Usando a foto de Brunimento para alinhar com o conteúdo */}
-                        <img
+                        <Image
                             src="/images/brunimento.jpg"
                             alt={dict.card_large.title}
-                            className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-700"
+                            fill
+                            className="object-cover opacity-20 group-hover:scale-110 transition-transform duration-700"
+                            sizes="(max-width: 768px) 100vw, 50vw"
                         />
 
                         {/* Overlay de Gradiente para garantir leitura do texto */}
@@ -63,10 +65,12 @@ export default function BentoFeatures({ dict }: BentoProps) {
                         className="md:col-span-2 bg-white rounded-3xl p-8 flex flex-col justify-between group border border-slate-100 relative overflow-hidden shadow-sm"
                     >
                         {/* Imagem de Fundo Técnica - Sugestão: banner-home-2 ou uma nova de projeto */}
-                        <img
+                        <Image
                             src="/images/1582053802156.jpg"
                             alt={dict.card_medium.title}
+                            fill
                             className="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-110 transition-transform duration-700"
+                            sizes="(max-width: 1000px) 100vw, 50vw"
                         />
 
                         {/* Overlay de suavização */}
@@ -95,10 +99,12 @@ export default function BentoFeatures({ dict }: BentoProps) {
                         className="relative bg-slate-900 rounded-3xl overflow-hidden group border border-slate-800"
                     >
                         {/* Imagem de Fundo do Robô */}
-                        <img
+                        <Image
                             src="/images/RoboDeSolda3.jpg"
                             alt={dict.card_small_1.title}
+                            fill
                             className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
+                            sizes="(max-width: 1000px) 100vw, 50vw"
                         />
 
                         {/* Overlay para legibilidade */}

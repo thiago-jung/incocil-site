@@ -4,6 +4,7 @@ import { Menu, X, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link"; // Já estava aqui, agora vamos usar
 import LanguageSwitcher from "./LanguageSwitcher";
+import Image from "next/image";
 
 export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -26,11 +27,14 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
             <div className="container mx-auto px-6 flex justify-between items-center">
 
                 {/* Logo - Agora clicável para voltar ao topo/home */}
-                <Link href="/" className="flex items-center gap-2">
-                    <img
-                        src={isScrolled ? "/images/incocil.png" : "/images/incocil.png"}
+                <Link href={`/${lang}`} className="flex items-center gap-2">
+                    <Image
+                        src="/images/incocil.png"
                         alt="Incocil Logo"
+                        width={160}  // Defina a largura real da imagem
+                        height={40}  // Defina a altura real
                         className="h-10 w-auto"
+                        priority     // Adicione priority pois o logo está no "above the fold"
                     />
                 </Link>
 

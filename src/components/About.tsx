@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface AboutProps {
     dict: any;
 }
@@ -31,11 +33,13 @@ export default function About({ dict }: AboutProps) {
                 </div>
 
                 <div className="relative group">
-                    <div className="w-full h-[400px] bg-slate-200 rounded-3xl overflow-hidden shadow-2xl">
-                        <div
-                            className="w-full h-full bg-[url('/images/banner-home-2.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                            role="img"
-                            aria-label="Incocil Factory"
+                    <div className="w-full h-[400px] bg-slate-200 rounded-3xl overflow-hidden shadow-2xl relative group">
+                        <Image
+                            src="/images/banner-home-2.jpg"
+                            alt="Incocil Factory"
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                     </div>
                     <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-8 rounded-2xl shadow-xl hidden md:block">

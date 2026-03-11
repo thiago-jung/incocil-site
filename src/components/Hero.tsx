@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeroProps {
     dict: any;
@@ -72,20 +73,18 @@ export default function Hero({ dict, lang }: HeroProps) {
                         transition={{ duration: 0.8 }}
                         className="relative hidden lg:block"
                     >
-                        {/* Trocamos aspect-square por aspect-video ou aspect-[4/3] */}
                         <div className="relative aspect-video rounded-3xl rotate-2 overflow-hidden shadow-2xl border-4 border-white/10 group bg-slate-800">
-                            <img
-                                src="/images/image_2026-03-08_153643541.png"
+                            <Image
+                                src="/images/image_2026-03-08_153643541.png" // Use o nome final da foto
                                 alt={lang === "pt" ? "Fachada da Fábrica Incocil" : "Incocil Factory Building"}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                fill // Preenche o container aspect-video
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                priority // Crítico para SEO/Performance
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                             />
 
-                            {/* Overlay sutil para manter o contraste do texto */}
                             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
                         </div>
-
-                        {/* Elemento decorativo flutuante (opcional) */}
-                        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full" />
                     </motion.div>
                 </motion.div>
             </div>
