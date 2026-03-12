@@ -19,10 +19,11 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: string 
     const languages = [
         { code: "pt", label: "PT", flag: "🇧🇷" },
         { code: "en", label: "EN", flag: "🇺🇸" },
+        { code: "es", label: "ES", flag: "🇪🇸" },
     ];
 
     return (
-        <div className="flex items-center gap-1 bg-white/5 border border-white/10 p-1 rounded-full backdrop-blur-md">
+        <div className="flex items-center gap-1.5 bg-white/10 border border-white/20 p-1.5 rounded-full backdrop-blur-md">
             {languages.map((lang) => {
                 const isActive = currentLang === lang.code;
                 return (
@@ -30,10 +31,10 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: string 
                         key={lang.code}
                         href={redirectedPathname(lang.code)}
                         className={`
-              flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-black transition-all duration-300
+              flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black transition-all duration-300
               ${isActive
-                                ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
-                                : "text-slate-400 hover:text-white hover:bg-white/5"
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-400 hover:text-white hover:bg-white/10"
                             }
             `}
                     >

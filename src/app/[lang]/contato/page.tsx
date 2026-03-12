@@ -6,7 +6,7 @@ import ContactForm from "@/components/ContactForm";
 export default async function ContatoPage({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en' }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' }>
 }) {
     const { lang } = await params;
     const dict = await getDictionary(lang);

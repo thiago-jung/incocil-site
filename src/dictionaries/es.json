@@ -1,0 +1,371 @@
+{
+  "about": {
+    "title_start": "Especialistas en el desarrollo de",
+    "title_accent": "Cilindros Hidráulicos.",
+    "description": "Ubicada en Porto Alegre, INCOCIL® atiende las demandas más exigentes de los sectores agrícola, vial e industrial.",
+    "items": [
+      "Fabricación Propia",
+      "Garantía Extendida",
+      "Mantenimiento Especializado"
+    ],
+    "badge_year": "2026",
+    "badge_text": "Excelencia Industrial"
+  },
+  "bento": {
+    "title_start": "¿Por qué confiar en",
+    "title_accent": "Incocil?",
+    "subtitle": "Excelencia técnica en cada detalle del proceso productivo.",
+    "card_large": {
+      "title": "Bruñido de Alta Precisión",
+      "description": "Capacidad única de procesamiento para diámetros de hasta 500mm, garantizando una rugosidad perfecta y sellado absoluto en condiciones extremas."
+    },
+    "card_medium": {
+      "title": "Ingeniería a Medida",
+      "description": "Desarrollamos cilindros especiales basados en su necesidad específica de aplicación."
+    },
+    "card_small_1": {
+      "title": "Soldadura Robotizada",
+      "description": "Precisión absoluta y resistencia superior en cada cordón de soldadura."
+    },
+    "card_small_2": {
+      "title": "Entrega Flexible",
+      "description": "Plazos reducidos en fabricación y mantenimiento."
+    }
+  },
+  "stats": [
+    {
+      "label": "Años de Experiencia",
+      "value": 45,
+      "suffix": "+",
+      "iconKey": "factory"
+    },
+    {
+      "label": "Países Atendidos",
+      "value": 4,
+      "suffix": "+",
+      "iconKey": "shield"
+    },
+    {
+      "label": "Proyectos Personalizados",
+      "value": 3000,
+      "suffix": "+",
+      "iconKey": "shield"
+    }
+  ],
+  "navbar": {
+    "home": "Inicio",
+    "products": "Productos",
+    "company": "La Empresa",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "quote": "Presupuesto"
+  },
+  "hero": {
+    "title": "Innovación en Cilindros",
+    "subtitle": "Tecnología Hidráulica y Neumática",
+    "description": "Desarrollo y fabricación con rigor técnico en Porto Alegre para los sectores más exigentes de Brasil.",
+    "cta_main": "Nuestros Productos",
+    "cta_secondary": "Hablar con Especialista"
+  },
+  "ui": {
+    "industrial_line": "Línea Industrial Especializada",
+    "view_details": "Detalles de Fabricación y Aplicaciones",
+    "ideal_apps": "Aplicaciones Ideales",
+    "customizations": "Personalizaciones",
+    "send_request": "Enviar Solicitud por WhatsApp",
+    "back_home": "Volver al Inicio",
+    "loading": "Cargando...",
+    "form_name": "Nombre Completo",
+    "form_email": "E-mail Corporativo",
+    "form_phone": "Teléfono/WhatsApp",
+    "form_message": "Su Necesidad",
+    "form_placeholder": "Hable sobre las dimensiones o aplicación del cilindro...",
+    "form_success_title": "¡Conversación Iniciada!",
+    "form_success_desc": "Su WhatsApp ha abierto una nueva pestaña para hablar con nuestro equipo técnico.",
+    "preparing_chat": "Preparando conversación...",
+    "form_another_request": "Enviar otra solicitud",
+    "whatsapp_greeting": "¡Hola Incocil!",
+    "whatsapp_quote_request": "Me gustaría solicitar un presupuesto.",
+    "whatsapp_interest": "Interés",
+    "form_placeholder_sub": "Complete los campos a continuación",
+    "back_to_blog": "Volver al Blog"
+  },
+  "blog": {
+    "title_start": "Insights",
+    "title_accent": "Industriales",
+    "subtitle": "Conocimiento técnico sobre hidráulica, neumática e ingeniería.",
+    "watch_video": "Ver Vídeo",
+    "read_article": "Leer Artículo"
+  },
+  "footer": {
+    "about": "Especialista en la fabricación y mantenimiento de cilindros hidráulicos y neumáticos desde Porto Alegre para todo Brasil.",
+    "follow_us": "Síguenos",
+    "rights": "Todos los derechos reservados."
+  },
+  "company": {
+    "name": "INCOCIL",
+    "full_name": "Incocil - Cilindros Hidráulicos y Neumáticos",
+    "phone": "+55 51 8446-8231",
+    "email": "incocil@incocil.com.br",
+    "address": "Av. Ricardo Leônidas Ribas, 310",
+    "location": "Restinga, Porto Alegre - RS",
+    "zip_code": "91790-005",
+    "instagram": "https://www.instagram.com/_incocil/",
+    "linkedin": "https://www.linkedin.com/company/incocil-ind-e-com-cilindros-ltda/"
+  },
+  "about_page": {
+    "hero_title_start": "Tradición y",
+    "hero_title_accent": "Tecnología",
+    "hero_subtitle": "Desde Porto Alegre, transformando acero y precisión en soluciones hidráulicas para todo el territorio nacional.",
+    "history_title_start": "Más que fabricar, nosotros",
+    "history_title_accent": "desarrollamos",
+    "history_title_end": "su proyecto.",
+    "history_description": "INCOCIL® nació de la necesidad de entregar cilindros que soporten las condiciones severas del sector agrícola e industrial brasileño. Ubicada estratégicamente en el Distrito Industrial de Restinga, nuestra planta cuenta con procesos de bruñido y montaje de alta precisión.",
+    "stat_nacional_label": "Nacional",
+    "stat_honing_label": "Capacidad de Bruñido",
+    "pillars_title": "Nuestros Pilares",
+    "pillars": [
+      {
+        "title": "Calidad",
+        "desc": "Rigor técnico en cada sellado y acabado."
+      },
+      {
+        "title": "Precisión",
+        "desc": "Desarrollo a medida para demandas complejas."
+      },
+      {
+        "title": "Alianza",
+        "desc": "Enfoque en el éxito de la operación de nuestros clientes."
+      }
+    ],
+    "cta_title": "¿Listo para elevar el nivel de su operación?",
+    "cta_button": "Solicitar Presupuesto Técnico"
+  },
+  "services": [
+    {
+      "title": "Cilindro Hidráulico Inox",
+      "slug": "stainless-steel-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
+      "description": "Desarrollados para máxima durabilidad y resistencia total a la corrosión en ambientes agresivos.",
+      "longDescription": "Diseñados y fabricados por INCOCIL especialmente para los sectores agrícola, químico y alimenticio, con construcción 100% en acero inoxidable para soportar condiciones extremas.",
+      "features": [
+        "Construcción 100% en acero inoxidable (Tubo, vástago, cabezal y fondo)",
+        "Resistencia total a la corrosión por agroquímicos y humedad",
+        "Mayor durabilidad con reducción de costos por paradas de mantenimiento",
+        "Proyectos a medida según dimensiones y fuerza necesaria",
+        "Sellado de alto rendimiento para evitar fugas"
+      ],
+      "applications": [
+        "Pulverizadores agrícolas y sembradoras",
+        "Máquinas de fertilización e irrigación",
+        "Ambientes marítimos o sujetos a agentes químicos",
+        "Industria alimentaria y farmacéutica (Higiene crítica)"
+      ],
+      "technicalDetails": {
+        "title": "Calidad y Fabricación Nacional",
+        "content": "Cada unidad es mecanizada y probada internamente, siguiendo estándares rigurosos de precisión dimensional y sellado absoluto en ambientes severos.",
+        "extras": [
+          "Vástagos pulidos o cromados",
+          "Sellos especiales en Viton o Poliuretano",
+          "Opciones con sensores de posición integrados"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro Maestro-Esclavo",
+      "slug": "master-slave-cylinder",
+      "image": "/images/Cilindros-hid1.png",
+      "description": "Sistemas sincronizados de alta precisión para movimiento uniforme de cargas pesadas.",
+      "longDescription": "Soluciones diseñadas para aplicaciones que exigen el sincronismo perfecto entre dos o más actuadores, garantizando nivelación y precisión en el movimiento.",
+      "features": [
+        "Sincronismo milimétrico entre los cilindros",
+        "Distribución uniforme de carga",
+        "Válvulas de control integradas",
+        "Construcción robusta para uso intensivo",
+        "Reducción de componentes electrónicos complejos"
+      ],
+      "applications": [
+        "Mesas elevadoras de gran tamaño",
+        "Prensas industriales sincronizadas",
+        "Sistemas de elevación de plataformas",
+        "Equipos de movimiento de precisión"
+      ],
+      "technicalDetails": {
+        "content": "Nuestros sistemas maestro-esclavo eliminan la necesidad de costosos sensores externos a través de un diseño hidráulico interno inteligente y preciso.",
+        "extras": [
+          "Dimensionamiento calculado para carga real",
+          "Prueba de estanqueidad a alta presión",
+          "Acabado en pintura industrial epóxica"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro Telescópico",
+      "slug": "telescopic-hydraulic-cylinder",
+      "image": "/images/Cilindros-hid1.png",
+      "description": "Soluciones compactas para grandes carreras de actuación, ideal para espacios confinados.",
+      "longDescription": "Cilindros de múltiples etapas que permiten alcanzar grandes alcances manteniendo una longitud cerrada extremadamente reducida y compacta.",
+      "features": [
+        "Múltiples etapas (2 a 5 etapas según el proyecto)",
+        "Diseño optimizado para ahorro de espacio",
+        "Sellos de alta presión entre etapas",
+        "Vástagos rectificados y cromados",
+        "Guías de nylon de alta resistencia"
+      ],
+      "applications": [
+        "Camiones basculantes (volquetes)",
+        "Elevadores hidráulicos de carga",
+        "Plataformas extensibles",
+        "Máquinas agrícolas con brazos telescópicos"
+      ],
+      "technicalDetails": {
+        "content": "Desarrollamos proyectos telescópicos con enfoque en la estabilidad lateral y en la suavidad de la transición entre las etapas del cilindro.",
+        "extras": [
+          "Topes internos reforzados",
+          "Sistemas de purga de aire",
+          "Amortiguación de final de carrera"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro de Simple y Doble Efecto",
+      "slug": "single-and-double-acting-cylinder",
+      "image": "/images/Cilindros-hid1.png",
+      "description": "Versatilidad y robustez para diversas aplicaciones industriales y agrícolas de fuerza.",
+      "longDescription": "Los pilares de la fuerza hidráulica industrial, ofreciendo confiabilidad extrema para movimientos lineales de potencia en cualquier sector.",
+      "features": [
+        "Disponible en diversos tipos de fijación (Ojo, Brida, Muñón)",
+        "Retorno por gravedad, muelle o potencia hidráulica",
+        "Vástagos en acero 1045 con cromo duro",
+        "Camisas bruñidas con precisión H8",
+        "Fácil mantenimiento y reposición de piezas"
+      ],
+      "applications": [
+        "Implementos agrícolas diversos",
+        "Prensas y guillotinas",
+        "Automatización de procesos industriales",
+        "Equipos viales"
+      ],
+      "technicalDetails": {
+        "content": "Utilizamos materia prima certificada y procesos de soldadura automatizada para garantizar que cada cilindro soporte ciclos continuos de operación.",
+        "extras": [
+          "Sellos para alta temperatura bajo consulta",
+          "Pintura personalizada según norma del cliente",
+          "Certificado de prueba de presión individual"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Hidráulicos",
+      "slug": "hydraulic-cylinders",
+      "image": "/images/Cilindros-hid1.png",
+      "description": "Excelencia y garantía para los más variados tipos de aplicaciones industriales y agrícolas.",
+      "longDescription": "Nuestra línea completa de cilindros hidráulicos atiende desde proyectos simples hasta los más complejos sistemas de fuerza desde Porto Alegre para Brasil.",
+      "features": [
+        "Fabricación según muestra o diseño técnico",
+        "Amplia gama de diámetros y carreras",
+        "Tratamientos superficiales anticorrosión",
+        "Proyectos optimizados para reducción de peso",
+        "Garantía de procedencia nacional"
+      ],
+      "applications": [
+        "Industria Metalúrgica",
+        "Sector de Minería",
+        "Equipos de Construcción Civil",
+        "Maquinaria Agrícola pesada"
+      ],
+      "technicalDetails": {
+        "content": "Contamos con un equipo de ingeniería para auxiliar en el dimensionamiento correcto del actuador para su aplicación específica.",
+        "extras": [
+          "Diseños en 3D para integración en su proyecto",
+          "Análisis de esfuerzos y fatiga",
+          "Soporte posventa especializado"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Neumáticos",
+      "slug": "pneumatic-cylinders",
+      "image": "/images/pneumatico.png",
+      "description": "Fabricación bajo demanda y mantenimiento especializado con enfoque en eficiencia.",
+      "longDescription": "Actuadores movidos por aire comprimido diseñados para automatización rápida, limpia y eficiente en líneas de producción modernas.",
+      "features": [
+        "Construcción ligera en aluminio o acero",
+        "Alta velocidad de ciclo de operación",
+        "Funcionamiento exento de lubricación (opcional)",
+        "Bajo nivel de ruido",
+        "Dimensiones compactas para fácil instalación"
+      ],
+      "applications": [
+        "Líneas de montaje automatizadas",
+        "Industria de embalajes",
+        "Sistemas de separación y clasificación",
+        "Industria textil y alimentaria"
+      ],
+      "technicalDetails": {
+        "content": "Nuestros cilindros neumáticos siguen normas internacionales para garantizar la intercambiabilidad en máquinas importadas y nacionales.",
+        "extras": [
+          "Amortiguación neumática regulable",
+          "Émbolo magnético para sensores de proximidad",
+          "Versiones en INOX para áreas sanitarias"
+        ]
+      }
+    },
+    {
+      "title": "Servicios de Bruñido",
+      "slug": "honing-services",
+      "image": "/images/brunimento.png",
+      "description": "Capacidad de ø 25,40 hasta ø 500mm con plazos reducidos.",
+      "longDescription": "Proceso de mecanizado por abrasión de altísima precisión para garantizar la geometría y rugosidad perfecta en el interior de camisas de cilindros.",
+      "features": [
+        "Capacidad técnica para grandes diámetros (hasta 500mm)",
+        "Control rigurooso de rugosidad (Ra y Rz)",
+        "Bruñido vertical u horizontal",
+        "Corrección de ovalización y conicidad",
+        "Acabado espejado para máxima vida útil de los sellos"
+      ],
+      "applications": [
+        "Recuperación de camisas de cilindros",
+        "Mecanizado de tubos industriales",
+        "Fabricación de camisas especiales",
+        "Ajuste de agujeros en piezas fundidas"
+      ],
+      "technicalDetails": {
+        "content": "El bruñido correcto es el secreto para el sellado perfecto y la durabilidad de cualquier sistema hidráulico o neumático.",
+        "extras": [
+          "Inspección con rugosímetro digital",
+          "Plazos diferenciados para urgencias",
+          "Capacidad de bruñido en grandes longitudes"
+        ]
+      }
+    },
+    {
+      "title": "Mantenimiento",
+      "slug": "maintenance",
+      "image": "/images/manutencao.png",
+      "description": "Recuperación completa con la misma garantía de un cilindro nuevo.",
+      "longDescription": "Servicio especializado de reforma y recuperación técnica para cilindros de cualquier marca, devolviendo el rendimiento de fábrica.",
+      "features": [
+        "Sustitución completa de kits de sellado",
+        "Bruñido interno preventivo o correctivo",
+        "Recuperación o cambio de vástagos rayados",
+        "Prueba de banco a alta presión",
+        "Informe técnico de mantenimiento"
+      ],
+      "applications": [
+        "Mantenimiento preventivo de flotas",
+        "Reformas de emergencia para evitar paradas",
+        "Actualización técnica de cilindros antiguos",
+        "Recuperación de actuadores importados"
+      ],
+      "technicalDetails": {
+        "content": "Un cilindro recuperado en INCOCIL pasa por las mismas pruebas de presión y sellado que un equipo nuevo, garantizando total seguridad.",
+        "extras": [
+          "Retirada y entrega bajo consulta",
+          "Cromo duro de alta capa en los vástagos",
+          "Soldadura robotizada para recuperación de ojos de articulación"
+        ]
+      }
+    }
+  ]
+}

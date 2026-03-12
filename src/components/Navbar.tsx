@@ -43,7 +43,7 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
                 </Link>
 
                 {/* Desktop Menu */}
-                <div className={`hidden md:flex gap-8 font-medium ${isScrolled ? "text-slate-600" : "text-slate-200"}`}>
+                <div className={`hidden md:flex gap-6 lg:gap-8 font-medium whitespace-nowrap ${isScrolled ? "text-slate-600" : "text-slate-200"}`}>
                     <Link href={`/${lang}`} className="hover:text-blue-500 transition-colors">{dict.home}</Link>
                     <Link href={`/${lang}/#servicos`} className="hover:text-blue-500 transition-colors">{dict.products}</Link>
                     <Link href={`/${lang}/empresa`} className="hover:text-blue-500 transition-colors">{dict.company}</Link>
@@ -52,7 +52,7 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
                 </div>
 
                 {/* Controles da Direita (Desktop & Mobile) */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-6">
                     {/* Seletor de Idioma */}
                     <LanguageSwitcher currentLang={lang} />
 

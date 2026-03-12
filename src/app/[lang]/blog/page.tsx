@@ -6,7 +6,7 @@ import BlogClientView from "@/components/BlogClientView";
 export default async function BlogPage({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en' }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' }>
 }) {
     const { lang } = await params;
     const dict = await getDictionary(lang);

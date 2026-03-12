@@ -11,7 +11,7 @@ import { Metadata } from 'next';
 export async function generateMetadata({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en', slug: string }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' , slug: string }>
 }): Promise<Metadata> {
     const { lang, slug } = await params;
     const dict = await getDictionary(lang);
@@ -51,7 +51,7 @@ export async function generateMetadata({
 export default async function PaginaProduto({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en', slug: string }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' , slug: string }>
 }) {
     // 1. Resolve os parâmetros e o dicionário no Servidor (SEO)
     const { lang, slug } = await params;

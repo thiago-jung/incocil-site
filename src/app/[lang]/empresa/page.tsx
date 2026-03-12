@@ -7,11 +7,11 @@ import EmpresaClientView from "@/components/EmpresaClientView";
 export default async function EmpresaPage({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en' }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' }>
 }) {
     // 1. Resolve os parâmetros e busca o dicionário no Servidor
     const { lang } = await params;
-    const dict = await getDictionary(lang as 'pt' | 'en');
+    const dict = await getDictionary(lang as 'pt' | 'en' | 'es');
 
     // Injetamos o idioma no objeto dict para uso no Client Component se necessário
     const dictWithLang = { ...dict, lang };

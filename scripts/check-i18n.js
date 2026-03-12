@@ -3,6 +3,7 @@ const path = require('path');
 
 const PT_PATH = path.join(__dirname, '../src/dictionaries/pt.json');
 const EN_PATH = path.join(__dirname, '../src/dictionaries/en.json');
+const ES_PATH = path.join(__dirname, '../src/dictionaries/es.json');
 
 // Função recursiva para extrair todos os caminhos de chaves (ex: navbar.home)
 function getAllKeys(obj, prefix = '') {
@@ -28,12 +29,15 @@ function checkI18n() {
 
     const pt = JSON.parse(fs.readFileSync(PT_PATH, 'utf8'));
     const en = JSON.parse(fs.readFileSync(EN_PATH, 'utf8'));
+    const es = JSON.parse(fs.readFileSync(ES_PATH, 'utf8'));
 
     const ptKeys = new Set(getAllKeys(pt));
     const enKeys = new Set(getAllKeys(en));
+    const esKeys = new Set(getAllKeys(es));
 
     const missingInEn = [...ptKeys].filter(x => !enKeys.has(x));
     const missingInPt = [...enKeys].filter(x => !ptKeys.has(x));
+    const missingInEs = [...esKeys].filter(x => !esKeys.has(x));
 
     if (missingInEn.length === 0 && missingInPt.length === 0) {
         console.log('✅ Sucesso: Os dicionários estão perfeitamente sincronizados!');

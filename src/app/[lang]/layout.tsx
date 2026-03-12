@@ -12,11 +12,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 // Geramos os parâmetros para o build estático
 export async function generateStaticParams() {
-    return [{ lang: 'pt' }, { lang: 'en' }];
+    return [{ lang: 'pt' }, { lang: 'en' }, { lang: 'es' }];
 }
 
 // Geração dinâmica de metadados baseada no idioma
-export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt' | 'en' }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt' | 'en' | 'es' }> }): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang);
 

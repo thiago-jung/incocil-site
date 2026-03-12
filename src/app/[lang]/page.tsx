@@ -10,7 +10,7 @@ import { getDictionary } from "@/get-dictionaries";
 export default async function Home({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en' }>
+        params: Promise<{ lang: 'pt' | 'en' | 'es' }>
 }) {
     // 1. Capturamos o idioma e buscamos o dicionário
     const { lang } = await params;

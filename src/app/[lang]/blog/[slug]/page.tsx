@@ -42,7 +42,7 @@ export async function generateMetadata({
 export default async function BlogPostPage({
     params
 }: {
-    params: Promise<{ lang: 'pt' | 'en', slug: string }>
+    params: Promise<{ lang: 'pt' | 'en' | 'es' , slug: string }>
 }) {
     // 1. Resolvemos os parâmetros e buscamos o dicionário
     const { lang, slug } = await params;
