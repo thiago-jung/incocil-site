@@ -20,13 +20,19 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt
     const { lang } = await params;
     const dict = await getDictionary(lang);
 
+    const localeMap = {
+        pt: "pt_BR",
+        en: "en_US",
+        es: "es_ES" // Ou es_LA dependendo do seu público alvo principal
+    };
+
     return {
         title: {
             default: `INCOCIL | ${dict.hero.title}`,
             template: "%s | INCOCIL"
         },
         description: dict.hero.subtitle,
-        keywords: ["cilindros hidráulicos", "pneumática", "Porto Alegre", "manutenção industrial", "brunimento de precisão", "Incocil"],
+        keywords: dict.keywords,
         metadataBase: new URL('https://incocil.com'),
 
         // Metadados para Redes Sociais
@@ -43,7 +49,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt
                     alt: "Fábrica Incocil - Cilindros Hidráulicos",
                 },
             ],
-            locale: lang === 'pt' ? "pt_BR" : "en_US",
+            locale: localeMap[lang] || "pt_BR",
             type: "website",
         },
 
