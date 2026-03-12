@@ -44,6 +44,12 @@
       "value": 4,
       "suffix": "+",
       "iconKey": "shield"
+    },
+    {
+      "label": "Projetos Personalizados",
+      "value": 3000,
+      "suffix": "+",
+      "iconKey": "shield"
     }
   ],
   "navbar": {
