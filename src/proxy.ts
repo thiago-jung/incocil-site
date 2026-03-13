@@ -29,5 +29,8 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|images|favicon.ico).*)'],
+    matcher: [
+        // Adicionamos o sitemap, o robots e o arquivo de verificação do Google para o middleware ignorar
+        '/((?!api|_next/static|_next/image|images|favicon.ico|sitemap.xml|robots.txt|googlea90a43ed9185f126.html).*)',
+    ],
 };
