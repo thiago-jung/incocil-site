@@ -82,7 +82,7 @@
     "form_message": "Su Necesidad",
     "form_placeholder": "Hable sobre las dimensiones o aplicación del cilindro...",
     "form_success_title": "¡Conversación Iniciada!",
-    "form_success_desc": "Su WhatsApp ha abierto una nueva pestaña para hablar con nuestro equipo técnico.",
+    "form_success_desc": "Su WhatsApp ha abierto una nueva pestaña para hablar con nuestro equipo comercial.",
     "preparing_chat": "Preparando conversación...",
     "form_another_request": "Enviar otra solicitud",
     "whatsapp_greeting": "¡Hola Incocil!",
@@ -253,6 +253,36 @@
           "Sellos para alta temperatura bajo consulta",
           "Pintura personalizada según norma del cliente",
           "Certificado de prueba de presión individual"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro con Amortiguación",
+      "slug": "cilindro-con-amortiguacion",
+      "image": "/images/cil_amort.jpg",
+      "description": "Cilindros hidráulicos con amortiguación regulable para operaciones suaves y mayor vida útil del equipo.",
+      "longDescription": "La regulación al final de la carrera representa una solución avanzada de INCOCIL® para operaciones suaves y duraderas en equipos industriales. Estos cilindros eliminan golpes bruscos, garantizando una mayor protección al sistema.",
+      "features": [
+        "Modelos de simple y doble efecto (nuevos o adaptados)",
+        "Amortiguación unilateral o bilateral",
+        "Regulación mediante tornillo lateral para ajuste fino",
+        "Aumento mínimo en la longitud cerrada",
+        "Elimina impactos mecánicos y vibraciones por inercia"
+      ],
+      "applications": [
+        "Brazos de pulverización y basculantes",
+        "Prensas, inyectoras y extrusoras",
+        "Grúas y maquinaria forestal",
+        "Líneas de automatización y robótica",
+        "Portones hidráulicos y movimiento de carga"
+      ],
+      "technicalDetails": {
+        "title": "Tecnología de Amortiguación Regulable",
+        "content": "El sistema permite desacelerar la carga progresivamente antes del impacto final, ajustándose perfectamente al peso y la velocidad de su aplicación específica.",
+        "extras": [
+          "Versiones en INOX para ambientes agresivos",
+          "Compatible con sensores de posición",
+          "Dimensionamiento técnico personalizado"
         ]
       }
     },

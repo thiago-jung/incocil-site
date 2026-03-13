@@ -82,7 +82,7 @@
     "form_message": "Sua Necessidade",
     "form_placeholder": "Fale sobre as dimensões ou aplicação do cilindro...",
     "form_success_title": "Conversa Iniciada!",
-    "form_success_desc": "O seu WhatsApp abriu uma nova aba para falar com a nossa equipa técnica.",
+    "form_success_desc": "O seu WhatsApp abriu uma nova aba para falar com a nossa equipe comercial.",
     "preparing_chat": "Preparando conversa...",
     "form_another_request": "Enviar outra solicitação",
     "whatsapp_greeting": "Olá Incocil!",
@@ -283,6 +283,36 @@
           "Desenhos em 3D para integração no seu projeto",
           "Análise de esforços e fadiga",
           "Suporte pós-venda especializado"
+        ]
+      }
+    },
+    {
+      "title": "Cilindro com Amortecimento",
+      "slug": "cilindro-com-amortecimento",
+      "image": "/images/cil_amort.jpg",
+      "description": "Cilindros hidráulicos com amortecimento regulável para operações suaves e maior vida útil do equipamento.",
+      "longDescription": "A regulagem em finais de curso representa uma solução avançada da INCOCIL® para operações suaves e duráveis em equipamentos industriais. Esses cilindros eliminam batidas bruscas ao final do movimento, garantindo maior proteção ao sistema.",
+      "features": [
+        "Modelos de simples e dupla ação (novos ou adaptados)",
+        "Amortecimento unilateral ou bilateral",
+        "Regulagem simples via parafuso lateral para ajuste fino",
+        "Acréscimo mínimo no comprimento fechado",
+        "Elimina impactos mecânicos e vibrações por inércia"
+      ],
+      "applications": [
+        "Braços de pulverização e caçambas",
+        "Prensas, injetoras e extrusoras",
+        "Guindastes e máquinas florestais",
+        "Linhas de automação e robótica",
+        "Portões hidráulicos e movimentação de carga"
+      ],
+      "technicalDetails": {
+        "title": "Tecnologia de Amortecimento Regulável",
+        "content": "O sistema permite desacelerar a carga progressivamente antes do impacto final, ajustando-se perfeitamente ao peso e à velocidade da sua aplicação específica.",
+        "extras": [
+          "Versões em INOX para ambientes agressivos",
+          "Compatível com sensores de posição",
+          "Dimensionamento técnico personalizado"
         ]
       }
     },

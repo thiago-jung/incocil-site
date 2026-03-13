@@ -83,7 +83,7 @@
     "form_message": "Your Needs",
     "form_placeholder": "Tell us about the dimensions or application of the cylinder...",
     "form_success_title": "Conversation Started!",
-    "form_success_desc": "A new WhatsApp tab has been opened to speak with our technical team about ",
+    "form_success_desc": "A new WhatsApp tab has been opened to speak with our commercial team about ",
     "form_another_request": "Send another request",
     "whatsapp_greeting": "Hello Incocil!",
     "whatsapp_quote_request": "I would like to request a quote.",
@@ -288,6 +288,36 @@
           "3D drawings for project integration",
           "Stress and fatigue analysis",
           "Specialized after-sales support"
+        ]
+      }
+    },
+    {
+      "title": "Cushioned Cylinder",
+      "slug": "cushioned-hydraulic-cylinder",
+      "image": "/images/cil_amort.jpg",
+      "description": "Hydraulic cylinders with adjustable cushioning for smooth operations and longer equipment life.",
+      "longDescription": "Adjustable end-of-stroke cushioning represents an advanced solution from INCOCIL® for smooth and durable operations in industrial equipment. These cylinders eliminate sudden impacts, ensuring superior system protection.",
+      "features": [
+        "Single and double-acting models (new or retrofitted)",
+        "Unilateral or bilateral cushioning",
+        "Side screw adjustment for precise fine-tuning",
+        "Minimal increase in closed length",
+        "Eliminates mechanical impacts and inertia vibrations"
+      ],
+      "applications": [
+        "Sprayer arms and dump buckets",
+        "Presses, injection, and extrusion machines",
+        "Cranes and forestry machinery",
+        "Automation and robotics lines",
+        "Hydraulic gates and cargo handling"
+      ],
+      "technicalDetails": {
+        "title": "Adjustable Cushioning Technology",
+        "content": "The system allows for progressive load deceleration before the final impact, perfectly matching the weight and speed of your specific application.",
+        "extras": [
+          "Stainless steel versions for harsh environments",
+          "Position sensor compatible",
+          "Custom technical sizing"
         ]
       }
     },
