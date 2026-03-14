@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
-
+import { sendEmailAction } from "@/actions/sendEmail";
 interface ProductFormProps {
     productName: string;
     dict: any; // Recebe dict.ui do dicionário
@@ -23,6 +23,12 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
             telefone: formData.get("telefone"),
             mensagem: formData.get("mensagem"),
         };
+
+        // 1. Dispara o e-mail em background SEM o "await".
+        // O código não vai esperar o e-mail terminar de enviar para continuar.
+        sendEmailAction(data).catch((error) => {
+            console.error("Ocorreu um erro no envio de email no background.", error);
+        });
 
         // Monta a mensagem usando as chaves do dicionário para internacionalização
         const textoMensagem = `${dict.whatsapp_greeting} 👋
