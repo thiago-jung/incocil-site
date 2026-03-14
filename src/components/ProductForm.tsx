@@ -18,10 +18,10 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
 
         const formData = new FormData(e.currentTarget);
         const data = {
-            nome: formData.get("nome"),
-            email: formData.get("email"),
-            telefone: formData.get("telefone"),
-            mensagem: formData.get("mensagem"),
+            nome: (formData.get("nome") as string) || "",
+            email: (formData.get("email") as string) || "",
+            telefone: (formData.get("telefone") as string) || "",
+            mensagem: (formData.get("mensagem") as string) || "",
             produto: productName,
         };
 
