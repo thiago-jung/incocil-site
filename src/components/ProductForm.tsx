@@ -22,6 +22,7 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
             email: formData.get("email"),
             telefone: formData.get("telefone"),
             mensagem: formData.get("mensagem"),
+            produto: productName,
         };
 
         // 1. Dispara o e-mail em background SEM o "await".
