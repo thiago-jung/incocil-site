@@ -27,7 +27,17 @@ function getLocale(request: NextRequest) {
 }
 
 export function proxy(request: NextRequest) {
+    const hostname = request.headers.get('host') || '';
     const pathname = request.nextUrl.pathname;
+
+    // A MÁGICA AQUI: Se o usuário acessar via .com.br, força a ida para o .com/pt
+    if (hostname.includes('incocil.com.br')) {
+        // Limpa a rota para evitar duplicação (ex: evita que fique /pt/pt/)
+        const pathSemIdioma = pathname.replace(/^\/(pt|en|es)/, '');
+        // Redireciona permanentemente (Status 308) para o site principal em PT
+        return NextResponse.redirect(new URL(`/pt${pathSemIdioma}`, 'https://www.incocil.com'), 308);
+    }
+
     const pathnameIsMissingLocale = locales.every(
         (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     );
