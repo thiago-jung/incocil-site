@@ -11,6 +11,7 @@ import FloatingElements from "@/components/FloatingElements";
 const inter = Inter({
     subsets: ["latin"],
     display: 'swap', // Adicione esta linha! Faz o texto aparecer imediatamente, mesmo sem a fonte carregada.
+    weight: ['400', '500', '700', '900'], // Limitamos aos pesos usados: Normal, Medium, Bold e Black
     adjustFontFallback: true
 });
 
@@ -91,6 +92,10 @@ export default async function RootLayout({
     return (
         <html lang={lang}>
             <head>
+                {/* Preconnect acelera o DNS dos scripts do Google */}
+                <link rel="preconnect" href="https://www.googletagmanager.com" />
+                <link rel="preconnect" href="https://www.google-analytics.com" />
+
                 {/* Google Analytics 4 */}
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307`}

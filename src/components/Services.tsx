@@ -36,10 +36,10 @@ export default function Services({ dict, lang, title, viewDetailsLabel }: Servic
     return (
         <section className="py-24 bg-slate-50 relative overflow-hidden" id="servicos">
             {/* Decoração de fundo */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">
-                <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-100 rounded-full blur-[120px]" />
-                <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-slate-200 rounded-full blur-[120px]" />
-            </div>
+            {/*<div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none">*/}
+                {/*<div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] bg-blue-100 rounded-full blur-[70px]" />*/}
+                {/*<div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-slate-200 rounded-full blur-[0px]" />*/}
+            {/*</div>*/}
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">

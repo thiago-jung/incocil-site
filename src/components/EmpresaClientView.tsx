@@ -31,7 +31,10 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
         <main className="min-h-screen bg-white">
             {/* Hero da Página */}
             <section className="pt-40 pb-20 bg-industrial-dark relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+                <div
+                    className="absolute inset-0 opacity-20"
+                    style={{ backgroundImage: "url('/images/carbon-fibre.png')" }}
+                />
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}

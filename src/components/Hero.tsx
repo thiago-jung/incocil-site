@@ -22,24 +22,45 @@ interface HeroProps {
 }
 
 export default function Hero({ dict, lang }: HeroProps) {
-    const [isDesktop, setIsDesktop] = useState(false);
-
-    useEffect(() => {
-        // Só renderiza o 3D se a tela for maior que 1024px (Desktop)
-        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
-        checkScreen();
-        window.addEventListener("resize", checkScreen);
-        return () => window.removeEventListener("resize", checkScreen);
-    }, []);
+    const [isDesktop, setIsDesktop] = useState(false); // Sabe se é PC na hora
+    const [loadHeavy3D, setLoadHeavy3D] = useState(false); // Libera o 3D depois de 2.5s
 
     const scrollToServices = () => {
         document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
     };
 
+    useEffect(() => {
+        // Função para checar a tela na hora
+        const checkScreen = () => {
+            if (window.innerWidth >= 1024) {
+                setIsDesktop(true);
+            } else {
+                setIsDesktop(false);
+                setLoadHeavy3D(false); // Se encolher a tela, cancela o 3D
+            }
+        };
+
+        checkScreen(); // Roda imediatamente ao abrir o site
+        window.addEventListener("resize", checkScreen);
+
+        // O timer de 2.5s só roda se for Desktop
+        let timer: NodeJS.Timeout;
+        if (window.innerWidth >= 1024) {
+            timer = setTimeout(() => {
+                setLoadHeavy3D(true);
+            }, 2500);
+        }
+
+        return () => {
+            window.removeEventListener("resize", checkScreen);
+            if (timer) clearTimeout(timer);
+        };
+    }, []);
+
     return (
         <section className="relative min-h-screen flex items-center bg-industrial-dark pt-20 overflow-hidden">
             {/* Background Decorativo */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[120px] rounded-full -mr-20 -mt-20" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[100px] rounded-full -mr-20 -mt-20" />
 
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
                 <motion.div
@@ -88,10 +109,22 @@ export default function Hero({ dict, lang }: HeroProps) {
                     transition={{ duration: 0.8 }}
                     className="relative hidden lg:flex items-center justify-center w-full h-[500px]"
                 >
-                    {/* Brilho de fundo (opcional) */}
+                    {/* Brilho de fundo com o blur otimizado para não travar a GPU */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/20 blur-[100px] rounded-full pointer-events-none" />
 
-                    {isDesktop && <Cylinder3D />}
+                    {/* LÓGICA DE EXIBIÇÃO: */}
+                    {isDesktop && (
+                        loadHeavy3D ? (
+                            <Cylinder3D />
+                        ) : (
+                            // Placeholder que aparece IMEDIATAMENTE enquanto os 2.5s passam
+                            <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-slate-800/50 animate-pulse flex items-center justify-center border border-white/10 z-10 relative">
+                                <span className="text-blue-500 font-bold text-sm tracking-widest uppercase">
+                                    {dict.ui?.loading || "Carregando 3D..."}
+                                </span>
+                            </div>
+                        )
+                    )}
                 </motion.div>
             </div>
         </section>
