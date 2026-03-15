@@ -5,7 +5,7 @@ import { Play, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { BLOG_POSTS } from "@/constants/blog-data";
 import VideoModal from "@/components/VideoModal";
-
+import Image from "next/image";
 interface BlogClientViewProps {
     dict: any;
     lang: string;
@@ -36,7 +36,13 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                     >
                         {/* Thumbnail */}
                         <div className="relative h-56 overflow-hidden">
-                            <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                            <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
                             {post.type === 'video' && (
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                                     <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl">

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { ShieldCheck, Target, Users, MapPin, Award, Maximize, Tag, Globe, Wrench } from "lucide-react";
+import Image from "next/image";
 
 interface EmpresaClientViewProps {
     dict: any;
@@ -60,10 +61,12 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
                         {/* Gradiente para dar profundidade e contraste com o texto ao redor */}
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-10 transition-opacity group-hover:opacity-40" />
 
-                        <img
+                        <Image
                             src="/images/incocil-predio.png"
                             alt={dict.lang === "pt" ? "Fachada da Fábrica Incocil" : "Incocil Factory Building"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                         />
 
                         {/* Overlay sutil em azul para manter a identidade visual da marca */}

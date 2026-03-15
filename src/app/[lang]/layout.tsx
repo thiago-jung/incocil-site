@@ -1,15 +1,18 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import FeiraPopup from "@/components/FeiraPopup";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
 import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
+import FloatingElements from "@/components/FloatingElements";
 
 // Usando a fonte Inter para aquele visual moderno e limpo
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+    subsets: ["latin"],
+    display: 'swap', // Adicione esta linha! Faz o texto aparecer imediatamente, mesmo sem a fonte carregada.
+    adjustFontFallback: true
+});
 
 // Geramos os parâmetros para o build estático
 export async function generateStaticParams() {
@@ -91,9 +94,9 @@ export default async function RootLayout({
                 {/* Google Analytics 4 */}
                 <Script
                     src={`https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307`}
-                    strategy="afterInteractive"
+                    strategy="lazyOnload"
                 />
-                <Script id="google-analytics" strategy="afterInteractive">
+                <Script id="google-analytics" strategy="lazyOnload">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
@@ -108,8 +111,7 @@ export default async function RootLayout({
                 {/* Vercel Metrics */}
                 <Analytics />
                 <SpeedInsights />
-                <FeiraPopup lang={lang} />
-                <WhatsAppButton />
+                <FloatingElements lang={lang} />
             </body>
         </html>
     );

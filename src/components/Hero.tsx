@@ -4,6 +4,7 @@ import { ArrowRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useState, useEffect } from "react";
 
 // Carrega o 3D apenas no navegador e mostra um círculo a piscar enquanto carrega
 const Cylinder3D = dynamic(() => import("./Cylinder3D"), {
@@ -21,6 +22,16 @@ interface HeroProps {
 }
 
 export default function Hero({ dict, lang }: HeroProps) {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    useEffect(() => {
+        // Só renderiza o 3D se a tela for maior que 1024px (Desktop)
+        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
+        checkScreen();
+        window.addEventListener("resize", checkScreen);
+        return () => window.removeEventListener("resize", checkScreen);
+    }, []);
+
     const scrollToServices = () => {
         document.getElementById("servicos")?.scrollIntoView({ behavior: "smooth" });
     };
@@ -80,7 +91,7 @@ export default function Hero({ dict, lang }: HeroProps) {
                     {/* Brilho de fundo (opcional) */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/20 blur-[100px] rounded-full pointer-events-none" />
 
-                    <Cylinder3D />
+                    {isDesktop && <Cylinder3D />}
                 </motion.div>
             </div>
         </section>

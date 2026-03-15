@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
+import Image from "next/image";
 interface ProductImageGalleryProps {
     images: string[];
     alt: string;
@@ -23,10 +23,13 @@ export default function ProductImageGallery({ images, alt }: ProductImageGallery
     return (
         <div className="w-full h-[300px] md:h-[400px] relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 mb-8 group bg-white">
             {/* Imagem Atual */}
-            <img
+            <Image
                 src={images[currentIndex]}
                 alt={`${alt} - Imagem ${currentIndex + 1}`}
-                className="w-full h-full object-cover transition-all duration-500"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={currentIndex === 0}
+                className="object-cover transition-all duration-500"
             />
 
             {/* Controles só aparecem se houver mais de 1 imagem */}
