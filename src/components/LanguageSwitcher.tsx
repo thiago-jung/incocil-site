@@ -34,7 +34,7 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: string 
               flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black transition-all duration-300
               ${isActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "text-slate-400 hover:text-white hover:bg-white/10"
+                            : "text-slate-200 hover:text-white hover:bg-white/10"
                             }
             `}
                     >

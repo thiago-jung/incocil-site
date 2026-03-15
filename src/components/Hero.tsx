@@ -69,19 +69,19 @@ export default function Hero({ dict, lang }: HeroProps) {
                     transition={{ duration: 0.6 }}
                 >
                     {/* Badge Traduzido */}
-                    <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
+                    <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
                         {dict.subtitle}
                     </span>
 
                     {/* Título com Gradient - Note que aqui usamos o título do dict */}
                     <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tighter">
                         {dict.title.split(" ").slice(0, -1).join(" ")}{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500">
                             {dict.title.split(" ").pop()}
                         </span>
                     </h1>
 
-                    <p className="text-xl text-slate-400 mb-10 max-w-lg leading-relaxed font-light">
+                    <p className="text-xl text-slate-300 mb-10 max-w-lg leading-relaxed font-light">
                         {dict.description}
                     </p>
 

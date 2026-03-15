@@ -19,10 +19,11 @@
        para valores de verde. Assim, onde você usou 'bg-blue-600', ele ficará verde
        automaticamente sem precisar mexer nos componentes. */
     --color-blue-50: var(--color-emerald-50);
-    --color-blue-400: var(--color-emerald-400);
-    --color-blue-500: var(--color-emerald-500);
-    --color-blue-600: var(--color-emerald-600);
-    --color-blue-700: var(--color-emerald-700);
+    --color-blue-300: var(--color-emerald-400);
+    --color-blue-400: var(--color-emerald-500);
+    --color-blue-500: var(--color-emerald-600);
+    --color-blue-600: var(--color-emerald-700);
+    --color-blue-700: var(--color-emerald-800);
     /* Fontes */
     --font-sans: "Inter", ui-sans-serif, system-ui;
     --font-display: "Montserrat", ui-sans-serif, system-ui;

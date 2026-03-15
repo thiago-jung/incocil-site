@@ -70,7 +70,7 @@ export default function FeiraPopup({ lang }: { lang: string }) {
                         className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors">
                         <X size={20} />
                     </button>
-                    <div className="flex items-center gap-3 text-blue-600 font-bold mb-2 uppercase text-xs tracking-widest">
+                    <div className="flex items-center gap-3 text-blue-700 font-bold mb-2 uppercase text-xs tracking-widest">
                         <Calendar size={16} /> {getLabel('badge')}
                     </div>
                     <h3 className="text-xl font-black text-slate-900 mb-2">{getLabel('title')}</h3>
