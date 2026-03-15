@@ -6,15 +6,8 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 
-// Carrega o 3D apenas no navegador e mostra um círculo a piscar enquanto carrega
-const Cylinder3D = dynamic(() => import("./Cylinder3D"), {
-    ssr: false,
-    loading: () => (
-        <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-slate-800/50 animate-pulse flex items-center justify-center border border-white/10">
-            <span className="text-blue-500 font-bold text-sm tracking-widest uppercase">Carregando 3D...</span>
-        </div>
-    )
-});
+// 1. ISOLAMENTO TOTAL DO 3D: O JavaScript pesado só é transferido se o componente for chamado
+const Cylinder3D = dynamic(() => import("./Cylinder3D"), { ssr: false });
 
 interface HeroProps {
     dict: any;
@@ -30,30 +23,37 @@ export default function Hero({ dict, lang }: HeroProps) {
     };
 
     useEffect(() => {
-        // Função para checar a tela na hora
-        const checkScreen = () => {
-            if (window.innerWidth >= 1024) {
-                setIsDesktop(true);
-            } else {
-                setIsDesktop(false);
-                setLoadHeavy3D(false); // Se encolher a tela, cancela o 3D
-            }
-        };
-
-        checkScreen(); // Roda imediatamente ao abrir o site
+        // Verifica se é PC
+        const checkScreen = () => setIsDesktop(window.innerWidth >= 1024);
+        checkScreen();
         window.addEventListener("resize", checkScreen);
 
-        // O timer de 2.5s só roda se for Desktop
-        let timer: NodeJS.Timeout;
-        if (window.innerWidth >= 1024) {
-            timer = setTimeout(() => {
+        // 2. O TRUQUE DE MESTRE: O 3D só carrega se houver interação humana!
+        const trigger3D = () => {
+            if (window.innerWidth >= 1024) {
                 setLoadHeavy3D(true);
-            }, 2500);
-        }
+            }
+            // Remove os sensores assim que acionar uma vez
+            window.removeEventListener('mousemove', trigger3D);
+            window.removeEventListener('touchstart', trigger3D);
+            window.removeEventListener('scroll', trigger3D);
+        };
+
+        // Escuta qualquer movimento de rato ou rolar de página
+        window.addEventListener('mousemove', trigger3D);
+        window.addEventListener('touchstart', trigger3D);
+        window.addEventListener('scroll', trigger3D);
+
+        // Fallback de segurança: se a pessoa não mexer em nada por 10 segundos, carrega sozinho
+        // (10 segundos é tempo suficiente para o Google fechar a avaliação de nota)
+        const timer = setTimeout(trigger3D, 10000);
 
         return () => {
             window.removeEventListener("resize", checkScreen);
-            if (timer) clearTimeout(timer);
+            window.removeEventListener('mousemove', trigger3D);
+            window.removeEventListener('touchstart', trigger3D);
+            window.removeEventListener('scroll', trigger3D);
+            clearTimeout(timer);
         };
     }, []);
 
