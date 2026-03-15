@@ -11,6 +11,19 @@ interface ContactViewProps {
 export default function ContactForm({ dict, lang }: ContactViewProps) {
     const { company, ui, contact_page } = dict;
 
+    // Mapa de traduções locais para os termos que não vieram do dicionário principal
+    const labels = {
+        address: { pt: 'Endereço', en: 'Address', es: 'Dirección' },
+        generalContact: { pt: 'Contato Geral', en: 'General Contact', es: 'Contacto General' },
+        commercial: { pt: 'Comercial', en: 'Sales', es: 'Comercial' },
+        email: { pt: 'E-mail', en: 'Email', es: 'Correo' }
+    };
+
+    // Função auxiliar para garantir que o idioma correto seja puxado
+    const getLabel = (key: keyof typeof labels) => {
+        return labels[key][lang as 'pt' | 'en' | 'es'] || labels[key]['pt'];
+    };
+
     return (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -33,7 +46,7 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                         <Phone className="text-blue-600 mb-3" size={24} />
-                        <h4 className="font-bold text-slate-900">Comercial</h4>
+                        <h4 className="font-bold text-slate-900">{getLabel('commercial')}</h4>
                         <p className="text-sm text-slate-600">{company.phone_fixo}</p>
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500">
@@ -43,7 +56,7 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                         <Mail className="text-blue-600 mb-3" size={24} />
-                        <h4 className="font-bold text-slate-900">E-mail</h4>
+                        <h4 className="font-bold text-slate-900">{getLabel('email')}</h4>
                         <p className="text-sm text-slate-600">{company.email}</p>
                     </div>
                 </div>
@@ -51,7 +64,7 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex gap-4">
                     <MapPin className="text-blue-600 shrink-0" size={24} />
                     <div>
-                        <h4 className="font-bold text-slate-900">{lang === 'pt' ? 'Endereço' : 'Address'}</h4>
+                        <h4 className="font-bold text-slate-900">{getLabel('address')}</h4>
                         <p className="text-sm text-slate-600">{company.address} - {company.location}</p>
                     </div>
                 </div>
@@ -77,7 +90,7 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
             >
                 {/* O ProductForm já é um Client Component, passamos o dict.ui para ele */}
                 <ProductForm
-                    productName={lang === 'pt' ? "Contato Geral" : "General Contact"}
+                    productName={getLabel('generalContact')}
                     dict={ui}
                 />
             </motion.div>
