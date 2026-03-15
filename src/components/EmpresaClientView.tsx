@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ShieldCheck, Target, Users } from "lucide-react";
+import { ShieldCheck, Target, Users, MapPin, Award, Maximize, Tag, Globe, Wrench } from "lucide-react";
 
 interface EmpresaClientViewProps {
     dict: any;
@@ -9,11 +9,21 @@ interface EmpresaClientViewProps {
 export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
     const content = dict.about_page;
 
-    // Ícones mapeados para os pilares
+    // Ícones mapeados para os Pilares
     const pillarIcons = [
         { icon: ShieldCheck, color: "text-blue-600" },
         { icon: Target, color: "text-amber-500" },
         { icon: Users, color: "text-green-600" },
+    ];
+
+    // Ícones mapeados para os Diferenciais (Cards novos)
+    const highlightIcons = [
+        { icon: MapPin, color: "text-blue-600" },      // 100% Nacional
+        { icon: Award, color: "text-amber-500" },      // 45 Anos
+        { icon: Maximize, color: "text-emerald-600" }, // 500mm Brunimento
+        { icon: Tag, color: "text-blue-500" },         // Marca PATROL
+        { icon: Globe, color: "text-indigo-500" },     // America Latina
+        { icon: Wrench, color: "text-slate-600" },     // Manutenção
     ];
 
     return (
@@ -45,16 +55,6 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
                         <p className="text-slate-600 leading-relaxed text-lg">
                             {content.history_description}
                         </p>
-                        <div className="grid grid-cols-2 gap-6 pt-4">
-                            <div className="border-l-4 border-blue-600 pl-4">
-                                <span className="block text-3xl font-black text-slate-900">100%</span>
-                                <span className="text-sm text-slate-500 uppercase font-bold">{content.stat_nacional_label}</span>
-                            </div>
-                            <div className="border-l-4 border-blue-600 pl-4">
-                                <span className="block text-3xl font-black text-slate-900">+500mm</span>
-                                <span className="text-sm text-slate-500 uppercase font-bold">{content.stat_honing_label}</span>
-                            </div>
-                        </div>
                     </div>
                     <div className="bg-slate-100 rounded-3xl h-[450px] overflow-hidden relative shadow-2xl group border-4 border-white/10">
                         {/* Gradiente para dar profundidade e contraste com o texto ao redor */}
@@ -72,26 +72,54 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
                 </div>
             </section>
 
-            {/* Pilares */}
-            <section className="py-24 bg-slate-50">
+            {/* SEÇÃO NOVA: Cards de Diferenciais (Highlights) */}
+            <section className="py-24 bg-white border-t border-slate-100">
+                <div className="container mx-auto px-6">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl font-black text-slate-900">{content.highlights_title}</h2>
+                        <div className="h-1.5 w-20 bg-blue-600 mx-auto rounded-full mt-4" />
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {content.highlights?.map((item: any, i: number) => {
+                            const Icon = highlightIcons[i]?.icon || ShieldCheck;
+                            return (
+                                <motion.div
+                                    key={i}
+                                    whileHover={{ y: -5 }}
+                                    className="bg-slate-50 p-8 rounded-3xl border border-slate-200 hover:border-blue-300 hover:shadow-xl transition-all group"
+                                >
+                                    <div className={`w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 ${highlightIcons[i]?.color || "text-blue-600"} group-hover:scale-110 transition-transform`}>
+                                        <Icon size={28} />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                                </motion.div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* Pilares (Missão, Visão, Valores) */}
+            <section className="py-24 bg-slate-50 border-t border-slate-200">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-black text-slate-900">{content.pillars_title}</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {content.pillars.map((pillar: any, i: number) => {
-                            const Icon = pillarIcons[i].icon;
+                            const Icon = pillarIcons[i]?.icon || ShieldCheck;
                             return (
                                 <motion.div
                                     key={i}
                                     whileHover={{ y: -10 }}
                                     className="bg-white p-10 rounded-2xl shadow-sm border border-slate-100 text-center"
                                 >
-                                    <div className={`w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mx-auto mb-6 ${pillarIcons[i].color}`}>
+                                    <div className={`w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center mx-auto mb-6 ${pillarIcons[i]?.color || "text-blue-600"}`}>
                                         <Icon size={32} />
                                     </div>
                                     <h3 className="text-xl font-bold text-slate-900 mb-4">{pillar.title}</h3>
-                                    <p className="text-slate-600">{pillar.desc}</p>
+                                    <p className="text-slate-600 text-sm leading-relaxed">{pillar.desc}</p>
                                 </motion.div>
                             );
                         })}
@@ -103,7 +131,7 @@ export default function EmpresaClientView({ dict }: EmpresaClientViewProps) {
             <section className="py-20 bg-blue-600 text-center">
                 <div className="container mx-auto px-6">
                     <h2 className="text-3xl md:text-4xl font-black text-white mb-8">{content.cta_title}</h2>
-                    <a href={`/${dict.lang}/contato`} className="bg-white text-blue-600 px-10 py-4 rounded-xl font-black text-lg hover:bg-slate-100 transition-all inline-block shadow-xl">
+                    <a href={`/${dict.lang}/contato`} className="bg-white text-blue-600 px-10 py-4 rounded-xl font-black text-lg hover:bg-slate-100 transition-all inline-block shadow-xl hover:scale-105">
                         {content.cta_button}
                     </a>
                 </div>

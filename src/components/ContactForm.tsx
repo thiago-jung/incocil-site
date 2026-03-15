@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import ProductForm from "@/components/ProductForm";
 
 interface ContactViewProps {
@@ -33,8 +33,13 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                         <Phone className="text-blue-600 mb-3" size={24} />
-                        <h4 className="font-bold text-slate-900">{lang === 'pt' ? 'Telefone' : 'Phone'}</h4>
-                        <p className="text-sm text-slate-600">{company.phone}</p>
+                        <h4 className="font-bold text-slate-900">Comercial</h4>
+                        <p className="text-sm text-slate-600">{company.phone_fixo}</p>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500">
+                        <MessageCircle className="text-green-500 mb-3" size={24} />
+                        <h4 className="font-bold text-slate-900">WhatsApp</h4>
+                        <p className="text-sm text-slate-600">{company.phone_whats}</p>
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                         <Mail className="text-blue-600 mb-3" size={24} />

@@ -34,10 +34,11 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
                 <Link href={`/${lang}`} className="flex items-center gap-2">
                     <Image
                         src="/images/incocil.png"
-                        alt="Incocil Logo"
-                        width={160}
-                        height={40}
-                        className="h-10 w-auto"
+                        alt="INCOCIL® Logo"
+                        width={240}
+                        height={60}
+                        // Quando a página rola (isScrolled), o logo diminui. Quando está no topo, fica maior.
+                        className={`w-auto transition-all duration-500 ${isScrolled ? "h-10 md:h-12" : "h-14 md:h-15"}`}
                         priority
                     />
                 </Link>

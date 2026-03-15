@@ -48,7 +48,7 @@
     },
     {
       "label": "Personalized Projects",
-      "value": 3000,
+      "value": 7000,
       "suffix": "+",
       "iconKey": "shield"
     }
@@ -62,8 +62,8 @@
     "quote": "Get a Quote"
   },
   "hero": {
-    "title": "Inovation in Cylinders",
-    "subtitle": "Hydraulic & Pneumatic Technology",
+    "title": "Innovation in Cylinders",
+    "subtitle": "Hydraulic Cylinder Technology",
     "description": "Technical engineering and manufacturing in Porto Alegre for Brazil's most demanding sectors.",
     "cta_main": "Our Products",
     "cta_secondary": "Talk to Specialist"
@@ -105,38 +105,67 @@
   },
   "company": {
     "name": "INCOCIL",
-    "full_name": "Incocil - Hydraulic and Pneumatic Cylinders",
-    "phone": "+55 51 8446-8231",
+    "full_name": "INCOCIL® - Hydraulic and Pneumatic Cylinders",
+    "phone_fixo": "+55 51 3261-2205",
+    "phone_whats": "+55 51 98446-8231",
     "email": "incocil@incocil.com.br",
     "address": "310 Ricardo Leonidas Ribas Ave - Porto Alegre/RS - Brazil",
     "location": "Industrial District – Restinga",
     "zip_code": "91790-005",
     "instagram": "https://www.instagram.com/_incocil/",
+    "youtube": "https://www.youtube.com/@incocil",
     "linkedin": "https://www.linkedin.com/company/incocil-ind-e-com-cilindros-ltda/"
   },
   "about_page": {
     "hero_title_start": "Tradition and",
     "hero_title_accent": "Technology",
-    "hero_subtitle": "From Porto Alegre, transforming steel and precision into hydraulic solutions for the entire national territory.",
-    "history_title_start": "More than manufacturing, we",
-    "history_title_accent": "develop",
-    "history_title_end": "your project.",
-    "history_description": "INCOCIL® was born from the need to deliver cylinders that withstand the severe conditions of the Brazilian agricultural and industrial sectors. Strategically located in the Restinga Industrial District, our plant features high-precision honing and assembly processes.",
+    "hero_subtitle": "From Porto Alegre, transforming steel and precision into hydraulic solutions for the entire national territory and worldwide.",
+    "history_title_start": "Over 45 years",
+    "history_title_accent": "transforming",
+    "history_title_end": "steel into solutions.",
+    "history_description": "INCOCIL® is a specialist in the development and manufacturing of hydraulic cylinders for agricultural, forestry, road, and industrial implements. Founded in Porto Alegre/RS and installed in its own plant in the Restinga Industrial District since 2006, we combine tradition, applied engineering, and high-precision machining, honing, and assembly processes. Our cylinders are low-relief marked with a logo, code, manufacturing date, and the registered trademark PATROL®, used for over four decades and recognized for its reliability in the field.",
     "stat_nacional_label": "National",
     "stat_honing_label": "Honing Capacity",
-    "pillars_title": "Our Pillars",
+    "pillars_title": "Organizational Identity",
     "pillars": [
       {
-        "title": "Quality",
-        "desc": "Technical rigor in every seal and finish."
+        "title": "Mission",
+        "desc": "To deliver innovative and reliable hydraulic cylinder solutions, prioritizing technical excellence and customer satisfaction in agribusiness and industry."
       },
       {
-        "title": "Precision",
-        "desc": "Custom development for complex demands."
+        "title": "Vision",
+        "desc": "To be a benchmark in hydraulic cylinders in Latin America by 2030, recognized for quality, innovation, and sustainability."
       },
       {
-        "title": "Partnership",
-        "desc": "Focus on the success of our customers' operations."
+        "title": "Values",
+        "desc": "Quality in all actions. Continuous innovation. Respect for people and the environment. Humility. Responsible use of resources. Integrated teamwork."
+      }
+    ],
+    "highlights_title": "Our Differentiators",
+    "highlights": [
+      {
+        "title": "100% National",
+        "desc": "We design and manufacture cylinders in Brazil, with full control of the production chain and direct technical support from engineering."
+      },
+      {
+        "title": "45+ Years of Experience",
+        "desc": "Continuous work in the development of hydraulic cylinders, including custom-made ones for severe applications."
+      },
+      {
+        "title": "500mm+ Honing Capacity",
+        "desc": "Internal honing capacity up to 500mm in diameter, serving large cylinders for heavy-duty applications."
+      },
+      {
+        "title": "PATROL® Brand",
+        "desc": "Traditional brand in hydraulic cylinders, synonymous with durability and immediate market recognition."
+      },
+      {
+        "title": "Presence in Latin America",
+        "desc": "We export cylinders to neighboring countries, reinforcing international market trust in our quality."
+      },
+      {
+        "title": "Specialized Maintenance",
+        "desc": "Recovery and maintenance of cylinders from any manufacturer, with warranty and competitive deadlines."
       }
     ],
     "cta_title": "Ready to elevate your operation?",
@@ -384,7 +413,7 @@
       "slug": "maintenance",
       "image": "/images/manutencao.png",
       "description": "Complete recovery with the same warranty as a new cylinder.",
-      "longDescription": "Specialized overhaul and technical recovery service for cylinders of any brand, restoring factory performance.",
+      "longDescription": "Specialized overhaul and technical recovery service for cylinders of any brand, restoring factory performance. Cylinders recovered by us receive a low-relief marking for tracking and as a warranty of the service executed.",
       "features": [
         "Complete seal kit replacement",
         "Preventive or corrective internal honing",
@@ -405,6 +434,56 @@
           "Pick-up and delivery available on request",
           "High-layer hard chrome on rods",
           "Robotized welding for clevis recovery"
+        ]
+      }
+    },
+    {
+      "title": "Custom Cylinders",
+      "slug": "custom-cylinders",
+      "image": "/images/1582053802156.jpg",
+      "description": "Special projects custom-developed for severe and specific applications.",
+      "longDescription": "Dedicated engineering to create unique solutions in hydraulic cylinders that are not found in standard production lines.",
+      "features": [
+        "100% project focused on your needs",
+        "Structural fatigue and stress analysis",
+        "Unitary or batch manufacturing"
+      ],
+      "applications": [
+        "Prototype equipment",
+        "Special project machines",
+        "Non-standard hydraulic systems"
+      ],
+      "technicalDetails": {
+        "title": "Applied Engineering",
+        "content": "We develop from the sketch to the final product, ensuring the cylinder meets the exact requirements of force, stroke, and speed.",
+        "extras": [
+          "3D drawing for approval",
+          "Specific load tests"
+        ]
+      }
+    },
+    {
+      "title": "Robotic Welding Service",
+      "slug": "robotic-welding-service",
+      "image": "/images/RoboDeSolda3.jpg",
+      "description": "Absolute precision and repeatability in welding cylinder components.",
+      "longDescription": "We use state-of-the-art robotic welding cells to ensure perfect weld beads, without porosity and with ideal penetration.",
+      "features": [
+        "High repeatability in serial manufacturing",
+        "Absence of operational failures",
+        "Higher mechanical resistance on the base and clevis"
+      ],
+      "applications": [
+        "Serial manufacturing of cylinders",
+        "Welding of bases and heads",
+        "Recovery of critical components"
+      ],
+      "technicalDetails": {
+        "title": "Welding Technology",
+        "content": "Robotic welding is fundamental to avoid stress concentration points, drastically increasing the cylinder's lifespan under high pressures.",
+        "extras": [
+          "Automated MIG/MAG process",
+          "Strict visual inspection"
         ]
       }
     }

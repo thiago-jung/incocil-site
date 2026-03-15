@@ -3,7 +3,7 @@
   "about": {
     "title_start": "Especialistas no desenvolvimento de",
     "title_accent": "Cilindros Hidráulicos.",
-    "description": "Localizada em Porto Alegre, a INCOCIL® atende as demandas mais exigentes dos setores agrícola, rodoviário e industrial.",
+    "description": "Localizada em Porto Alegre, a INCOCIL® atende as demandas mais exigentes dos setores agrícolas, rodoviário, florestais, mineração e industriais.",
     "items": [
       "Fabricação Própria",
       "Garantia Estendida",
@@ -14,7 +14,7 @@
   },
   "bento": {
     "title_start": "Por que confiar na",
-    "title_accent": "Incocil?",
+    "title_accent": "INCOCIL®?",
     "subtitle": "Excelência técnica em cada detalhe do processo produtivo.",
     "card_large": {
       "title": "Brunimento de Alta Precisão",
@@ -48,7 +48,7 @@
     },
     {
       "label": "Projetos Personalizados",
-      "value": 3000,
+      "value": 7000,
       "suffix": "+",
       "iconKey": "shield"
     }
@@ -63,8 +63,8 @@
   },
   "hero": {
     "title": "Inovação em Cilindros",
-    "subtitle": "Tecnologia Hidráulica & Pneumática",
-    "description": "Desenvolvimento e fabricação com rigor técnico em Porto Alegre para os setores mais exigentes do Brasil.",
+    "subtitle": "Tecnologia em Cilindros Hidráulicos",
+    "description": "Desenvolvimento e fabricação de Cilindros Hidráulicos com rigor técnico. Fornecendo para os setores mais exigentes do Brasil e do Mundo.",
     "cta_main": "Nossos Produtos",
     "cta_secondary": "Falar com Especialista"
   },
@@ -105,38 +105,67 @@
   },
   "company": {
     "name": "INCOCIL",
-    "full_name": "Incocil - Cilindros Hidráulicos e Pneumáticos",
-    "phone": "+55 51 8446-8231",
+    "full_name": "INCOCIL® - Cilindros Hidráulicos e Pneumáticos",
+    "phone_fixo": "(51) 3261-2205",
+    "phone_whats": "(51) 98446-8231",
     "email": "incocil@incocil.com.br",
     "address": "Av. Ricardo Leônidas Ribas, 310",
-    "location": "Restinga, Porto Alegre - RS",
+    "location": "Restinga, Porto Alegre - RS - Brasil",
     "zip_code": "91790-005",
     "instagram": "https://www.instagram.com/_incocil/",
+    "youtube": "https://www.youtube.com/@incocil",
     "linkedin": "https://www.linkedin.com/company/incocil-ind-e-com-cilindros-ltda/"
   },
   "about_page": {
     "hero_title_start": "Tradição e",
     "hero_title_accent": "Tecnologia",
     "hero_subtitle": "Desde Porto Alegre, transformando aço e precisão em soluções hidráulicas para todo o território nacional.",
-    "history_title_start": "Mais do que fabricar, nós",
-    "history_title_accent": "desenvolvemos",
-    "history_title_end": "o seu projeto.",
-    "history_description": "A INCOCIL® nasceu da necessidade de entregar cilindros que suportem as condições severas do setor agrícola e industrial brasileiro. Localizada estrategicamente no Distrito Industrial da Restinga, nossa planta conta com processos de brunimento e montagem de alta precisão.",
+    "history_title_start": "Há mais de 45 anos",
+    "history_title_accent": "transformando",
+    "history_title_end": "aço em soluções.",
+    "history_description": "A INCOCIL® é especialista no desenvolvimento e fabricação de cilindros hidráulicos para implementos agrícolas, florestais, rodoviários e industriais. Fundada em Porto Alegre/RS e instalada em planta própria no Distrito Industrial da Restinga desde 2006, unimos tradição, engenharia aplicada e processos de usinagem, brunimento e montagem de alta precisão. Nossos cilindros são marcados em baixo-relevo com logotipo, código, data de fabricação e a marca registrada PATROL®, utilizada há mais de quatro décadas e reconhecida pela sua confiabilidade em campo.",
     "stat_nacional_label": "Nacional",
     "stat_honing_label": "Capacidade de Brunimento",
-    "pillars_title": "Nossos Pilares",
+    "pillars_title": "Identidade Organizacional",
     "pillars": [
       {
-        "title": "Qualidade",
-        "desc": "Rigor técnico em cada vedação e acabamento."
+        "title": "Missão",
+        "desc": "Entregar soluções hidráulicas inovadoras e confiáveis em cilindros, priorizando a excelência técnica e a satisfação dos clientes no agronegócio e indústria."
       },
       {
-        "title": "Precisão",
-        "desc": "Desenvolvimento sob medida para demandas complexas."
+        "title": "Visão",
+        "desc": "Ser referência em cilindros hidráulicos na América Latina até 2030, reconhecida por qualidade, inovação e sustentabilidade."
       },
       {
-        "title": "Parceria",
-        "desc": "Foco no sucesso da operação de nossos clientes."
+        "title": "Valores",
+        "desc": "Qualidade em todas as ações. Inovação contínua. Respeito às pessoas e ao ambiente. Humildade. Uso responsável de recursos. Trabalho em equipe integrado."
+      }
+    ],
+    "highlights_title": "Nossos Diferenciais",
+    "highlights": [
+      {
+        "title": "100% Nacional",
+        "desc": "Projetamos e fabricamos cilindros no Brasil, com controle total da cadeia produtiva e suporte técnico direto da engenharia."
+      },
+      {
+        "title": "+45 Anos de Experiência",
+        "desc": "Atuação contínua no desenvolvimento de cilindros hidráulicos, inclusive especiais sob medida para aplicações severas."
+      },
+      {
+        "title": "+500mm de Brunimento",
+        "desc": "Capacidade de brunimento interno até 500 mm de diâmetro, atendendo grandes cilindros para aplicações pesadas."
+      },
+      {
+        "title": "Marca PATROL®",
+        "desc": "Marca tradicional em cilindros hidráulicos, sinônimo de durabilidade e reconhecimento imediato no mercado."
+      },
+      {
+        "title": "Presença na América Latina",
+        "desc": "Exportamos cilindros para países vizinhos, reforçando a confiança do mercado internacional na nossa qualidade."
+      },
+      {
+        "title": "Manutenção Especializada",
+        "desc": "Recuperação e manutenção de cilindros de qualquer fabricante, com garantia e prazos competitivos."
       }
     ],
     "cta_title": "Pronto para elevar o nível da sua operação?",
@@ -150,7 +179,7 @@
       "slug": "stainless-steel-hydraulic-cylinder",
       "image": "/images/Cilindros-hid1.png",
       "description": "Desenvolvidos para máxima durabilidade e resistência total à corrosão em ambientes agressivos.",
-      "longDescription": "Projetados e fabricados pela INCOCIL especialmente para os setores agrícola, químico e alimentício, com construção 100% em aço inoxidável para suportar condições extremas.",
+      "longDescription": "Serviço especializado de reforma e recuperação técnica para cilindros de qualquer marca, devolvendo o desempenho de fábrica. Os cilindros recuperados por nós recebem marcação em baixo relevo, para rastreamento e garantia do serviço executado.",
       "features": [
         "Construção 100% em aço inoxidável (Tubo, haste, cabeçote e fundo)",
         "Resistência total à corrosão por defensivos químicos e humidade",
@@ -317,7 +346,7 @@
       }
     },
     {
-      "title": "Cilindros Pneumáticos",
+      "title": "Cilindros Pneumáticos - Sob Demanda",
       "slug": "pneumatic-cylinders",
       "image": "/images/pneumatico.png",
       "description": "Fabricação sob demanda e manutenção especializada com foco em eficiência.",
@@ -397,6 +426,56 @@
           "Retirada e entrega sob consulta",
           "Cromo duro de alta camada nas hastes",
           "Solda robotizada para recuperação de olhais"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Customizados",
+      "slug": "custom-cylinders",
+      "image": "/images/1582053802156.jpg",
+      "description": "Projetos especiais desenvolvidos sob medida para aplicações severas e específicas.",
+      "longDescription": "Engenharia dedicada para criar soluções únicas em cilindros hidráulicos que não são encontrados em linhas de produção padrão.",
+      "features": [
+        "Projeto 100% focado na sua necessidade",
+        "Análise de esforços e fadiga estrutural",
+        "Fabricação unitária ou em lote"
+      ],
+      "applications": [
+        "Equipamentos protótipos",
+        "Máquinas de projetos especiais",
+        "Sistemas hidráulicos não padronizados"
+      ],
+      "technicalDetails": {
+        "title": "Engenharia Aplicada",
+        "content": "Desenvolvemos desde o rascunho até o produto final, garantindo que o cilindro atenda aos requisitos exatos de força, curso e velocidade.",
+        "extras": [
+          "Desenho 3D para aprovação",
+          "Testes de carga específicos"
+        ]
+      }
+    },
+    {
+      "title": "Serviço de Solda Robotizada",
+      "slug": "robotic-welding-service",
+      "image": "/images/RoboDeSolda3.jpg",
+      "description": "Precisão absoluta e repetibilidade em soldagem de componentes de cilindros.",
+      "longDescription": "Utilizamos células de solda robotizada de última geração para garantir cordões de solda perfeitos, sem porosidade e com penetração ideal.",
+      "features": [
+        "Alta repetibilidade em fabricação seriada",
+        "Ausência de falhas operacionais",
+        "Maior resistência mecânica na base e olhais"
+      ],
+      "applications": [
+        "Fabricação em série de cilindros",
+        "Soldagem de fundos e cabeçotes",
+        "Recuperação de componentes críticos"
+      ],
+      "technicalDetails": {
+        "title": "Tecnologia de Soldagem",
+        "content": "A soldagem robotizada é fundamental para evitar pontos de concentração de tensão, aumentando drasticamente a vida útil do cilindro sob altas pressões.",
+        "extras": [
+          "Processo MIG/MAG automatizado",
+          "Inspeção visual rigorosa"
         ]
       }
     }

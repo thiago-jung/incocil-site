@@ -3,6 +3,17 @@ import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+// Carrega o 3D apenas no navegador e mostra um círculo a piscar enquanto carrega
+const Cylinder3D = dynamic(() => import("./Cylinder3D"), {
+    ssr: false,
+    loading: () => (
+        <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-slate-800/50 animate-pulse flex items-center justify-center border border-white/10">
+            <span className="text-blue-500 font-bold text-sm tracking-widest uppercase">Carregando 3D...</span>
+        </div>
+    )
+});
 
 interface HeroProps {
     dict: any;
@@ -59,33 +70,17 @@ export default function Hero({ dict, lang }: HeroProps) {
                     </div>
                 </motion.div>
 
-                {/* Elemento Visual */}
+                {/* Elemento Visual - Trocado por 3D */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8 }}
-                    className="relative hidden lg:block"
+                    className="relative hidden lg:flex items-center justify-center w-full h-[500px]"
                 >
-                    {/* Elemento Visual - Hero */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="relative hidden lg:block"
-                    >
-                        <div className="relative aspect-video rounded-3xl rotate-2 overflow-hidden shadow-2xl border-4 border-white/10 group bg-slate-800">
-                            <Image
-                                src="/images/image_2026-03-08_153643541.png" // Use o nome final da foto
-                                alt={lang === "pt" ? "Fachada da Fábrica Incocil" : "Incocil Factory Building"}
-                                fill // Preenche o container aspect-video
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                priority // Crítico para SEO/Performance
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
+                    {/* Brilho de fundo (opcional) */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/20 blur-[100px] rounded-full pointer-events-none" />
 
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent" />
-                        </div>
-                    </motion.div>
+                    <Cylinder3D />
                 </motion.div>
             </div>
         </section>

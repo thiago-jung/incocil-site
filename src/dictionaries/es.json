@@ -14,7 +14,7 @@
   },
   "bento": {
     "title_start": "¿Por qué confiar en",
-    "title_accent": "Incocil?",
+    "title_accent": "INCOCIL®?",
     "subtitle": "Excelencia técnica en cada detalle del proceso productivo.",
     "card_large": {
       "title": "Bruñido de Alta Precisión",
@@ -48,7 +48,7 @@
     },
     {
       "label": "Proyectos Personalizados",
-      "value": 3000,
+      "value": 7000,
       "suffix": "+",
       "iconKey": "shield"
     }
@@ -105,38 +105,67 @@
   },
   "company": {
     "name": "INCOCIL",
-    "full_name": "Incocil - Cilindros Hidráulicos y Neumáticos",
-    "phone": "+55 51 8446-8231",
+    "full_name": "INCOCIL® - Cilindros Hidráulicos y Neumáticos",
+    "phone_fixo": "+55 51 3261-2205",
+    "phone_whats": "+55 51 98446-8231",
     "email": "incocil@incocil.com.br",
     "address": "Av. Ricardo Leônidas Ribas, 310",
-    "location": "Restinga, Porto Alegre - RS",
+    "location": "Restinga, Porto Alegre - RS - Brasil",
     "zip_code": "91790-005",
     "instagram": "https://www.instagram.com/_incocil/",
+    "youtube": "https://www.youtube.com/@incocil",
     "linkedin": "https://www.linkedin.com/company/incocil-ind-e-com-cilindros-ltda/"
   },
   "about_page": {
     "hero_title_start": "Tradición y",
     "hero_title_accent": "Tecnología",
-    "hero_subtitle": "Desde Porto Alegre, transformando acero y precisión en soluciones hidráulicas para todo el territorio nacional.",
-    "history_title_start": "Más que fabricar, nosotros",
-    "history_title_accent": "desarrollamos",
-    "history_title_end": "su proyecto.",
-    "history_description": "INCOCIL® nació de la necesidad de entregar cilindros que soporten las condiciones severas del sector agrícola e industrial brasileño. Ubicada estratégicamente en el Distrito Industrial de Restinga, nuestra planta cuenta con procesos de bruñido y montaje de alta precisión.",
+    "hero_subtitle": "Desde Porto Alegre, transformando acero y precisión en soluciones hidráulicas para todo el territorio nacional y el mundo.",
+    "history_title_start": "Más de 45 años",
+    "history_title_accent": "transformando",
+    "history_title_end": "acero en soluciones.",
+    "history_description": "INCOCIL® es especialista en el desarrollo y fabricación de cilindros hidráulicos para implementos agrícolas, forestales, viales e industriales. Fundada en Porto Alegre/RS e instalada en planta propia en el Distrito Industrial de Restinga desde 2006, unimos tradición, ingeniería aplicada y procesos de mecanizado, bruñido y montaje de alta precisión. Nuestros cilindros están marcados en bajorrelieve con logotipo, código, fecha de fabricación y la marca registrada PATROL®, utilizada desde hace más de cuatro décadas y reconocida por su confiabilidad en el campo.",
     "stat_nacional_label": "Nacional",
     "stat_honing_label": "Capacidad de Bruñido",
-    "pillars_title": "Nuestros Pilares",
+    "pillars_title": "Identidad Organizacional",
     "pillars": [
       {
-        "title": "Calidad",
-        "desc": "Rigor técnico en cada sellado y acabado."
+        "title": "Misión",
+        "desc": "Entregar soluciones hidráulicas innovadoras y confiables en cilindros, priorizando la excelencia técnica y la satisfacción de los clientes en el agronegocio y la industria."
       },
       {
-        "title": "Precisión",
-        "desc": "Desarrollo a medida para demandas complejas."
+        "title": "Visión",
+        "desc": "Ser referencia en cilindros hidráulicos en América Latina hasta 2030, reconocida por calidad, innovación y sustentabilidad."
       },
       {
-        "title": "Alianza",
-        "desc": "Enfoque en el éxito de la operación de nuestros clientes."
+        "title": "Valores",
+        "desc": "Calidad en todas las acciones. Innovación continua. Respeto a las personas y al medio ambiente. Humildad. Uso responsable de los recursos. Trabajo en equipo."
+      }
+    ],
+    "highlights_title": "Nuestros Diferenciales",
+    "highlights": [
+      {
+        "title": "100% Nacional",
+        "desc": "Diseñamos y fabricamos cilindros en Brasil, con control total de la cadena productiva y soporte técnico directo de ingeniería."
+      },
+      {
+        "title": "+45 Años de Experiencia",
+        "desc": "Trabajo continuo en el desarrollo de cilindros hidráulicos, incluyendo diseños a medida para aplicaciones severas."
+      },
+      {
+        "title": "+500mm de Capacidad de Bruñido",
+        "desc": "Capacidad de bruñido interno hasta 500 mm de diámetro, atendiendo grandes cilindros para aplicaciones pesadas."
+      },
+      {
+        "title": "Marca PATROL®",
+        "desc": "Marca tradicional en cilindros hidráulicos, sinónimo de durabilidad y reconocimiento inmediato en el mercado."
+      },
+      {
+        "title": "Presencia en América Latina",
+        "desc": "Exportamos cilindros a países vecinos, reforzando la confianza del mercado internacional en nuestra calidad."
+      },
+      {
+        "title": "Mantenimiento Especializado",
+        "desc": "Recuperación y mantenimiento de cilindros de cualquier fabricante, con garantía y plazos competitivos."
       }
     ],
     "cta_title": "¿Listo para elevar el nivel de su operación?",
@@ -315,7 +344,7 @@
       }
     },
     {
-      "title": "Cilindros Neumáticos",
+      "title": "Cilindros Neumáticos - Bajo Demanda",
       "slug": "pneumatic-cylinders",
       "image": "/images/pneumatico.png",
       "description": "Fabricación bajo demanda y mantenimiento especializado con enfoque en eficiencia.",
@@ -375,7 +404,7 @@
       "slug": "maintenance",
       "image": "/images/manutencao.png",
       "description": "Recuperación completa con la misma garantía de un cilindro nuevo.",
-      "longDescription": "Servicio especializado de reforma y recuperación técnica para cilindros de cualquier marca, devolviendo el rendimiento de fábrica.",
+      "longDescription": "Servicio especializado de reforma y recuperación técnica para cilindros de cualquier marca, devolviendo el rendimiento de fábrica. Los cilindros recuperados por nosotros reciben una marca en bajorrelieve para el seguimiento y garantía del servicio ejecutado.",
       "features": [
         "Sustitución completa de kits de sellado",
         "Bruñido interno preventivo o correctivo",
@@ -395,6 +424,56 @@
           "Retirada y entrega bajo consulta",
           "Cromo duro de alta capa en los vástagos",
           "Soldadura robotizada para recuperación de ojos de articulación"
+        ]
+      }
+    },
+    {
+      "title": "Cilindros Personalizados",
+      "slug": "custom-cylinders",
+      "image": "/images/1582053802156.jpg",
+      "description": "Proyectos especiales desarrollados a medida para aplicaciones severas y específicas.",
+      "longDescription": "Ingeniería dedicada para crear soluciones únicas en cilindros hidráulicos que no se encuentran en las líneas de producción estándar.",
+      "features": [
+        "Proyecto 100% enfocado en su necesidad",
+        "Análisis de esfuerzos y fatiga estructural",
+        "Fabricación unitaria o en lote"
+      ],
+      "applications": [
+        "Equipos prototipo",
+        "Máquinas de proyectos especiales",
+        "Sistemas hidráulicos no estandarizados"
+      ],
+      "technicalDetails": {
+        "title": "Ingeniería Aplicada",
+        "content": "Desarrollamos desde el boceto hasta el producto final, garantizando que el cilindro cumpla con los requisitos exactos de fuerza, carrera y velocidad.",
+        "extras": [
+          "Dibujo 3D para aprobación",
+          "Pruebas de carga específicas"
+        ]
+      }
+    },
+    {
+      "title": "Servicio de Soldadura Robotizada",
+      "slug": "robotic-welding-service",
+      "image": "/images/RoboDeSolda3.jpg",
+      "description": "Precisión absoluta y repetibilidad en la soldadura de componentes de cilindros.",
+      "longDescription": "Utilizamos celdas de soldadura robotizada de última generación para garantizar cordones de soldadura perfectos, sin porosidad y con penetración ideal.",
+      "features": [
+        "Alta repetibilidad en fabricación en serie",
+        "Ausencia de fallas operativas",
+        "Mayor resistencia mecánica en la base y los ojos de fijación"
+      ],
+      "applications": [
+        "Fabricación en serie de cilindros",
+        "Soldadura de fondos y cabezales",
+        "Recuperación de componentes críticos"
+      ],
+      "technicalDetails": {
+        "title": "Tecnología de Soldadura",
+        "content": "La soldadura robotizada es fundamental para evitar puntos de concentración de tensiones, aumentando drásticamente la vida útil del cilindro bajo altas presiones.",
+        "extras": [
+          "Proceso MIG/MAG automatizado",
+          "Inspección visual rigurosa"
         ]
       }
     }

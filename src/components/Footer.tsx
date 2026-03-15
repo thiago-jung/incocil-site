@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Instagram, Linkedin } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Linkedin, Youtube, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 interface FooterProps {
@@ -49,11 +49,17 @@ export default function Footer({ dict, lang }: FooterProps) {
                           <MapPin size={18} className="text-blue-500 shrink-0" />
                           <span>{company.address}<br />{company.location}</span>
                       </li>
-                      <li className="flex items-center gap-3">
-                          <Phone size={18} className="text-blue-500" />
-                          <span>{company.phone}</span>
+                      <li className="flex flex-col gap-2">
+                          <div className="flex items-center gap-3">
+                              <Phone size={18} className="text-blue-500" />
+                              <span>{company.phone_fixo}</span>
+                          </div>
+                          <div className="flex items-center gap-3">
+                              <MessageCircle size={18} className="text-green-500" />
+                              <span>{company.phone_whats}</span>
+                          </div>
                       </li>
-                      <li className="flex items-center gap-3">
+                      <li className="flex items-center gap-3 mt-2">
                           <Mail size={18} className="text-blue-500" />
                           <span>{company.email}</span>
                       </li>
@@ -82,6 +88,16 @@ export default function Footer({ dict, lang }: FooterProps) {
                           className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
                       >
                           <Linkedin size={20} />
+                      </a>
+
+                      {/* Link Youtube */}
+                      <a
+                          href={company.youtube}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
+                      >
+                          <Youtube size={20} />
                       </a>
                   </div>
               </div>
