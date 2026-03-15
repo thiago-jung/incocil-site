@@ -108,7 +108,7 @@ export default async function RootLayout({
                 {/* Vercel Metrics */}
                 <Analytics />
                 <SpeedInsights />
-                <FeiraPopup />
+                <FeiraPopup lang={lang} />
                 <WhatsAppButton />
             </body>
         </html>
