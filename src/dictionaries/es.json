@@ -175,7 +175,11 @@
     {
       "title": "Cilindro Hidráulico Inox",
       "slug": "stainless-steel-hydraulic-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/inox1.png",
+      "gallery": [
+        "/images/inox2.png",
+        "/images/aplicado.png"
+      ],
       "description": "Desarrollados para máxima durabilidad y resistencia total a la corrosión en ambientes agresivos.",
       "longDescription": "Diseñados y fabricados por INCOCIL especialmente para los sectores agrícola, químico y alimenticio, con construcción 100% en acero inoxidable para soportar condiciones extremas.",
       "features": [
@@ -205,6 +209,11 @@
       "title": "Cilindro Maestro-Esclavo",
       "slug": "master-slave-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "Sistemas sincronizados de alta precisión para movimiento uniforme de cargas pesadas.",
       "longDescription": "Soluciones diseñadas para aplicaciones que exigen el sincronismo perfecto entre dos o más actuadores, garantizando nivelación y precisión en el movimiento.",
       "features": [
@@ -233,6 +242,11 @@
       "title": "Cilindro Telescópico",
       "slug": "telescopic-hydraulic-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "Soluciones compactas para grandes carreras de actuación, ideal para espacios confinados.",
       "longDescription": "Cilindros de múltiples etapas que permiten alcanzar grandes alcances manteniendo una longitud cerrada extremadamente reducida y compacta.",
       "features": [
@@ -261,6 +275,11 @@
       "title": "Cilindro de Simple y Doble Efecto",
       "slug": "single-and-double-acting-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "Versatilidad y robustez para diversas aplicaciones industriales y agrícolas de fuerza.",
       "longDescription": "Los pilares de la fuerza hidráulica industrial, ofreciendo confiabilidad extrema para movimientos lineales de potencia en cualquier sector.",
       "features": [
@@ -287,8 +306,13 @@
     },
     {
       "title": "Cilindro con Amortiguación",
-      "slug": "cilindro-con-amortiguacion",
+      "slug": "cushioned-hydraulic-cylinder",
       "image": "/images/cil_amort.jpg",
+      "gallery": [
+        "/images/amort3.jpg",
+        "/images/amort4.png",
+        "/images/amort5.png"
+      ],
       "description": "Cilindros hidráulicos con amortiguación regulable para operaciones suaves y mayor vida útil del equipo.",
       "longDescription": "La regulación al final de la carrera representa una solución avanzada de INCOCIL® para operaciones suaves y duraderas en equipos industriales. Estos cilindros eliminan golpes bruscos, garantizando una mayor protección al sistema.",
       "features": [
@@ -319,6 +343,14 @@
       "title": "Cilindros Hidráulicos",
       "slug": "hydraulic-cylinders",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png",
+        "/images/Cilindros-hid5.png",
+        "/images/Cilindros-hid9.png",
+        "/images/Cilindros-hid10.jpg"
+      ],
       "description": "Excelencia y garantía para los más variados tipos de aplicaciones industriales y agrícolas.",
       "longDescription": "Nuestra línea completa de cilindros hidráulicos atiende desde proyectos simples hasta los más complejos sistemas de fuerza desde Porto Alegre para Brasil.",
       "features": [
@@ -346,7 +378,9 @@
     {
       "title": "Cilindros Neumáticos - Bajo Demanda",
       "slug": "pneumatic-cylinders",
-      "image": "/images/pneumatico.png",
+      "image": "/images/pneumatico1.jpg",
+      "gallery": [
+      ],
       "description": "Fabricación bajo demanda y mantenimiento especializado con enfoque en eficiencia.",
       "longDescription": "Actuadores movidos por aire comprimido diseñados para automatización rápida, limpia y eficiente en líneas de producción modernas.",
       "features": [
@@ -374,7 +408,9 @@
     {
       "title": "Servicios de Bruñido",
       "slug": "honing-services",
-      "image": "/images/brunimento.png",
+      "image": "/images/brunimento.jpg",
+      "gallery": [
+      ],
       "description": "Capacidad de ø 25,40 hasta ø 500mm con plazos reducidos.",
       "longDescription": "Proceso de mecanizado por abrasión de altísima precisión para garantizar la geometría y rugosidad perfecta en el interior de camisas de cilindros.",
       "features": [
@@ -402,7 +438,11 @@
     {
       "title": "Mantenimiento",
       "slug": "maintenance",
-      "image": "/images/manutencao.png",
+      "image": "/images/manutencao.jpg",
+      "gallery": [
+        "/images/robosolda1.jpg",
+        "/images/brunimento.jpg"
+      ],
       "description": "Recuperación completa con la misma garantía de un cilindro nuevo.",
       "longDescription": "Servicio especializado de reforma y recuperación técnica para cilindros de cualquier marca, devolviendo el rendimiento de fábrica. Los cilindros recuperados por nosotros reciben una marca en bajorrelieve para el seguimiento y garantía del servicio ejecutado.",
       "features": [
@@ -430,7 +470,13 @@
     {
       "title": "Cilindros Personalizados",
       "slug": "custom-cylinders",
-      "image": "/images/1582053802156.jpg",
+      "image": "/images/Cilindros-hid7.png",
+      "gallery": [
+        "/images/azul1.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.jpg",
+        "/images/Cilindros-hid2.png"
+      ],
       "description": "Proyectos especiales desarrollados a medida para aplicaciones severas y específicas.",
       "longDescription": "Ingeniería dedicada para crear soluciones únicas en cilindros hidráulicos que no se encuentran en las líneas de producción estándar.",
       "features": [
@@ -455,7 +501,12 @@
     {
       "title": "Servicio de Soldadura Robotizada",
       "slug": "robotic-welding-service",
-      "image": "/images/RoboDeSolda3.jpg",
+      "image": "/images/robosolda2.jpg",
+      "gallery": [
+        "/images/robosolda1.jpg",
+        "/images/robosolda3.jpg",
+        "/images/robosolda4.jpg"
+      ],
       "description": "Precisión absoluta y repetibilidad en la soldadura de componentes de cilindros.",
       "longDescription": "Utilizamos celdas de soldadura robotizada de última generación para garantizar cordones de soldadura perfectos, sin porosidad y con penetración ideal.",
       "features": [

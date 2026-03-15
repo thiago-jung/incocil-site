@@ -178,7 +178,11 @@
     {
       "title": "Stainless Steel Hydraulic Cylinder",
       "slug": "stainless-steel-hydraulic-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/inox1.png",
+      "gallery": [
+        "/images/inox2.png",
+        "/images/aplicado.png"
+      ],
       "description": "Engineered for maximum durability and total corrosion resistance in aggressive environments.",
       "longDescription": "Developed and manufactured by INCOCIL specifically for the agricultural, chemical, and food sectors, featuring 100% stainless steel construction to withstand extreme conditions.",
       "features": [
@@ -208,6 +212,11 @@
       "title": "Master-Slave Cylinder",
       "slug": "master-slave-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "High-precision synchronized systems for uniform heavy load movement.",
       "longDescription": "Solutions designed for applications requiring perfect synchronism between two or more actuators, ensuring leveling and precision in movement.",
       "features": [
@@ -237,6 +246,11 @@
       "title": "Telescopic Cylinder",
       "slug": "telescopic-hydraulic-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "Compact solutions for long strokes, ideal for confined spaces.",
       "longDescription": "Multi-stage cylinders that allow for long reach while maintaining an extremely reduced and compact closed length.",
       "features": [
@@ -266,6 +280,11 @@
       "title": "Single and Double-Acting Cylinder",
       "slug": "single-and-double-acting-cylinder",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png"
+      ],
       "description": "Versatility and robustness for various industrial and agricultural power applications.",
       "longDescription": "The pillars of industrial hydraulic force, offering extreme reliability for linear power movements in any sector.",
       "features": [
@@ -295,6 +314,14 @@
       "title": "Hydraulic Cylinders",
       "slug": "hydraulic-cylinders",
       "image": "/images/Cilindros-hid1.png",
+      "gallery": [
+        "/images/Cilindros-hid2.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.png",
+        "/images/Cilindros-hid5.png",
+        "/images/Cilindros-hid9.png",
+        "/images/Cilindros-hid10.jpg"
+      ],
       "description": "Excellence and warranty for a wide range of industrial and agricultural applications.",
       "longDescription": "Our complete line of hydraulic cylinders serves from simple projects to complex power systems across Brazil.",
       "features": [
@@ -324,6 +351,11 @@
       "title": "Cushioned Cylinder",
       "slug": "cushioned-hydraulic-cylinder",
       "image": "/images/cil_amort.jpg",
+      "gallery": [
+        "/images/amort3.jpg",
+        "/images/amort4.png",
+        "/images/amort5.png"
+      ],
       "description": "Hydraulic cylinders with adjustable cushioning for smooth operations and longer equipment life.",
       "longDescription": "Adjustable end-of-stroke cushioning represents an advanced solution from INCOCIL® for smooth and durable operations in industrial equipment. These cylinders eliminate sudden impacts, ensuring superior system protection.",
       "features": [
@@ -353,7 +385,9 @@
     {
       "title": "Pneumatic Cylinders",
       "slug": "pneumatic-cylinders",
-      "image": "/images/pneumatico.png",
+      "image": "/images/pneumatico1.jpg",
+      "gallery": [
+      ],
       "description": "On-demand manufacturing and specialized maintenance focused on efficiency.",
       "longDescription": "Compressed air-powered actuators designed for fast, clean, and efficient automation in modern production lines.",
       "features": [
@@ -382,7 +416,9 @@
     {
       "title": "Honing Services",
       "slug": "honing-services",
-      "image": "/images/brunimento.png",
+      "image": "/images/brunimento.jpg",
+      "gallery": [
+      ],
       "description": "Capability from ø 25.40 to ø 500mm with reduced lead times.",
       "longDescription": "Ultra-precision abrasive machining process to ensure perfect geometry and roughness inside cylinder barrels.",
       "features": [
@@ -411,7 +447,11 @@
     {
       "title": "Maintenance",
       "slug": "maintenance",
-      "image": "/images/manutencao.png",
+      "image": "/images/manutencao.jpg",
+      "gallery": [
+        "/images/robosolda1.jpg",
+        "/images/brunimento.jpg"
+      ],
       "description": "Complete recovery with the same warranty as a new cylinder.",
       "longDescription": "Specialized overhaul and technical recovery service for cylinders of any brand, restoring factory performance. Cylinders recovered by us receive a low-relief marking for tracking and as a warranty of the service executed.",
       "features": [
@@ -440,7 +480,13 @@
     {
       "title": "Custom Cylinders",
       "slug": "custom-cylinders",
-      "image": "/images/1582053802156.jpg",
+      "image": "/images/Cilindros-hid7.png",
+      "gallery": [
+        "/images/azul1.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid4.jpg",
+        "/images/Cilindros-hid2.png"
+      ],
       "description": "Special projects custom-developed for severe and specific applications.",
       "longDescription": "Dedicated engineering to create unique solutions in hydraulic cylinders that are not found in standard production lines.",
       "features": [
@@ -465,7 +511,12 @@
     {
       "title": "Robotic Welding Service",
       "slug": "robotic-welding-service",
-      "image": "/images/RoboDeSolda3.jpg",
+      "image": "/images/robosolda2.jpg",
+      "gallery": [
+        "/images/robosolda1.jpg",
+        "/images/robosolda3.jpg",
+        "/images/robosolda4.jpg"
+      ],
       "description": "Absolute precision and repeatability in welding cylinder components.",
       "longDescription": "We use state-of-the-art robotic welding cells to ensure perfect weld beads, without porosity and with ideal penetration.",
       "features": [

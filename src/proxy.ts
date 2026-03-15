@@ -6,12 +6,24 @@ import Negotiator from 'negotiator';
 let locales = ['pt', 'en', 'es'];
 let defaultLocale = 'pt';
 
+// Atualize apenas esta função no seu src/proxy.ts
 function getLocale(request: NextRequest) {
-    const negotiatorHeaders: Record<string, string> = {};
-    request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
+    try {
+        const negotiatorHeaders: Record<string, string> = {};
+        request.headers.forEach((value, key) => (negotiatorHeaders[key] = value));
 
-    let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
-    return match(languages, locales, defaultLocale);
+        // PROTEÇÃO: Se o robô do Google não enviar o cabeçalho de idioma,
+        // devolvemos o português automaticamente sem tentar adivinhar.
+        if (!negotiatorHeaders['accept-language']) {
+            return defaultLocale;
+        }
+
+        let languages = new Negotiator({ headers: negotiatorHeaders }).languages();
+        return match(languages, locales, defaultLocale);
+    } catch (error) {
+        // Se qualquer outra coisa falhar, não quebra o site (evita o Erro 500)
+        return defaultLocale;
+    }
 }
 
 export function proxy(request: NextRequest) {
