@@ -14,7 +14,7 @@ export default function Cylinder3D() {
     return (
         <div className="w-full h-[400px] md:h-[600px] relative z-10 cursor-grab active:cursor-grabbing">
             {/* 2. Câmera: Afastada para Z=15 (zoom out) e fov reduzido para 30 (remove o efeito olho de peixe) */}
-            <Canvas camera={{ position: [0, 2, 15], fov: 30 }}>
+            <Canvas camera={{ position: [10, 4, 10], fov: 30 }}>
                 <Suspense fallback={null}>
 
                     {/* 1. ILUMINAÇÃO SIMPLES E DIRETA */}
