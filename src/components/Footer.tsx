@@ -73,6 +73,7 @@ export default function Footer({ dict, lang }: FooterProps) {
                       {/* Link Instagram */}
                       <a
                           href={company.instagram}
+                          aria-label="Instagram"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -83,6 +84,7 @@ export default function Footer({ dict, lang }: FooterProps) {
                       {/* Link LinkedIn */}
                       <a
                           href={company.linkedin}
+                          aria-label="LinkedIn"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -93,6 +95,7 @@ export default function Footer({ dict, lang }: FooterProps) {
                       {/* Link Youtube */}
                       <a
                           href={company.youtube}
+                          aria-label="Youtube"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"

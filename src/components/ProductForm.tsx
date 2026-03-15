@@ -84,24 +84,25 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
 
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                    <label htmlFor="nome" className="block text-sm font-medium text-slate-700 mb-1">
                         {dict.form_name}
                     </label>
                     <input
+                        id="nome"
                         required
                         name="nome"
                         type="text"
                         placeholder="..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                    />
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"                    />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1">
+                        <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-1">
                             {dict.form_email}
                         </label>
                         <input
+                            id="email"
                             required
                             name="email"
                             type="email"
@@ -110,24 +111,25 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-1">
+                        <label htmlFor="telefone" className="block text-sm font-medium text-slate-700 mb-1">
                             {dict.form_phone}
                         </label>
                         <input
+                            id="telefone"
                             required
                             name="telefone"
                             type="tel"
                             placeholder="(00) 00000-0000"
                             className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"
-                        />
-                    </div>
+                        />                    </div>
                 </div>
 
                 <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                    <label htmlFor="mensagem" className="block text-sm font-medium text-slate-700 mb-1">
                         {dict.form_message}
                     </label>
                     <textarea
+                        id="mensagem"
                         required
                         name="mensagem"
                         rows={4}

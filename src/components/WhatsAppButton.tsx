@@ -8,6 +8,7 @@ export default function WhatsAppButton() {
             href="https://wa.me/555184468231" // Link real da Incocil
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Fale connosco pelo WhatsApp"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}

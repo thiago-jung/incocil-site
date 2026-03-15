@@ -64,7 +64,10 @@ export default function FeiraPopup({ lang }: { lang: string }) {
                     exit={{ opacity: 0, scale: 0.9, y: 20 }}
                     className="fixed bottom-6 left-6 z-[100] bg-white rounded-2xl shadow-2xl border border-blue-100 p-6 max-w-sm"
                 >
-                    <button onClick={handleClose} className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors">
+                    <button
+                        onClick={handleClose}
+                        aria-label="Fechar aviso"
+                        className="absolute top-4 right-4 text-slate-400 hover:text-slate-700 transition-colors">
                         <X size={20} />
                     </button>
                     <div className="flex items-center gap-3 text-blue-600 font-bold mb-2 uppercase text-xs tracking-widest">

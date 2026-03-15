@@ -69,9 +69,9 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
                     {/* Mobile Toggle Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
                         className={`md:hidden p-1 rounded-md transition-colors ${isScrolled || isOpen ? "text-blue-600 hover:bg-slate-100" : "text-blue-500 bg-white/80 hover:bg-white backdrop-blur-sm"
                             }`}
-                        aria-label="Alternar Menu"
                     >
                         {isOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
