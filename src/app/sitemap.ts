@@ -3,8 +3,8 @@ import { BLOG_POSTS } from '@/constants/blog-data';
 import ptDict from '@/dictionaries/pt.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://incocil.com';
-    const locales = ['pt', 'en'];
+    const baseUrl = 'https://www.incocil.com';
+    const locales = ['pt', 'en', 'es'];
 
     // 1. Rotas Estáticas (Início, Empresa, Blog, Contato)
     const staticPages = ['', '/empresa', '/blog', '/contato'];
