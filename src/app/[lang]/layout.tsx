@@ -38,13 +38,22 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt
         },
         description: dict.hero.subtitle,
         keywords: dict.keywords,
-        metadataBase: new URL('https://incocil.com'),
 
+        metadataBase: new URL('https://www.incocil.com'),
+        alternates: {
+            canonical: `/${lang}`, // Isso define a página canônica explicitamente
+            languages: {
+                'pt-BR': '/pt',
+                'en-US': '/en',
+                'es-ES': '/es',
+            },
+        },
+        
         // Metadados para Redes Sociais
         openGraph: {
             title: "INCOCIL | Soluções em Movimento Hidráulico",
             description: "Fabricação e manutenção de cilindros com rigor técnico e tecnologia de ponta.",
-            url: "https://incocil.com",
+            url: "https://www.incocil.com",
             siteName: "Incocil",
             images: [
                 {
