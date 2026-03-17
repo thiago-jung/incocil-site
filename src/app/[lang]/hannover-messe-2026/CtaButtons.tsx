@@ -12,7 +12,10 @@ export default function CtaButtons() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => window.gtag?.('event', 'whatsapp_click', { page: 'hannover-messe-2026' })}
+                onClick={() => {
+                    console.log('click fired', typeof window.gtag)
+                    window.gtag?.('event', 'whatsapp_click', { page: 'hannover-messe-2026' })
+                }}
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-8 py-4 text-base font-bold text-white hover:bg-green-400 transition-colors"
             >
                 💬 Contact via WhatsApp
