@@ -73,6 +73,8 @@ export default function Services({ dict, lang, title, viewDetailsLabel }: Servic
                                 {/* Link dinâmico usando o slug traduzido do JSON */}
                                 <Link
                                     href={`/${lang}/produtos/${service.slug}`}
+                                    aria-label={`${viewDetailsLabel || "Ver detalhes"} sobre ${service.title}`}
+                                    title={`${viewDetailsLabel || "Ver detalhes"} sobre ${service.title}`}
                                     className="inline-flex items-center gap-2 text-blue-600 font-bold text-sm hover:gap-3 transition-all"
                                 >
                                     {viewDetailsLabel || "Ver detalhes"} <ArrowRight size={16} />

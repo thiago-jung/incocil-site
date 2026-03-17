@@ -69,7 +69,7 @@ export default function Hero({ dict, lang }: HeroProps) {
                     transition={{ duration: 0.6 }}
                 >
                     {/* Badge Traduzido */}
-                    <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
+                    <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-200 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
                         {dict.subtitle}
                     </span>
 

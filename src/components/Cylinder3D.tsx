@@ -52,7 +52,7 @@ export default function Cylinder3D() {
                     maxDistance={500} // Limite de zoom out
                     minDistance={250}  // Limite de zoom in
                     autoRotate
-                    autoRotateSpeed={0}
+                    autoRotateSpeed={2}
                     makeDefault
                 />
             </Canvas>

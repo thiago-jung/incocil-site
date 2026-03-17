@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
 import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
@@ -48,7 +49,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt
                 'es-ES': '/es',
             },
         },
-        
+        //manifest: "/manifest.json",
+
         // Metadados para Redes Sociais
         openGraph: {
             title: "INCOCIL | Soluções em Movimento Hidráulico",
@@ -80,12 +82,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: 'pt
             },
         },
 
-        // Ícones (Favicon)
-        icons: {
-            icon: "/favicon.ico",
-            shortcut: "/favicon-16x16.png",
-            apple: "/apple-touch-icon.png",
-        },
+        //// Ícones (Favicon)
+        //icons: {
+        //    icon: "/favicon.ico",
+        //    shortcut: "/favicon-16x16.png",
+        //    apple: "/apple-touch-icon.png",
+        //},
     };
 }
 
@@ -100,25 +102,6 @@ export default async function RootLayout({
 
     return (
         <html lang={lang}>
-            <head>
-                {/* Preconnect acelera o DNS dos scripts do Google */}
-                <link rel="preconnect" href="https://www.googletagmanager.com" />
-                <link rel="preconnect" href="https://www.google-analytics.com" />
-
-                {/* Google Analytics 4 */}
-                <Script
-                    src={`https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307`}
-                    strategy="lazyOnload"
-                />
-                <Script id="google-analytics" strategy="lazyOnload">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', 'G-EEQ1CRS307');
-                    `}
-                </Script>
-            </head>
             <body className={`${inter.className} antialiased bg-white text-slate-900`}>
                 {children}
 
@@ -126,6 +109,8 @@ export default async function RootLayout({
                 <Analytics />
                 <SpeedInsights />
                 <FloatingElements lang={lang} />
+                {/* Google Analytics 4 */}
+                <GoogleAnalytics gaId="G-EEQ1CRS307" />
             </body>
         </html>
     );

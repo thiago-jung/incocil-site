@@ -16,7 +16,7 @@ export default function BentoFeatures({ dict }: BentoProps) {
                     <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter">
                         {dict.title_start} <span className="text-blue-600">{dict.title_accent}</span>
                     </h2>
-                    <p className="text-slate-500 mt-4 text-lg">{dict.subtitle}</p>
+                    <p className="text-slate-600 mt-4 text-lg">{dict.subtitle}</p>
                 </div>
 
                 {/* Grid Principal */}
@@ -100,7 +100,7 @@ export default function BentoFeatures({ dict }: BentoProps) {
                     >
                         {/* Imagem de Fundo do Robô */}
                         <Image
-                            src="/images/RoboDeSolda3.jpg"
+                            src="/images/robosolda2.jpg"
                             alt={dict.card_small_1.title}
                             fill
                             className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
@@ -112,7 +112,7 @@ export default function BentoFeatures({ dict }: BentoProps) {
 
                         <div className="relative z-10 p-6 h-full flex flex-col justify-end">
                             <h3 className="text-white font-bold text-lg">{dict.card_small_1.title}</h3>
-                            <p className="text-slate-400 text-xs mt-2 leading-relaxed">
+                            <p className="text-slate-300 text-xs mt-2 leading-relaxed">
                                 {dict.card_small_1.description}
                             </p>
                         </div>

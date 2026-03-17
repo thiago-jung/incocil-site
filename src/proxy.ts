@@ -53,6 +53,6 @@ export function proxy(request: NextRequest) {
 export const config = {
     matcher: [
         // Adicionamos o sitemap, o robots e o arquivo de verificação do Google para o middleware ignorar
-        '/((?!api|_next/static|_next/image|images|models|favicon.ico|sitemap.xml|robots.txt|googlea90a43ed9185f126.html).*)',
+        '/((?!api|_next/static|_next/image|images|manifest.json|apple-touch-icon.png|favicon-16x16.png|favicon-32x32.png|android-chrome-192x192.png|android-chrome-512x512.png|models|favicon.ico|sitemap.xml|robots.txt|googlea90a43ed9185f126.html).*)',
     ],
 };

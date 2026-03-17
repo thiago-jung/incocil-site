@@ -1,5 +1,33 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
+    async headers() {
+        return [
+            {
+                // Aplica estes cabeçalhos a todas as rotas
+                source: '/(.*)',
+                headers: [
+                    {
+                        key: 'X-Frame-Options',
+                        value: 'DENY', // Evita clickjacking (ninguém pode colocar o seu site num iframe)
+                    },
+                    {
+                        key: 'X-Content-Type-Options',
+                        value: 'nosniff',
+                    },
+                    {
+                        key: 'Referrer-Policy',
+                        value: 'strict-origin-when-cross-origin',
+                    },
+                    {
+                        key: 'Strict-Transport-Security',
+                        value: 'max-age=31536000; includeSubDomains', // Força o uso de HTTPS (HSTS forte)
+                    },
+                ],
+            },
+        ];
+    },
+
     // Ativa a otimização de imagens
     images: {
         formats: ['image/avif', 'image/webp'], // Converte automaticamente para formatos modernos e leves
