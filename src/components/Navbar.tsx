@@ -37,9 +37,8 @@ export default function Navbar({ lang, dict }: { lang: string, dict: any }) {
                         alt="INCOCIL® Logo"
                         width={240}
                         height={60}
-                        style={{ width: 'auto' }}
                         // Quando a página rola (isScrolled), o logo diminui. Quando está no topo, fica maior.
-                        className={`w-auto transition-all duration-500 ${isScrolled ? "h-10 md:h-12" : "h-14 md:h-15"}`}
+                        className={`w-auto transition-all duration-500 ${isScrolled ? "h-10 md:h-12" : "h-14 md:h-16"}`}
                         priority
                     />
                 </Link>

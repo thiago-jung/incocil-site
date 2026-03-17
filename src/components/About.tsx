@@ -39,6 +39,7 @@ export default function About({ dict }: AboutProps) {
                             alt="Incocil Factory"
                             fill
                             priority
+                            quality={60}
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                             sizes="(max-width: 1024px) 100vw, 50vw"
                         />
