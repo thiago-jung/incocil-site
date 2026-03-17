@@ -211,11 +211,9 @@
     {
       "title": "Master-Slave Cylinder",
       "slug": "master-slave-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/master_slave1.jpeg",
       "gallery": [
-        "/images/Cilindros-hid2.png",
-        "/images/Cilindros-hid3.jpg",
-        "/images/Cilindros-hid4.png"
+        "/images/master_slave2.jpeg"
       ],
       "description": "High-precision synchronized systems for uniform heavy load movement.",
       "longDescription": "Solutions designed for applications requiring perfect synchronism between two or more actuators, ensuring leveling and precision in movement.",
@@ -480,7 +478,7 @@
     {
       "title": "Custom Cylinders",
       "slug": "custom-cylinders",
-      "image": "/images/Cilindros-hid7.png",
+      "image": "/images/cil_custom1.jpeg",
       "gallery": [
         "/images/azul1.png",
         "/images/Cilindros-hid3.jpg",

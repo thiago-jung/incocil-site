@@ -210,11 +210,9 @@
     {
       "title": "Cilindro Mestre-Escravo",
       "slug": "master-slave-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/master_slave1.jpeg",
       "gallery": [
-        "/images/Cilindros-hid2.png",
-        "/images/Cilindros-hid3.jpg",
-        "/images/Cilindros-hid4.png"
+        "/images/master_slave2.jpeg"
       ],
       "description": "Sistemas sincronizados de alta precisão para movimentação uniforme de cargas pesadas.",
       "longDescription": "Soluções projetadas para aplicações que exigem o sincronismo perfeito entre dois ou mais atuadores, garantindo nivelamento e precisão no movimento.",
@@ -472,7 +470,7 @@
     {
       "title": "Cilindros Customizados",
       "slug": "custom-cylinders",
-      "image": "/images/Cilindros-hid7.png",
+      "image": "/images/cil_custom1.jpeg",
       "gallery": [
         "/images/azul1.png",
         "/images/Cilindros-hid3.jpg",
