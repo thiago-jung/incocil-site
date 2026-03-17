@@ -63,11 +63,7 @@ export default function Hero({ dict, lang }: HeroProps) {
             <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[100px] rounded-full -mr-20 -mt-20" />
 
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
-                <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                >
+                <div className="relative">
                     {/* Badge Traduzido */}
                     <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-200 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
                         {dict.subtitle}
@@ -100,7 +96,7 @@ export default function Hero({ dict, lang }: HeroProps) {
                             </button>
                         </Link>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Elemento Visual - Trocado por 3D */}
                 <motion.div

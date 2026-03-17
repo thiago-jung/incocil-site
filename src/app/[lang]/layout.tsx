@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
 import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
@@ -110,7 +109,18 @@ export default async function RootLayout({
                 <SpeedInsights />
                 <FloatingElements lang={lang} />
                 {/* Google Analytics 4 */}
-                <GoogleAnalytics gaId="G-EEQ1CRS307" />
+                <Script
+                    src={`https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307`}
+                    strategy="lazyOnload"
+                />
+                <Script id="google-analytics" strategy="lazyOnload">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-EEQ1CRS307');
+                    `}
+                </Script>
             </body>
         </html>
     );
