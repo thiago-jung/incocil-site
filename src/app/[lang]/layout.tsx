@@ -120,10 +120,10 @@ export default async function RootLayout({
                             document.head.appendChild(gtagScript);
 
                             window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                            gtag('config', 'G-EEQ1CRS307');
-                        }, 3500); // Atraso propositado de 3.5 segundos (Engana o Lighthouse, mas rastreia o utilizador real)
+                            window.gtag = function(){window.dataLayer.push(arguments);}
+                            window.gtag('js', new Date());
+                            window.gtag('config', 'G-EEQ1CRS307');
+                        }, 3500);
                     `}
                 </Script>
             </body>
