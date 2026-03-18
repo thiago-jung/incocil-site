@@ -27,9 +27,13 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
             produto: productName,
         };
 
-        sendEmailAction(data).catch((error) => {
+        try {
+            // Agora, o loading vai durar EXATAMENTE o tempo de envio do email.
+            // Se a internet/servidor for rápida, vai durar 0.5s.
+            await sendEmailAction(data); 
+        } catch (error) {
             console.error("Erro ao enviar e-mail:", error);
-        });
+        }
 
         const pagePath = typeof window !== "undefined" ? window.location.pathname : "produto";
         track.formSubmit(productName, pagePath);
@@ -45,10 +49,8 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
 
         const whatsappUrl = `https://wa.me/555184468231?text=${encodeURIComponent(textoMensagem)}`;
 
-        setTimeout(() => {
-            window.open(whatsappUrl, "_blank");
-            setStatus("success");
-        }, 1000);
+        window.open(whatsappUrl, "_blank");
+        setStatus("success");
     };
 
     if (status === "success") {
