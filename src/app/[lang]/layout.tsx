@@ -86,6 +86,7 @@ export default async function RootLayout({
                         window.gtag = gtag;
                         gtag('js', new Date());
                         gtag('config', 'G-EEQ1CRS307');
+                        gtag('config', 'AW-771734941');
                     `}
                 </Script>
             </body>
