@@ -31,9 +31,11 @@ export default function HannoverLeadForm() {
             produto: `Agendamento - Hannover Messe 2026 (${STAND_INFO})`,
         };
 
-        sendEmailAction(emailData).catch((error) => {
+        try {
+            await sendEmailAction(emailData); 
+        } catch (error) {
             console.error("Erro ao enviar e-mail:", error);
-        });
+        }
 
         const msg =
             `Hello INCOCIL! 👋
@@ -46,10 +48,8 @@ export default function HannoverLeadForm() {
 
         const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
-        setTimeout(() => {
-            window.open(url, "_blank");
-            setStatus("success");
-        }, 800);
+        window.open(whatsappUrl, "_blank");
+        setStatus("success");
     }
 
     if (status === "success") {
