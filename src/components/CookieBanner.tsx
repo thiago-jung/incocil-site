@@ -82,13 +82,13 @@ export default function CookieBanner({ lang }: { lang: string }) {
             return () => clearTimeout(id);
         }
         // Já consentiu: aplica a decisão anterior ao GA4
-        if (consent === "accepted") enableAnalytics(GA_ID);
+        if (consent === "accepted") enableAnalytics();
         else denyAnalytics();
     }, []);
 
     function handleAccept() {
         setConsent("accepted");
-        enableAnalytics(GA_ID);
+        enableAnalytics();
         setVisible(false);
     }
 
