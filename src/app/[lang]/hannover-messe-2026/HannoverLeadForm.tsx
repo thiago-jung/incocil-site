@@ -48,7 +48,7 @@ export default function HannoverLeadForm() {
 
         const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
-        window.open(whatsappUrl, "_blank");
+        window.open(url, "_blank");
         setStatus("success");
     }
 
