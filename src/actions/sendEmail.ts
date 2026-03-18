@@ -3,6 +3,10 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+function isValidEmail(email: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export async function sendEmailAction(data: {
     nome: string;
     email: string;
@@ -14,7 +18,7 @@ export async function sendEmailAction(data: {
         await resend.emails.send({
             from: "Site INCOCIL <contato-site@incocil.com>", // ← use seu domínio verificado no Resend
             to: process.env.RECEIVER_EMAIL!,
-            replyTo: data.email,
+            ...(isValidEmail(data.email) && { replyTo: data.email }),
             subject: `🔥 Novo Lead do Site: ${data.nome}`,
             text: `
 Você recebeu um novo contato através do site!
