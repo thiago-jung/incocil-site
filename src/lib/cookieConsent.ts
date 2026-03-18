@@ -35,37 +35,38 @@ export function revokeConsent() {
 /**
  * Injeta o script do GA4 no DOM apenas quando chamado.
  * Antes disso: zero requests para googletagmanager.com ou google-analytics.com.
- * Usa um flag para garantir que o script só é injetado uma vez.
+ *
+ * IMPORTANTE: gtag() deve usar o objeto `arguments` nativo — não rest params (...args).
+ * O script gtag/js do Google processa o dataLayer esperando IArguments.
+ * Um array normal ([...args]) faz o GA4 ignorar silenciosamente todos os comandos.
  */
 export function enableAnalytics() {
     if (typeof window === "undefined") return;
 
-    // Evita injectar duas vezes (ex: visita recorrente que já aceitou)
+    // Evita injectar duas vezes (visita recorrente que já aceitou)
     if ((window as any).__ga_loaded) return;
     (window as any).__ga_loaded = true;
 
-    // 1. Inicializa o dataLayer e a função gtag
+    // Inicializa o dataLayer
     (window as any).dataLayer = (window as any).dataLayer || [];
-    function gtag(...args: any[]) {
-        (window as any).dataLayer.push(args);
-    }
-    (window as any).gtag = gtag;
 
-    gtag("js", new Date());
-    gtag("config", GA_ID, { anonymize_ip: true });
+    // Usa função nomeada com `arguments` — forma exigida pelo GA4
+    // eslint-disable-next-line prefer-rest-params
+    (window as any).gtag = function gtag() { (window as any).dataLayer.push(arguments); };
 
-    // 2. Injeta o <script src="...gtag/js?id=..."> dinamicamente
+    (window as any).gtag("js", new Date());
+    (window as any).gtag("config", GA_ID, { anonymize_ip: true });
+
+    // Injeta o <script> dinamicamente — só acontece aqui, nunca no layout
     const script = document.createElement("script");
     script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
     script.async = true;
     document.head.appendChild(script);
 }
 
-/** Remove o GA4 da sessão actual (não apaga o script já carregado, mas
- *  pode ser usado para sinalizar ao gtag que não deve rastrear) */
+/** Sinaliza ao GA4 que não deve rastrear (usado ao revogar ou recusar) */
 export function denyAnalytics() {
     if (typeof window === "undefined") return;
-    // Se o GA4 ainda não foi carregado, não há nada a fazer
     if (!(window as any).__ga_loaded) return;
     if (typeof (window as any).gtag === "function") {
         (window as any).gtag("consent", "update", {
