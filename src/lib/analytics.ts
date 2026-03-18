@@ -23,7 +23,7 @@ function gtag(...args: unknown[]) {
 // IDs de conversão do Google Ads
 // Google Ads > Ferramentas > Medição > Conversões
 // ─────────────────────────────────────────────
-const ADS_ID = "AW-XXXXXXXXX"; // ← substitua pelo ID da sua conta
+const ADS_ID = "AW-771734941";
 
 const CONVERSIONS = {
     whatsapp: `${ADS_ID}/XXXXXXXXXX`, // "WhatsApp Click"
