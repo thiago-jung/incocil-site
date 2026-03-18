@@ -16,18 +16,21 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import PrintButton from "./PrintButton";
+import VCardButton from "./VCardButton";
 
 export const metadata: Metadata = {
     title: "INCOCIL® | Business Card — Hannover Messe 2026",
     robots: { index: false },
 };
 
-// ─── confirme o stand correto ───
 const STAND_INFO = "Hall 17, D52";
 
+// ✅ QR aponta para a página da feira com ?ref=card para rastrear visitantes
+// que vieram pelo cartão impresso (segmente no GA4: source = card)
+const QR_TARGET_URL = "https://www.incocil.com/en/hannover-messe-2026?ref=card";
+
 export default function BusinessCard() {
-    const qrUrl =
-        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0F172A&bgcolor=FACC15&data=https%3A%2F%2Fwww.incocil.com%2Fen%2Fhannover-messe-2026&qzone=1";
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0F172A&bgcolor=FACC15&data=${encodeURIComponent(QR_TARGET_URL)}&qzone=1`;
 
     return (
         <>
@@ -95,10 +98,7 @@ export default function BusinessCard() {
           clip-path: polygon(100% 0, 0 0, 100% 100%);
         }
 
-        .front-logo {
-          position: relative;
-          z-index: 1;
-        }
+        .front-logo { position: relative; z-index: 1; }
 
         .front-bottom {
           position: relative;
@@ -126,7 +126,6 @@ export default function BusinessCard() {
           margin-top: 1.5mm;
         }
 
-        /* Stand badge — destaque na frente do cartão */
         .front-stand {
           background: #16a34a;
           color: white;
@@ -147,7 +146,6 @@ export default function BusinessCard() {
           align-items: stretch;
         }
 
-        /* CORRIGIDO: era "back-blue" mas a cor é verde — renomeado para back-accent */
         .back-accent {
           width: 20mm;
           background: #16a34a;
@@ -234,7 +232,6 @@ export default function BusinessCard() {
           .card {
             box-shadow: none;
             page-break-inside: avoid;
-            /* Garante que fundos escuros sejam impressos */
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
           }
@@ -248,6 +245,9 @@ export default function BusinessCard() {
                 <a href="/en/hannover-messe-2026" style={{ color: "#16a34a" }}>← Back to fair page</a>
                 &nbsp;|&nbsp;
                 <PrintButton />
+                &nbsp;|&nbsp;
+                {/* ✅ NOVO: visitante pode salvar o contato diretamente no celular */}
+                <VCardButton />
             </p>
 
             <div
@@ -275,7 +275,6 @@ export default function BusinessCard() {
                             </p>
                             <p className="front-event">Hannover Messe 2026</p>
                         </div>
-                        {/* Stand info — visível na frente do cartão */}
                         <span className="front-stand">{STAND_INFO}</span>
                     </div>
                 </div>
@@ -283,7 +282,6 @@ export default function BusinessCard() {
                 {/* ── BACK ── */}
                 <p className="label" style={{ marginTop: "12px" }}>Back</p>
                 <div className="card card-back">
-                    {/* CORRIGIDO: classe renomeada de back-blue para back-accent */}
                     <div className="back-accent">
                         <span style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", color: "white", fontSize: "6pt", fontWeight: 900, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                             INCOCIL®

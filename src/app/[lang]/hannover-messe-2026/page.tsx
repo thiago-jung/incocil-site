@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CtaButtons from "./CtaButtons";
 import CountdownTimer from "./CountdownTimer";
+import StickyCta from "./StickyCta";
+import HannoverLeadForm from "./HannoverLeadForm";
+import FinalCtaButtons from "./FinalCtaButtons";
 
-// ─── confirme o stand correto e atualize aqui e no FeiraPopup ───
 const STAND_INFO = "Hall 17, D52";
 const FAIR_DATE_START = "2026-04-22";
 const FAIR_DATE_END = "2026-04-25";
+const WHATSAPP = "555184468231"; // móvel — correto
 
 export const metadata: Metadata = {
     title: "INCOCIL® | Hannover Messe 2026",
@@ -44,37 +47,25 @@ const sectors = [
     { name: "Food & Chemical", icon: "⚗️" },
 ];
 
-// Schema.org Event como string — evita dangerouslySetInnerHTML com JSON.stringify
-// que conflita com a serialização RSC do Next.js e quebra o JSON parser.
 function EventSchema() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Event",
-        name: `INCOCIL at Hannover Messe 2026`,
+        name: "INCOCIL at Hannover Messe 2026",
         startDate: FAIR_DATE_START,
         endDate: FAIR_DATE_END,
         location: {
             "@type": "Place",
             name: "Hannover Messe",
-            address: {
-                "@type": "PostalAddress",
-                addressLocality: "Hanover",
-                addressCountry: "DE",
-            },
+            address: { "@type": "PostalAddress", addressLocality: "Hanover", addressCountry: "DE" },
         },
-        organizer: {
-            "@type": "Organization",
-            name: "INCOCIL",
-            url: "https://www.incocil.com",
-        },
+        organizer: { "@type": "Organization", name: "INCOCIL", url: "https://www.incocil.com" },
         description: `Visit INCOCIL at ${STAND_INFO}. Custom hydraulic and pneumatic cylinders.`,
         url: "https://www.incocil.com/en/hannover-messe-2026",
     };
-
     return (
         <script
             type="application/ld+json"
-            // suppressHydrationWarning evita diff entre server/client no conteúdo do script
             suppressHydrationWarning
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
@@ -82,13 +73,18 @@ function EventSchema() {
 }
 
 export default function HannoverMesse2026() {
-    const whatsappUrl = `https://wa.me/555132612205?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
         `Hello! I met INCOCIL at Hannover Messe 2026 (${STAND_INFO}) and would like more information.`
+    )}`;
+
+    const schedulingUrl = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
+        `Hello! I'd like to schedule a meeting at Hannover Messe 2026 (${STAND_INFO}). My name is: `
     )}`;
 
     return (
         <>
             <EventSchema />
+            <StickyCta standInfo={STAND_INFO} />
 
             <main className="bg-neutral-900 text-white font-sans">
 
@@ -228,24 +224,32 @@ export default function HannoverMesse2026() {
 
                 {/* ── AGENDE UMA REUNIÃO ── */}
                 <section className="px-6 py-24 bg-neutral-800/40">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <p className="text-green-500 text-xs font-semibold tracking-widest uppercase mb-4">Schedule a Meeting</p>
-                        <h2 className="text-4xl font-extrabold mb-4">Visit Us at {STAND_INFO}</h2>
-                        <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                            Save time at the fair. Send us a WhatsApp message now and we&apos;ll arrange a dedicated slot
-                            to discuss your hydraulic cylinder requirements with our technical team.
+                    <div className="max-w-3xl mx-auto">
+                        <div className="text-center mb-10">
+                            <p className="text-green-500 text-xs font-semibold tracking-widest uppercase mb-4">Schedule a Meeting</p>
+                            <h2 className="text-4xl font-extrabold mb-4">Visit Us at {STAND_INFO}</h2>
+                            <p className="text-slate-400 text-lg leading-relaxed">
+                                Save time at the fair. Fill in the form below and we&apos;ll arrange a dedicated slot
+                                to discuss your hydraulic cylinder requirements with our technical team.
+                            </p>
+                        </div>
+
+                        <div className="bg-neutral-800 rounded-3xl border border-slate-700 p-8">
+                            <HannoverLeadForm />
+                        </div>
+
+                        <p className="text-center text-slate-600 text-sm mt-6">
+                            Prefer to go straight to WhatsApp?{" "}
+                            <a
+                                href={schedulingUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-green-600 hover:text-green-400 underline underline-offset-2 transition-colors"
+                            >
+                                Click here
+                            </a>
                         </p>
-                        <a
-                            href={`https://wa.me/555132612205?text=${encodeURIComponent(
-                                `Hello! I'd like to schedule a meeting at Hannover Messe 2026 (${STAND_INFO}). My name is: `
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-8 py-4 font-bold text-white hover:bg-green-400 transition-colors text-base"
-                        >
-                            Schedule a Meeting via WhatsApp
-                        </a>
-                        <p className="mt-4 text-slate-500 text-sm">April 22–25, 2026 · Hanover, Germany</p>
+                        <p className="mt-4 text-slate-500 text-sm text-center">April 22–25, 2026 · Hanover, Germany</p>
                     </div>
                 </section>
 
@@ -256,29 +260,16 @@ export default function HannoverMesse2026() {
                         <p className="text-slate-400 text-lg mb-8">
                             Talk to our team directly. We&apos;ll help you find the right cylinder solution for your application.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <a
-                                href={whatsappUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-8 py-4 font-bold text-slate-900 hover:bg-green-400 transition-colors"
-                            >
-                                WhatsApp
-                            </a>
-                            <a
-                                href="mailto:incocil@incocil.com.br"
-                                className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-600 px-8 py-4 font-semibold text-slate-200 hover:border-slate-400 transition-colors"
-                            >
-                                incocil@incocil.com.br
-                            </a>
-                        </div>
+                        {/* Client Component — onClick isolado aqui para não contaminar o Server Component */}
+                        <FinalCtaButtons whatsappUrl={whatsappUrl} />
                         <p className="mt-6 text-slate-500 text-sm">
                             Av. Ricardo Leonidas Ribas, 310 — Porto Alegre, RS, Brazil · +55 51 3261-2205
                         </p>
                     </div>
                 </section>
 
-                <footer className="border-t border-slate-800 px-6 py-8 text-center text-slate-500 text-sm">
+                {/* pb-24 mobile: conteúdo não fica atrás do StickyCta */}
+                <footer className="border-t border-slate-800 px-6 py-8 pb-24 md:pb-8 text-center text-slate-500 text-sm">
                     2026 INCOCIL. All rights reserved. ·{" "}
                     <a href="https://www.incocil.com/en" className="hover:text-slate-300 transition-colors">
                         www.incocil.com

@@ -2,7 +2,6 @@
 
 /**
  * Analytics central — todos os eventos do site passam por aqui.
- * Facilita rastrear + configurar conversões no Google Ads depois.
  *
  * Como usar:
  *   import { track } from "@/lib/analytics";
@@ -22,26 +21,22 @@ function gtag(...args: unknown[]) {
 
 // ─────────────────────────────────────────────
 // IDs de conversão do Google Ads
-// Preencha após criar as conversões no painel:
 // Google Ads > Ferramentas > Medição > Conversões
 // ─────────────────────────────────────────────
-const ADS_ID = "AW-XXXXXXXXX"; // ← substitua pelo seu ID de conta
+const ADS_ID = "AW-XXXXXXXXX"; // ← substitua pelo ID da sua conta
 
 const CONVERSIONS = {
-    whatsapp: `${ADS_ID}/XXXXXXXXXX`,     // Conversão: "WhatsApp Click"
-    formSubmit: `${ADS_ID}/XXXXXXXXXX`,   // Conversão: "Formulário Enviado"
-    emailClick: `${ADS_ID}/XXXXXXXXXX`,   // Conversão: "E-mail Click"
+    whatsapp: `${ADS_ID}/XXXXXXXXXX`, // "WhatsApp Click"
+    formSubmit: `${ADS_ID}/XXXXXXXXXX`, // "Formulário Enviado"
+    emailClick: `${ADS_ID}/XXXXXXXXXX`, // "E-mail Click"
+    meetingSchedule: `${ADS_ID}/XXXXXXXXXX`, // "Agendamento Feira" ← NOVO
 };
 
-// ─────────────────────────────────────────────
-// Eventos tipados
-// ─────────────────────────────────────────────
 export const track = {
 
-    /** Clique em qualquer botão do WhatsApp no site */
+    /** Clique em qualquer botão de WhatsApp no site */
     whatsappClick(page: string, product?: string) {
         gtag("event", "whatsapp_click", { page, product });
-        // Dispara conversão do Google Ads
         gtag("event", "conversion", {
             send_to: CONVERSIONS.whatsapp,
             event_category: "engagement",
@@ -49,12 +44,9 @@ export const track = {
         });
     },
 
-    /** Formulário de orçamento enviado (antes de abrir o WhatsApp) */
+    /** Formulário de orçamento enviado */
     formSubmit(productName: string, page: string = "produto") {
-        gtag("event", "generate_lead", {
-            product: productName,
-            page,
-        });
+        gtag("event", "generate_lead", { product: productName, page });
         gtag("event", "conversion", {
             send_to: CONVERSIONS.formSubmit,
             event_category: "lead",
@@ -70,6 +62,36 @@ export const track = {
             event_category: "engagement",
             event_label: page,
         });
+    },
+
+    /**
+     * NOVO — Agendamento de reunião (Hannover Messe ou outras feiras)
+     * Crie uma conversão separada no Google Ads para este evento —
+     * ela tem valor mais alto do que um clique simples de WhatsApp.
+     */
+    meetingSchedule(source: string) {
+        gtag("event", "meeting_schedule_click", { source });
+        gtag("event", "conversion", {
+            send_to: CONVERSIONS.meetingSchedule,
+            event_category: "lead",
+            event_label: source,
+        });
+    },
+
+    /**
+     * NOVO — Scroll depth (25 / 50 / 75 / 100 %)
+     * Configure no GA4: marque scroll como evento chave em páginas de produto.
+     */
+    scrollDepth(percent: 25 | 50 | 75 | 100, page: string) {
+        gtag("event", "scroll_depth", { percent_scrolled: percent, page });
+    },
+
+    /**
+     * NOVO — Visualização do cartão de visita impresso
+     * Disparado quando alguém acessa /hannover-messe-2026/card
+     */
+    cardPageView() {
+        gtag("event", "business_card_view", { source: "hannover-print" });
     },
 
     /** Reprodução de vídeo no blog */
