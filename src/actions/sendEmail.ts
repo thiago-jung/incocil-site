@@ -12,7 +12,7 @@ export async function sendEmailAction(data: {
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT) || 465,
-            secure: true, // true para 465, false para outras portas como 587
+            secure: false, // true para 465, false para outras portas como 587
             auth: {
                 user: process.env.SMTP_USER,
                 pass: process.env.SMTP_PASS,
