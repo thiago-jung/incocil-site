@@ -21,6 +21,7 @@ const t = {
         accept: "Aceitar todos",
         reject: "Apenas essenciais",
         details: "Detalhes",
+        always_active: "sempre ativo",
         essential_title: "Essenciais",
         essential_desc: "Necessários para o funcionamento do site. Não podem ser desativados.",
         analytics_title: "Analytics (GA4)",
@@ -36,6 +37,7 @@ const t = {
         accept: "Accept all",
         reject: "Essential only",
         details: "Details",
+        always_active: "always active",
         essential_title: "Essential",
         essential_desc: "Required for the site to function. Cannot be disabled.",
         analytics_title: "Analytics (GA4)",
@@ -51,6 +53,7 @@ const t = {
         accept: "Aceptar todo",
         reject: "Solo esenciales",
         details: "Detalles",
+        always_active: "siempre activo",
         essential_title: "Esenciales",
         essential_desc: "Necesarios para el funcionamiento del sitio. No se pueden desactivar.",
         analytics_title: "Analytics (GA4)",
@@ -163,7 +166,7 @@ export default function CookieBanner({ lang }: { lang: string }) {
                                                         <p className="text-white text-xs font-semibold">
                                                             {copy.essential_title}
                                                             <span className="ml-2 text-[10px] font-normal text-slate-500 uppercase tracking-widest">
-                                                                sempre ativo
+                                                                {copy.always_active}
                                                             </span>
                                                         </p>
                                                         <p className="text-slate-500 text-[11px] mt-0.5">
