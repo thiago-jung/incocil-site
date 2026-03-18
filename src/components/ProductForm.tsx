@@ -2,9 +2,11 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { sendEmailAction } from "@/actions/sendEmail";
+import { track } from "@/lib/analytics";
+
 interface ProductFormProps {
     productName: string;
-    dict: any; // Recebe dict.ui do dicionário
+    dict: any;
 }
 
 export default function ProductForm({ productName, dict }: ProductFormProps) {
@@ -25,13 +27,15 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
             produto: productName,
         };
 
-        // 1. Dispara o e-mail em background SEM o "await".
-        // O código não vai esperar o e-mail terminar de enviar para continuar.
+        // Dispara e-mail em background
         sendEmailAction(data).catch((error) => {
-            console.error("Ocorreu um erro no envio de email no background.", error);
+            console.error("Erro ao enviar e-mail:", error);
         });
 
-        // Monta a mensagem usando as chaves do dicionário para internacionalização
+        // Tracking: registra o lead com produto e página
+        const pagePath = typeof window !== "undefined" ? window.location.pathname : "produto";
+        track.formSubmit(productName, pagePath);
+
         const textoMensagem = `${dict.whatsapp_greeting} 👋
         ${dict.whatsapp_quote_request}
 
@@ -53,9 +57,7 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
         return (
             <div className="bg-green-50 border border-green-200 p-8 rounded-2xl text-center animate-in fade-in zoom-in duration-300">
                 <CheckCircle className="mx-auto text-green-500 mb-4" size={48} />
-                <h3 className="text-xl font-bold text-green-900">
-                    {dict.form_success_title}
-                </h3>
+                <h3 className="text-xl font-bold text-green-900">{dict.form_success_title}</h3>
                 <p className="text-green-700">
                     {dict.form_success_desc} <span className="font-bold">{productName}</span>.
                 </p>
@@ -93,7 +95,8 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
                         name="nome"
                         type="text"
                         placeholder="..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"                    />
+                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -121,7 +124,8 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
                             type="tel"
                             placeholder="(00) 00000-0000"
                             className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none"
-                        />                    </div>
+                        />
+                    </div>
                 </div>
 
                 <div>
@@ -135,7 +139,7 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
                         rows={4}
                         className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none resize-none"
                         placeholder={dict.form_placeholder}
-                    ></textarea>
+                    />
                 </div>
 
                 <button

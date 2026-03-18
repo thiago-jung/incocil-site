@@ -11,21 +11,23 @@
  *   - Background graphics: ENABLED
  *
  * The card will print at exactly 85mm × 54mm (standard business card size).
- * Two sides are shown on the same page for a cut-and-fold preview.
  */
 
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import PrintButton from './PrintButton'
+import type { Metadata } from "next";
+import Image from "next/image";
+import PrintButton from "./PrintButton";
 
 export const metadata: Metadata = {
-    title: 'INCOCIL® | Business Card — Hannover Messe 2026',
+    title: "INCOCIL® | Business Card — Hannover Messe 2026",
     robots: { index: false },
-}
+};
+
+// ─── confirme o stand correto ───
+const STAND_INFO = "Hall 17, D52";
 
 export default function BusinessCard() {
     const qrUrl =
-        'https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0F172A&bgcolor=FACC15&data=https%3A%2F%2Fwww.incocil.com%2Fen%2Fhannover-messe-2026&qzone=1'
+        "https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0F172A&bgcolor=FACC15&data=https%3A%2F%2Fwww.incocil.com%2Fen%2Fhannover-messe-2026&qzone=1";
 
     return (
         <>
@@ -75,7 +77,6 @@ export default function BusinessCard() {
           padding: 5mm 6mm;
         }
 
-        /* Corner accent */
         .card-front::before {
           content: '';
           position: absolute;
@@ -114,10 +115,7 @@ export default function BusinessCard() {
           line-height: 1.2;
           letter-spacing: -0.01em;
         }
-
-        .front-tagline span {
-          color: #FACC15;
-        }
+        .front-tagline span { color: #FACC15; }
 
         .front-event {
           font-size: 5.5pt;
@@ -125,7 +123,21 @@ export default function BusinessCard() {
           letter-spacing: 0.1em;
           text-transform: uppercase;
           font-family: 'Inter', sans-serif;
-          margin-top: 2mm;
+          margin-top: 1.5mm;
+        }
+
+        /* Stand badge — destaque na frente do cartão */
+        .front-stand {
+          background: #16a34a;
+          color: white;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 6pt;
+          font-weight: 700;
+          padding: 1mm 2.5mm;
+          border-radius: 1mm;
+          letter-spacing: 0.05em;
+          white-space: nowrap;
+          align-self: flex-end;
         }
 
         /* ── BACK ── */
@@ -135,7 +147,8 @@ export default function BusinessCard() {
           align-items: stretch;
         }
 
-        .back-blue {
+        /* CORRIGIDO: era "back-blue" mas a cor é verde — renomeado para back-accent */
+        .back-accent {
           width: 20mm;
           background: #16a34a;
           display: flex;
@@ -199,9 +212,7 @@ export default function BusinessCard() {
           align-items: center;
           gap: 1.5mm;
         }
-        .contact-line strong {
-          color: #e2e8f0;
-        }
+        .contact-line strong { color: #e2e8f0; }
 
         .back-url {
           font-size: 6.5pt;
@@ -223,23 +234,26 @@ export default function BusinessCard() {
           .card {
             box-shadow: none;
             page-break-inside: avoid;
+            /* Garante que fundos escuros sejam impressos */
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
           }
-          .cards-wrapper {
-            gap: 20mm;
-          }
+          .cards-wrapper { gap: 20mm; }
         }
       `}</style>
 
             {/* Screen helper */}
             <p className="label no-print">
                 Hannover Messe 2026 — Business Card Preview (85 × 54 mm) &nbsp;|&nbsp;
-                <a href="/en/hannover-messe-2026" style={{ color: '#16a34a' }}>← Back to fair page</a>
+                <a href="/en/hannover-messe-2026" style={{ color: "#16a34a" }}>← Back to fair page</a>
                 &nbsp;|&nbsp;
                 <PrintButton />
             </p>
 
-            <div className="cards-wrapper" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
-
+            <div
+                className="cards-wrapper"
+                style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}
+            >
                 {/* ── FRONT ── */}
                 <p className="label">Front</p>
                 <div className="card card-front">
@@ -249,7 +263,7 @@ export default function BusinessCard() {
                             alt="INCOCIL®"
                             width={110}
                             height={30}
-                            style={{ filter: 'brightness(0) invert(1)', height: 'auto', maxWidth: '38mm' }}
+                            style={{ filter: "brightness(0) invert(1)", height: "auto", maxWidth: "38mm" }}
                         />
                     </div>
 
@@ -261,14 +275,17 @@ export default function BusinessCard() {
                             </p>
                             <p className="front-event">Hannover Messe 2026</p>
                         </div>
+                        {/* Stand info — visível na frente do cartão */}
+                        <span className="front-stand">{STAND_INFO}</span>
                     </div>
                 </div>
 
                 {/* ── BACK ── */}
-                <p className="label" style={{ marginTop: '12px' }}>Back</p>
+                <p className="label" style={{ marginTop: "12px" }}>Back</p>
                 <div className="card card-back">
-                    <div className="back-blue">
-                        <span style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)', color: 'white', fontSize: '6pt', fontWeight: 900, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                    {/* CORRIGIDO: classe renomeada de back-blue para back-accent */}
+                    <div className="back-accent">
+                        <span style={{ writingMode: "vertical-rl", transform: "rotate(180deg)", color: "white", fontSize: "6pt", fontWeight: 900, letterSpacing: "0.15em", textTransform: "uppercase" }}>
                             INCOCIL®
                         </span>
                     </div>
@@ -282,7 +299,7 @@ export default function BusinessCard() {
                                     alt="QR Code — Hannover Messe 2026"
                                     width={68}
                                     height={68}
-                                    style={{ width: '17mm', height: '17mm', display: 'block' }}
+                                    style={{ width: "17mm", height: "17mm", display: "block" }}
                                 />
                             </div>
                             <div className="qr-label">
@@ -306,8 +323,7 @@ export default function BusinessCard() {
                         </div>
                     </div>
                 </div>
-
             </div>
         </>
-    )
+    );
 }

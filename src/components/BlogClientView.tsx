@@ -6,14 +6,21 @@ import Link from "next/link";
 import { BLOG_POSTS } from "@/constants/blog-data";
 import VideoModal from "@/components/VideoModal";
 import Image from "next/image";
+import { track } from "@/lib/analytics";
+
 interface BlogClientViewProps {
     dict: any;
     lang: string;
 }
 
 export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
-    const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+    const [selectedVideo, setSelectedVideo] = useState<{ id: string; title: string } | null>(null);
     const blogDict = dict.blog;
+
+    function openVideo(youtubeId: string, title: string) {
+        track.videoPlay(youtubeId, title);
+        setSelectedVideo({ id: youtubeId, title });
+    }
 
     return (
         <>
@@ -43,7 +50,7 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-cover group-hover:scale-110 transition-transform duration-500"
                             />
-                            {post.type === 'video' && (
+                            {post.type === "video" && (
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                                     <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-xl">
                                         <Play fill="currentColor" size={24} />
@@ -61,13 +68,11 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                             <h2 className="text-xl font-bold text-slate-900 mt-2 mb-4 group-hover:text-blue-600 transition-colors">
                                 {post.title}
                             </h2>
-                            <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                                {post.excerpt}
-                            </p>
+                            <p className="text-slate-600 text-sm leading-relaxed mb-6">{post.excerpt}</p>
 
-                            {post.type === 'video' ? (
+                            {post.type === "video" ? (
                                 <button
-                                    onClick={() => setSelectedVideo(post.youtubeId ?? null)}
+                                    onClick={() => openVideo(post.youtubeId ?? "", post.title)}
                                     className="flex items-center gap-2 font-bold text-blue-600 hover:gap-3 transition-all cursor-pointer"
                                 >
                                     {blogDict.watch_video} <Play size={18} />
@@ -88,7 +93,7 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
             <VideoModal
                 isOpen={!!selectedVideo}
                 onClose={() => setSelectedVideo(null)}
-                videoId={selectedVideo || ""}
+                videoId={selectedVideo?.id || ""}
             />
         </>
     );

@@ -1,61 +1,141 @@
 "use client";
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls, Environment, ContactShadows, Center, Lightformer } from "@react-three/drei";
-import { Suspense } from "react";
+import { useGLTF, OrbitControls, Center, Environment } from "@react-three/drei";
+import { Suspense, useState, useEffect } from "react";
+import * as THREE from "three";
+
+const hints: Record<string, string> = {
+    pt: "Arraste para girar",
+    en: "Drag to rotate",
+    es: "Arrastra para girar",
+};
 
 function Model() {
     const { scene } = useGLTF("/models/inox3d._laranglb.glb");
-
-    // 1. Reduzimos a escala pela metade (0.5) para garantir que caiba na tela
     return <primitive object={scene} scale={0.5} />;
 }
 
-export default function Cylinder3D() {
+interface Cylinder3DProps {
+    lang?: string;
+}
+
+export default function Cylinder3D({ lang = "pt" }: Cylinder3DProps) {
+    const [showHint, setShowHint] = useState(true);
+    const [hasInteracted, setHasInteracted] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setShowHint(false), 4000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    function handleInteraction() {
+        if (!hasInteracted) {
+            setHasInteracted(true);
+            setShowHint(false);
+        }
+    }
+
     return (
-        <div className="w-full h-[400px] md:h-[600px] relative z-10 cursor-grab active:cursor-grabbing">
-            {/* 2. Câmera: Afastada para Z=15 (zoom out) e fov reduzido para 30 (remove o efeito olho de peixe) */}
-            <Canvas camera={{ position: [10, 4, 10], fov: 30 }}>
+        <div
+            className="w-full h-[400px] md:h-[600px] relative z-10 cursor-grab active:cursor-grabbing"
+            onMouseDown={handleInteraction}
+            onTouchStart={handleInteraction}
+        >
+            <Canvas
+                camera={{ position: [10, 4, 10], fov: 30 }}
+                gl={{
+                    // Tone mapping essencial para materiais PBR com intensidades físicas
+                    toneMapping: THREE.ACESFilmicToneMapping,
+                    toneMappingExposure: 1.2,
+                    antialias: true,
+                }}
+            >
                 <Suspense fallback={null}>
 
-                    {/* 1. ILUMINAÇÃO SIMPLES E DIRETA */}
-                    {/* Luz ambiente bem clara para banhar todo o objeto */}
-                    <ambientLight intensity={25.5} />
+                    {/*
+                     * Environment — o mais importante para inox/metais.
+                     * Simula reflexos do entorno no material metálico PBR do GLB.
+                     * "studio" dá aquele brilho limpo de produto em fundo escuro.
+                     * Alternativas a testar: "warehouse", "city", "dawn"
+                     */}
+                    <Environment preset="studio" />
 
-                    {/* Luz principal vindo de cima e da direita (cria o brilho forte) */}
-                    <directionalLight position={[10, 10, 5]} intensity={350} castShadow />
+                    {/*
+                     * Iluminação 3-pontos clássica com intensidades físicas (0-10):
+                     *
+                     * KEY LIGHT — luz principal, vem de cima/direita/frente
+                     * Cria o brilho dominante e define a forma do cilindro
+                     */}
+                    <directionalLight
+                        position={[5, 8, 5]}
+                        intensity={3}
+                        castShadow
+                    />
 
-                    {/* Luz de preenchimento vindo da esquerda (evita sombras muito escuras) */}
-                    <directionalLight position={[-10, 5, -5]} intensity={25} />
+                    {/*
+                     * FILL LIGHT — preenchimento suave do lado oposto
+                     * Evita que a sombra fique preta demais, mantém detalhes visíveis
+                     */}
+                    <directionalLight
+                        position={[-4, 2, 3]}
+                        intensity={0.8}
+                    />
 
-                    {/* Ponto de luz frontal para dar aquele "pingo" de reflexo no meio do cilindro */}
-                    <pointLight position={[0, 0, 5]} intensity={25} />
+                    {/*
+                     * RIM LIGHT — contraluz de separação
+                     * Destaca a silhueta do cilindro contra o fundo escuro do hero
+                     */}
+                    <directionalLight
+                        position={[-3, 5, -8]}
+                        intensity={1.2}
+                    />
 
-                    {/* Luz de preenchimento vindo de BAIXO para CIMA */}
-                    {/* X=0 (centro), Y=-10 (bem debaixo), Z=5 (ligeiramente para a frente para bater na face do cilindro) */}
-                    <directionalLight position={[0, -10, 5]} intensity={40} />
-
-                    {/* Luz principal vindo exatamente da FRENTE */}
-                    {/* X=0 (centro), Y=0 (altura do meio), Z=10 (10 metros à frente do cilindro, a apontar para ele) */}
-                    <directionalLight position={[0, 0, 10]} intensity={50} />
+                    {/*
+                     * Ambient mínimo — só para não ter preto absoluto nas sombras
+                     * Com Environment ativo, este valor pode ser bem baixo
+                     */}
+                    <ambientLight intensity={0.2} />
 
                     <Center>
                         <Model />
                     </Center>
-
-                    {/* Sombra de chão */}
-                    {/*<ContactShadows position={[0, -1.5, 0]} opacity={0.4} scale={15} blur={2.5} far={4} />*/}
                 </Suspense>
 
-                {/* 4. Ativei o enableZoom={true} para que você possa usar o scroll do mouse para ajustar o zoom como preferir */}
                 <OrbitControls
                     enableZoom={true}
-                    maxDistance={500} // Limite de zoom out
-                    minDistance={250}  // Limite de zoom in
+                    maxDistance={500}
+                    minDistance={250}
                     autoRotate
                     autoRotateSpeed={2}
                     makeDefault
                 />
             </Canvas>
+
+            <div
+                className={`
+                    pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2
+                    flex items-center gap-2.5
+                    bg-white/10 backdrop-blur-md border border-white/20
+                    px-4 py-2.5 rounded-full
+                    transition-all duration-700
+                    ${showHint ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+                `}
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="text-white animate-[spin_3s_linear_infinite]"
+                    style={{ animationDirection: "reverse" }}
+                >
+                    <path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M22 2l-4 8 4-2 2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-white text-xs font-medium tracking-wide select-none">
+                    {hints[lang] ?? hints.en}
+                </span>
+            </div>
         </div>
     );
 }

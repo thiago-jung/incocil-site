@@ -1,14 +1,11 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Globe } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 export default function LanguageSwitcher({ currentLang }: { currentLang: string }) {
     const pathname = usePathname();
 
-    // Função para gerar o link correto mantendo a rota atual
-    // Ex: /pt/produtos/cilindro -> /en/produtos/cilindro
     const redirectedPathname = (locale: string) => {
         if (!pathname) return "/";
         const segments = pathname.split("/");
@@ -30,13 +27,16 @@ export default function LanguageSwitcher({ currentLang }: { currentLang: string 
                     <Link
                         key={lang.code}
                         href={redirectedPathname(lang.code)}
+                        onClick={() => {
+                            if (!isActive) track.languageSwitch(currentLang, lang.code);
+                        }}
                         className={`
-              flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black transition-all duration-300
-              ${isActive
-                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "text-slate-200 hover:text-white hover:bg-white/10"
+                            flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[10px] font-black transition-all duration-300
+                            ${isActive
+                                ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                                : "text-slate-200 hover:text-white hover:bg-white/10"
                             }
-            `}
+                        `}
                     >
                         <span className="opacity-80">{lang.flag}</span>
                         {lang.label}
