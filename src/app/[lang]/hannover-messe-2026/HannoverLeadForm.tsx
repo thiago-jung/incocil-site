@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import { track } from "@/lib/analytics";
+import { sendEmailAction } from "@/actions/sendEmail";
 
 const STAND_INFO = "Hall 17, D52";
 const WHATSAPP = "555184468231"; // ← número móvel correto
@@ -22,14 +23,26 @@ export default function HannoverLeadForm() {
         // Rastreia como lead de alta qualidade (formulário + intenção de reunião)
         track.meetingSchedule("hannover-lead-form");
 
+        const emailData = {
+            nome: `${name} (Empresa: ${co})`, // Concatenamos para não perder a empresa
+            email: mail,
+            telefone: "Não informado no form da feira",
+            mensagem: need || "Solicitação de agendamento de reunião na feira.",
+            produto: `Agendamento - Hannover Messe 2026 (${STAND_INFO})`,
+        };
+
+        sendEmailAction(emailData).catch((error) => {
+            console.error("Erro ao enviar e-mail:", error);
+        });
+
         const msg =
             `Hello INCOCIL! 👋
-I would like to schedule a meeting at Hannover Messe 2026 (${STAND_INFO}).
+            I would like to schedule a meeting at Hannover Messe 2026 (${STAND_INFO}).
 
-*Name:* ${name}
-*Company:* ${co}
-*Email:* ${mail}
-*Our need:* ${need}`;
+            *Name:* ${name}
+            *Company:* ${co}
+            *Email:* ${mail}
+            *Our need:* ${need}`;
 
         const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
