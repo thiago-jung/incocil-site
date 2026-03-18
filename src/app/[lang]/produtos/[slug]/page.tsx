@@ -5,8 +5,11 @@ import Footer from "@/components/Footer";
 import ProductForm from "@/components/ProductForm";
 import { CheckCircle2 } from "lucide-react";
 import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
-import ProductImageGallery from "@/components/ProductImageGallery"; // IMPORTAÇÃO AQUI
+import ProductImageGallery from "@/components/ProductImageGallery";
+import ProductViewTracker from "@/components/ProductViewTracker";
 import { Metadata } from 'next';
+
+const BASE_URL = 'https://www.incocil.com';
 
 export async function generateMetadata({
     params
@@ -15,15 +18,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { lang, slug } = await params;
     const dict = await getDictionary(lang);
-
-    // Encontra o produto específico no dicionário
     const product = dict.services.find((s: any) => s.slug === slug);
 
     if (!product) {
         return { title: 'Produto não encontrado | INCOCIL' };
     }
 
-    const ogImage = product.image || "/images/og-main.jpg";
+    const ogImage = product.image
+        ? `${BASE_URL}${product.image}`
+        : `${BASE_URL}/images/og-main.jpg`;
 
     return {
         title: product.title,
@@ -31,12 +34,7 @@ export async function generateMetadata({
         openGraph: {
             title: `${product.title} | INCOCIL`,
             description: product.description,
-            images: [
-                {
-                    url: ogImage,
-                    alt: product.title,
-                }
-            ],
+            images: [{ url: ogImage, alt: product.title }],
             type: 'website',
         },
         twitter: {
@@ -53,23 +51,21 @@ export default async function PaginaProduto({
 }: {
     params: Promise<{ lang: 'pt' | 'en' | 'es', slug: string }>
 }) {
-    // 1. Resolve os parâmetros e o dicionário no Servidor (SEO)
     const { lang, slug } = await params;
     const dict = await getDictionary(lang);
-
-    // 2. Busca o produto
     const produto = dict.services.find((s: any) => s.slug === slug);
 
     if (!produto) notFound();
 
     const nome = produto.title.toUpperCase();
-
-    // 3. Junta a imagem principal e a galeria num único array
     const productImages = [produto.image, ...(produto.gallery || [])].filter(Boolean);
 
     return (
         <div className="bg-slate-50 min-h-screen">
             <Navbar lang={lang} dict={dict.navbar} />
+
+            {/* Tracking invisível — dispara view_item no GA4 ao carregar a página */}
+            <ProductViewTracker slug={slug} title={produto.title} />
 
             <div className="container mx-auto px-6 pt-32 pb-20">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
@@ -82,7 +78,6 @@ export default async function PaginaProduto({
                                 {nome}
                             </h1>
 
-                            {/* NOSSO NOVO COMPONENTE DE CARROSSEL */}
                             <ProductImageGallery images={productImages} alt={produto.title} />
 
                             <p className="text-xl text-slate-600 leading-relaxed">
@@ -90,7 +85,6 @@ export default async function PaginaProduto({
                             </p>
                         </div>
 
-                        {/* Vantagens Rápidas */}
                         {produto.features && (
                             <div className="grid grid-cols-1 gap-3">
                                 {produto.features.map((f: string, i: number) => (
@@ -102,7 +96,6 @@ export default async function PaginaProduto({
                             </div>
                         )}
 
-                        {/* COMPONENTE INTERATIVO (Client Side) */}
                         <ProductDetailsAccordion
                             produto={produto}
                             label={dict.ui?.view_details || "Detalhes de Fabricação e Aplicações"}
@@ -116,6 +109,7 @@ export default async function PaginaProduto({
                     </div>
                 </div>
             </div>
+
             <Footer dict={dict} lang={lang} />
         </div>
     );

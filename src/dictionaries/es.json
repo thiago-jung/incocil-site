@@ -171,6 +171,10 @@
     "cta_title": "¿Listo para elevar el nivel de su operación?",
     "cta_button": "Solicitar Presupuesto Técnico"
   },
+  "contact_page": {
+    "title": "¿Hablamos?",
+    "description": "Nuestro equipo técnico está listo para ayudarle con cualquier consulta sobre cilindros hidráulicos."
+  },
   "services": [
     {
       "title": "Cilindro Hidráulico Inox",
@@ -408,6 +412,10 @@
       "slug": "honing-services",
       "image": "/images/brunimento.jpg",
       "gallery": [
+        "/images/brunimento1.jpg",
+        "/images/brunimento2.jpg",
+        "/images/brunimento3.jpg",
+        "/images/brunimento4.jpg"
       ],
       "description": "Capacidad de ø 25,40 hasta ø 500mm con plazos reducidos.",
       "longDescription": "Proceso de mecanizado por abrasión de altísima precisión para garantizar la geometría y rugosidad perfecta en el interior de camisas de cilindros.",

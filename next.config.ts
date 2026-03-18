@@ -43,10 +43,6 @@ const nextConfig = {
     experimental: {
         optimizePackageImports: ['lucide-react', 'framer-motion'],
     },
-    // Garante que o build ignore erros de linting simples para não travar o deploy
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
 };
 
 module.exports = nextConfig;

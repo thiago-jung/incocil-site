@@ -27,12 +27,10 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
             produto: productName,
         };
 
-        // Dispara e-mail em background
         sendEmailAction(data).catch((error) => {
             console.error("Erro ao enviar e-mail:", error);
         });
 
-        // Tracking: registra o lead com produto e página
         const pagePath = typeof window !== "undefined" ? window.location.pathname : "produto";
         track.formSubmit(productName, pagePath);
 
@@ -57,7 +55,9 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
         return (
             <div className="bg-green-50 border border-green-200 p-8 rounded-2xl text-center animate-in fade-in zoom-in duration-300">
                 <CheckCircle className="mx-auto text-green-500 mb-4" size={48} />
-                <h3 className="text-xl font-bold text-green-900">{dict.form_success_title}</h3>
+                <h3 className="text-xl font-bold text-green-900">
+                    {dict.form_success_title}
+                </h3>
                 <p className="text-green-700">
                     {dict.form_success_desc} <span className="font-bold">{productName}</span>.
                 </p>
@@ -71,14 +71,22 @@ export default function ProductForm({ productName, dict }: ProductFormProps) {
         );
     }
 
+    // Verifica se é página de contato geral (não produto específico)
+    const isGeneralContact = productName === "Contato Geral"
+        || productName === "General Contact"
+        || productName === "Contacto General";
+
     return (
         <div className="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
             <h3 className="text-2xl font-bold text-slate-900 mb-2">
                 {dict.send_request || "Solicitar Orçamento"}
             </h3>
             <p className="text-slate-500 mb-6 text-sm">
-                {productName !== "Contato Geral" && productName !== "General Contact" ? (
-                    <>Interesse em: <span className="font-semibold text-blue-600">{productName}</span></>
+                {!isGeneralContact ? (
+                    <>
+                        {/* "Interesse em:" traduzido via dicionário */}
+                        {dict.whatsapp_interest}: <span className="font-semibold text-blue-600">{productName}</span>
+                    </>
                 ) : (
                     dict.form_placeholder_sub || "Preencha os campos abaixo"
                 )}

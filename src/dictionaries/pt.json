@@ -171,7 +171,10 @@
     "cta_title": "Pronto para elevar o nível da sua operação?",
     "cta_button": "Solicitar Orçamento Técnico"
   },
-
+  "contact_page": {
+    "title": "Vamos conversar?",
+    "description": "Nossa equipe técnica está pronta para auxiliar com qualquer dúvida sobre cilindros hidráulicos."
+  },
 
   "services": [
     {
@@ -410,6 +413,10 @@
       "slug": "honing-services",
       "image": "/images/brunimento.jpg",
       "gallery": [
+        "/images/brunimento1.jpg",
+        "/images/brunimento2.jpg",
+        "/images/brunimento3.jpg",
+        "/images/brunimento4.jpg"
       ],
       "description": "Capacidade de ø 25,40 até ø 500mm com prazos reduzidos.",
       "longDescription": "Processo de usinagem por abrasão de altíssima precisão para garantir a geometria e rugosidade perfeita no interior de camisas de cilindros.",

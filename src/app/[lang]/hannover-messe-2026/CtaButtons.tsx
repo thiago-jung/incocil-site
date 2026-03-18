@@ -7,7 +7,8 @@ interface CtaButtonsProps {
 
 export default function CtaButtons({ standInfo = "Hannover Messe 2026" }: CtaButtonsProps) {
     const msg = `Hello! I met INCOCIL at Hannover Messe 2026 (${standInfo}) and would like more information.`;
-    const whatsappUrl = `https://wa.me/555132612205?text=${encodeURIComponent(msg)}`;
+    // Número do WhatsApp móvel — mesmo usado no restante do site
+    const whatsappUrl = `https://wa.me/555184468231?text=${encodeURIComponent(msg)}`;
 
     return (
         <div className="flex flex-col sm:flex-row gap-4 mt-2">

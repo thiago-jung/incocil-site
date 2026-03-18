@@ -171,7 +171,10 @@
     "cta_title": "Ready to elevate your operation?",
     "cta_button": "Request Technical Quote"
   },
-
+  "contact_page": {
+    "title": "Let's talk?",
+    "description": "Our technical team is ready to help with any questions about hydraulic cylinders."
+  },
 
 
   "services": [
@@ -416,6 +419,10 @@
       "slug": "honing-services",
       "image": "/images/brunimento.jpg",
       "gallery": [
+        "/images/brunimento1.jpg",
+        "/images/brunimento2.jpg",
+        "/images/brunimento3.jpg",
+        "/images/brunimento4.jpg"
       ],
       "description": "Capability from ø 25.40 to ø 500mm with reduced lead times.",
       "longDescription": "Ultra-precision abrasive machining process to ensure perfect geometry and roughness inside cylinder barrels.",
