@@ -22,7 +22,10 @@ const STATIC_REDIRECTS: Record<string, string> = {
     '/about':       '/empresa',
     '/servicos':    '/#servicos',
     '/services':    '/#servicos',
-    '/contatos':    '/contato',   // variante sem acento
+    '/contatos':    '/contato',
+    // Listagem de produtos do WooCommerce (não existe no site novo)
+    '/produtos':    '/#servicos',
+    '/products':    '/#servicos',
 };
 
 /**
@@ -95,10 +98,30 @@ const OLD_PRODUCT_PREFIXES = [
     '/product/',
     '/servico/',
     '/service/',
+    '/categoria-produto/',   // taxonomia do WooCommerce
+    '/product-category/',    // versão em inglês do WooCommerce
 ];
+
+/**
+ * Slugs de categoria do WooCommerce que não correspondem a um produto específico.
+ * Esses vão para /#servicos em vez de tentar casar com um produto.
+ */
+const CATEGORY_FALLBACKS = new Set([
+    'servicos',
+    'services',
+    'hidraulicos',
+    'hidraulico',
+    'hydraulic',
+    'pneumaticos',  // categoria genérica — o produto específico está no PRODUCT_SLUG_MAP
+    'todos',
+    'all',
+    'uncategorized',
+]);
 
 function resolveNewProductSlug(oldSlug: string): string | null {
     const normalized = oldSlug.toLowerCase().trim();
+    // Categoria genérica sem produto correspondente
+    if (CATEGORY_FALLBACKS.has(normalized)) return null;
     for (const [pattern, newSlug] of PRODUCT_SLUG_MAP) {
         if (normalized === pattern || normalized.startsWith(pattern)) {
             return newSlug;
@@ -118,9 +141,15 @@ function getLegacyRedirect(pathname: string, baseUrl: string): NextResponse | nu
     const pathWithoutLang = langMatch ? (langMatch[2] || '/') : pathname;
     const effectiveLang = lang || 'pt';
 
-    // 1. Páginas estáticas legadas
+    // 1. Páginas estáticas legadas (match exato ou sub-rota, mas nunca /produtos/slug-valido do site novo)
     for (const [oldPath, newPath] of Object.entries(STATIC_REDIRECTS)) {
-        if (pathWithoutLang === oldPath || pathWithoutLang.startsWith(oldPath + '/')) {
+        const isExact = pathWithoutLang === oldPath;
+        // Para /produtos e /products: só redireciona se for exato (sem slug).
+        // /produtos/stainless-steel-hydraulic-cylinder já existe no site novo → deixa passar.
+        const isSubRoute = pathWithoutLang.startsWith(oldPath + '/');
+        const isProductsListing = oldPath === '/produtos' || oldPath === '/products';
+
+        if (isExact || (isSubRoute && !isProductsListing)) {
             const dest = new URL(`/${effectiveLang}${newPath}`, baseUrl);
             return NextResponse.redirect(dest, { status: 301 });
         }
