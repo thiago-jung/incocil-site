@@ -73,7 +73,13 @@ export default async function RootLayout({
                 <FloatingElements lang={lang} />
 
                 {/*
-                 * Google Analytics 4 + Google Ads
+                 * Google Analytics 4 + Consent Mode v2
+                 *
+                 * O consent mode inicializa com analytics_storage: "denied".
+                 * O CookieBanner chama gtag("consent", "update", { analytics_storage: "granted" })
+                 * quando o utilizador aceita — o GA4 retro-processa os dados pendentes.
+                 *
+                 * Documentação: https://developers.google.com/tag-platform/security/guides/consent
                  */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307"
@@ -84,8 +90,16 @@ export default async function RootLayout({
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){window.dataLayer.push(arguments);}
                         window.gtag = gtag;
+
+                        // Consent Mode v2: começa negado por padrão (LGPD/GDPR)
+                        gtag('consent', 'default', {
+                            analytics_storage: 'denied',
+                            ad_storage: 'denied',
+                            wait_for_update: 500,
+                        });
+
                         gtag('js', new Date());
-                        gtag('config', 'G-EEQ1CRS307');
+                        gtag('config', 'G-EEQ1CRS307', { anonymize_ip: true });
                         gtag('config', 'AW-771734941');
                     `}
                 </Script>
