@@ -2,7 +2,6 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Script from "next/script";
 import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
 import FloatingElements from "@/components/FloatingElements";
@@ -70,39 +69,14 @@ export default async function RootLayout({
 
                 <Analytics />
                 <SpeedInsights />
-                <FloatingElements lang={lang} />
 
                 {/*
-                 * Google Analytics 4 + Consent Mode v2
-                 *
-                 * O consent mode inicializa com analytics_storage: "denied".
-                 * O CookieBanner chama gtag("consent", "update", { analytics_storage: "granted" })
-                 * quando o utilizador aceita — o GA4 retro-processa os dados pendentes.
-                 *
-                 * Documentação: https://developers.google.com/tag-platform/security/guides/consent
+                 * GA4 NÃO é carregado aqui.
+                 * O CookieBanner (dentro de FloatingElements) injeta o script
+                 * dinamicamente via enableAnalytics() apenas após o clique em
+                 * "Aceitar todos". Antes disso: zero requests para o Google.
                  */}
-                <Script
-                    src="https://www.googletagmanager.com/gtag/js?id=G-EEQ1CRS307"
-                    strategy="afterInteractive"
-                />
-                <Script id="google-analytics" strategy="afterInteractive">
-                    {`
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){window.dataLayer.push(arguments);}
-                        window.gtag = gtag;
-
-                        // Consent Mode v2: começa negado por padrão (LGPD/GDPR)
-                        gtag('consent', 'default', {
-                            analytics_storage: 'denied',
-                            ad_storage: 'denied',
-                            wait_for_update: 500,
-                        });
-
-                        gtag('js', new Date());
-                        gtag('config', 'G-EEQ1CRS307', { anonymize_ip: true });
-                        gtag('config', 'AW-771734941');
-                    `}
-                </Script>
+                <FloatingElements lang={lang} />
             </body>
         </html>
     );
