@@ -1,15 +1,19 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { useInView, motion, useSpring, useTransform } from "framer-motion";
-import { Factory, Users, ShieldCheck, Award } from "lucide-react";
+import { Factory, Users, ShieldCheck, Award, Globe, TrendingUp } from "lucide-react";
 
-// Mapeamento de ícones (visto que não podemos passar componentes pelo JSON)
 const iconMap: Record<string, any> = {
     factory: Factory,
     shield: ShieldCheck,
     users: Users,
-    award: Award
+    award: Award,
+    globe: Globe,
+    trending: TrendingUp,
 };
+
+// Ícones de fallback usados quando há duplicatas no JSON
+const FALLBACK_ORDER = ["factory", "shield", "award", "globe", "users", "trending"];
 
 interface CounterProps {
     value: number;
@@ -21,21 +25,14 @@ function Counter({ value, suffix = "", lang }: CounterProps) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
 
-    const springValue = useSpring(0, {
-        stiffness: 40,
-        damping: 20,
-        restDelta: 0.001
-    });
+    const springValue = useSpring(0, { stiffness: 40, damping: 20, restDelta: 0.001 });
 
-    // Formatação de número dinâmica baseada no lang
     const displayValue = useTransform(springValue, (latest) =>
-        Math.floor(latest).toLocaleString(lang === 'pt' ? 'pt-BR' : 'en-US')
+        Math.floor(latest).toLocaleString(lang === "pt" ? "pt-BR" : "en-US")
     );
 
     useEffect(() => {
-        if (isInView) {
-            springValue.set(value);
-        }
+        if (isInView) springValue.set(value);
     }, [isInView, springValue, value]);
 
     return (
@@ -46,24 +43,40 @@ function Counter({ value, suffix = "", lang }: CounterProps) {
 }
 
 interface StatsProps {
-    dict: any[]; // Espera o array de stats do dicionário
+    dict: any[];
     lang: string;
 }
 
 export default function Stats({ dict, lang }: StatsProps) {
     if (!dict) return null;
 
+    // Garante que nunca há dois ícones iguais — se o JSON tiver duplicatas,
+    // substitui pelo próximo disponível na lista de fallback
+    const usedKeys = new Set<string>();
+    const resolvedIcons = dict.map((stat: any) => {
+        let key: string = stat.iconKey;
+        if (usedKeys.has(key)) {
+            key = FALLBACK_ORDER.find((k) => !usedKeys.has(k)) ?? "award";
+        }
+        usedKeys.add(key);
+        return iconMap[key] || Award;
+    });
+
     return (
         <section className="py-20 bg-industrial-dark relative">
-            {/* Grid técnico de fundo */}
-            <div className="absolute inset-0 opacity-5 pointer-events-none"
-                style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+            <div
+                className="absolute inset-0 opacity-5 pointer-events-none"
+                style={{
+                    backgroundImage:
+                        "linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)",
+                    backgroundSize: "40px 40px",
+                }}
             />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
                     {dict.map((stat: any, i: number) => {
-                        const Icon = iconMap[stat.iconKey] || Award;
+                        const Icon = resolvedIcons[i];
 
                         return (
                             <motion.div

@@ -1,30 +1,15 @@
 @import "tailwindcss";
 
-/*@theme {
-    --color-industrial-blue: #1e40af;
-    --color-industrial-dark: #0f172a;
-    --color-industrial-accent: #facc15;*/
-
-    /* Fontes */
-    /*--font-sans: "Inter", ui-sans-serif, system-ui;
-    --font-display: "Montserrat", ui-sans-serif, system-ui;
-}*/
-
 @theme {
-    /* Trocamos o azul industrial por um verde profundo e confiável */
-    --color-industrial-blue: #15803d; /* green-700 */
-    --color-industrial-dark: #064e3b; /* emerald-950 - um fundo verde muito escuro */
-    --color-industrial-accent: #facc15; /* Mantemos o amarelo, que combina bem com verde */
-    /* "Truque" para o teste: redefinimos as variáveis de azul do Tailwind
-       para valores de verde. Assim, onde você usou 'bg-blue-600', ele ficará verde
-       automaticamente sem precisar mexer nos componentes. */
+    --color-industrial-blue: #15803d;
+    --color-industrial-dark: #064e3b;
+    --color-industrial-accent: #facc15;
     --color-blue-50: var(--color-emerald-50);
     --color-blue-300: var(--color-emerald-400);
     --color-blue-400: var(--color-emerald-500);
     --color-blue-500: var(--color-emerald-600);
     --color-blue-600: var(--color-emerald-700);
     --color-blue-700: var(--color-emerald-800);
-    /* Fontes */
     --font-sans: "Inter", ui-sans-serif, system-ui;
     --font-display: "Montserrat", ui-sans-serif, system-ui;
 }
@@ -36,14 +21,44 @@
 }
 
 body {
-    /* No v4, evite usar @apply direto no body se der erro, use propriedades normais ou classes no layout.tsx */
     background-color: #f8fafc;
     color: #0f172a;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom utility para os cards não ficarem simples */
+/*
+ * TIPOGRAFIA — Montserrat para todos os títulos
+ *
+ * A variável --font-montserrat é injetada via next/font em layout.tsx.
+ * Usar Montserrat nos headings cria um contraste visual forte com
+ * o Inter do corpo — hierarquia tipográfica clara e premium.
+ *
+ * Antes: Inter em tudo → visual genérico de "site feito com IA"
+ * Agora: Inter (corpo) + Montserrat (títulos) → identidade consistente
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), "Montserrat", ui-sans-serif, system-ui;
+    letter-spacing: -0.02em;
+}
+
+/*
+ * Scroll suave global — a navegação por âncoras (ex: /#servicos)
+ * agora desliza em vez de pular abruptamente
+ */
+html {
+    scroll-behavior: smooth;
+}
+
+/*
+ * Seleção de texto — cor da marca
+ */
+::selection {
+    background-color: #15803d;
+    color: #ffffff;
+}
+
+/* Card industrial (mantido do original) */
 .card-industrial {
     background: white;
     border: 1px solid #e2e8f0;
@@ -57,3 +72,13 @@ body {
         box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         transform: translateY(-4px);
     }
+
+/*
+ * Focus ring global acessível
+ * Garante que elementos interativos sejam visíveis para navegação por teclado
+ */
+:focus-visible {
+    outline: 2px solid #15803d;
+    outline-offset: 2px;
+    border-radius: 4px;
+}

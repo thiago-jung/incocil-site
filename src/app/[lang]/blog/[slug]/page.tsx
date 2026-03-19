@@ -5,68 +5,73 @@ import { getDictionary } from "@/get-dictionaries";
 import { notFound } from "next/navigation";
 import { Calendar, ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { Metadata } from 'next';
+import ReadingProgress from "@/components/ReadingProgress";
+import { Metadata } from "next";
+
+const BASE_URL = "https://www.incocil.com";
 
 export async function generateMetadata({
-    params
+    params,
 }: {
-    params: Promise<{ slug: string }>
+    params: Promise<{ slug: string; lang: "pt" | "en" | "es" }>;
 }): Promise<Metadata> {
-    const { slug } = await params;
-
-    // Encontra o post pelo slug
+    const { slug, lang } = await params;
     const post = BLOG_POSTS.find((p) => p.slug === slug);
 
-    if (!post) {
-        return { title: 'Artigo não encontrado | Blog INCOCIL' };
-    }
+    if (!post) return { title: "Artigo não encontrado | Blog INCOCIL" };
 
     return {
         title: post.title,
         description: post.excerpt,
+
+        // ─── hreflang para posts de blog ────────────────────────────
+        // Os slugs dos posts são os mesmos em todos os idiomas
+        // (o conteúdo é o mesmo vídeo/post com texto adaptado por idioma).
+        alternates: {
+            canonical: `${BASE_URL}/${lang}/blog/${slug}`,
+            languages: {
+                "pt-BR": `${BASE_URL}/pt/blog/${slug}`,
+                "en-US": `${BASE_URL}/en/blog/${slug}`,
+                "es-ES": `${BASE_URL}/es/blog/${slug}`,
+            },
+        },
+
         openGraph: {
             title: `${post.title} | Blog INCOCIL`,
             description: post.excerpt,
-            images: [
-                {
-                    url: post.image,
-                    alt: post.title,
-                }
-            ],
-            type: 'article',
-        }
+            images: [{ url: post.image, alt: post.title }],
+            type: "article",
+        },
     };
 }
 
-
 export default async function BlogPostPage({
-    params
+    params,
 }: {
-    params: Promise<{ lang: 'pt' | 'en' | 'es' , slug: string }>
+    params: Promise<{ lang: "pt" | "en" | "es"; slug: string }>;
 }) {
-    // 1. Resolvemos os parâmetros e buscamos o dicionário
     const { lang, slug } = await params;
     const dict = await getDictionary(lang);
-
-    // 2. Buscamos o post (Dica: se tiver posts diferentes por idioma, você pode filtrar aqui)
     const post = BLOG_POSTS.find((p) => p.slug === slug);
 
     if (!post) notFound();
 
     return (
         <>
-            {/* Passamos as props necessárias para a Navbar */}
+            {/* Barra de progresso de leitura */}
+            <ReadingProgress />
+
             <Navbar lang={lang} dict={dict.navbar} />
 
             <main className="min-h-screen bg-white pt-32 pb-20">
                 <article className="container mx-auto px-6 max-w-4xl">
 
-                    {/* Link com prefixo de idioma */}
                     <Link
                         href={`/${lang}/blog`}
                         className="inline-flex items-center gap-2 text-blue-600 font-bold mb-8 hover:-translate-x-2 transition-transform"
                     >
-                        <ChevronLeft size={20} /> {dict.ui?.back_to_blog || (lang === 'pt' ? "Voltar ao Blog" : "Back to Blog")}
+                        <ChevronLeft size={20} />
+                        {dict.ui?.back_to_blog || (lang === "pt" ? "Voltar ao Blog" : lang === "es" ? "Volver al Blog" : "Back to Blog")}
                     </Link>
 
                     <header className="mb-12">
@@ -84,7 +89,12 @@ export default async function BlogPostPage({
                         </h1>
 
                         <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-                            <img src={post.image} className="w-full h-full object-cover" alt={post.title} />
+                            {/* Alt text descritivo para SEO de imagem */}
+                            <img
+                                src={post.image}
+                                className="w-full h-full object-cover"
+                                alt={`${post.title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
+                            />
                         </div>
                     </header>
 
@@ -94,16 +104,17 @@ export default async function BlogPostPage({
                         </p>
 
                         <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-tight">
-                            {lang === 'pt' ? "Análise Técnica" : "Technical Analysis"}
+                            {lang === "pt" ? "Análise Técnica" : lang === "es" ? "Análisis Técnico" : "Technical Analysis"}
                         </h3>
 
                         <div className="mt-6">
-                            {/* Aqui você renderizaria o conteúdo real do post */}
                             {post.content || (
                                 <p>
-                                    {lang === 'pt'
+                                    {lang === "pt"
                                         ? "A engenharia por trás da fabricação de cilindros na Incocil segue normas rigorosas de tolerância..."
-                                        : "The engineering behind cylinder manufacturing at Incocil follows strict tolerance standards..."}
+                                        : lang === "es"
+                                            ? "La ingeniería detrás de la fabricación de cilindros en Incocil sigue normas rigurosas de tolerancia..."
+                                            : "The engineering behind cylinder manufacturing at Incocil follows strict tolerance standards..."}
                                 </p>
                             )}
                         </div>
@@ -111,7 +122,6 @@ export default async function BlogPostPage({
                 </article>
             </main>
 
-            {/* O Footer agora recebe o dicionário e o idioma, evitando o erro de undefined */}
             <Footer dict={dict} lang={lang} />
         </>
     );

@@ -12,6 +12,25 @@ interface HeroProps {
     lang: string;
 }
 
+// Estatísticas exibidas no mobile (onde o 3D é oculto)
+const mobileStats: Record<string, { val: string; label: string }[]> = {
+    pt: [
+        { val: "45+", label: "Anos" },
+        { val: "ø500mm", label: "Brunimento" },
+        { val: "7.000+", label: "Projetos" },
+    ],
+    en: [
+        { val: "45+", label: "Years" },
+        { val: "ø500mm", label: "Honing" },
+        { val: "7,000+", label: "Projects" },
+    ],
+    es: [
+        { val: "45+", label: "Años" },
+        { val: "ø500mm", label: "Bruñido" },
+        { val: "7.000+", label: "Proyectos" },
+    ],
+};
+
 export default function Hero({ dict, lang }: HeroProps) {
     const [isDesktop, setIsDesktop] = useState(false);
     const [loadHeavy3D, setLoadHeavy3D] = useState(false);
@@ -35,7 +54,6 @@ export default function Hero({ dict, lang }: HeroProps) {
         window.addEventListener("mousemove", trigger3D);
         window.addEventListener("touchstart", trigger3D);
         window.addEventListener("scroll", trigger3D);
-
         const timer = setTimeout(trigger3D, 10000);
 
         return () => {
@@ -47,17 +65,21 @@ export default function Hero({ dict, lang }: HeroProps) {
         };
     }, []);
 
+    const stats = mobileStats[lang] ?? mobileStats.pt;
+
     return (
         <section className="relative min-h-screen flex items-center bg-industrial-dark pt-20 overflow-hidden">
             <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[100px] rounded-full -mr-20 -mt-20" />
 
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
+
+                {/* Conteúdo textual */}
                 <div className="relative">
                     <span className="inline-block py-1 px-3 rounded-full bg-blue-600/20 text-blue-200 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-600/30">
                         {dict.subtitle}
                     </span>
 
-                    <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tighter">
+                    <h1 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tighter">
                         {dict.title.split(" ").slice(0, -1).join(" ")}{" "}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-500">
                             {dict.title.split(" ").pop()}
@@ -82,8 +104,33 @@ export default function Hero({ dict, lang }: HeroProps) {
                             </button>
                         </Link>
                     </div>
+
+                    {/*
+                     * MOBILE ONLY: estatísticas animadas.
+                     * No desktop o modelo 3D preenche este espaço.
+                     * No mobile o lado direito ficava vazio — agora exibe
+                     * 3 métricas-chave que reforçam credibilidade imediatamente.
+                     */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
+                        className="lg:hidden mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8"
+                    >
+                        {stats.map((s) => (
+                            <div key={s.val} className="text-center">
+                                <p className="text-3xl font-black text-blue-400 tracking-tighter leading-none">
+                                    {s.val}
+                                </p>
+                                <p className="text-[11px] text-slate-400 uppercase tracking-widest mt-1.5 font-semibold">
+                                    {s.label}
+                                </p>
+                            </div>
+                        ))}
+                    </motion.div>
                 </div>
 
+                {/* Modelo 3D — desktop only */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -94,7 +141,6 @@ export default function Hero({ dict, lang }: HeroProps) {
 
                     {isDesktop && (
                         loadHeavy3D ? (
-                            // lang passado para exibir o hint no idioma correto
                             <Cylinder3D lang={lang} />
                         ) : (
                             <div className="w-64 h-64 md:w-96 md:h-96 rounded-full bg-slate-800/50 animate-pulse flex items-center justify-center border border-white/10 z-10 relative">
