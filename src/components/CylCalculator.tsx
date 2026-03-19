@@ -62,6 +62,8 @@ const I18N = {
         labelFlow: "Vazão (a 100 mm/s)",
         labelWall: "Espessura mín. de parede",
         quoteFor: "Solicitar orçamento para:",
+        colStd: "Padrão",
+        colCustom: "Personalizado",
         ctaStd: "Padrão",
         ctaCustom: "Personalizado",
         cta: "Solicitar Orçamento via WhatsApp",
@@ -101,6 +103,8 @@ const I18N = {
         labelFlow: "Flow Rate (at 100 mm/s)",
         labelWall: "Min. wall thickness",
         quoteFor: "Request quote for:",
+        colStd: "Standard",
+        colCustom: "Custom",
         ctaStd: "Standard",
         ctaCustom: "Custom",
         cta: "Request Quote via WhatsApp",
@@ -140,6 +144,8 @@ const I18N = {
         labelFlow: "Caudal (a 100 mm/s)",
         labelWall: "Espesor mín. de pared",
         quoteFor: "Solicitar presupuesto para:",
+        colStd: "Estándar",
+        colCustom: "Personalizado",
         ctaStd: "Estándar",
         ctaCustom: "Personalizado",
         cta: "Solicitar Presupuesto vía WhatsApp",
@@ -308,6 +314,8 @@ interface MetricCardProps {
     label: string;
     extendLabel: string;
     retractLabel: string;
+    stdLabel: string; // <-- Adicionado
+    cusLabel: string; // <-- Adicionado
     stdExtend: string;
     stdRetract: string;
     cusExtend: string;
@@ -320,6 +328,7 @@ interface MetricCardProps {
 
 function MetricCard({
     icon, label, extendLabel, retractLabel,
+    stdLabel, cusLabel, // <-- Adicionado
     stdExtend, stdRetract, cusExtend, cusRetract,
     unitSelector, hasStd, hasCus, accentColor,
 }: MetricCardProps) {
@@ -347,7 +356,7 @@ function MetricCard({
                 <div className="grid grid-cols-3 gap-2 items-center py-2 border-t border-slate-50">
                     <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
-                        <span className="text-xs font-bold text-slate-500 truncate">STD</span>
+                        <span className="text-xs font-bold text-slate-500 leading-tight" title={stdLabel}>{stdLabel}</span>
                     </div>
                     <div className="text-center font-black text-slate-900 text-sm tabular-nums">
                         {hasStd ? stdExtend : <span className="text-slate-300">—</span>}
@@ -360,7 +369,7 @@ function MetricCard({
                 <div className="grid grid-cols-3 gap-2 items-center py-2 border-t border-slate-50">
                     <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-slate-400 shrink-0" />
-                        <span className="text-xs font-bold text-slate-500 truncate">CUST</span>
+                        <span className="text-xs font-bold text-slate-500 leading-tight" title={cusLabel}>{cusLabel}</span>
                     </div>
                     <div className="text-center font-black text-slate-900 text-sm tabular-nums">
                         {hasCus ? cusExtend : <span className="text-slate-300">—</span>}
@@ -557,6 +566,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                             label={t.labelForce}
                             extendLabel={t.labelExtend}
                             retractLabel={t.labelRetract}
+                            stdLabel={t.colStd} // <-- Adicionado
+                            cusLabel={t.colCustom} // <-- Adicionado
                             hasStd={!!rP} hasCus={!!rE}
                             stdExtend={rP ? fmtNum(toForce(rP.fAbrir, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
                             stdRetract={rP ? fmtNum(toForce(rP.fFechar, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
@@ -572,6 +583,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                             label={t.labelVolume}
                             extendLabel={t.labelExtend}
                             retractLabel={t.labelRetract}
+                            stdLabel={t.colStd} // <-- Adicionado
+                            cusLabel={t.colCustom} // <-- Adicionado
                             hasStd={!!rP} hasCus={!!rE}
                             stdExtend={rP ? fmtNum(toVol(rP.volAbrir, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
                             stdRetract={rP ? fmtNum(toVol(rP.volFechar, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
@@ -587,6 +600,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                             label={t.labelArea}
                             extendLabel={t.labelExtend}
                             retractLabel={t.labelRetract}
+                            stdLabel={t.colStd} // <-- Adicionado
+                            cusLabel={t.colCustom} // <-- Adicionado
                             hasStd={!!rP} hasCus={!!rE}
                             stdExtend={rP ? fmtNum(toArea(rP.areaAbrir, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
                             stdRetract={rP ? fmtNum(toArea(rP.areaFechar, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
@@ -602,6 +617,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                             label={t.labelFlow}
                             extendLabel={t.labelExtend}
                             retractLabel={t.labelRetract}
+                            stdLabel={t.colStd} // <-- Adicionado
+                            cusLabel={t.colCustom} // <-- Adicionado
                             hasStd={!!rP} hasCus={!!rE}
                             stdExtend={rP ? fmtNum(rP.vazaoAbrir, 1, lang) + " L/min" : "—"}
                             stdRetract={rP ? fmtNum(rP.vazaoFechar, 1, lang) + " L/min" : "—"}
@@ -622,8 +639,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                         <button
                             onClick={() => setQuoteType("padrao")}
                             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-sm transition-all ${quoteType === "padrao"
-                                    ? "border-emerald-600 bg-emerald-50 text-emerald-800"
-                                    : "border-slate-200 text-slate-500 hover:border-slate-300"
+                                ? "border-emerald-600 bg-emerald-50 text-emerald-800"
+                                : "border-slate-200 text-slate-500 hover:border-slate-300"
                                 }`}
                         >
                             <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
@@ -632,8 +649,8 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                         <button
                             onClick={() => setQuoteType("personalizado")}
                             className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-sm transition-all ${quoteType === "personalizado"
-                                    ? "border-slate-600 bg-slate-50 text-slate-800"
-                                    : "border-slate-200 text-slate-500 hover:border-slate-300"
+                                ? "border-slate-600 bg-slate-50 text-slate-800"
+                                : "border-slate-200 text-slate-500 hover:border-slate-300"
                                 }`}
                         >
                             <div className="w-2.5 h-2.5 rounded-full bg-slate-400" />
