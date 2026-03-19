@@ -17,6 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
+    // 2. Página da Hannover Messe 2026 (apenas em inglês — idioma da feira)
+    const hannoverRoute = {
+        url: `${baseUrl}/en/hannover-messe-2026`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.9,
+    };
+
     // 2. Rotas Dinâmicas de Produtos
     // Usamos o ptDict.services como base pois os slugs foram sincronizados
     const productRoutes = locales.flatMap((lang) =>
@@ -38,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
-    return [...staticRoutes, ...productRoutes, ...blogRoutes];
+    return [...staticRoutes, hannoverRoute, ...productRoutes, ...blogRoutes];
 }

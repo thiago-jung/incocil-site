@@ -3,6 +3,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Home, Settings, ArrowLeft } from "lucide-react";
 
+// not-found.tsx não recebe params, então não temos acesso ao `lang`.
+// Usamos /pt como fallback — o middleware de idioma redireciona
+// automaticamente o utilizador para o idioma correto a partir daí.
+const HOME_HREF = "/pt";
+const CONTACT_HREF = "/pt/contato";
+
 export default function NotFound() {
     return (
         <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 relative overflow-hidden">
@@ -36,14 +42,14 @@ export default function NotFound() {
 
                     <div className="flex flex-col gap-4">
                         <Link
-                            href="/"
+                            href={HOME_HREF}
                             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-500/25 active:scale-95"
                         >
                             <Home size={20} /> Return to Home / Voltar ao Início
                         </Link>
 
                         <Link
-                            href="/contato"
+                            href={CONTACT_HREF}
                             className="text-slate-500 hover:text-blue-600 font-bold flex items-center justify-center gap-2 transition-colors py-2"
                         >
                             <ArrowLeft size={18} /> Technical Support / Suporte Técnico
