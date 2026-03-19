@@ -368,36 +368,36 @@ Podem confirmar disponibilidade e enviar um orçamento?`;
             </p>
 
             {/* ── Fórmulas ── */}
-            <div className="bg-slate-900 rounded-2xl overflow-hidden">
-                <button
-                    onClick={() => setShowFormulas(s => !s)}
-                    className="w-full flex items-center justify-between px-5 py-4 text-slate-300 text-sm font-medium hover:text-white transition-colors"
-                >
-                    Ver fórmulas utilizadas
-                    {showFormulas ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                </button>
-                {showFormulas && (
-                    <div className="px-5 pb-5 font-mono text-xs text-slate-400 space-y-1.5 border-t border-slate-800 pt-4">
-                        <p className="text-slate-300 font-sans font-semibold text-sm mb-3">Cilindro Dupla Ação</p>
-                        <p>Ae [cm²]  = π × (D_tubo_cm / 2)²</p>
-                        <p>Af [cm²]  = π × ((D_tubo/2)² − (D_haste/2)²)</p>
-                        <p>Vol [cm³] = Área × Curso_cm  →  L = Vol / 1000</p>
-                        <p>F [kgf]   = Área_cm² × P_bar  (1 bar ≈ 1 kgf/cm²)</p>
-                        <div className="border-t border-slate-800 pt-3 mt-3">
-                            <p className="text-slate-300 font-sans mb-2">Parede Mínima — Lamé / DIN 2413</p>
-                            <p>Se = Lim_Esc [kgf/mm²] × 9.80665 / Coef_Seg  [N/mm²]</p>
-                            <p>p  = P_bar × 0.1  [N/mm²]</p>
-                            <p>t  = (D/2) × (√((Se+p)/(Se−p)) − 1)  [mm]</p>
-                        </div>
-                        {rM && rE && (
-                            <div className="border-t border-slate-800 pt-3 mt-3 text-slate-500 space-y-1">
-                                <p>Mestre  → Ae={fmtN(rM.areaAbrir)} · Af={fmtN(rM.areaFechar)} cm²</p>
-                                <p>Escravo → Ae={fmtN(rE.areaAbrir)} · Af={fmtN(rE.areaFechar)} cm²</p>
-                            </div>
-                        )}
-                    </div>
-                )}
-            </div>
+        {/*    <div className="bg-slate-900 rounded-2xl overflow-hidden">*/}
+        {/*        <button*/}
+        {/*            onClick={() => setShowFormulas(s => !s)}*/}
+        {/*            className="w-full flex items-center justify-between px-5 py-4 text-slate-300 text-sm font-medium hover:text-white transition-colors"*/}
+        {/*        >*/}
+        {/*            Ver fórmulas utilizadas*/}
+        {/*            {showFormulas ? <ChevronUp size={16} /> : <ChevronDown size={16} />}*/}
+        {/*        </button>*/}
+        {/*        {showFormulas && (*/}
+        {/*            <div className="px-5 pb-5 font-mono text-xs text-slate-400 space-y-1.5 border-t border-slate-800 pt-4">*/}
+        {/*                <p className="text-slate-300 font-sans font-semibold text-sm mb-3">Cilindro Dupla Ação</p>*/}
+        {/*                <p>Ae [cm²]  = π × (D_tubo_cm / 2)²</p>*/}
+        {/*                <p>Af [cm²]  = π × ((D_tubo/2)² − (D_haste/2)²)</p>*/}
+        {/*                <p>Vol [cm³] = Área × Curso_cm  →  L = Vol / 1000</p>*/}
+        {/*                <p>F [kgf]   = Área_cm² × P_bar  (1 bar ≈ 1 kgf/cm²)</p>*/}
+        {/*                <div className="border-t border-slate-800 pt-3 mt-3">*/}
+        {/*                    <p className="text-slate-300 font-sans mb-2">Parede Mínima — Lamé / DIN 2413</p>*/}
+        {/*                    <p>Se = Lim_Esc [kgf/mm²] × 9.80665 / Coef_Seg  [N/mm²]</p>*/}
+        {/*                    <p>p  = P_bar × 0.1  [N/mm²]</p>*/}
+        {/*                    <p>t  = (D/2) × (√((Se+p)/(Se−p)) − 1)  [mm]</p>*/}
+        {/*                </div>*/}
+        {/*                {rM && rE && (*/}
+        {/*                    <div className="border-t border-slate-800 pt-3 mt-3 text-slate-500 space-y-1">*/}
+        {/*                        <p>Mestre  → Ae={fmtN(rM.areaAbrir)} · Af={fmtN(rM.areaFechar)} cm²</p>*/}
+        {/*                        <p>Escravo → Ae={fmtN(rE.areaAbrir)} · Af={fmtN(rE.areaFechar)} cm²</p>*/}
+        {/*                    </div>*/}
+        {/*                )}*/}
+        {/*            </div>*/}
+        {/*        )}*/}
+        {/*    </div>*/}
         </div>
     );
 }
