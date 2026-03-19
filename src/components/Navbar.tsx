@@ -12,11 +12,6 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname(); // ← DEVE vir antes de qualquer return
 
-    if (!dict) {
-        console.warn("Navbar: 'dict' is undefined. Check if you passed it as a prop.");
-        return null;
-    }
-
     // Determina se um link está activo
     const isActive = (href: string): boolean => {
         // Anchor links (ex: /#servicos) nunca ficam activos como "produtos"
@@ -55,6 +50,13 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
         isScrolled || isOpen
             ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
             : "bg-transparent py-5";
+
+
+    if (!dict) {
+        console.warn("Navbar: 'dict' is undefined. Check if you passed it as a prop.");
+        return null;
+    }
+
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${navBackground}`}>

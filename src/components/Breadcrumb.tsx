@@ -1,21 +1,3 @@
-/**
- * Breadcrumb — Navegação em Migalhas de Pão com JSON-LD
- *
- * 🎯 Benefícios SEO:
- *   • BreadcrumbList schema → Google mostra o caminho no resultado de busca
- *   • Melhora UX em páginas profundas (produto, blog post)
- *   • Reduz taxa de rejeição em mobile (usuário sabe onde está)
- *
- * USO:
- *   <Breadcrumb
- *     lang="pt"
- *     items={[
- *       { label: "Produtos", href: "/pt/#servicos" },
- *       { label: "Cilindro Telescópico" },
- *     ]}
- *   />
- */
-
 import Link from "next/link";
 import { ChevronRight, Home } from "lucide-react";
 
@@ -32,13 +14,11 @@ interface BreadcrumbProps {
 }
 
 export default function Breadcrumb({ items, lang }: BreadcrumbProps) {
-    // Build the full list including Home
     const fullItems = [
         { label: lang === "en" ? "Home" : lang === "es" ? "Inicio" : "Início", href: `/${lang}` },
         ...items,
     ];
 
-    // JSON-LD BreadcrumbList
     const schema = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -46,7 +26,7 @@ export default function Breadcrumb({ items, lang }: BreadcrumbProps) {
             "@type": "ListItem",
             position: i + 1,
             name: item.label,
-            ...(item.href ? { item: `${BASE_URL}${item.href}` } : {}),
+            ...(item.href ? { item: `${BASE_URL}${item.href.split("#")[0] || "/"}` } : {}),
         })),
     };
 
@@ -63,17 +43,36 @@ export default function Breadcrumb({ items, lang }: BreadcrumbProps) {
             >
                 {fullItems.map((item, i) => {
                     const isLast = i === fullItems.length - 1;
+                    const isHash = item.href?.includes("#");
+
                     return (
                         <span key={i} className="flex items-center gap-1.5">
                             {i === 0 && <Home size={14} className="text-slate-400" aria-hidden />}
 
                             {item.href && !isLast ? (
-                                <Link
-                                    href={item.href}
-                                    className="hover:text-blue-600 transition-colors font-medium"
-                                >
-                                    {item.label}
-                                </Link>
+                                /*
+                                 * Hash links (ex: /#servicos) usam <a> nativo para forçar
+                                 * navegação full-page — garante que o elemento já esteja no
+                                 * DOM antes do browser tentar fazer o scroll.
+                                 *
+                                 * Links normais continuam usando Next.js <Link> para
+                                 * manter a navegação SPA e o prefetch.
+                                 */
+                                isHash ? (
+                                    <a
+                                        href={item.href}
+                                        className="hover:text-blue-600 transition-colors font-medium"
+                                    >
+                                        {item.label}
+                                    </a>
+                                ) : (
+                                    <Link
+                                        href={item.href}
+                                        className="hover:text-blue-600 transition-colors font-medium"
+                                    >
+                                        {item.label}
+                                    </Link>
+                                )
                             ) : (
                                 <span
                                     className={isLast ? "text-slate-900 font-bold" : "font-medium"}

@@ -1,13 +1,8 @@
 /**
  * ProductSchema — JSON-LD para páginas de produto
  *
- * Adiciona ao <head> de cada produto:
- *   - Product schema com ofertas
- *   - Review schema agregado
- *   - Breadcrumb schema
- *
- * Inclui na página de produto:
- *   <ProductSchema produto={produto} lang={lang} slug={slug} />
+ * NOTA: aggregateRating removido — dados fictícios são penalizados
+ * pelo Google. Reintegre apenas com dados reais de avaliações.
  */
 
 const BASE_URL = "https://www.incocil.com";
@@ -62,14 +57,7 @@ export default function ProductSchema({ produto, lang, slug }: ProductSchemaProp
             seller: { "@id": `${BASE_URL}/#organization` },
             areaServed: ["BR", "UY", "AR", "PY", "BO"],
         },
-        // Aggregate rating — update with real data as reviews accumulate
-        aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: "5",
-            reviewCount: "12",
-            bestRating: "5",
-            worstRating: "1",
-        },
+        // aggregateRating removido — só reintegre com dados reais vindos de um sistema de reviews
     };
 
     return (
