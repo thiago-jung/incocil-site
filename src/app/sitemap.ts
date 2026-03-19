@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const locales = ['pt', 'en', 'es'];
 
     // 1. Rotas Estáticas (Início, Empresa, Blog, Contato)
-    const staticPages = ['', '/empresa', '/blog', '/contato'];
+    const staticPages = ['', '/empresa', '/blog', '/contato', '/calculadora'];
     const staticRoutes = locales.flatMap((lang) =>
         staticPages.map((page) => ({
             url: `${baseUrl}/${lang}${page}`,
