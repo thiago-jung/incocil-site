@@ -1,11 +1,21 @@
 "use client";
 import { useState, useCallback } from "react";
-import { MessageCircle, Info, ChevronDown } from "lucide-react";
+import {
+    MessageCircle,
+    ChevronDown,
+    AlertTriangle,
+    Gauge,
+    Droplets,
+    Layers,
+    Wind,
+    ArrowRightLeft,
+    RotateCcw,
+} from "lucide-react";
+import { track } from "@/lib/analytics";
 
-// --- Analytics Mock ---
-const track = { whatsappClick: (a: string, b: string) => console.log(a, b) };
+// ─── Types ────────────────────────────────────────────────────────────────────
+type Lang = "pt" | "en" | "es";
 
-// ─── Tipos ───────────────────────────────────────────────────────────────────
 interface CylInput {
     tubo: string;
     haste: string;
@@ -20,393 +30,627 @@ interface CylResult {
     volFechar: number;
     fAbrir: number;
     fFechar: number;
+    vazaoAbrir: number;
+    vazaoFechar: number;
     paredeMin: number;
 }
 
-type UnitArea = "cm²" | "mm²" | "pol²";
-type UnitVol = "L" | "cm³";
-type UnitForce = "Kgf" | "N" | "lbf";
+type UnitForce = "Kgf" | "N" | "kN" | "lbf" | "tf";
+type UnitVol = "L" | "cm³" | "gal";
+type UnitArea = "cm²" | "mm²" | "in²";
 
-// ─── Listas de Medidas Padrão ────────────────────────────────────────────────
-const OPCOES_TUBO = ["25.4", "32", "40", "50", "50.8", "57.15", "63.5", "69.85", "70", "76.2", "80", "82.55", "88.9", "101.6", "114.3", "127", "139.7", "152.4", "165.1", "171.45", "203.2"];
-const OPCOES_HASTE = ["25.4", "8 inox", "15.87", "16 inox", "19.05", "20", "22.22", "30.16", "31.75", "35", "38.1", "40", "44.45", "45.8", "47.62", "49.2", "50", "50.8", "55", "57.15", "60", "63.5", "70", "76.2", "88.9", "101.6"];
-const OPCOES_CURSO = ["50", "100", "150", "200", "250", "300", "400", "500", "600", "800", "1000"];
-const OPCOES_PRESSAO = ["100", "160", "175", "180", "200", "210", "250", "315"];
+// ─── i18n ─────────────────────────────────────────────────────────────────────
+const I18N = {
+    pt: {
+        badge: "Ferramenta de Cálculo",
+        panelStd: "Cilindro Padrão",
+        panelCustom: "Cilindro Personalizado",
+        bore: "Ø Interno do Tubo",
+        rod: "Ø da Haste",
+        stroke: "Curso",
+        pressure: "Pressão",
+        select: "Selecione",
+        errRod: "A haste deve ser menor que o tubo",
+        errRequired: "Campo obrigatório",
+        resultsTitle: "Resultados Comparativos",
+        noResults: "Preencha os campos acima para ver os resultados",
+        labelForce: "Força",
+        labelExtend: "Extensão",
+        labelRetract: "Retração",
+        labelVolume: "Volume de Óleo",
+        labelArea: "Área Efetiva",
+        labelFlow: "Vazão (a 100 mm/s)",
+        labelWall: "Espessura mín. de parede",
+        quoteFor: "Solicitar orçamento para:",
+        ctaStd: "Padrão",
+        ctaCustom: "Personalizado",
+        cta: "Solicitar Orçamento via WhatsApp",
+        resetLabel: "Limpar",
+        disclaimer: "Valores calculados para fins de dimensionamento preliminar.",
+        waGreeting: "Olá INCOCIL! Calculei as especificações abaixo e gostaria de um orçamento:\n\n",
+        waType: {
+            padrao: "CILINDRO PADRÃO",
+            personalizado: "CILINDRO PERSONALIZADO",
+        },
+        waBore: "ø Tubo",
+        waRod: "ø Haste",
+        waStroke: "Curso",
+        waPressure: "Pressão",
+        waResults: "Resultados",
+        waFExtend: "Força Extensão",
+        waFRetract: "Força Retração",
+    },
+    en: {
+        badge: "Calculation Tool",
+        panelStd: "Standard Cylinder",
+        panelCustom: "Custom Cylinder",
+        bore: "Bore Diameter",
+        rod: "Rod Diameter",
+        stroke: "Stroke",
+        pressure: "Pressure",
+        select: "Select",
+        errRod: "Rod must be smaller than bore",
+        errRequired: "Required field",
+        resultsTitle: "Comparison Results",
+        noResults: "Fill in the fields above to see results",
+        labelForce: "Force",
+        labelExtend: "Extension",
+        labelRetract: "Retraction",
+        labelVolume: "Oil Volume",
+        labelArea: "Effective Area",
+        labelFlow: "Flow Rate (at 100 mm/s)",
+        labelWall: "Min. wall thickness",
+        quoteFor: "Request quote for:",
+        ctaStd: "Standard",
+        ctaCustom: "Custom",
+        cta: "Request Quote via WhatsApp",
+        resetLabel: "Reset",
+        disclaimer: "Values calculated for preliminary sizing purposes.",
+        waGreeting: "Hello INCOCIL! I calculated the specs below and would like a quote:\n\n",
+        waType: {
+            padrao: "STANDARD CYLINDER",
+            personalizado: "CUSTOM CYLINDER",
+        },
+        waBore: "Bore",
+        waRod: "Rod",
+        waStroke: "Stroke",
+        waPressure: "Pressure",
+        waResults: "Results",
+        waFExtend: "Extension Force",
+        waFRetract: "Retraction Force",
+    },
+    es: {
+        badge: "Herramienta de Cálculo",
+        panelStd: "Cilindro Estándar",
+        panelCustom: "Cilindro Personalizado",
+        bore: "Ø Interior del Tubo",
+        rod: "Ø del Vástago",
+        stroke: "Carrera",
+        pressure: "Presión",
+        select: "Seleccione",
+        errRod: "El vástago debe ser menor que el tubo",
+        errRequired: "Campo requerido",
+        resultsTitle: "Resultados Comparativos",
+        noResults: "Complete los campos para ver los resultados",
+        labelForce: "Fuerza",
+        labelExtend: "Extensión",
+        labelRetract: "Retracción",
+        labelVolume: "Volumen de Aceite",
+        labelArea: "Área Efectiva",
+        labelFlow: "Caudal (a 100 mm/s)",
+        labelWall: "Espesor mín. de pared",
+        quoteFor: "Solicitar presupuesto para:",
+        ctaStd: "Estándar",
+        ctaCustom: "Personalizado",
+        cta: "Solicitar Presupuesto vía WhatsApp",
+        resetLabel: "Limpiar",
+        disclaimer: "Valores calculados para dimensionamiento preliminar.",
+        waGreeting: "¡Hola INCOCIL! Calculé las especificaciones y me gustaría un presupuesto:\n\n",
+        waType: {
+            padrao: "CILINDRO ESTÁNDAR",
+            personalizado: "CILINDRO PERSONALIZADO",
+        },
+        waBore: "Ø Tubo",
+        waRod: "Ø Vástago",
+        waStroke: "Carrera",
+        waPressure: "Presión",
+        waResults: "Resultados",
+        waFExtend: "Fuerza de Extensión",
+        waFRetract: "Fuerza de Retracción",
+    },
+} as const;
 
-// ─── Fórmulas e Conversões ───────────────────────────────────────────────────
+// ─── Standard dimension lists ─────────────────────────────────────────────────
+const OPTS_TUBO = ["25.4", "32", "40", "50", "50.8", "57.15", "63.5", "69.85", "70", "76.2", "80", "82.55", "88.9", "101.6", "114.3", "127", "139.7", "152.4", "165.1", "171.45", "203.2"];
+const OPTS_HASTE = ["8 inox", "15.87", "16 inox", "19.05", "20", "22.22", "25.4", "30.16", "31.75", "35", "38.1", "40", "44.45", "45.8", "47.62", "49.2", "50", "50.8", "55", "57.15", "60", "63.5", "70", "76.2", "88.9", "101.6"];
+const OPTS_CURSO = ["50", "100", "150", "200", "250", "300", "400", "500", "600", "800", "1000", "1200", "1500", "2000"];
+const OPTS_PRESSAO = ["100", "140", "160", "175", "180", "200", "210", "250", "315", "350"];
 
-function parse(s: string): number {
-    if (!s) return 0;
-    const clean = s.replace(",", ".");
-    return parseFloat(clean) || 0; // Garante que não retorne NaN solto na string "inox" se falhar
-}
-
-// Pequeno ajuste para ignorar a palavra "inox" no cálculo da Haste
-function parseHaste(s: string): number {
-    if (!s) return 0;
-    const clean = s.replace(" inox", "").replace(",", ".");
+// ─── Math ──────────────────────────────────────────────────────────────────────
+function parseNum(s: string): number {
+    const clean = s.replace(",", ".").replace(/[^\d.]/g, "");
     return parseFloat(clean) || 0;
 }
 
-function calcular(
-    tuboMm: number, hasteMm: number, cursoMm: number, pressaoBar: number,
-    coefSeg: number, limEsc: number
-): CylResult {
-    const D = tuboMm / 10;
-    const d = hasteMm / 10;
-    const L = cursoMm / 10;
-    const P = pressaoBar;
+function calcular(tubo: number, haste: number, curso: number, pressao: number): CylResult {
+    const D = tubo / 10;  // cm
+    const d = haste / 10;
+    const L = curso / 10;
+    const P = pressao;
 
     const areaAbrir = Math.PI * Math.pow(D / 2, 2);
     const areaFechar = Math.PI * (Math.pow(D / 2, 2) - Math.pow(d / 2, 2));
 
-    const volAbrirCm3 = areaAbrir * L;
-    const volFecharCm3 = areaFechar * L;
+    const volAbrir = (areaAbrir * L) / 1000; // L
+    const volFechar = (areaFechar * L) / 1000;
 
-    const Se = (limEsc * 9.80665) / coefSeg;
+    const fAbrir = areaAbrir * P; // Kgf
+    const fFechar = areaFechar * P;
+
+    // Flow at 100 mm/s = 10 cm/s
+    const vazaoAbrir = (areaAbrir * 10 * 60) / 1000; // L/min
+    const vazaoFechar = (areaFechar * 10 * 60) / 1000;
+
+    // Min wall (Lamé, CS=3, σ_y=50 kgf/mm²)
+    const Se = (50 * 9.80665) / 3;
     const p = P * 0.1;
-    const paredeMin = Se > p ? (tuboMm / 2) * (Math.sqrt((Se + p) / (Se - p)) - 1) : NaN;
+    const paredeMin = Se > p ? (tubo / 2) * (Math.sqrt((Se + p) / (Se - p)) - 1) : NaN;
 
-    return {
-        areaAbrir,
-        areaFechar,
-        volAbrir: volAbrirCm3 / 1000,
-        volFechar: volFecharCm3 / 1000,
-        fAbrir: areaAbrir * P,
-        fFechar: areaFechar * P,
-        paredeMin,
-    };
+    return { areaAbrir, areaFechar, volAbrir, volFechar, fAbrir, fFechar, vazaoAbrir, vazaoFechar, paredeMin };
 }
 
-const convArea = (valCm2: number, unit: UnitArea) => {
-    if (unit === "mm²") return valCm2 * 100;
-    if (unit === "pol²") return valCm2 / 6.4516;
-    return valCm2;
-};
+// ─── Unit converters ──────────────────────────────────────────────────────────
+const toArea = (v: number, u: UnitArea): number => u === "mm²" ? v * 100 : u === "in²" ? v / 6.4516 : v;
+const toVol = (v: number, u: UnitVol): number => u === "cm³" ? v * 1000 : u === "gal" ? v * 0.264172 : v;
+const toForce = (v: number, u: UnitForce): number => u === "N" ? v * 9.80665 : u === "kN" ? (v * 9.80665) / 1000 : u === "lbf" ? v * 2.20462 : u === "tf" ? v / 1000 : v;
 
-const convVol = (valL: number, unit: UnitVol) => {
-    if (unit === "cm³") return valL * 1000;
-    return valL;
-};
+// ─── Formatting ────────────────────────────────────────────────────────────────
+function fmtNum(v: number, dec: number, lang: Lang): string {
+    if (!isFinite(v) || isNaN(v)) return "—";
+    const locale = lang === "pt" ? "pt-BR" : lang === "es" ? "es-ES" : "en-US";
+    return v.toLocaleString(locale, { minimumFractionDigits: dec, maximumFractionDigits: dec });
+}
+function fmtInt(v: number, lang: Lang): string {
+    if (!isFinite(v) || isNaN(v)) return "—";
+    const locale = lang === "pt" ? "pt-BR" : lang === "es" ? "es-ES" : "en-US";
+    return Math.round(v).toLocaleString(locale);
+}
 
-const convForce = (valKgf: number, unit: UnitForce) => {
-    if (unit === "N") return valKgf * 9.80665;
-    if (unit === "lbf") return valKgf * 2.20462;
-    return valKgf;
-};
+// ─── Initial values ────────────────────────────────────────────────────────────
+const INIT_P: CylInput = { tubo: "50.8", haste: "25.4", curso: "200", pressao: "180" };
+const INIT_E: CylInput = { tubo: "50", haste: "30", curso: "300", pressao: "200" };
 
-// ─── Formatação ──────────────────────────────────────────────────────────────
-const fmtN = (v: number, dec = 2) => isNaN(v) || !isFinite(v) ? "—" : v.toLocaleString("pt-BR", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-const fmtInt = (v: number) => isNaN(v) || !isFinite(v) ? "—" : Math.round(v).toLocaleString("pt-BR");
-
-// ─── Sub-componentes de UI ───────────────────────────────────────────────────
-
-interface FieldProps {
+// ─── Reusable Select Field ─────────────────────────────────────────────────────
+interface SelectFieldProps {
     label: string;
-    subLabel?: string;
     unit: string;
     value: string;
-    colorTheme: "green" | "slate";
-    error?: string; // NOVO PROP PARA ERRO
+    options: string[];
+    placeholder: string;
+    error?: string;
+    colorClass: string;
     onChange: (v: string) => void;
 }
 
-// Campo de Texto Livre (Usado no Personalizado)
-function Field({ label, subLabel, unit, value, colorTheme, error, onChange }: FieldProps) {
+function SelectField({ label, unit, value, options, placeholder, error, colorClass, onChange }: SelectFieldProps) {
     return (
-        <div className="mb-4 last:mb-0">
-            <div className="flex items-center gap-1.5 mb-1.5 pl-1">
-                <label className="text-sm font-bold text-slate-800">{label}</label>
-                {subLabel && <span className="text-sm font-bold text-slate-800">{subLabel}</span>}
-            </div>
-            <div className="relative">
-                <input
-                    type="text"
-                    inputMode="decimal"
-                    value={value}
-                    onChange={e => onChange(e.target.value)}
-                    onFocus={e => e.target.select()}
-                    className={`w-full text-right text-xl font-black tabular-nums border-2 rounded-xl pl-4 pr-12 py-3
-                    outline-none transition-all placeholder:text-slate-300
-                    ${error ? "border-red-400 focus:border-red-500 text-red-900 bg-red-50/50" :
-                            colorTheme === "green"
-                                ? "border-green-600/30 focus:border-green-700 text-green-900 bg-white"
-                                : "border-slate-300 focus:border-slate-600 text-slate-900 bg-white"
-                        }`}
-                    placeholder="0"
-                />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                    <span className="text-xs font-bold text-slate-300 bg-slate-50 px-1.5 py-0.5 rounded uppercase">{unit}</span>
-                </div>
-            </div>
-            {/* MENSAGEM DE ERRO */}
-            {error && <p className="text-xs text-red-500 font-bold mt-1.5 pl-1">{error}</p>}
-        </div>
-    );
-}
-
-interface SelectFieldProps extends FieldProps {
-    options: string[];
-}
-
-// Campo de Seleção Fechada (Usado no Padrão)
-function SelectField({ label, subLabel, unit, value, options, colorTheme, error, onChange }: SelectFieldProps) {
-    return (
-        <div className="mb-4 last:mb-0">
-            <div className="flex items-center gap-1.5 mb-1.5 pl-1">
-                <label className="text-sm font-bold text-slate-800">{label}</label>
-                {subLabel && <span className="text-sm font-bold text-slate-800">{subLabel}</span>}
+        <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">{label}</span>
+                <span className="text-[11px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">{unit}</span>
             </div>
             <div className="relative">
                 <select
                     value={value}
                     onChange={e => onChange(e.target.value)}
-                    className={`w-full text-right text-xl font-black tabular-nums border-2 rounded-xl pl-4 pr-[70px] py-3 appearance-none cursor-pointer
-                    outline-none transition-all
-                    ${error ? "border-red-400 focus:border-red-500 text-red-900 bg-red-50/50" :
-                            colorTheme === "green"
-                                ? "border-green-600/30 focus:border-green-700 text-green-900 bg-green-50/30"
-                                : "border-slate-300 focus:border-slate-600 text-slate-900 bg-slate-50/30"
-                        }`}
+                    className={`
+            w-full appearance-none bg-white border-2 rounded-xl px-4 py-3 pr-10
+            font-bold text-lg text-slate-900 outline-none transition-all cursor-pointer
+            ${error ? "border-red-300 bg-red-50/30" : `border-slate-200 hover:border-slate-300 ${colorClass}`}
+          `}
                 >
-                    <option value="" disabled>Selecione</option>
-                    {options.map(opt => (
-                        <option key={opt} value={opt}>{opt}</option>
-                    ))}
+                    <option value="" disabled>{placeholder}</option>
+                    {options.map(o => <option key={o} value={o}>{o}</option>)}
                 </select>
-
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-1.5">
-                    <span className="text-xs font-bold text-slate-400 bg-white/80 px-1.5 py-0.5 rounded uppercase">{unit}</span>
-                    <ChevronDown size={18} className={error ? "text-red-400" : colorTheme === "green" ? "text-green-600" : "text-slate-400"} />
-                </div>
+                <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
-            {/* MENSAGEM DE ERRO */}
-            {error && <p className="text-xs text-red-500 font-bold mt-1.5 pl-1">{error}</p>}
+            {error && (
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-red-500">
+                    <AlertTriangle size={12} strokeWidth={2.5} /> {error}
+                </p>
+            )}
         </div>
     );
 }
 
-// ─── Estado Inicial ───────────────────────────────────────────────────────────
-const INIT_P: CylInput = { tubo: "50.8", haste: "25.4", curso: "200", pressao: "180" };
-const INIT_E: CylInput = { tubo: "50", haste: "30", curso: "300", pressao: "200" };
+// ─── Text Field ────────────────────────────────────────────────────────────────
+interface TextFieldProps {
+    label: string;
+    unit: string;
+    value: string;
+    error?: string;
+    colorClass: string;
+    onChange: (v: string) => void;
+}
 
-// ─── Componente Principal ────────────────────────────────────────────────────
-export default function CylCalculator() {
+function TextField({ label, unit, value, error, colorClass, onChange }: TextFieldProps) {
+    return (
+        <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-widest">{label}</span>
+                <span className="text-[11px] font-semibold text-slate-400 bg-slate-100 px-2 py-0.5 rounded-md">{unit}</span>
+            </div>
+            <input
+                type="text"
+                inputMode="decimal"
+                value={value}
+                onChange={e => onChange(e.target.value)}
+                onFocus={e => e.target.select()}
+                placeholder="0"
+                className={`
+          w-full bg-white border-2 rounded-xl px-4 py-3
+          font-bold text-lg text-slate-900 outline-none transition-all
+          ${error ? "border-red-300 bg-red-50/30" : `border-slate-200 hover:border-slate-300 ${colorClass}`}
+        `}
+            />
+            {error && (
+                <p className="flex items-center gap-1.5 text-xs font-semibold text-red-500">
+                    <AlertTriangle size={12} strokeWidth={2.5} /> {error}
+                </p>
+            )}
+        </div>
+    );
+}
+
+// ─── Metric Result Card ────────────────────────────────────────────────────────
+interface MetricCardProps {
+    icon: React.ReactNode;
+    label: string;
+    extendLabel: string;
+    retractLabel: string;
+    stdExtend: string;
+    stdRetract: string;
+    cusExtend: string;
+    cusRetract: string;
+    unitSelector: React.ReactNode;
+    hasStd: boolean;
+    hasCus: boolean;
+    accentColor: string;
+}
+
+function MetricCard({
+    icon, label, extendLabel, retractLabel,
+    stdExtend, stdRetract, cusExtend, cusRetract,
+    unitSelector, hasStd, hasCus, accentColor,
+}: MetricCardProps) {
+    return (
+        <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+            {/* Header */}
+            <div className="flex items-center justify-between px-5 pt-4 pb-3 border-b border-slate-50">
+                <div className="flex items-center gap-2.5">
+                    <div className={`w-8 h-8 rounded-lg ${accentColor} flex items-center justify-center`}>
+                        {icon}
+                    </div>
+                    <span className="text-sm font-bold text-slate-700">{label}</span>
+                </div>
+                {unitSelector}
+            </div>
+
+            {/* Values grid */}
+            <div className="px-5 py-4">
+                <div className="grid grid-cols-3 gap-2 text-xs text-slate-400 font-semibold uppercase tracking-wider mb-2">
+                    <span></span>
+                    <span className="text-center">{extendLabel}</span>
+                    <span className="text-center">{retractLabel}</span>
+                </div>
+                {/* Standard row */}
+                <div className="grid grid-cols-3 gap-2 items-center py-2 border-t border-slate-50">
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 shrink-0" />
+                        <span className="text-xs font-bold text-slate-500 truncate">STD</span>
+                    </div>
+                    <div className="text-center font-black text-slate-900 text-sm tabular-nums">
+                        {hasStd ? stdExtend : <span className="text-slate-300">—</span>}
+                    </div>
+                    <div className="text-center font-black text-slate-900 text-sm tabular-nums">
+                        {hasStd ? stdRetract : <span className="text-slate-300">—</span>}
+                    </div>
+                </div>
+                {/* Custom row */}
+                <div className="grid grid-cols-3 gap-2 items-center py-2 border-t border-slate-50">
+                    <div className="flex items-center gap-1.5">
+                        <div className="w-2.5 h-2.5 rounded-full bg-slate-400 shrink-0" />
+                        <span className="text-xs font-bold text-slate-500 truncate">CUST</span>
+                    </div>
+                    <div className="text-center font-black text-slate-900 text-sm tabular-nums">
+                        {hasCus ? cusExtend : <span className="text-slate-300">—</span>}
+                    </div>
+                    <div className="text-center font-black text-slate-900 text-sm tabular-nums">
+                        {hasCus ? cusRetract : <span className="text-slate-300">—</span>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// ─── Unit Selector ─────────────────────────────────────────────────────────────
+interface UnitSelectorProps<T extends string> {
+    value: T;
+    options: { v: T; label: string }[];
+    onChange: (v: T) => void;
+}
+function UnitSelector<T extends string>({ value, options, onChange }: UnitSelectorProps<T>) {
+    return (
+        <select
+            value={value}
+            onChange={e => onChange(e.target.value as T)}
+            className="text-xs font-bold text-slate-600 bg-slate-100 border-0 rounded-lg px-2 py-1 cursor-pointer outline-none hover:bg-slate-200 transition-colors"
+        >
+            {options.map(o => <option key={o.v} value={o.v}>{o.label}</option>)}
+        </select>
+    );
+}
+
+// ─── Main Component ────────────────────────────────────────────────────────────
+interface CylCalculatorProps {
+    lang?: Lang;
+}
+
+export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
+    const t = I18N[lang] ?? I18N.pt;
+
+    // Inputs
     const [P, setP] = useState<CylInput>(INIT_P);
     const [E, setE] = useState<CylInput>(INIT_E);
 
-    // Novo estado para controlar qual orçamento será enviado via WhatsApp
-    const [orcamentoSelecionado, setOrcamentoSelecionado] = useState<"padrao" | "personalizado">("padrao");
-
-    const coefSeg = 3;
-    const limEsc = 50;
-
-    const [uArea, setUArea] = useState<UnitArea>("cm²");
-    const [uVol, setUVol] = useState<UnitVol>("L");
+    // Units
     const [uForce, setUForce] = useState<UnitForce>("Kgf");
+    const [uVol, setUVol] = useState<UnitVol>("L");
+    const [uArea, setUArea] = useState<UnitArea>("cm²");
 
-    const updP = useCallback((key: keyof CylInput) => (v: string) => setP(prev => ({ ...prev, [key]: v })), []);
-    const updE = useCallback((key: keyof CylInput) => (v: string) => setE(prev => ({ ...prev, [key]: v })), []);
+    // Quote selection
+    const [quoteType, setQuoteType] = useState<"padrao" | "personalizado">("padrao");
 
-    // Extração dos valores numéricos (com função especial para Haste, para ignorar o "inox")
-    const pT = parse(P.tubo), pH = parseHaste(P.haste), pC = parse(P.curso), pP = parse(P.pressao);
-    const eT = parse(E.tubo), eH = parseHaste(E.haste), eC = parse(E.curso), eP = parse(E.pressao);
+    const updP = useCallback((k: keyof CylInput) => (v: string) => setP(p => ({ ...p, [k]: v })), []);
+    const updE = useCallback((k: keyof CylInput) => (v: string) => setE(e => ({ ...e, [k]: v })), []);
 
-    // Verificação de erro (Haste maior ou igual ao Tubo)
-    const errP = (pT > 0 && pH > 0 && pH >= pT) ? "A haste deve ser menor que o tubo." : undefined;
-    const errE = (eT > 0 && eH > 0 && eH >= eT) ? "A haste deve ser menor que o tubo." : undefined;
+    const pT = parseNum(P.tubo), pH = parseNum(P.haste), pC = parseNum(P.curso), pP_val = parseNum(P.pressao);
+    const eT = parseNum(E.tubo), eH = parseNum(E.haste), eC = parseNum(E.curso), eP_val = parseNum(E.pressao);
 
-    // Cálculo condicionado a ausência de erro
-    const rP = (!errP && pT > 0 && pH > 0 && pC > 0 && pP > 0) ? calcular(pT, pH, pC, pP, coefSeg, limEsc) : null;
-    const rE = (!errE && eT > 0 && eH > 0 && eC > 0 && eP > 0) ? calcular(eT, eH, eC, eP, coefSeg, limEsc) : null;
+    const errP = pT > 0 && pH > 0 && pH >= pT ? t.errRod : undefined;
+    const errE = eT > 0 && eH > 0 && eH >= eT ? t.errRod : undefined;
 
-    // Construtor da Mensagem dinâmica dependendo da Flag selecionada
-    const buildMsg = () => {
-        if (orcamentoSelecionado === "padrao") {
-            return `Olá INCOCIL! Calculei as especificações abaixo e gostaria de um orçamento:
+    const rP = !errP && pT > 0 && pH > 0 && pC > 0 && pP_val > 0 ? calcular(pT, pH, pC, pP_val) : null;
+    const rE = !errE && eT > 0 && eH > 0 && eC > 0 && eP_val > 0 ? calcular(eT, eH, eC, eP_val) : null;
 
-*CILINDRO PADRÃO*
-• ø Tubo: ${P.tubo} mm
-• ø Haste: ${P.haste} mm
-• Curso: ${P.curso} mm
-• Pressão: ${P.pressao} bar
+    const hasAny = rP || rE;
 
-*Resultados:*
-• Força Abrir: ${rP ? fmtInt(rP.fAbrir) : "—"} Kgf
-• Força Fechar: ${rP ? fmtInt(rP.fFechar) : "—"} Kgf`;
-        } else {
-            return `Olá INCOCIL! Calculei as especificações abaixo e gostaria de um orçamento:
+    // Build WhatsApp message
+    function buildMsg() {
+        const isStd = quoteType === "padrao";
+        const inp = isStd ? P : E;
+        const res = isStd ? rP : rE;
+        const typeLabel = isStd ? t.waType.padrao : t.waType.personalizado;
 
-*CILINDRO PERSONALIZADO*
-• ø Tubo: ${E.tubo} mm
-• ø Haste: ${E.haste} mm
-• Curso: ${E.curso} mm
-• Pressão: ${E.pressao} bar
+        return `${t.waGreeting}*${typeLabel}*\n• ${t.waBore}: ${inp.tubo} mm\n• ${t.waRod}: ${inp.haste} mm\n• ${t.waStroke}: ${inp.curso} mm\n• ${t.waPressure}: ${inp.pressao} bar\n\n*${t.waResults}:*\n• ${t.waFExtend}: ${res ? fmtInt(res.fAbrir, lang) : "—"} Kgf\n• ${t.waFRetract}: ${res ? fmtInt(res.fFechar, lang) : "—"} Kgf`;
+    }
 
-*Resultados:*
-• Força Abrir: ${rE ? fmtInt(rE.fAbrir) : "—"} Kgf
-• Força Fechar: ${rE ? fmtInt(rE.fFechar) : "—"} Kgf`;
-        }
-    };
-
-    const handleCTA = () => {
-        const d = orcamentoSelecionado === "padrao" ? P : E;
-        track.whatsappClick("calculadora", `${orcamentoSelecionado}:${d.tubo}mm`);
+    function handleCTA() {
+        const d = quoteType === "padrao" ? P : E;
+        track.whatsappClick("calculadora", `${quoteType}:${d.tubo}mm`);
         window.open(`https://wa.me/555184468231?text=${encodeURIComponent(buildMsg())}`, "_blank");
-    };
+    }
 
-    const dash = "—";
+    function handleReset() {
+        setP(INIT_P);
+        setE(INIT_E);
+    }
+
+    // ─── Metric card helpers ─────────────────────────────────────────────────────
+    const forceUnits: { v: UnitForce; label: string }[] = [
+        { v: "Kgf", label: "Kgf" }, { v: "N", label: "N" },
+        { v: "kN", label: "kN" }, { v: "lbf", label: "lbf" }, { v: "tf", label: "tf" },
+    ];
+    const volUnits: { v: UnitVol; label: string }[] = [
+        { v: "L", label: "L" }, { v: "cm³", label: "cm³" }, { v: "gal", label: "gal" },
+    ];
+    const areaUnits: { v: UnitArea; label: string }[] = [
+        { v: "cm²", label: "cm²" }, { v: "mm²", label: "mm²" }, { v: "in²", label: "in²" },
+    ];
+
+    const forceDecimals = uForce === "kN" ? 2 : uForce === "N" ? 0 : 0;
+    const volDecimals = uVol === "cm³" ? 0 : 3;
+    const areaDecimals = uArea === "mm²" ? 0 : 2;
 
     return (
-        <div className="space-y-6 max-w-4xl mx-auto font-sans p-4">
+        <div className="max-w-5xl mx-auto space-y-6 font-sans">
 
-            {/* ── PAINÉIS DE INPUT ── */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* ── INPUT PANELS ─────────────────────────────────────────────────────── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-                {/* PADRÃO */}
-                <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                    <div className="bg-[#117b4c] px-5 py-4 text-center">
-                        <span className="text-sm font-black text-white uppercase tracking-wider">CILINDRO (PADRÃO)</span>
+                {/* Standard — dropdowns */}
+                <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div className="flex items-center gap-3 px-5 py-4 bg-emerald-700">
+                        <div className="w-2 h-2 rounded-full bg-emerald-300" />
+                        <span className="text-sm font-black text-white uppercase tracking-widest">{t.panelStd}</span>
                     </div>
-                    <div className="p-6">
-                        <SelectField label="ø Interno do Tubo" unit="mm" value={P.tubo} options={OPCOES_TUBO} colorTheme="green" onChange={updP("tubo")} />
-                        <SelectField label="ø Haste" unit="mm" value={P.haste} options={OPCOES_HASTE} colorTheme="green" error={errP} onChange={updP("haste")} />
-                        <SelectField label="Curso" unit="mm" value={P.curso} options={OPCOES_CURSO} colorTheme="green" onChange={updP("curso")} />
-                        <SelectField label="Pressão" unit="bar" value={P.pressao} options={OPCOES_PRESSAO} colorTheme="green" onChange={updP("pressao")} />
+                    <div className="p-5 space-y-4">
+                        <SelectField
+                            label={t.bore} unit="mm" value={P.tubo} options={OPTS_TUBO}
+                            placeholder={t.select} colorClass="focus:border-emerald-500"
+                            onChange={updP("tubo")}
+                        />
+                        <SelectField
+                            label={t.rod} unit="mm" value={P.haste} options={OPTS_HASTE}
+                            placeholder={t.select} colorClass="focus:border-emerald-500"
+                            error={errP} onChange={updP("haste")}
+                        />
+                        <SelectField
+                            label={t.stroke} unit="mm" value={P.curso} options={OPTS_CURSO}
+                            placeholder={t.select} colorClass="focus:border-emerald-500"
+                            onChange={updP("curso")}
+                        />
+                        <SelectField
+                            label={t.pressure} unit="bar" value={P.pressao} options={OPTS_PRESSAO}
+                            placeholder={t.select} colorClass="focus:border-emerald-500"
+                            onChange={updP("pressao")}
+                        />
                     </div>
                 </div>
 
-                {/* PERSONALIZADO */}
-                <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-                    <div className="bg-[#475569] px-5 py-4 text-center">
-                        <span className="text-sm font-black text-white uppercase tracking-wider">CILINDRO (PERSONALIZADO)</span>
+                {/* Custom — text inputs */}
+                <div className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden">
+                    <div className="flex items-center gap-3 px-5 py-4 bg-slate-700">
+                        <div className="w-2 h-2 rounded-full bg-slate-400" />
+                        <span className="text-sm font-black text-white uppercase tracking-widest">{t.panelCustom}</span>
                     </div>
-                    <div className="p-6">
-                        <Field label="ø Interno do Tubo" unit="mm" value={E.tubo} colorTheme="slate" onChange={updE("tubo")} />
-                        <Field label="ø Haste" unit="mm" value={E.haste} colorTheme="slate" error={errE} onChange={updE("haste")} />
-                        <Field label="Curso" unit="mm" value={E.curso} colorTheme="slate" onChange={updE("curso")} />
-                        <Field label="Pressão" unit="bar" value={E.pressao} colorTheme="slate" onChange={updE("pressao")} />
+                    <div className="p-5 space-y-4">
+                        <TextField
+                            label={t.bore} unit="mm" value={E.tubo}
+                            colorClass="focus:border-slate-500" onChange={updE("tubo")}
+                        />
+                        <TextField
+                            label={t.rod} unit="mm" value={E.haste}
+                            colorClass="focus:border-slate-500" error={errE} onChange={updE("haste")}
+                        />
+                        <TextField
+                            label={t.stroke} unit="mm" value={E.curso}
+                            colorClass="focus:border-slate-500" onChange={updE("curso")}
+                        />
+                        <TextField
+                            label={t.pressure} unit="bar" value={E.pressao}
+                            colorClass="focus:border-slate-500" onChange={updE("pressao")}
+                        />
                     </div>
                 </div>
             </div>
 
-            {/* ── RESULTADOS ── */}
-            <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-                <div className="grid grid-cols-[1fr_auto_auto] border-b border-slate-200">
-                    <div className="px-5 py-3 bg-slate-50 flex items-center">
-                        <span className="text-xs font-bold text-slate-500 uppercase tracking-widest">Comparativo</span>
+            {/* ── RESULTS ──────────────────────────────────────────────────────────── */}
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden">
+                {/* Results header */}
+                <div className="flex items-center justify-between px-5 py-4 border-b border-slate-200 bg-white">
+                    <div className="flex items-center gap-2.5">
+                        <ArrowRightLeft size={17} className="text-slate-500" />
+                        <span className="text-sm font-bold text-slate-700 uppercase tracking-wide">{t.resultsTitle}</span>
                     </div>
-                    <div className="w-40 px-5 py-3 bg-[#117b4c] text-center">
-                        <span className="text-xs font-black text-white uppercase tracking-widest">PADRÃO</span>
-                    </div>
-                    <div className="w-40 px-5 py-3 bg-[#475569] text-center">
-                        <span className="text-xs font-black text-white uppercase tracking-widest">PERSONALIZADO</span>
-                    </div>
+                    <button
+                        onClick={handleReset}
+                        className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-slate-600 transition-colors"
+                    >
+                        <RotateCcw size={13} /> {t.resetLabel}
+                    </button>
                 </div>
 
-                <table className="w-full">
-                    <tbody>
+                {!hasAny ? (
+                    <div className="flex flex-col items-center justify-center py-12 text-slate-400">
+                        <Gauge size={36} className="mb-3 opacity-30" />
+                        <p className="text-sm font-medium">{t.noResults}</p>
+                    </div>
+                ) : (
+                    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
 
-                        {/* FORÇA */}
-                        <tr className="border-b border-slate-100 bg-slate-50">
-                            <td className="py-4 pl-5 pr-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-bold text-slate-700">Força (Abrir / Fechar)</span>
-                                    <select value={uForce} onChange={e => setUForce(e.target.value as UnitForce)} className="text-xs font-bold bg-white border border-slate-200 rounded px-2 py-1 text-slate-700 cursor-pointer outline-none">
-                                        <option value="Kgf">Kgf</option>
-                                        <option value="N">Newtons (N)</option>
-                                        <option value="lbf">lbf</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-slate-900 text-sm">
-                                {rP ? `${fmtInt(convForce(rP.fAbrir, uForce))} / ${fmtInt(convForce(rP.fFechar, uForce))}` : dash}
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-slate-900 text-sm">
-                                {rE ? `${fmtInt(convForce(rE.fAbrir, uForce))} / ${fmtInt(convForce(rE.fFechar, uForce))}` : dash}
-                            </td>
-                        </tr>
+                        {/* Force */}
+                        <MetricCard
+                            icon={<Gauge size={15} className="text-emerald-600" />}
+                            accentColor="bg-emerald-50"
+                            label={t.labelForce}
+                            extendLabel={t.labelExtend}
+                            retractLabel={t.labelRetract}
+                            hasStd={!!rP} hasCus={!!rE}
+                            stdExtend={rP ? fmtNum(toForce(rP.fAbrir, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
+                            stdRetract={rP ? fmtNum(toForce(rP.fFechar, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
+                            cusExtend={rE ? fmtNum(toForce(rE.fAbrir, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
+                            cusRetract={rE ? fmtNum(toForce(rE.fFechar, uForce), forceDecimals, lang) + ` ${uForce}` : "—"}
+                            unitSelector={<UnitSelector value={uForce} options={forceUnits} onChange={setUForce} />}
+                        />
 
-                        {/* VOLUME */}
-                        <tr className="border-b border-slate-100 bg-blue-50/50">
-                            <td className="py-4 pl-5 pr-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-bold text-slate-700">Volume (Abrir / Fechar)</span>
-                                    <select value={uVol} onChange={e => setUVol(e.target.value as UnitVol)} className="text-xs font-bold bg-white border border-slate-200 rounded px-2 py-1 text-blue-700 cursor-pointer outline-none">
-                                        <option value="L">Litros (L)</option>
-                                        <option value="cm³">cm³</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-blue-700 text-sm">
-                                {rP ? `${fmtN(convVol(rP.volAbrir, uVol))} / ${fmtN(convVol(rP.volFechar, uVol))}` : dash}
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-blue-700 text-sm">
-                                {rE ? `${fmtN(convVol(rE.volAbrir, uVol))} / ${fmtN(convVol(rE.volFechar, uVol))}` : dash}
-                            </td>
-                        </tr>
+                        {/* Volume */}
+                        <MetricCard
+                            icon={<Droplets size={15} className="text-blue-500" />}
+                            accentColor="bg-blue-50"
+                            label={t.labelVolume}
+                            extendLabel={t.labelExtend}
+                            retractLabel={t.labelRetract}
+                            hasStd={!!rP} hasCus={!!rE}
+                            stdExtend={rP ? fmtNum(toVol(rP.volAbrir, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
+                            stdRetract={rP ? fmtNum(toVol(rP.volFechar, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
+                            cusExtend={rE ? fmtNum(toVol(rE.volAbrir, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
+                            cusRetract={rE ? fmtNum(toVol(rE.volFechar, uVol), volDecimals, lang) + ` ${uVol}` : "—"}
+                            unitSelector={<UnitSelector value={uVol} options={volUnits} onChange={setUVol} />}
+                        />
 
+                        {/* Area */}
+                        <MetricCard
+                            icon={<Layers size={15} className="text-violet-500" />}
+                            accentColor="bg-violet-50"
+                            label={t.labelArea}
+                            extendLabel={t.labelExtend}
+                            retractLabel={t.labelRetract}
+                            hasStd={!!rP} hasCus={!!rE}
+                            stdExtend={rP ? fmtNum(toArea(rP.areaAbrir, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
+                            stdRetract={rP ? fmtNum(toArea(rP.areaFechar, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
+                            cusExtend={rE ? fmtNum(toArea(rE.areaAbrir, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
+                            cusRetract={rE ? fmtNum(toArea(rE.areaFechar, uArea), areaDecimals, lang) + ` ${uArea}` : "—"}
+                            unitSelector={<UnitSelector value={uArea} options={areaUnits} onChange={setUArea} />}
+                        />
 
-                        {/* ÁREA */}
-                        <tr className="border-b border-slate-100 bg-emerald-50/50">
-                            <td className="py-4 pl-5 pr-3">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-sm font-bold text-slate-700">Área (Abrir / Fechar)</span>
-                                    <select value={uArea} onChange={e => setUArea(e.target.value as UnitArea)} className="text-xs font-bold bg-white border border-slate-200 rounded px-2 py-1 text-emerald-700 cursor-pointer outline-none">
-                                        <option value="cm²">cm²</option>
-                                        <option value="mm²">mm²</option>
-                                        <option value="pol²">pol²</option>
-                                    </select>
-                                </div>
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-emerald-700 text-sm">
-                                {rP ? `${fmtN(convArea(rP.areaAbrir, uArea))} / ${fmtN(convArea(rP.areaFechar, uArea))}` : dash}
-                            </td>
-                            <td className="py-4 px-5 text-right font-bold tabular-nums text-emerald-700 text-sm">
-                                {rE ? `${fmtN(convArea(rE.areaAbrir, uArea))} / ${fmtN(convArea(rE.areaFechar, uArea))}` : dash}
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                        {/* Flow Rate */}
+                        <MetricCard
+                            icon={<Wind size={15} className="text-amber-500" />}
+                            accentColor="bg-amber-50"
+                            label={t.labelFlow}
+                            extendLabel={t.labelExtend}
+                            retractLabel={t.labelRetract}
+                            hasStd={!!rP} hasCus={!!rE}
+                            stdExtend={rP ? fmtNum(rP.vazaoAbrir, 1, lang) + " L/min" : "—"}
+                            stdRetract={rP ? fmtNum(rP.vazaoFechar, 1, lang) + " L/min" : "—"}
+                            cusExtend={rE ? fmtNum(rE.vazaoAbrir, 1, lang) + " L/min" : "—"}
+                            cusRetract={rE ? fmtNum(rE.vazaoFechar, 1, lang) + " L/min" : "—"}
+                            unitSelector={<span className="text-xs text-slate-400 font-semibold">L/min</span>}
+                        />
+                    </div>
+                )}
             </div>
 
-            {/* ── SELETOR DE ORÇAMENTO E CTA ── */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-5">
+            {/* ── CTA SECTION ──────────────────────────────────────────────────────── */}
+            <div className="bg-white rounded-2xl border border-slate-100 shadow-sm p-5 space-y-4">
+                {/* Quote type selector */}
                 <div>
-                    <p className="text-sm font-bold text-slate-800 text-center mb-3">Qual configuração deseja solicitar no orçamento?</p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8">
-                        <label className="flex items-center justify-center gap-2 cursor-pointer bg-white border border-slate-200 px-4 py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition-colors">
-                            <input
-                                type="radio"
-                                name="orcamento"
-                                value="padrao"
-                                checked={orcamentoSelecionado === "padrao"}
-                                onChange={() => setOrcamentoSelecionado("padrao")}
-                                className="w-4 h-4 text-green-600 focus:ring-green-500 cursor-pointer"
-                            />
-                            <span className="text-sm font-bold text-slate-700">Cilindro Padrão</span>
-                        </label>
-                        <label className="flex items-center justify-center gap-2 cursor-pointer bg-white border border-slate-200 px-4 py-2.5 rounded-lg shadow-sm hover:bg-slate-50 transition-colors">
-                            <input
-                                type="radio"
-                                name="orcamento"
-                                value="personalizado"
-                                checked={orcamentoSelecionado === "personalizado"}
-                                onChange={() => setOrcamentoSelecionado("personalizado")}
-                                className="w-4 h-4 text-slate-600 focus:ring-slate-500 cursor-pointer"
-                            />
-                            <span className="text-sm font-bold text-slate-700">Cilindro Personalizado</span>
-                        </label>
+                    <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">{t.quoteFor}</p>
+                    <div className="flex gap-3">
+                        <button
+                            onClick={() => setQuoteType("padrao")}
+                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-sm transition-all ${quoteType === "padrao"
+                                    ? "border-emerald-600 bg-emerald-50 text-emerald-800"
+                                    : "border-slate-200 text-slate-500 hover:border-slate-300"
+                                }`}
+                        >
+                            <div className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                            {t.ctaStd}
+                        </button>
+                        <button
+                            onClick={() => setQuoteType("personalizado")}
+                            className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border-2 font-bold text-sm transition-all ${quoteType === "personalizado"
+                                    ? "border-slate-600 bg-slate-50 text-slate-800"
+                                    : "border-slate-200 text-slate-500 hover:border-slate-300"
+                                }`}
+                        >
+                            <div className="w-2.5 h-2.5 rounded-full bg-slate-400" />
+                            {t.ctaCustom}
+                        </button>
                     </div>
                 </div>
 
                 <button
                     onClick={handleCTA}
-                    className="w-full flex items-center justify-center gap-3 bg-green-600 hover:bg-green-500 active:scale-[0.99] text-white font-bold py-4 rounded-xl transition-all shadow-md text-base"
+                    className="w-full flex items-center justify-center gap-3 bg-emerald-700 hover:bg-emerald-600 active:scale-[0.99] text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-emerald-700/20 text-base"
                 >
                     <MessageCircle size={20} />
-                    Solicitar Orçamento via WhatsApp
+                    {t.cta}
                 </button>
+
+                <p className="text-center text-xs text-slate-400">{t.disclaimer}</p>
             </div>
         </div>
     );
