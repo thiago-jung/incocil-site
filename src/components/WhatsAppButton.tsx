@@ -2,23 +2,35 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { track } from "@/lib/analytics";
 
 const BASE_NUMBER = "555184468231";
-const DEFAULT_MSG = "Olá! Gostaria de mais informações sobre os cilindros hidráulicos da INCOCIL.";
 
-/**
- * WhatsAppButton — botão flutuante com mensagem contextual
- *
- * Funciona em conjunto com setWhatsAppContext() chamado em ProductViewTracker.
- * Quando o usuário está numa página de produto, a mensagem pré-preenchida
- * já menciona o produto específico — o vendedor sabe de imediato o interesse.
- *
- * Escuta o evento customizado "whatsapp:context" disparado por:
- *   src/lib/whatsapp-context.ts → setWhatsAppContext(productName)
- */
+const DEFAULT_MSG: Record<string, string> = {
+    pt: "Olá! Gostaria de mais informações sobre os cilindros hidráulicos da INCOCIL.",
+    en: "Hello! I'd like more information about INCOCIL hydraulic cylinders.",
+    es: "¡Hola! Me gustaría más información sobre los cilindros hidráulicos de INCOCIL.",
+};
+
+const PRODUCT_MSG: Record<string, (name: string) => string> = {
+    pt: (name) => `Olá! Tenho interesse no ${name} da INCOCIL. Podem me passar mais informações e um orçamento?`,
+    en: (name) => `Hello! I'm interested in the ${name} from INCOCIL. Could you share more information and a quote?`,
+    es: (name) => `¡Hola! Estoy interesado en el ${name} de INCOCIL. ¿Pueden enviarme más información y un presupuesto?`,
+};
+
+function detectLang(pathname: string | null): "pt" | "en" | "es" {
+    if (!pathname) return "pt";
+    const seg = pathname.split("/")[1];
+    if (seg === "en") return "en";
+    if (seg === "es") return "es";
+    return "pt";
+}
+
 export default function WhatsAppButton() {
     const [productContext, setProductContext] = useState<string>("");
+    const pathname = usePathname();
+    const lang = detectLang(pathname);
 
     useEffect(() => {
         const handler = (e: Event) => {
@@ -30,8 +42,8 @@ export default function WhatsAppButton() {
     }, []);
 
     const message = productContext
-        ? `Olá! Tenho interesse no ${productContext} da INCOCIL. Podem me passar mais informações e um orçamento?`
-        : DEFAULT_MSG;
+        ? PRODUCT_MSG[lang](productContext)
+        : DEFAULT_MSG[lang];
 
     const url = `https://wa.me/${BASE_NUMBER}?text=${encodeURIComponent(message)}`;
 
@@ -40,7 +52,7 @@ export default function WhatsAppButton() {
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Fale connosco pelo WhatsApp"
+            aria-label="Chat on WhatsApp"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             whileHover={{ scale: 1.1 }}

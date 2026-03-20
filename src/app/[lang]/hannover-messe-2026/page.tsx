@@ -9,7 +9,7 @@ import FinalCtaButtons from "./FinalCtaButtons";
 const STAND_INFO = "Hall 17, D52";
 const FAIR_DATE_START = "2026-04-22";
 const FAIR_DATE_END = "2026-04-25";
-const WHATSAPP = "555184468231"; // móvel — correto
+const WHATSAPP = "555184468231";
 
 export const metadata: Metadata = {
     title: "INCOCIL® | Hannover Messe 2026",
@@ -23,19 +23,67 @@ export const metadata: Metadata = {
 };
 
 const products = [
-    { slug: "stainless-steel-hydraulic-cylinder", name: "Stainless Steel Hydraulic Cylinders", description: "Maximum durability and corrosion resistance for aggressive environments.", icon: "⚙️" },
-    { slug: "telescopic-hydraulic-cylinder", name: "Telescopic Cylinders", description: "Compact design for long-stroke applications in confined spaces.", icon: "🔩" },
-    { slug: "master-slave-cylinder", name: "Master-Slave Systems", description: "High-precision synchronized systems for uniform heavy-load movement.", icon: "🔧" },
-    { slug: "cushioned-hydraulic-cylinder", name: "Cushioned Hydraulic Cylinders", description: "Adjustable dampening for smooth operations and extended equipment life.", icon: "🛡️" },
-    { slug: "single-and-double-acting-cylinder", name: "Single & Double Acting", description: "Versatile and robust for diverse industrial and agricultural applications.", icon: "⚡" },
-    { slug: "custom-cylinders", name: "Custom Cylinders", description: "Special projects engineered for severe and highly specific applications.", icon: "🏗️" },
+    {
+        slug: "stainless-steel-hydraulic-cylinder",
+        name: "Stainless Steel Cylinders",
+        description: "Maximum corrosion resistance for agriculture, food & chemical sectors.",
+        image: "/images/inox1.png",
+        specs: ["Pressure: up to 350 bar", "Ø: 25–500 mm", "Material: AISI 304/316"],
+    },
+    {
+        slug: "telescopic-hydraulic-cylinder",
+        name: "Telescopic Cylinders",
+        description: "Long stroke in compact closed length — 2 to 5 stages.",
+        image: "/images/Cilindros-hid3.jpg",
+        specs: ["Stages: 2–5", "Pressure: up to 250 bar", "Stroke: up to 4 000 mm"],
+    },
+    {
+        slug: "master-slave-cylinder",
+        name: "Master-Slave Systems",
+        description: "Millimetric synchronism between two or more actuators.",
+        image: "/images/master_slave1.jpeg",
+        specs: ["Sync: ±1 mm", "Pressure: up to 350 bar", "No external sensors"],
+    },
+    {
+        slug: "cushioned-hydraulic-cylinder",
+        name: "Cushioned Cylinders",
+        description: "Adjustable end-of-stroke dampening for smoother, longer-lasting operation.",
+        image: "/images/cil_amort.JPG",
+        specs: ["Cushioning: adjustable", "Uni or bilateral", "Pressure: up to 350 bar"],
+    },
+    {
+        slug: "single-and-double-acting-cylinder",
+        name: "Single & Double Acting",
+        description: "The industrial backbone — versatile for any sector.",
+        image: "/images/Cilindros-hid1.png",
+        specs: ["Pressure: up to 350 bar", "Ø: 25–500 mm", "H8 precision honing"],
+    },
+    {
+        slug: "custom-cylinders",
+        name: "Custom Cylinders",
+        description: "From sketch to delivery — engineered for your exact requirements.",
+        image: "/images/cil_custom1.jpeg",
+        specs: ["Any bore & stroke", "Any pressure rating", "3D drawing approval"],
+    },
 ];
 
 const differentials = [
-    { title: "High-Precision Honing", description: "Unique capability to process diameters up to 500mm, ensuring perfect roughness and absolute sealing under extreme conditions." },
-    { title: "Robotic Welding", description: "Absolute precision and superior resistance in every weld bead, ensuring repeatability and structural integrity." },
-    { title: "Custom Engineering", description: "We develop special cylinders tailored to your specific application needs — from concept to delivery." },
-    { title: "Extended Warranty", description: "Full recovery maintenance with the same warranty as a new cylinder, minimizing downtime and operational costs." },
+    {
+        title: "High-Precision Honing",
+        description: "Unique capability to process diameters up to 500mm, ensuring perfect roughness and absolute sealing under extreme conditions.",
+    },
+    {
+        title: "Robotic Welding",
+        description: "Absolute precision and superior resistance in every weld bead, ensuring repeatability and structural integrity.",
+    },
+    {
+        title: "Custom Engineering",
+        description: "We develop special cylinders tailored to your specific application needs — from concept to delivery.",
+    },
+    {
+        title: "Extended Warranty",
+        description: "Full recovery maintenance with the same warranty as a new cylinder, minimizing downtime and operational costs.",
+    },
 ];
 
 const sectors = [
@@ -45,6 +93,16 @@ const sectors = [
     { name: "Road / Heavy Duty", icon: "🏗️" },
     { name: "Industrial", icon: "🏭" },
     { name: "Food & Chemical", icon: "⚗️" },
+];
+
+// Certifications & standards
+const certifications = [
+    { label: "ISO 6020/6022", desc: "Hydraulic cylinders standard" },
+    { label: "DIN Materials", desc: "European steel grades" },
+    { label: "CE Ready", desc: "Export to EU / global markets" },
+    { label: "PATROL®", desc: "45+ yr registered trademark" },
+    { label: "In-house QC", desc: "100% pressure tested" },
+    { label: "Honing up to ø500mm", desc: "Unique Brazilian capacity" },
 ];
 
 function EventSchema() {
@@ -104,14 +162,26 @@ export default function HannoverMesse2026() {
                             Hannover Messe 2026 · {STAND_INFO}
                         </span>
 
-                        <Image
-                            src="/images/incocil.png"
-                            alt="INCOCIL"
-                            width={220}
-                            height={60}
-                            className="brightness-0 invert"
-                            priority
-                        />
+                        {/* Logos row — INCOCIL + Hannover Messe */}
+                        <div className="flex items-center gap-6 flex-wrap justify-center">
+                            <Image
+                                src="/images/incocil.png"
+                                alt="INCOCIL"
+                                width={200}
+                                height={55}
+                                className="brightness-0 invert"
+                                priority
+                            />
+                            <div className="w-px h-10 bg-white/20 hidden sm:block" />
+                            <Image
+                                src="/images/hannover-messe-2026.png"
+                                alt="Hannover Messe 2026"
+                                width={80}
+                                height={27}
+                                className="brightness-100"
+                                priority
+                            />
+                        </div>
 
                         <h1 className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight">
                             Built Under{" "}
@@ -178,7 +248,7 @@ export default function HannoverMesse2026() {
                     </div>
                 </section>
 
-                {/* ── PRODUCTS ── */}
+                {/* ── PRODUCTS — cards com imagem + specs ── */}
                 <section className="px-6 py-24 bg-neutral-800/40">
                     <div className="max-w-6xl mx-auto">
                         <div className="mb-14 text-center">
@@ -192,11 +262,37 @@ export default function HannoverMesse2026() {
                                     href={`https://www.incocil.com/en/produtos/${p.slug}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="group rounded-2xl border border-slate-700 bg-neutral-700/40 p-6 hover:border-green-500/50 hover:bg-neutral-800 transition-all"
+                                    className="group rounded-2xl border border-slate-700 bg-neutral-800 overflow-hidden hover:border-green-500/50 transition-all flex flex-col"
                                 >
-                                    <span className="text-3xl mb-4 block">{p.icon}</span>
-                                    <h3 className="text-lg font-bold mb-2 group-hover:text-green-500 transition-colors">{p.name}</h3>
-                                    <p className="text-sm text-slate-400 leading-relaxed">{p.description}</p>
+                                    {/* Product image */}
+                                    <div className="relative h-44 overflow-hidden bg-neutral-700">
+                                        <Image
+                                            src={p.image}
+                                            alt={p.name}
+                                            fill
+                                            className="object-cover opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="p-5 flex flex-col flex-1">
+                                        <h3 className="text-base font-bold mb-1 group-hover:text-green-400 transition-colors">{p.name}</h3>
+                                        <p className="text-sm text-slate-400 leading-relaxed mb-4 flex-1">{p.description}</p>
+
+                                        {/* Specs pills */}
+                                        <div className="flex flex-wrap gap-1.5">
+                                            {p.specs.map((spec) => (
+                                                <span
+                                                    key={spec}
+                                                    className="text-[10px] font-semibold text-green-400 bg-green-500/10 border border-green-500/20 px-2 py-0.5 rounded-full"
+                                                >
+                                                    {spec}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </a>
                             ))}
                         </div>
@@ -222,8 +318,50 @@ export default function HannoverMesse2026() {
                     </div>
                 </section>
 
-                {/* ── AGENDE UMA REUNIÃO ── */}
-                <section className="px-6 py-24 bg-neutral-800/40">
+                {/* ── CERTIFICATIONS & STANDARDS ── */}
+                <section className="px-6 py-20 bg-neutral-800/40">
+                    <div className="max-w-6xl mx-auto">
+                        <div className="mb-12 text-center">
+                            <p className="text-green-500 text-xs font-semibold tracking-widest uppercase mb-3">Standards & Quality</p>
+                            <h2 className="text-3xl md:text-4xl font-extrabold">Built to Global Standards</h2>
+                            <p className="text-slate-400 mt-3 max-w-xl mx-auto text-sm leading-relaxed">
+                                Every cylinder leaving our factory is pressure-tested and documented. We manufacture
+                                to international norms so your procurement team can approve with confidence.
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+                            {certifications.map((c) => (
+                                <div
+                                    key={c.label}
+                                    className="flex flex-col items-center text-center p-4 rounded-2xl border border-slate-700 bg-neutral-800/60 gap-2"
+                                >
+                                    <div className="w-10 h-10 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center">
+                                        <span className="text-green-400 text-xs font-black leading-tight text-center">{c.label.split(" ")[0]}</span>
+                                    </div>
+                                    <p className="text-white text-xs font-bold">{c.label}</p>
+                                    <p className="text-slate-500 text-[10px] leading-tight">{c.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Hannover Messe co-branding strip */}
+                        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-6 py-6 border-t border-slate-700/50">
+                            <p className="text-slate-400 text-sm">Official exhibitor at</p>
+                            <Image
+                                src="/images/hannover-messe-2026.png"
+                                alt="Hannover Messe 2026"
+                                width={140}
+                                height={48}
+                                className="brightness-100"
+                            />
+                            <span className="text-slate-600 hidden sm:block">·</span>
+                            <p className="text-slate-400 text-sm font-semibold">{STAND_INFO} · April 22–25, 2026</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ── SCHEDULE A MEETING ── */}
+                <section className="px-6 py-24 bg-neutral-900">
                     <div className="max-w-3xl mx-auto">
                         <div className="text-center mb-10">
                             <p className="text-green-500 text-xs font-semibold tracking-widest uppercase mb-4">Schedule a Meeting</p>
@@ -260,7 +398,6 @@ export default function HannoverMesse2026() {
                         <p className="text-slate-400 text-lg mb-8">
                             Talk to our team directly. We&apos;ll help you find the right cylinder solution for your application.
                         </p>
-                        {/* Client Component — onClick isolado aqui para não contaminar o Server Component */}
                         <FinalCtaButtons whatsappUrl={whatsappUrl} />
                         <p className="mt-6 text-slate-500 text-sm">
                             Av. Ricardo Leonidas Ribas, 310 — Porto Alegre, RS, Brazil · +55 51 3261-2205
@@ -268,7 +405,6 @@ export default function HannoverMesse2026() {
                     </div>
                 </section>
 
-                {/* pb-24 mobile: conteúdo não fica atrás do StickyCta */}
                 <footer className="border-t border-slate-800 px-6 py-8 pb-24 md:pb-8 text-center text-slate-500 text-sm">
                     2026 INCOCIL. All rights reserved. ·{" "}
                     <a href="https://www.incocil.com/en" className="hover:text-slate-300 transition-colors">
