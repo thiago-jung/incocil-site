@@ -8,32 +8,42 @@ interface FooterProps {
 }
 
 export default function Footer({ dict, lang }: FooterProps) {
-
     if (!dict) {
-        console.error("Footer: Prop 'dict' is missing in one of your pages.");
+        console.error("Footer: Prop 'dict' is missing.");
         return null;
     }
 
     const { company, navbar, footer, services } = dict;
 
+    const privacyLabel =
+        lang === "en" ? "Privacy Policy"
+            : lang === "es" ? "Política de Privacidad"
+                : "Política de Privacidade";
+
     return (
         <footer className="bg-slate-900 text-slate-300 pt-16 pb-8">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
-                {/* Coluna 1: Sobre */}
+
+                {/* Col 1: About */}
                 <div className="col-span-1 md:col-span-1">
-                    <h3 className="text-white text-2xl font-black mb-6">INCOCIL<span className="text-blue-500">®</span></h3>
+                    <h3 className="text-white text-2xl font-black mb-6">
+                        INCOCIL<span className="text-blue-500">®</span>
+                    </h3>
                     <p className="text-sm leading-relaxed">
                         {footer?.about || company.full_name}
                     </p>
                 </div>
 
-                {/* Coluna 2: Atalhos */}
+                {/* Col 2: Products */}
                 <div>
                     <h4 className="text-white font-bold mb-6">{navbar.products}</h4>
                     <ul className="space-y-4 text-sm">
                         {services.slice(0, 3).map((service: any) => (
                             <li key={service.slug}>
-                                <Link href={`/${lang}/produtos/${service.slug}`} className="hover:text-blue-400 transition-colors">
+                                <Link
+                                    href={`/${lang}/produtos/${service.slug}`}
+                                    className="hover:text-blue-400 transition-colors"
+                                >
                                     {service.title}
                                 </Link>
                             </li>
@@ -41,12 +51,12 @@ export default function Footer({ dict, lang }: FooterProps) {
                     </ul>
                 </div>
 
-                {/* Coluna 3: Contato */}
+                {/* Col 3: Contact */}
                 <div>
                     <h4 className="text-white font-bold mb-6">{navbar.contact}</h4>
                     <ul className="space-y-4 text-sm">
                         <li className="flex items-start gap-3">
-                            <MapPin size={18} className="text-blue-500 shrink-0" />
+                            <MapPin size={18} className="text-blue-500 shrink-0 mt-0.5" />
                             <span>{company.address}<br />{company.location}</span>
                         </li>
                         <li className="flex flex-col gap-2">
@@ -66,14 +76,15 @@ export default function Footer({ dict, lang }: FooterProps) {
                     </ul>
                 </div>
 
-                {/* Coluna 4: Social */}
+                {/* Col 4: Social */}
                 <div>
-                    <h4 className="text-white font-bold mb-6">{footer?.follow_us || "Siga-nos"}</h4>
-                    <div className="flex gap-4">
+                    <h4 className="text-white font-bold mb-6">
+                        {footer?.follow_us || "Siga-nos"}
+                    </h4>
+                    <div className="flex gap-4 mb-6">
                         <a
                             href={company.instagram}
                             aria-label="Instagram"
-                            title="Siga-nos no Instagram"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -83,7 +94,6 @@ export default function Footer({ dict, lang }: FooterProps) {
                         <a
                             href={company.linkedin}
                             aria-label="LinkedIn"
-                            title="Siga-nos no LinkedIn"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
@@ -93,7 +103,6 @@ export default function Footer({ dict, lang }: FooterProps) {
                         <a
                             href={company.youtube}
                             aria-label="Youtube"
-                            title="Inscreva-se no Youtube"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors"
@@ -101,14 +110,56 @@ export default function Footer({ dict, lang }: FooterProps) {
                             <Youtube size={20} />
                         </a>
                     </div>
+
+                    {/* Quick links */}
+                    <ul className="space-y-2 text-sm">
+                        <li>
+                            <Link
+                                href={`/${lang}/calculadora`}
+                                className="text-slate-400 hover:text-blue-400 transition-colors"
+                            >
+                                {lang === "en" ? "Cylinder Calculator" : lang === "es" ? "Calculadora" : "Calculadora de Cilindros"}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href={`/${lang}/blog`}
+                                className="text-slate-400 hover:text-blue-400 transition-colors"
+                            >
+                                Blog
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href={`/${lang}/empresa`}
+                                className="text-slate-400 hover:text-blue-400 transition-colors"
+                            >
+                                {navbar.company}
+                            </Link>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
-            {/* Rodapé inferior: copyright + revogação */}
+            {/* Bottom bar */}
             <div className="container mx-auto px-6 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
                 <p>© 2026 Incocil. {footer?.rights || "Todos os direitos reservados."}</p>
-                {/* Botão de revogação de consentimento (LGPD/GDPR) */}
-                <RevokeConsentButton lang={lang} />
+
+                <div className="flex items-center gap-4 flex-wrap justify-center">
+                    {/* Privacy policy link */}
+                    <Link
+                        href={`/${lang}/privacidade`}
+                        className="text-slate-500 hover:text-slate-300 transition-colors"
+                    >
+                        {privacyLabel}
+                    </Link>
+
+                    {/* Divider */}
+                    <span className="text-slate-700">·</span>
+
+                    {/* Cookie consent revoke */}
+                    <RevokeConsentButton lang={lang} />
+                </div>
             </div>
         </footer>
     );

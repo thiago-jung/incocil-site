@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.incocil.com';
     const locales = ['pt', 'en', 'es'];
 
-    // 1. Rotas Estáticas (Início, Empresa, Blog, Contato)
+    // 1. Rotas Estáticas
     const staticPages = ['', '/empresa', '/blog', '/contato', '/calculadora'];
     const staticRoutes = locales.flatMap((lang) =>
         staticPages.map((page) => ({
@@ -17,7 +17,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
-    // 2. Página da Hannover Messe 2026 (apenas em inglês — idioma da feira)
+    // 2. Política de privacidade (indexada com noindex, mas no sitemap para consistência)
+    const privacyRoutes = locales.map((lang) => ({
+        url: `${baseUrl}/${lang}/privacidade`,
+        lastModified: new Date(),
+        changeFrequency: 'yearly' as const,
+        priority: 0.2,
+    }));
+
+    // 3. Hannover Messe 2026
     const hannoverRoute = {
         url: `${baseUrl}/en/hannover-messe-2026`,
         lastModified: new Date(),
@@ -25,8 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     };
 
-    // 2. Rotas Dinâmicas de Produtos
-    // Usamos o ptDict.services como base pois os slugs foram sincronizados
+    // 4. Produtos
     const productRoutes = locales.flatMap((lang) =>
         ptDict.services.map((service) => ({
             url: `${baseUrl}/${lang}/produtos/${service.slug}`,
@@ -36,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
-    // 3. Rotas Dinâmicas do Blog
+    // 5. Blog
     const blogRoutes = locales.flatMap((lang) =>
         BLOG_POSTS.map((post) => ({
             url: `${baseUrl}/${lang}/blog/${post.slug}`,
@@ -46,5 +53,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
-    return [...staticRoutes, hannoverRoute, ...productRoutes, ...blogRoutes];
+    return [...staticRoutes, ...privacyRoutes, hannoverRoute, ...productRoutes, ...blogRoutes];
 }
