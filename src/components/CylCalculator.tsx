@@ -54,7 +54,8 @@ const I18N = {
         errRequired: "Campo obrigatório",
         resultsTitle: "Resultados Comparativos",
         noResults: "Preencha os campos acima para ver os resultados",
-        labelForce: "Força",
+        labelForce: "Força *",
+        forceNote: "* Força teórica considerando carga em plano reto (sem inclinação).",
         labelExtend: "Extensão",
         labelRetract: "Retração",
         labelVolume: "Volume de Óleo",
@@ -95,7 +96,8 @@ const I18N = {
         errRequired: "Required field",
         resultsTitle: "Comparison Results",
         noResults: "Fill in the fields above to see results",
-        labelForce: "Force",
+        labelForce: "Force *",
+        forceNote: "* Theoretical force assuming load on a flat plane (no inclination).",
         labelExtend: "Extension",
         labelRetract: "Retraction",
         labelVolume: "Oil Volume",
@@ -136,7 +138,8 @@ const I18N = {
         errRequired: "Campo requerido",
         resultsTitle: "Resultados Comparativos",
         noResults: "Complete los campos para ver los resultados",
-        labelForce: "Fuerza",
+        labelForce: "Fuerza *",
+        forceNote: "* Fuerza teórica considerando carga en plano recto (sin inclinación).",
         labelExtend: "Extensión",
         labelRetract: "Retracción",
         labelVolume: "Volumen de Aceite",
@@ -557,8 +560,9 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                         <p className="text-sm font-medium">{t.noResults}</p>
                     </div>
                 ) : (
-                    <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-
+                    // Adicione este Fragmento (<>) para empacotar o Grid e a Nota juntos
+                    <>
+                        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
                         {/* Force */}
                         <MetricCard
                             icon={<Gauge size={15} className="text-emerald-600" />}
@@ -626,7 +630,14 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                             cusRetract={rE ? fmtNum(rE.vazaoFechar, 1, lang) + " L/min" : "—"}
                             unitSelector={<span className="text-xs text-slate-400 font-semibold">L/min</span>}
                         />
-                    </div>
+                            </div>
+                            {/* NOTA DE RODAPÉ DO GRID DE RESULTADOS */}
+                            <div className="px-5 pb-4">
+                                <p className="text-[11px] font-semibold text-slate-400">
+                                    {t.forceNote}
+                                </p>
+                            </div>
+                    </>
                 )}
             </div>
 
