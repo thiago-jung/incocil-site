@@ -45,7 +45,7 @@ export async function generateMetadata({
 
     return {
         title: { default: `INCOCIL | ${dict.hero.title}`, template: "%s | INCOCIL" },
-        description: dict.hero.subtitle,
+        description: dict.hero.description,  // ← já traduzido
         keywords: dict.keywords,
         metadataBase: new URL("https://www.incocil.com"),
         alternates: {
@@ -53,11 +53,11 @@ export async function generateMetadata({
             languages: { "pt-BR": "/pt", "en-US": "/en", "es-ES": "/es" },
         },
         openGraph: {
-            title: "INCOCIL | Soluções em Movimento Hidráulico",
-            description: "Fabricação e manutenção de cilindros com rigor técnico e tecnologia de ponta.",
+            title: `INCOCIL | ${dict.hero.title}`,           // ← usa dict
+            description: dict.hero.description,              // ← usa dict
             url: "https://www.incocil.com",
-            siteName: "Incocil",
-            images: [{ url: "/images/og-main.jpg", width: 1200, height: 630, alt: "Fábrica Incocil - Cilindros Hidráulicos" }],
+            siteName: "INCOCIL",
+            images: [{ url: "/images/og-main.jpg", width: 1200, height: 630, alt: dict.hero.title }],
             locale: localeMap[lang] || "pt_BR",
             type: "website",
         },
