@@ -86,27 +86,33 @@ export default async function RootLayout({
 
     return (
         <html lang={lang}>
-            {/*
-             * montserrat.variable injeta --font-montserrat no :root
-             * Usada no globals.css para aplicar Montserrat a todos os h1-h4
-             */}
+            <head>
+                {/* Consent Mode v2 — carrega sempre, bloqueado por padrão */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('consent', 'default', {
+                                analytics_storage: 'denied',
+                                ad_storage: 'denied',
+                                wait_for_update: 500
+                            });
+                            gtag('config', 'AW-771734941');
+                            gtag('config', 'G-EEQ1CRS307');
+                        `,
+                    }}
+                />
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
+                />
+            </head>
             <body className={`${inter.className} ${montserrat.variable} antialiased bg-white text-slate-900`}>
-                {/*
-                 * PageTransition envolve {children} e faz fade-in
-                 * a cada troca de rota — sem alterar nenhuma página individual
-                 */}
-                <PageTransition>
-                    {children}
-                </PageTransition>
-
+                <PageTransition>{children}</PageTransition>
                 <Analytics />
                 <SpeedInsights />
-
-                {/*
-                 * GA4 NÃO é carregado aqui.
-                 * O CookieBanner injeta o script via enableAnalytics()
-                 * apenas após consentimento — zero requests para o Google antes disso.
-                 */}
                 <FloatingElements lang={lang} />
             </body>
         </html>

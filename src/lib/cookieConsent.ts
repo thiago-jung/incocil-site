@@ -43,35 +43,19 @@ export function revokeConsent() {
 export function enableAnalytics() {
     if (typeof window === "undefined") return;
 
-    // Evita injectar duas vezes (visita recorrente que já aceitou)
-    if ((window as any).__ga_loaded) return;
-    (window as any).__ga_loaded = true;
-
-    // Inicializa o dataLayer
-    (window as any).dataLayer = (window as any).dataLayer || [];
-
-    // Usa função nomeada com `arguments` — forma exigida pelo GA4
-    // eslint-disable-next-line prefer-rest-params
-    (window as any).gtag = function gtag() { (window as any).dataLayer.push(arguments); };
-
-    (window as any).gtag("js", new Date());
-    (window as any).gtag("config", GA_ID, { anonymize_ip: true });
-
-    // Injeta o <script> dinamicamente — só acontece aqui, nunca no layout
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    script.async = true;
-    document.head.appendChild(script);
+    // Agora só faz o update — o script já está na página
+    (window as any).gtag("consent", "update", {
+        analytics_storage: "granted",
+        ad_storage: "granted",
+    });
 }
 
-/** Sinaliza ao GA4 que não deve rastrear (usado ao revogar ou recusar) */
 export function denyAnalytics() {
     if (typeof window === "undefined") return;
-    if (!(window as any).__ga_loaded) return;
-    if (typeof (window as any).gtag === "function") {
-        (window as any).gtag("consent", "update", {
-            analytics_storage: "denied",
-            ad_storage: "denied",
-        });
-    }
+    if (typeof (window as any).gtag !== "function") return;
+
+    (window as any).gtag("consent", "update", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+    });
 }
