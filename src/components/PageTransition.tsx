@@ -1,19 +1,16 @@
+// src/components/PageTransition.tsx
 "use client";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
-/**
- * PageTransition — Envolver {children} no layout.tsx
- *
- * Ao trocar de rota, o conteúdo faz fade-in com ligeiro deslocamento
- * vertical — efeito idêntico ao do Nubank e grandes apps brasileiros.
- *
- * Não usa AnimatePresence (animações de saída não funcionam no App Router)
- * A key={pathname} re-monta o motion.div a cada navegação, disparando
- * o initial → animate novamente.
- */
 export default function PageTransition({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
+
+    useEffect(() => {
+        // Força o topo sem animação suave para não conflitar com o Next.js
+        window.scrollTo({ top: 0, behavior: "instant" });
+    }, [pathname]);
 
     return (
         <motion.div
