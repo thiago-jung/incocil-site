@@ -18,7 +18,7 @@ function Model() {
 function SceneContent() {
     return (
         <>
-            <Environment preset="studio" />
+            <Environment files="/models/studio_small_03_1k.hdr" />
             <directionalLight position={[5, 8, 5]} intensity={3} castShadow />
             <directionalLight position={[-4, 2, 3]} intensity={0.8} />
             <directionalLight position={[-3, 5, -8]} intensity={1.2} />
