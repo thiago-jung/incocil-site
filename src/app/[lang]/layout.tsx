@@ -6,6 +6,8 @@ import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
 import FloatingElements from "@/components/FloatingElements";
 import PageTransition from "@/components/PageTransition";
+import GlobalSchema from "@/components/GlobalSchema";
+import Script from 'next/script';
 
 /**
  * Inter — corpo do texto (weights 400, 500, 700, 900)
@@ -104,12 +106,11 @@ export default async function RootLayout({
                         `,
                     }}
                 />
-                <script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
-                />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=AW-771734941" strategy="afterInteractive" />
+
             </head>
             <body className={`${inter.className} ${montserrat.variable} antialiased bg-white text-slate-900`}>
+                <GlobalSchema />
                 <PageTransition>{children}</PageTransition>
                 <Analytics />
                 <SpeedInsights />
