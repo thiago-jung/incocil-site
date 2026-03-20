@@ -37,7 +37,7 @@ const content = {
         sections: [
             {
                 heading: "1. Quem somos",
-                body: `A INCOCIL — Indústria e Comércio de Cilindros Ltda., inscrita no CNPJ sob nº 87.429.822/0001-80, com sede na Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — CEP 91790-005 ("INCOCIL", "nós"), é responsável pelo tratamento dos dados pessoais coletados neste site (www.incocil.com).`,
+                body: `A INCOCIL — Indústria e Comércio de Cilindros Ltda., inscrita no CNPJ sob nº 07.547.879/0001-35, com sede na Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — CEP 91790-005 ("INCOCIL", "nós"), é responsável pelo tratamento dos dados pessoais coletados neste site (www.incocil.com).`,
             },
             {
                 heading: "2. Dados que coletamos",
