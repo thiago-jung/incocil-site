@@ -562,7 +562,7 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
                 ) : (
                     // Adicione este Fragmento (<>) para empacotar o Grid e a Nota juntos
                     <>
-                        <div className="p-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+                            <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Force */}
                         <MetricCard
                             icon={<Gauge size={15} className="text-emerald-600" />}
