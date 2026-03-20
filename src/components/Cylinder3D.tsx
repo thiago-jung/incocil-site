@@ -59,7 +59,11 @@ export default function Cylinder3D({ lang = "pt" }: Cylinder3DProps) {
     }
 
     return (
-        <div ...>
+        <div
+            className="w-full h-[400px] md:h-[600px] relative z-10 cursor-grab active:cursor-grabbing"
+            onMouseDown={handleInteraction}
+            onTouchStart={handleInteraction}
+        >
             <Canvas
                 camera={{ position: [10, 4, 10], fov: 30 }}
                 gl={{
@@ -78,10 +82,34 @@ export default function Cylinder3D({ lang = "pt" }: Cylinder3DProps) {
                     <SceneContent />
                 </Suspense>
             </Canvas>
-            {/* hint */}
+
+            <div
+                className={`
+                    pointer-events-none absolute bottom-6 left-1/2 -translate-x-1/2
+                    flex items-center gap-2.5
+                    bg-white/10 backdrop-blur-md border border-white/20
+                    px-4 py-2.5 rounded-full
+                    transition-all duration-700
+                    ${showHint ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
+                `}
+            >
+                <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className="text-white animate-[spin_3s_linear_infinite]"
+                    style={{ animationDirection: "reverse" }}
+                >
+                    <path d="M12 2a10 10 0 1 0 10 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    <path d="M22 2l-4 8 4-2 2 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="text-white text-xs font-medium tracking-wide select-none">
+                    {hints[lang] ?? hints.en}
+                </span>
+            </div>
         </div>
     );
-
 }
 
 useGLTF.preload("/models/inox3d._laranglb.glb");
