@@ -7,14 +7,8 @@ import { Metadata } from "next";
 import FloatingElements from "@/components/FloatingElements";
 import PageTransition from "@/components/PageTransition";
 import GlobalSchema from "@/components/GlobalSchema";
+import Script from "next/script";
 
-/**
- * Inter — corpo do texto (weights 400, 500, 700, 900)
- * Montserrat — títulos (weights 700, 800, 900)
- *   → Aplicada via CSS variable --font-montserrat no globals.css
- *   → O par Inter/Montserrat é muito mais distinto e premium do que
- *     usar Inter pura (padrão de todo site feito com IA)
- */
 const inter = Inter({
     subsets: ["latin"],
     display: "swap",
@@ -43,9 +37,6 @@ export async function generateMetadata({
     const dict = await getDictionary(lang);
 
     const localeMap = { pt: "pt_BR", en: "en_US", es: "es_ES" };
-
-    // metaTitle vem do dictionary — keyword-rich por idioma
-    // fallback para o hero.title caso o campo não exista
     const defaultTitle = (dict as any).metaTitle ?? `INCOCIL | ${dict.hero.title}`;
 
     return {
@@ -92,35 +83,69 @@ export default async function RootLayout({
     return (
         <html lang={lang}>
             <head>
-                {/* Consent Mode v2 — carrega sempre, bloqueado por padrão */}
+                {/*
+                 * ── Preconnect ────────────────────────────────────────────────
+                 * Estabelece conexão TCP+TLS antecipada para os domínios críticos.
+                 * O Lighthouse apontou que nenhuma origem estava sendo pré-conectada.
+                 * Ganho estimado: ~150ms no FCP.
+                 */}
+                <link rel="preconnect" href="https://www.googletagmanager.com" />
+                <link rel="preconnect" href="https://www.google-analytics.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+                {/*
+                 * ── Consent Mode v2 (inline, síncrono — obrigatório antes do GTM) ──
+                 * Este bloco DEVE ser síncrono: o Consent Mode precisa estar
+                 * configurado antes de qualquer evento do GTM disparar.
+                 * Mantemos apenas o código mínimo necessário aqui.
+                 */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
                             gtag('consent', 'default', {
                                 analytics_storage: 'denied',
                                 ad_storage: 'denied',
                                 wait_for_update: 500
                             });
-                            gtag('config', 'AW-771734941');
-                            gtag('config', 'G-EEQ1CRS307');
                         `,
                     }}
                 />
-                <script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
-                />
             </head>
             <body className={`${inter.className} ${montserrat.variable} antialiased bg-white text-slate-900`}>
-                {/* JSON-LD multilíngue — renderizado no body para cada idioma */}
                 <GlobalSchema lang={lang as "pt" | "en" | "es"} />
                 <PageTransition>{children}</PageTransition>
                 <Analytics />
                 <SpeedInsights />
                 <FloatingElements lang={lang} />
+
+                {/*
+                 * ── Google Tag Manager — afterInteractive ─────────────────────
+                 * Antes: dois <script async> no <head> bloqueavam 289 KiB e
+                 * ocupavam 233ms da thread principal antes do LCP.
+                 *
+                 * Agora: strategy="afterInteractive" faz o Next.js injetar
+                 * os scripts apenas depois que a página é interativa — o browser
+                 * já renderizou o conteúdo visível antes de baixar o GTM.
+                 *
+                 * O Consent Mode já está configurado acima (síncrono no <head>),
+                 * então nenhum dado é enviado antes do consentimento, mesmo com
+                 * o script carregando depois.
+                 */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
+                    strategy="afterInteractive"
+                />
+                <Script id="gtag-init" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-771734941');
+                        gtag('config', 'G-EEQ1CRS307');
+                    `}
+                </Script>
             </body>
         </html>
     );

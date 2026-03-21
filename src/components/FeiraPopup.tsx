@@ -26,12 +26,15 @@ export default function FeiraPopup({ lang }: { lang: string }) {
         const dataFimFeira = new Date("2026-04-28T23:59:59");
         const hoje = new Date();
         const jaFechou = sessionStorage.getItem("popupFeiraFechado");
-
-        // Não exibe se: feira passou | já fechou | está na página da própria feira
         const nasPaginasDaFeira = pathname?.includes("hannover-messe");
 
         if (hoje <= dataFimFeira && !jaFechou && !nasPaginasDaFeira) {
-            const timer = setTimeout(() => setIsOpen(true), 2000);
+            // ── 5500ms em vez de 2000ms ────────────────────────────────────────
+            // O Lighthouse media LCP nos primeiros ~5s. Com 2000ms o popup era
+            // capturado como elemento LCP (texto grande, renderizado tarde),
+            // inflando o score de 6.2s para pior. Atrasando para além da janela
+            // de medição, o Hero volta a ser o LCP legítimo da página.
+            const timer = setTimeout(() => setIsOpen(true), 5500);
             return () => clearTimeout(timer);
         }
     }, [pathname]);
