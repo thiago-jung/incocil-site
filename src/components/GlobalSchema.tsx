@@ -14,7 +14,12 @@ interface GlobalSchemaProps {
     lang?: "pt" | "en" | "es";
 }
 
-export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
+export default function GlobalSchema({ lang }: GlobalSchemaProps) {
+
+    // Normaliza lang — rotas de assets (/android-chrome-*.png, /favicon.ico)
+    // não passam pelo layout [lang] e chegam como undefined ou string inválida.
+    const safeLang: "pt" | "en" | "es" =
+        lang === "en" || lang === "es" ? lang : "pt";
 
     // ── Conteúdo multilíngue ──────────────────────────────────────────────────
 
@@ -104,7 +109,7 @@ export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
         "@context": "https://schema.org",
         "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
         "@id": "https://www.incocil.com/#organization",
-        name: names[lang],
+        name: names[safeLang],
         alternateName: [
             "INCOCIL",
             "Incocil",
@@ -121,7 +126,7 @@ export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
             height: 60,
         },
         image: "https://www.incocil.com/images/og-main.jpg",
-        description: descriptions[lang],
+        description: descriptions[safeLang],
         foundingDate: "1979",
         numberOfEmployees: { "@type": "QuantitativeValue", value: 30 },
         address: {
@@ -154,7 +159,7 @@ export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
                 availableLanguage: ["Portuguese", "English", "Spanish"],
             },
         ],
-        email: "incocil@incocil.com",
+        email: "incocil@incocil.com.br",
         sameAs: [
             "https://www.instagram.com/_incocil/",
             "https://www.youtube.com/@incocil",
@@ -162,13 +167,13 @@ export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
         ],
         hasOfferCatalog: {
             "@type": "OfferCatalog",
-            name: offerCatalogName[lang],
-            itemListElement: offerItems[lang].map((item) => ({
+            name: offerCatalogName[safeLang],
+            itemListElement: offerItems[safeLang].map((item) => ({
                 "@type": "Offer",
                 itemOffered: { "@type": item.type, name: item.name },
             })),
         },
-        knowsAbout: knowsAbout[lang],
+        knowsAbout: knowsAbout[safeLang],
         areaServed: [
             { "@type": "Country", name: "Brazil" },
             { "@type": "Country", name: "Uruguay" },

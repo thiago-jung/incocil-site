@@ -1,13 +1,5 @@
 /**
  * Skeleton loaders — substitutos visuais durante o carregamento lazy
- *
- * Uso como fallback nos dynamic imports de page.tsx:
- *
- *   const Services = dynamic(() => import("@/components/Services"), {
- *     loading: () => <SkeletonServices />,
- *   });
- *
- * O `animate-pulse` do Tailwind cria a animação de brilho automática.
  */
 
 export function SkeletonCard() {
@@ -53,7 +45,8 @@ export function SkeletonHero() {
                 <div className="h-5 bg-slate-800 rounded-lg animate-pulse w-full max-w-lg mb-2" />
                 <div className="h-5 bg-slate-800 rounded-lg animate-pulse w-4/5 max-w-lg mb-10" />
                 <div className="flex gap-4">
-                    <div className="h-14 w-44 bg-blue-800 rounded-xl animate-pulse" />
+                    {/* era bg-blue-800 — não remapeado no globals.css → azul real #1e40af */}
+                    <div className="h-14 w-44 bg-slate-700 rounded-xl animate-pulse" />
                     <div className="h-14 w-44 bg-slate-800 rounded-xl animate-pulse" />
                 </div>
             </div>

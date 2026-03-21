@@ -1,12 +1,30 @@
 /**
- * loading.tsx — [lang]/produtos/[slug]/loading.tsx
+ * src/app/[lang]/produtos/loading.tsx
  *
- * Exibido enquanto a página de produto carrega.
- * Replica a estrutura de 2 colunas da página real.
+ * ── Por que este arquivo existe ────────────────────────────────────────────
+ *
+ * As páginas de produto PT e ES são geradas estaticamente (generateStaticParams).
+ * Isso faz com que o Suspense boundary do [slug] nunca dispare — a página
+ * já está pronta antes de qualquer loading state aparecer.
+ *
+ * Porém, durante a hidratação do cliente ou hard refresh, o boundary do
+ * segmento pai [lang]/loading.tsx aparecia brevemente com o SkeletonHero
+ * (que tem bg-blue-800 → azul real não remapeado no globals.css).
+ *
+ * Adicionando este loading.tsx no nível intermediário [lang]/produtos/,
+ * criamos um Suspense boundary mais próximo que intercepta o carregamento
+ * ANTES de chegar ao [lang]/loading.tsx.
+ *
+ * Resultado: PT e ES mostram o mesmo skeleton cinza que o EN já mostrava.
  */
-export default function ProductLoading() {
+
+export default function ProdutosLoading() {
     return (
-        <div className="bg-slate-50 min-h-screen pt-32 pb-20" aria-busy="true" aria-label="Carregando produto...">
+        <div
+            className="bg-slate-50 min-h-screen pt-32 pb-20"
+            aria-busy="true"
+            aria-label="Carregando produto..."
+        >
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-pulse">
 
@@ -44,6 +62,7 @@ export default function ProductLoading() {
                             <div className="h-14 bg-slate-200 rounded-lg" />
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
