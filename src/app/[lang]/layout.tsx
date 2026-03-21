@@ -12,7 +12,9 @@ import Script from "next/script";
 const inter = Inter({
     subsets: ["latin"],
     display: "swap",
-    weight: ["400", "500", "700", "900"],
+    // "300" adicionado — hero description usa font-light
+    // sem este weight o browser faz síntese artificial que pode atrasar o paint
+    weight: ["300", "400", "500", "700", "900"],
     adjustFontFallback: true,
 });
 
@@ -35,7 +37,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { lang } = await params;
     const dict = await getDictionary(lang);
-
     const localeMap = { pt: "pt_BR", en: "en_US", es: "es_ES" };
     const defaultTitle = (dict as any).metaTitle ?? `INCOCIL | ${dict.hero.title}`;
 
@@ -84,20 +85,16 @@ export default async function RootLayout({
         <html lang={lang}>
             <head>
                 {/*
-                 * ── Preconnect ────────────────────────────────────────────────
-                 * Estabelece conexão TCP+TLS antecipada para os domínios críticos.
-                 * O Lighthouse apontou que nenhuma origem estava sendo pré-conectada.
-                 * Ganho estimado: ~150ms no FCP.
-                 */}
-                <link rel="preconnect" href="https://www.googletagmanager.com" />
-                <link rel="preconnect" href="https://www.google-analytics.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-
-                {/*
-                 * ── Consent Mode v2 (inline, síncrono — obrigatório antes do GTM) ──
-                 * Este bloco DEVE ser síncrono: o Consent Mode precisa estar
-                 * configurado antes de qualquer evento do GTM disparar.
-                 * Mantemos apenas o código mínimo necessário aqui.
+                 * ── Preconnects REMOVIDOS ─────────────────────────────────────
+                 * O Lighthouse reportou os 3 preconnects como "Pré-conexão não
+                 * usada" — estavam prejudicando ao desperdiçar conexões TCP:
+                 *
+                 *  ❌ googletagmanager.com — GTM só carrega após interactive
+                 *  ❌ google-analytics.com — GA só carrega após interactive
+                 *  ❌ fonts.gstatic.com    — next/font serve fontes localmente
+                 *
+                 * Preconnects inutilizados consomem slots que o browser usaria
+                 * para os recursos críticos do caminho de renderização.
                  */}
                 <script
                     dangerouslySetInnerHTML={{
@@ -120,19 +117,6 @@ export default async function RootLayout({
                 <SpeedInsights />
                 <FloatingElements lang={lang} />
 
-                {/*
-                 * ── Google Tag Manager — afterInteractive ─────────────────────
-                 * Antes: dois <script async> no <head> bloqueavam 289 KiB e
-                 * ocupavam 233ms da thread principal antes do LCP.
-                 *
-                 * Agora: strategy="afterInteractive" faz o Next.js injetar
-                 * os scripts apenas depois que a página é interativa — o browser
-                 * já renderizou o conteúdo visível antes de baixar o GTM.
-                 *
-                 * O Consent Mode já está configurado acima (síncrono no <head>),
-                 * então nenhum dado é enviado antes do consentimento, mesmo com
-                 * o script carregando depois.
-                 */}
                 <Script
                     src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
                     strategy="afterInteractive"
