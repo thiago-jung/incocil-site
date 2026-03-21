@@ -69,7 +69,7 @@ export default function Hero({ dict, lang }: HeroProps) {
 
     return (
         <section className="relative min-h-screen flex items-center bg-industrial-dark pt-20 overflow-hidden">
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[100px] rounded-full -mr-20 -mt-20" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-blue-600/10 blur-[100px] rounded-full -mr-20 -mt-20 hidden lg:block" />
 
             <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center z-10">
 
