@@ -1,25 +1,118 @@
 /**
- * GlobalSchema — JSON-LD para toda a aplicação
+ * GlobalSchema — JSON-LD multilíngue para toda a aplicação
  *
- * Coloque este componente dentro do <body> no layout.tsx.
- * Ele injeta:
- *   - Organization  → Google Knowledge Panel, Rich Results
- *   - WebSite       → Sitelinks Search Box no Google
- *   - LocalBusiness → Pacote local (Maps, direções, horário)
+ * Recebe `lang` do layout.tsx para gerar os campos corretos por idioma.
+ * O Google usa este schema para Knowledge Panel, Rich Results e Maps.
  *
  * Resultado esperado (6-12 semanas):
- *   • Painel de Conhecimento da INCOCIL no Google
+ *   • Painel de Conhecimento da INCOCIL no Google (PT/EN/ES)
+ *   • Aparição em buscas internacionais de "hydraulic cylinder manufacturer Brazil"
  *   • Stars/ratings em resultados de busca (com ReviewSchema futuro)
- *   • Aparição em "empresa" e buscas de marca
  */
 
-export default function GlobalSchema() {
+interface GlobalSchemaProps {
+    lang?: "pt" | "en" | "es";
+}
+
+export default function GlobalSchema({ lang = "pt" }: GlobalSchemaProps) {
+
+    // ── Conteúdo multilíngue ──────────────────────────────────────────────────
+
+    const descriptions = {
+        pt: "Especialista na fabricação e manutenção de cilindros hidráulicos e pneumáticos desde Porto Alegre para o Brasil e o mundo. Capacidade de brunimento até ø 500mm. Marca PATROL® — 45 anos de tradição.",
+        en: "Brazilian manufacturer of custom hydraulic and pneumatic cylinders. INCOCIL® has 45+ years supplying agriculture, heavy industry, and equipment sectors across South America and worldwide. PATROL® brand. Precision honing up to ø500mm.",
+        es: "Fabricante brasileño de cilindros hidráulicos y neumáticos a medida. INCOCIL® cuenta con más de 45 años suministrando a los sectores agrícola, industrial y de equipos en América del Sur y el mundo. Marca PATROL®. Bruñido de precisión hasta ø500mm.",
+    };
+
+    const names = {
+        pt: "INCOCIL® — Fabricante de Cilindros Hidráulicos e Pneumáticos",
+        en: "INCOCIL® — Hydraulic & Pneumatic Cylinder Manufacturer Brazil",
+        es: "INCOCIL® — Fabricante de Cilindros Hidráulicos y Neumáticos Brasil",
+    };
+
+    const knowsAbout = {
+        pt: [
+            "Cilindros Hidráulicos",
+            "Cilindros Pneumáticos",
+            "Brunimento Industrial",
+            "Solda Robotizada",
+            "Manutenção Hidráulica",
+            "Engenharia de Sistemas Hidráulicos",
+            "Cilindros Telescópicos",
+            "Cilindros Inox Agrícolas",
+        ],
+        en: [
+            "Hydraulic Cylinders",
+            "Pneumatic Cylinders",
+            "Industrial Honing",
+            "Robotic Welding",
+            "Hydraulic Maintenance",
+            "Hydraulic Systems Engineering",
+            "Telescopic Cylinders",
+            "Stainless Steel Agricultural Cylinders",
+            "Custom Cylinder Manufacturing",
+            "Hydraulic Cylinder Repair Brazil",
+        ],
+        es: [
+            "Cilindros Hidráulicos",
+            "Cilindros Neumáticos",
+            "Bruñido Industrial",
+            "Soldadura Robotizada",
+            "Mantenimiento Hidráulico",
+            "Ingeniería de Sistemas Hidráulicos",
+            "Cilindros Telescópicos",
+            "Cilindros Inox Agrícolas",
+        ],
+    };
+
+    const offerCatalogName = {
+        pt: "Linha de Cilindros Hidráulicos e Serviços",
+        en: "Hydraulic & Pneumatic Cylinder Product Line",
+        es: "Línea de Productos de Cilindros Hidráulicos y Neumáticos",
+    };
+
+    const offerItems = {
+        pt: [
+            { type: "Product", name: "Cilindro Hidráulico Inox" },
+            { type: "Product", name: "Cilindro Telescópico Hidráulico" },
+            { type: "Product", name: "Cilindro Mestre-Escravo" },
+            { type: "Product", name: "Cilindro com Amortecimento" },
+            { type: "Service", name: "Serviços de Brunimento" },
+            { type: "Service", name: "Manutenção de Cilindros" },
+        ],
+        en: [
+            { type: "Product", name: "Stainless Steel Hydraulic Cylinder" },
+            { type: "Product", name: "Telescopic Hydraulic Cylinder" },
+            { type: "Product", name: "Master-Slave Hydraulic Cylinder" },
+            { type: "Product", name: "Cushioned Hydraulic Cylinder" },
+            { type: "Service", name: "Industrial Honing Services" },
+            { type: "Service", name: "Hydraulic Cylinder Repair & Maintenance" },
+        ],
+        es: [
+            { type: "Product", name: "Cilindro Hidráulico Inoxidable" },
+            { type: "Product", name: "Cilindro Telescópico Hidráulico" },
+            { type: "Product", name: "Cilindro Maestro-Esclavo" },
+            { type: "Product", name: "Cilindro con Amortiguación" },
+            { type: "Service", name: "Servicios de Bruñido Industrial" },
+            { type: "Service", name: "Reparación y Mantenimiento de Cilindros" },
+        ],
+    };
+
+    // ── Schema Organization ───────────────────────────────────────────────────
+
     const organization = {
         "@context": "https://schema.org",
         "@type": ["Organization", "LocalBusiness", "ManufacturingBusiness"],
         "@id": "https://www.incocil.com/#organization",
-        name: "INCOCIL® - Cilindros Hidráulicos e Pneumáticos",
-        alternateName: ["INCOCIL", "Incocil", "PATROL Cilindros"],
+        name: names[lang],
+        alternateName: [
+            "INCOCIL",
+            "Incocil",
+            "PATROL Cilindros",
+            "PATROL Hydraulic Cylinders",
+            "Incocil Hydraulic",
+            "INCOCIL Brazil",
+        ],
         url: "https://www.incocil.com",
         logo: {
             "@type": "ImageObject",
@@ -28,8 +121,7 @@ export default function GlobalSchema() {
             height: 60,
         },
         image: "https://www.incocil.com/images/og-main.jpg",
-        description:
-            "Especialista na fabricação e manutenção de cilindros hidráulicos e pneumáticos desde Porto Alegre para o Brasil e o mundo. Capacidade de brunimento até ø 500mm. Marca PATROL® — 45 anos de tradição.",
+        description: descriptions[lang],
         foundingDate: "1979",
         numberOfEmployees: { "@type": "QuantitativeValue", value: 30 },
         address: {
@@ -52,7 +144,7 @@ export default function GlobalSchema() {
                 telephone: "+55-51-3261-2205",
                 contactType: "sales",
                 availableLanguage: ["Portuguese", "English", "Spanish"],
-                areaServed: ["BR", "UY", "AR", "PY", "BO"],
+                areaServed: ["BR", "UY", "AR", "PY", "BO", "US", "DE"],
             },
             {
                 "@type": "ContactPoint",
@@ -62,7 +154,7 @@ export default function GlobalSchema() {
                 availableLanguage: ["Portuguese", "English", "Spanish"],
             },
         ],
-        email: "incocil@incocil.com.br",
+        email: "incocil@incocil.com",
         sameAs: [
             "https://www.instagram.com/_incocil/",
             "https://www.youtube.com/@incocil",
@@ -70,29 +162,25 @@ export default function GlobalSchema() {
         ],
         hasOfferCatalog: {
             "@type": "OfferCatalog",
-            name: "Linha de Cilindros Hidráulicos e Serviços",
-            itemListElement: [
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Cilindro Hidráulico Inox" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Cilindro Telescópico Hidráulico" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Cilindro Mestre-Escravo" } },
-                { "@type": "Offer", itemOffered: { "@type": "Product", name: "Cilindro com Amortecimento" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Serviços de Brunimento" } },
-                { "@type": "Offer", itemOffered: { "@type": "Service", name: "Manutenção de Cilindros" } },
-            ],
+            name: offerCatalogName[lang],
+            itemListElement: offerItems[lang].map((item) => ({
+                "@type": "Offer",
+                itemOffered: { "@type": item.type, name: item.name },
+            })),
         },
-        knowsAbout: [
-            "Cilindros Hidráulicos",
-            "Cilindros Pneumáticos",
-            "Brunimento Industrial",
-            "Solda Robotizada",
-            "Manutenção Hidráulica",
-            "Engenharia de Sistemas Hidráulicos",
+        knowsAbout: knowsAbout[lang],
+        areaServed: [
+            { "@type": "Country", name: "Brazil" },
+            { "@type": "Country", name: "Uruguay" },
+            { "@type": "Country", name: "Argentina" },
+            { "@type": "Country", name: "Paraguay" },
+            { "@type": "Country", name: "Bolivia" },
+            {
+                "@type": "GeoCircle",
+                geoMidpoint: { "@type": "GeoCoordinates", latitude: -15, longitude: -55 },
+                geoRadius: "5000000",
+            },
         ],
-        areaServed: {
-            "@type": "GeoCircle",
-            geoMidpoint: { "@type": "GeoCoordinates", latitude: -15, longitude: -55 },
-            geoRadius: "5000000",
-        },
         openingHoursSpecification: [
             {
                 "@type": "OpeningHoursSpecification",
@@ -103,12 +191,14 @@ export default function GlobalSchema() {
         ],
     };
 
+    // ── Schema WebSite ────────────────────────────────────────────────────────
+
     const website = {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "@id": "https://www.incocil.com/#website",
         url: "https://www.incocil.com",
-        name: "INCOCIL® Cilindros Hidráulicos",
+        name: "INCOCIL® Hydraulic Cylinders",
         publisher: { "@id": "https://www.incocil.com/#organization" },
         inLanguage: ["pt-BR", "en-US", "es-ES"],
         potentialAction: {

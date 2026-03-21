@@ -7,7 +7,6 @@ import { Metadata } from "next";
 import FloatingElements from "@/components/FloatingElements";
 import PageTransition from "@/components/PageTransition";
 import GlobalSchema from "@/components/GlobalSchema";
-import Script from 'next/script';
 
 /**
  * Inter — corpo do texto (weights 400, 500, 700, 900)
@@ -45,9 +44,13 @@ export async function generateMetadata({
 
     const localeMap = { pt: "pt_BR", en: "en_US", es: "es_ES" };
 
+    // metaTitle vem do dictionary — keyword-rich por idioma
+    // fallback para o hero.title caso o campo não exista
+    const defaultTitle = (dict as any).metaTitle ?? `INCOCIL | ${dict.hero.title}`;
+
     return {
-        title: { default: `INCOCIL | ${dict.hero.title}`, template: "%s | INCOCIL" },
-        description: dict.hero.description,  // ← já traduzido
+        title: { default: defaultTitle, template: "%s | INCOCIL" },
+        description: dict.hero.description,
         keywords: dict.keywords,
         metadataBase: new URL("https://www.incocil.com"),
         alternates: {
@@ -55,8 +58,8 @@ export async function generateMetadata({
             languages: { "pt-BR": "/pt", "en-US": "/en", "es-ES": "/es" },
         },
         openGraph: {
-            title: `INCOCIL | ${dict.hero.title}`,           // ← usa dict
-            description: dict.hero.description,              // ← usa dict
+            title: defaultTitle,
+            description: dict.hero.description,
             url: "https://www.incocil.com",
             siteName: "INCOCIL",
             images: [{ url: "/images/og-main.jpg", width: 1200, height: 630, alt: dict.hero.title }],
@@ -106,11 +109,14 @@ export default async function RootLayout({
                         `,
                     }}
                 />
-                <Script src="https://www.googletagmanager.com/gtag/js?id=AW-771734941" strategy="afterInteractive" />
-
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-771734941"
+                />
             </head>
             <body className={`${inter.className} ${montserrat.variable} antialiased bg-white text-slate-900`}>
-                <GlobalSchema />
+                {/* JSON-LD multilíngue — renderizado no body para cada idioma */}
+                <GlobalSchema lang={lang as "pt" | "en" | "es"} />
                 <PageTransition>{children}</PageTransition>
                 <Analytics />
                 <SpeedInsights />
