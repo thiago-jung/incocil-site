@@ -42,7 +42,7 @@ const nextConfig = {
                             "connect-src 'self' https://www.google.com https://www.google.com.br https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://vitals.vercel-insights.com https://raw.githubusercontent.com https://raw.githack.com",
 
                             // Iframes — YouTube (blog) + doubleclick (remarketing)
-                            "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://td.doubleclick.net",
+                            "frame-src https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com https://td.doubleclick.net",
 
                             // Workers
                             "worker-src 'self' blob:",
