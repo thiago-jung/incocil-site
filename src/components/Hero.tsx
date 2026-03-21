@@ -104,30 +104,6 @@ export default function Hero({ dict, lang }: HeroProps) {
                             </button>
                         </Link>
                     </div>
-
-                    {/*
-                     * MOBILE ONLY: estatísticas animadas.
-                     * No desktop o modelo 3D preenche este espaço.
-                     * No mobile o lado direito ficava vazio — agora exibe
-                     * 3 métricas-chave que reforçam credibilidade imediatamente.
-                     */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.5 }}
-                        className="lg:hidden mt-10 grid grid-cols-3 gap-4 border-t border-white/10 pt-8"
-                    >
-                        {stats.map((s) => (
-                            <div key={s.val} className="text-center">
-                                <p className="text-3xl font-black text-blue-400 tracking-tighter leading-none">
-                                    {s.val}
-                                </p>
-                                <p className="text-[11px] text-slate-400 uppercase tracking-widest mt-1.5 font-semibold">
-                                    {s.label}
-                                </p>
-                            </div>
-                        ))}
-                    </motion.div>
                 </div>
 
                 {/* Modelo 3D — desktop only */}
