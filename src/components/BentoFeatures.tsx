@@ -121,11 +121,24 @@ export default function BentoFeatures({ dict }: BentoProps) {
                     {/* Card Pequeno 2 - Rapidez */}
                     <motion.div
                         whileHover={{ y: -5 }}
-                        className="bg-blue-700 rounded-3xl p-6 flex flex-col items-center justify-center text-center group shadow-xl shadow-blue-600/20"
+                        className="relative bg-blue-700 rounded-3xl overflow-hidden group shadow-xl shadow-blue-600/20"
                     >
-                        <Zap className="text-white mb-4 animate-pulse" size={32} />
-                        <h3 className="text-white font-bold">{dict.card_small_2.title}</h3>
-                        <p className="text-white text-xs mt-2">{dict.card_small_2.description}</p>
+                        <Image
+                            src="/images/flex_delivery.png"
+                            alt={dict.card_small_2.title}
+                            fill
+                            className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500"
+                            sizes="(max-width: 1000px) 100vw, 50vw"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+
+                        <div className="relative z-10 p-6 h-full flex flex-col justify-end text-center">
+                            <h3 className="text-white font-bold text-lg">{dict.card_small_2.title}</h3>
+                            <p className="text-white text-xs mt-2 leading-relaxed">
+                                {dict.card_small_2.description}
+                            </p>
+                        </div>
                     </motion.div>
 
                 </div>
