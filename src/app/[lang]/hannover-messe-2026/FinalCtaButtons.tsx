@@ -18,11 +18,11 @@ export default function FinalCtaButtons({ whatsappUrl }: FinalCtaButtonsProps) {
                 WhatsApp
             </a>
             <a
-                href="mailto:incocil@incocil.com.br"
+                href="mailto:incocil@incocil.com"
                 onClick={() => track.emailClick("hannover-final-cta")}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-600 px-8 py-4 font-semibold text-slate-200 hover:border-slate-400 transition-colors"
             >
-                incocil@incocil.com.br
+                incocil@incocil.com
             </a>
         </div>
     );

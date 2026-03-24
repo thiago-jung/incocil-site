@@ -22,7 +22,7 @@ export default function CtaButtons({ standInfo = "Hannover Messe 2026" }: CtaBut
                 💬 Contact via WhatsApp
             </a>
             <a
-                href="mailto:incocil@incocil.com.br"
+                href="mailto:incocil@incocil.com"
                 onClick={() => track.emailClick("hannover-messe-2026")}
                 className="inline-flex items-center justify-center gap-2 rounded-full border border-neutral-600 px-8 py-4 text-base font-semibold text-neutral-200 hover:border-neutral-400 hover:text-white transition-colors"
             >

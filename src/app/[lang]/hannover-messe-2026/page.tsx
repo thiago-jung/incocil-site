@@ -165,7 +165,7 @@ export default function HannoverMesse2026() {
                         {/* Logos row — INCOCIL + Hannover Messe */}
                         <div className="flex items-center gap-6 flex-wrap justify-center">
                             <Image
-                                src="/images/incocil.png"
+                                src="/images/incocil_en.png"
                                 alt="INCOCIL"
                                 width={200}
                                 height={55}
@@ -400,7 +400,7 @@ export default function HannoverMesse2026() {
                         </p>
                         <FinalCtaButtons whatsappUrl={whatsappUrl} />
                         <p className="mt-6 text-slate-500 text-sm">
-                            Av. Ricardo Leonidas Ribas, 310 — Porto Alegre, RS, Brazil · +55 51 3261-2205
+                            Av. Ricardo Leonidas Ribas, 310 — Porto Alegre, RS, Brazil · +55 51 98446-8231
                         </p>
                     </div>
                 </section>
