@@ -17,6 +17,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PrintButton from "./PrintButton";
 import VCardButton from "./VCardButton";
+import { MessageCircle } from "lucide-react";
+import QRCode from "qrcode";
 
 export const metadata: Metadata = {
     title: "INCOCIL® | Business Card — Hannover Messe 2026",
@@ -25,12 +27,17 @@ export const metadata: Metadata = {
 
 const STAND_INFO = "Hall 17, D52";
 
-// ✅ QR aponta para a página da feira com ?ref=card para rastrear visitantes
-// que vieram pelo cartão impresso (segmente no GA4: source = card)
-const QR_TARGET_URL = "https://www.incocil.com/en/hannover-messe-2026?ref=card";
+export default async function BusinessCard() {
+    const QR_TARGET_URL = "https://www.incocil.com/en/hannover-messe-2026?ref=card";
 
-export default function BusinessCard() {
-    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&color=0F172A&bgcolor=FACC15&data=${encodeURIComponent(QR_TARGET_URL)}&qzone=1`;
+    const qrDataUrl = await QRCode.toDataURL(QR_TARGET_URL, {
+        width: 200,
+        margin: 1,
+        color: {
+            dark: "#0F172A",
+            light: "#FACC15",
+        },
+    });
 
     return (
         <>
@@ -257,15 +264,113 @@ export default function BusinessCard() {
                 {/* ── FRONT ── */}
                 <p className="label">Front</p>
                 <div className="card card-front">
-                    <div className="front-logo">
+                    <div className="front-logo" style={{ alignSelf: "flex-start" }}>
                         <Image
-                            src="/images/incocil.png"
+                            src="/images/incocil_en.svg"
                             alt="INCOCIL®"
-                            width={110}
-                            height={30}
-                            style={{ filter: "brightness(0) invert(1)", height: "auto", maxWidth: "38mm" }}
+                            width={600}
+                            height={180}
+                            style={{
+                                filter: "brightness(0) invert(1)",
+                                height: "10mm",        // ← altura fixa, igual à incocil.png
+                                width: "auto",         // ← largura se ajusta proporcionalmente
+                                maxWidth: "45mm",
+                                display: "block",
+                            }}
                         />
                     </div>
+
+                    {/* ── Hydraulic Cylinder Blueprint Watermark ── */}
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 370 205"
+                        style={{
+                            position: "absolute",
+                            right: "5mm",
+                            top: "50%",
+                            transform: "translateY(-50%)",
+                            width: "52mm",
+                            height: "32mm",
+                            zIndex: 1,
+                            pointerEvents: "none",
+                            opacity: 0.55,
+                        }}
+                    >
+                        <defs>
+                            <pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                <line x1="0" y1="0" x2="0" y2="4" stroke="rgba(74,222,128,0.22)" strokeWidth="1" />
+                            </pattern>
+                            <pattern id="hatch2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+                                <line x1="0" y1="0" x2="0" y2="3" stroke="rgba(74,222,128,0.18)" strokeWidth="0.8" />
+                            </pattern>
+                        </defs>
+
+                        {/* center axis dash-dot */}
+                        <line x1="0" y1="102" x2="370" y2="102" stroke="rgba(74,222,128,0.28)" strokeWidth="0.6" strokeDasharray="8,3,1,3" />
+
+                        {/* outer tube */}
+                        <rect x="48" y="70" width="228" height="65" fill="url(#hatch)" rx="2" />
+                        <rect x="48" y="68" width="228" height="12" fill="rgba(0,210,80,0.12)" rx="1" />
+                        <rect x="48" y="125" width="228" height="12" fill="rgba(0,210,80,0.12)" rx="1" />
+                        <rect x="48" y="68" width="228" height="69" rx="2" fill="none" stroke="rgba(74,222,128,0.75)" strokeWidth="1.2" />
+                        <rect x="48" y="80" width="228" height="45" fill="rgba(74,222,128,0.04)" />
+                        <line x1="48" y1="80" x2="276" y2="80" stroke="rgba(74,222,128,0.35)" strokeWidth="0.6" />
+                        <line x1="48" y1="125" x2="276" y2="125" stroke="rgba(74,222,128,0.35)" strokeWidth="0.6" />
+
+                        {/* left end cap */}
+                        <rect x="24" y="56" width="28" height="93" fill="url(#hatch)" rx="2" />
+                        <rect x="24" y="56" width="28" height="93" rx="2" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="1.2" />
+                        <line x1="52" y1="60" x2="52" y2="145" stroke="rgba(74,222,128,0.4)" strokeWidth="0.8" />
+
+                        {/* right end cap / rod gland */}
+                        <rect x="276" y="62" width="28" height="81" fill="url(#hatch)" rx="2" />
+                        <rect x="276" y="62" width="28" height="81" rx="2" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="1.2" />
+                        <rect x="278" y="86" width="6" height="33" fill="none" stroke="rgba(74,222,128,0.45)" strokeWidth="0.7" strokeDasharray="2,1.5" />
+                        <line x1="276" y1="65" x2="276" y2="143" stroke="rgba(74,222,128,0.4)" strokeWidth="0.8" />
+
+                        {/* piston */}
+                        <rect x="148" y="80" width="26" height="45" fill="url(#hatch2)" rx="1" />
+                        <rect x="148" y="80" width="26" height="45" rx="1" fill="none" stroke="rgba(74,222,128,0.9)" strokeWidth="1.3" />
+                        <line x1="148" y1="91" x2="174" y2="91" stroke="rgba(74,222,128,0.5)" strokeWidth="0.8" />
+                        <line x1="148" y1="114" x2="174" y2="114" stroke="rgba(74,222,128,0.5)" strokeWidth="0.8" />
+
+                        {/* piston rod */}
+                        <rect x="174" y="92" width="134" height="21" fill="rgba(74,222,128,0.08)" rx="1" />
+                        <rect x="174" y="92" width="134" height="21" rx="1" fill="none" stroke="rgba(74,222,128,0.85)" strokeWidth="1.1" />
+                        <rect x="305" y="94" width="6" height="17" fill="rgba(74,222,128,0.15)" rx="1" />
+
+                        {/* port A */}
+                        <circle cx="90" cy="68" r="5" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.75)" strokeWidth="0.9" />
+                        <circle cx="90" cy="68" r="2" fill="rgba(74,222,128,0.4)" />
+                        <line x1="90" y1="63" x2="90" y2="42" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
+                        <line x1="81" y1="42" x2="99" y2="42" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
+                        <text x="90" y="37" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="rgba(74,222,128,0.6)" letterSpacing="0.05em">PORT A</text>
+
+                        {/* port B */}
+                        <circle cx="220" cy="137" r="5" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.75)" strokeWidth="0.9" />
+                        <circle cx="220" cy="137" r="2" fill="rgba(74,222,128,0.4)" />
+                        <line x1="220" y1="142" x2="220" y2="163" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
+                        <line x1="211" y1="163" x2="229" y2="163" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
+                        <text x="220" y="172" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="rgba(74,222,128,0.6)" letterSpacing="0.05em">PORT B</text>
+
+                        {/* dimension lines */}
+                        <line x1="24" y1="48" x2="308" y2="48" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <line x1="24" y1="44" x2="24" y2="52" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <line x1="308" y1="44" x2="308" y2="52" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <line x1="14" y1="80" x2="14" y2="125" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <line x1="10" y1="80" x2="18" y2="80" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <line x1="10" y1="125" x2="18" y2="125" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
+                        <text x="8" y="104" textAnchor="middle" transform="rotate(-90,8,104)" fontFamily="monospace" fontSize="6" fill="rgba(74,222,128,0.45)" letterSpacing="0.04em">ø BORE</text>
+
+                        {/* stroke arrow */}
+                        <defs>
+                            <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                <path d="M1 1L6 4L1 7" fill="none" stroke="rgba(74,222,128,0.4)" strokeWidth="1.2" strokeLinecap="round" />
+                            </marker>
+                        </defs>
+                        <line x1="52" y1="155" x2="174" y2="155" stroke="rgba(74,222,128,0.3)" strokeWidth="0.6" markerStart="url(#arr)" markerEnd="url(#arr)" />
+                        <text x="113" y="166" textAnchor="middle" fontFamily="monospace" fontSize="6.5" fill="rgba(74,222,128,0.5)" letterSpacing="0.04em">STROKE</text>
+                    </svg>
 
                     <div className="front-bottom">
                         <div>
@@ -293,10 +398,8 @@ export default function BusinessCard() {
                             <div className="qr-wrapper">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src={qrUrl}
+                                    src={qrDataUrl}
                                     alt="QR Code — Hannover Messe 2026"
-                                    width={68}
-                                    height={68}
                                     style={{ width: "17mm", height: "17mm", display: "block" }}
                                 />
                             </div>
@@ -313,10 +416,10 @@ export default function BusinessCard() {
                                 🌐 <strong className="back-url">www.incocil.com</strong>
                             </p>
                             <p className="contact-line">
-                                ✉ <strong>incocil@incocil.com.br</strong>
+                                ✉ <strong>incocil@incocil.com</strong>
                             </p>
                             <p className="contact-line">
-                                📞 <strong>+55 51 3261-2205</strong>
+                                <MessageCircle size={7} /> <strong>+55 51 98446-8231</strong>
                             </p>
                         </div>
                     </div>
