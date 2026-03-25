@@ -1,5 +1,4 @@
 import { getDictionary } from "@/get-dictionaries";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CylCalculator from "@/components/CylCalculator";
 import { Metadata } from "next";
@@ -82,7 +81,6 @@ export default async function CalculadoraPage({
     const dict = await getDictionary(lang);
     const copy = pageContent[lang] ?? pageContent.pt;
 
-    // JSON-LD SoftwareApplication schema
     const schema = {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
@@ -102,12 +100,10 @@ export default async function CalculadoraPage({
                 suppressHydrationWarning
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
-            <Navbar lang={lang} dict={dict.navbar} />
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
 
             <main className="min-h-screen bg-slate-50 pt-32 pb-24">
                 <div className="container mx-auto px-6">
-
-                    {/* Cabeçalho */}
                     <div className="mb-12 max-w-2xl">
                         <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full mb-4">
                             {copy.badge}
@@ -120,7 +116,6 @@ export default async function CalculadoraPage({
                         </p>
                     </div>
 
-                    {/* Calculadora */}
                     <CylCalculator lang={lang} />
                 </div>
             </main>

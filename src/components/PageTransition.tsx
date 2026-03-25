@@ -1,19 +1,6 @@
-
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-
-/**
- * PageTransition — sem framer-motion
- *
- * O motion.div com initial={{ opacity:0 }} forçava o SSR a gerar
- * todo o conteúdo com estilo inline opacity:0. O Lighthouse não
- * media FCP/LCP até a animação terminar (~600ms perdidos).
- *
- * Agora: servidor gera <div> sem estilos → conteúdo visível desde
- * o primeiro byte. A animação só roda no cliente em navegações
- * subsequentes, usando a Web Animations API nativa (sem dependências).
- */
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
@@ -21,10 +8,22 @@ export default function PageTransition({ children }: { children: React.ReactNode
     const isFirst = useRef(true);
 
     useEffect(() => {
-        // Não reseta o scroll se a URL tiver um hash (ex: /#servicos)
         const hasHash = typeof window !== "undefined" && !!window.location.hash;
+
         if (!hasHash) {
             window.scrollTo({ top: 0, behavior: "instant" });
+        } else {
+            // Componentes lazy ainda podem não estar no DOM — tenta repetidamente
+            const hash = window.location.hash.slice(1);
+            const tryScroll = (attempts = 0) => {
+                const el = document.getElementById(hash);
+                if (el) {
+                    el.scrollIntoView({ behavior: "smooth" });
+                } else if (attempts < 20) {
+                    setTimeout(() => tryScroll(attempts + 1), 100);
+                }
+            };
+            tryScroll();
         }
 
         if (isFirst.current) {
@@ -41,5 +40,24 @@ export default function PageTransition({ children }: { children: React.ReactNode
         );
     }, [pathname]);
 
-    return <div ref={ref}>{children}</div>;
+    /*
+     * O wrapper externo NÃO recebe a animação.
+     * Somente o div interno (#page-content) é animado.
+     *
+     * Por que isso importa:
+     * A Web Animations API (elem.animate) cria um stacking context no elemento
+     * durante a animação. Um stacking context "prende" elementos
+     * position:fixed que sejam filhos — fazendo a Navbar sumir ou
+     * se comportar como position:absolute ao scrollar.
+     *
+     * Com o wrapper externo sem animação, a Navbar (fixed) continua
+     * se referenciando ao viewport normalmente, em todas as páginas.
+     */
+    return (
+        <div>
+            <div ref={ref}>
+                {children}
+            </div>
+        </div>
+    );
 }

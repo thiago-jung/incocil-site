@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BLOG_POSTS } from "@/constants/blog-data";
 import { getDictionary } from "@/get-dictionaries";
@@ -23,10 +22,6 @@ export async function generateMetadata({
     return {
         title: post.title,
         description: post.excerpt,
-
-        // ─── hreflang para posts de blog ────────────────────────────
-        // Os slugs dos posts são os mesmos em todos os idiomas
-        // (o conteúdo é o mesmo vídeo/post com texto adaptado por idioma).
         alternates: {
             canonical: `${BASE_URL}/${lang}/blog/${slug}`,
             languages: {
@@ -35,7 +30,6 @@ export async function generateMetadata({
                 "es-ES": `${BASE_URL}/es/blog/${slug}`,
             },
         },
-
         openGraph: {
             title: `${post.title} | Blog INCOCIL`,
             description: post.excerpt,
@@ -58,10 +52,8 @@ export default async function BlogPostPage({
 
     return (
         <>
-            {/* Barra de progresso de leitura */}
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <ReadingProgress />
-
-            <Navbar lang={lang} dict={dict.navbar} />
 
             <main className="min-h-screen bg-white pt-32 pb-20">
                 <article className="container mx-auto px-6 max-w-4xl">
@@ -89,7 +81,6 @@ export default async function BlogPostPage({
                         </h1>
 
                         <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-                            {/* Alt text descritivo para SEO de imagem */}
                             <img
                                 src={post.image}
                                 className="w-full h-full object-cover"

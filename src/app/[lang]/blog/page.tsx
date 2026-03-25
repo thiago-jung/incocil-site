@@ -1,5 +1,4 @@
 import { getDictionary } from "@/get-dictionaries";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BlogClientView from "@/components/BlogClientView";
 
@@ -13,7 +12,7 @@ export default async function BlogPage({
 
     return (
         <>
-            <Navbar lang={lang} dict={dict.navbar} />
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <main className="min-h-screen bg-slate-50 pt-32 pb-20">
                 <div className="container mx-auto px-6">
                     <BlogClientView dict={dict} lang={lang} />

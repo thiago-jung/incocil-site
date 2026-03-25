@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getDictionary } from "@/get-dictionaries";
 import { Metadata } from "next";
@@ -81,92 +80,32 @@ const content = {
         title: "Privacy Policy",
         updated: "Last updated: March 2026",
         sections: [
-            {
-                heading: "1. Who we are",
-                body: `INCOCIL — Indústria e Comércio de Cilindros Ltda., registered under CNPJ 87.429.822/0001-80, headquartered at Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — ZIP 91790-005, Brazil ("INCOCIL", "we"), is the controller of personal data collected through this website (www.incocil.com).`,
-            },
-            {
-                heading: "2. Data we collect",
-                body: `We only collect data you voluntarily provide when filling out contact or quote forms: full name, corporate email, phone/WhatsApp number, and a description of your needs. We also collect anonymous browsing data (pages visited, session duration) via Google Analytics 4, only after your explicit consent.`,
-            },
-            {
-                heading: "3. How we use your data",
-                body: `Your data is used exclusively to: (a) respond to your quote or contact request; (b) facilitate commercial communication via WhatsApp or email; (c) improve the website browsing experience (anonymous analytics data). We do not sell, rent, or share your data with third parties for marketing purposes.`,
-            },
-            {
-                heading: "4. Legal basis (GDPR / LGPD)",
-                body: `Processing of your personal data is carried out on the basis of legitimate interest (fulfilling your request) and, for analytics data, on the basis of explicit consent granted or denied via the cookie banner. You may withdraw consent at any time by clicking "Revoke consent" in the website footer.`,
-            },
-            {
-                heading: "5. Cookies and tracking",
-                body: `We use essential cookies (required for the website to function) and analytics cookies (Google Analytics 4 — GA4). Analytics cookies are only activated after your consent. No identifiable data is sent to Google without your authorization. You can manage your preferences at any time via the cookie banner.`,
-            },
-            {
-                heading: "6. Data retention",
-                body: `Form data is retained for the time necessary to complete the commercial process or for the minimum period required by law. Analytics data is retained for 14 months in Google Analytics, per default configuration.`,
-            },
-            {
-                heading: "7. Your rights",
-                body: `Under the GDPR (EU residents) and Brazil's LGPD (Law 13.709/2018), you have the right to: access, correct or delete your data; withdraw consent; request data portability; object to processing. To exercise any of these rights, contact us at incocil@incocil.com.br.`,
-            },
-            {
-                heading: "8. Security",
-                body: `We implement appropriate technical and organizational measures to protect your data against unauthorized access, loss, or disclosure. The website uses HTTPS with a valid SSL certificate and security headers (HSTS, CSP, X-Frame-Options).`,
-            },
-            {
-                heading: "9. External links",
-                body: `This website may contain links to third-party platforms (YouTube, WhatsApp, LinkedIn, Instagram). INCOCIL is not responsible for the privacy practices of those platforms. We recommend reading their respective privacy policies.`,
-            },
-            {
-                heading: "10. Contact",
-                body: `Questions about this policy? Get in touch:\n\nINOCCIL — Indústria e Comércio de Cilindros Ltda.\nAv. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS\nZIP 91790-005 — Brazil\nEmail: incocil@incocil.com.br\nPhone: +55 51 3261-2205`,
-            },
+            { heading: "1. Who we are", body: `INCOCIL — Indústria e Comércio de Cilindros Ltda., registered under CNPJ 87.429.822/0001-80, headquartered at Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — ZIP 91790-005, Brazil ("INCOCIL", "we"), is the controller of personal data collected through this website (www.incocil.com).` },
+            { heading: "2. Data we collect", body: `We only collect data you voluntarily provide when filling out contact or quote forms: full name, corporate email, phone/WhatsApp number, and a description of your needs. We also collect anonymous browsing data (pages visited, session duration) via Google Analytics 4, only after your explicit consent.` },
+            { heading: "3. How we use your data", body: `Your data is used exclusively to: (a) respond to your quote or contact request; (b) facilitate commercial communication via WhatsApp or email; (c) improve the website browsing experience (anonymous analytics data). We do not sell, rent, or share your data with third parties for marketing purposes.` },
+            { heading: "4. Legal basis (GDPR / LGPD)", body: `Processing of your personal data is carried out on the basis of legitimate interest (fulfilling your request) and, for analytics data, on the basis of explicit consent granted or denied via the cookie banner. You may withdraw consent at any time by clicking "Revoke consent" in the website footer.` },
+            { heading: "5. Cookies and tracking", body: `We use essential cookies (required for the website to function) and analytics cookies (Google Analytics 4 — GA4). Analytics cookies are only activated after your consent. No identifiable data is sent to Google without your authorization.` },
+            { heading: "6. Data retention", body: `Form data is retained for the time necessary to complete the commercial process or for the minimum period required by law. Analytics data is retained for 14 months in Google Analytics, per default configuration.` },
+            { heading: "7. Your rights", body: `Under the GDPR (EU residents) and Brazil's LGPD (Law 13.709/2018), you have the right to: access, correct or delete your data; withdraw consent; request data portability; object to processing. To exercise any of these rights, contact us at incocil@incocil.com.br.` },
+            { heading: "8. Security", body: `We implement appropriate technical and organizational measures to protect your data against unauthorized access, loss, or disclosure. The website uses HTTPS with a valid SSL certificate and security headers (HSTS, CSP, X-Frame-Options).` },
+            { heading: "9. External links", body: `This website may contain links to third-party platforms (YouTube, WhatsApp, LinkedIn, Instagram). INCOCIL is not responsible for the privacy practices of those platforms.` },
+            { heading: "10. Contact", body: `Questions about this policy? Get in touch:\n\nINOCCIL — Indústria e Comércio de Cilindros Ltda.\nAv. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS\nZIP 91790-005 — Brazil\nEmail: incocil@incocil.com.br\nPhone: +55 51 3261-2205` },
         ],
     },
     es: {
         title: "Política de Privacidad",
         updated: "Última actualización: marzo de 2026",
         sections: [
-            {
-                heading: "1. Quiénes somos",
-                body: `INCOCIL — Indústria e Comércio de Cilindros Ltda., registrada bajo el CNPJ 87.429.822/0001-80, con sede en Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — CP 91790-005, Brasil ("INCOCIL", "nosotros"), es responsable del tratamiento de los datos personales recopilados en este sitio web (www.incocil.com).`,
-            },
-            {
-                heading: "2. Datos que recopilamos",
-                body: `Solo recopilamos los datos que usted nos proporciona voluntariamente al completar formularios de contacto o presupuesto: nombre completo, correo corporativo, teléfono/WhatsApp y descripción de su necesidad. También recopilamos datos de navegación de forma anónima (páginas visitadas, duración de sesión) mediante Google Analytics 4, solo con su consentimiento explícito.`,
-            },
-            {
-                heading: "3. Cómo usamos sus datos",
-                body: `Sus datos se utilizan exclusivamente para: (a) responder a su solicitud de presupuesto o contacto; (b) facilitar la comunicación comercial vía WhatsApp o correo electrónico; (c) mejorar la experiencia de navegación (datos anónimos de analytics). No vendemos, alquilamos ni compartimos sus datos con terceros con fines de marketing.`,
-            },
-            {
-                heading: "4. Base legal (GDPR / LGPD)",
-                body: `El tratamiento de sus datos personales se realiza sobre la base del interés legítimo (atender su solicitud) y, para los datos de analytics, sobre la base del consentimiento expreso otorgado o denegado en el banner de cookies. Puede revocar el consentimiento en cualquier momento haciendo clic en "Revocar consentimiento" en el pie de página del sitio.`,
-            },
-            {
-                heading: "5. Cookies y seguimiento",
-                body: `Utilizamos cookies esenciales (necesarias para el funcionamiento del sitio) y cookies de analytics (Google Analytics 4 — GA4). Las cookies de analytics solo se activan después de su consentimiento. Ningún dato identificable se envía a Google sin su autorización. Puede gestionar sus preferencias en cualquier momento a través del banner de cookies.`,
-            },
-            {
-                heading: "6. Retención de datos",
-                body: `Los datos de formulario se retienen durante el tiempo necesario para completar el proceso comercial o por el plazo mínimo exigido por ley. Los datos de analytics se retienen durante 14 meses en Google Analytics, según la configuración predeterminada.`,
-            },
-            {
-                heading: "7. Sus derechos",
-                body: `De acuerdo con el GDPR (residentes de la UE) y la LGPD de Brasil (Ley 13.709/2018), usted tiene derecho a: acceder, corregir o eliminar sus datos; retirar el consentimiento; solicitar la portabilidad de datos; oponerse al tratamiento. Para ejercer cualquiera de estos derechos, contáctenos en incocil@incocil.com.br.`,
-            },
-            {
-                heading: "8. Seguridad",
-                body: `Implementamos medidas técnicas y organizativas adecuadas para proteger sus datos contra el acceso no autorizado, pérdida o divulgación. El sitio utiliza HTTPS con certificado SSL válido y encabezados de seguridad (HSTS, CSP, X-Frame-Options).`,
-            },
-            {
-                heading: "9. Enlaces externos",
-                body: `Este sitio puede contener enlaces a plataformas de terceros (YouTube, WhatsApp, LinkedIn, Instagram). INCOCIL no es responsable de las prácticas de privacidad de esas plataformas. Recomendamos leer sus respectivas políticas de privacidad.`,
-            },
-            {
-                heading: "10. Contacto",
-                body: `¿Preguntas sobre esta política? Contáctenos:\n\nINOCCIL — Indústria e Comércio de Cilindros Ltda.\nAv. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS\nCP 91790-005 — Brasil\nCorreo: incocil@incocil.com.br\nTeléfono: +55 51 3261-2205`,
-            },
+            { heading: "1. Quiénes somos", body: `INCOCIL — Indústria e Comércio de Cilindros Ltda., registrada bajo el CNPJ 87.429.822/0001-80, con sede en Av. Ricardo Leônidas Ribas, 310 — Restinga, Porto Alegre/RS — CP 91790-005, Brasil.` },
+            { heading: "2. Datos que recopilamos", body: `Solo recopilamos los datos que usted nos proporciona voluntariamente al completar formularios de contacto o presupuesto.` },
+            { heading: "3. Cómo usamos sus datos", body: `Sus datos se utilizan exclusivamente para responder su solicitud y facilitar la comunicación comercial. No vendemos, alquilamos ni compartimos sus datos con terceros.` },
+            { heading: "4. Base legal (GDPR / LGPD)", body: `El tratamiento se realiza sobre la base del interés legítimo y, para los datos de analytics, sobre la base del consentimiento expreso otorgado en el banner de cookies.` },
+            { heading: "5. Cookies y seguimiento", body: `Utilizamos cookies esenciales y cookies de analytics (GA4). Las cookies de analytics solo se activan después de su consentimiento.` },
+            { heading: "6. Retención de datos", body: `Los datos de formulario se retienen durante el tiempo necesario. Los datos de analytics se retienen 14 meses en Google Analytics.` },
+            { heading: "7. Sus derechos", body: `De acuerdo con el GDPR y la LGPD, usted tiene derecho a acceder, corregir o eliminar sus datos. Contáctenos en incocil@incocil.com.br.` },
+            { heading: "8. Seguridad", body: `Implementamos medidas técnicas y organizativas adecuadas. El sitio utiliza HTTPS con certificado SSL válido.` },
+            { heading: "9. Enlaces externos", body: `Este sitio puede contener enlaces a plataformas de terceros. INCOCIL no es responsable de sus prácticas de privacidad.` },
+            { heading: "10. Contacto", body: `¿Preguntas? Contáctenos en incocil@incocil.com.br o por teléfono: +55 51 3261-2205.` },
         ],
     },
 } as const;
@@ -182,7 +121,7 @@ export default async function PrivacidadePage({
 
     return (
         <>
-            <Navbar lang={lang} dict={dict.navbar} />
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <main className="min-h-screen bg-slate-50 pt-32 pb-20">
                 <div className="container mx-auto px-6 max-w-3xl">
 

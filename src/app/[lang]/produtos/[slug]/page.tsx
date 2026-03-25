@@ -1,6 +1,5 @@
 import { getDictionary } from "@/get-dictionaries";
 import { notFound } from "next/navigation";
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductForm from "@/components/ProductForm";
 import { CheckCircle2 } from "lucide-react";
@@ -35,8 +34,6 @@ export async function generateMetadata({
     return {
         title: product.title,
         description: product.description,
-
-        // ── hreflang — o slug é o mesmo em todos os idiomas ────────────────
         alternates: {
             canonical: `${BASE_URL}/${lang}/produtos/${slug}`,
             languages: {
@@ -45,7 +42,6 @@ export async function generateMetadata({
                 "es-ES": `${BASE_URL}/es/produtos/${slug}`,
             },
         },
-
         openGraph: {
             title: `${product.title} | INCOCIL`,
             description: product.description,
@@ -75,30 +71,23 @@ export default async function PaginaProduto({
     const nome = produto.title.toUpperCase();
     const productImages = [produto.image, ...(produto.gallery || [])].filter(Boolean);
 
-    // Produtos relacionados: os 3 primeiros que não sejam este
     const relatedItems = dict.services
         .filter((s: any) => s.slug !== slug)
         .slice(0, 3);
 
-    // Label do breadcrumb "Produtos" por idioma
     const productsLabel = lang === 'en' ? 'Products' : lang === 'es' ? 'Productos' : 'Produtos';
     const productsHref = `/${lang}/#servicos`;
 
     return (
         <div className="bg-slate-50 min-h-screen">
-            {/* Schema.org Product (sem aggregateRating falso) */}
             <ProductSchema produto={produto} lang={lang} slug={slug} />
 
-            {/* Barra de progresso de leitura */}
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <ReadingProgress />
 
-            <Navbar lang={lang} dict={dict.navbar} />
-
-            {/* Tracking invisível */}
             <ProductViewTracker slug={slug} title={produto.title} />
 
             <div className="container mx-auto px-6 pt-32 pb-10">
-                {/* ── Breadcrumb ─────────────────────────────────────────────── */}
                 <div className="mb-8">
                     <Breadcrumb
                         lang={lang}
@@ -151,7 +140,6 @@ export default async function PaginaProduto({
                 </div>
             </div>
 
-            {/* ── Produtos Relacionados ──────────────────────────────────────── */}
             <RelatedProducts
                 items={relatedItems}
                 lang={lang}

@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getDictionary } from "@/get-dictionaries";
 import EmpresaClientView from "@/components/EmpresaClientView";
@@ -64,7 +63,7 @@ export default async function EmpresaPage({
 
     return (
         <>
-            <Navbar lang={lang} dict={dict.navbar} />
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <EmpresaClientView dict={dictWithLang} />
             <Footer dict={dict} lang={lang} />
         </>

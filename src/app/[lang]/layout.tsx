@@ -7,13 +7,12 @@ import { Metadata } from "next";
 import FloatingElements from "@/components/FloatingElements";
 import PageTransition from "@/components/PageTransition";
 import GlobalSchema from "@/components/GlobalSchema";
+import Navbar from "@/components/Navbar";
 import Script from "next/script";
 
 const inter = Inter({
     subsets: ["latin"],
     display: "swap",
-    // "300" adicionado — hero description usa font-light
-    // sem este weight o browser faz síntese artificial que pode atrasar o paint
     weight: ["300", "400", "500", "700", "900"],
     adjustFontFallback: true,
 });
@@ -80,22 +79,15 @@ export default async function RootLayout({
     params: Promise<{ lang: string }>;
 }) {
     const { lang } = await params;
+    // Busca o dicionário aqui para passar à Navbar (que precisa ser movida
+    // para FORA do <PageTransition> — qualquer elemento com `transform` ativo
+    // cria um novo "containing block" e sequestra o `position: fixed` da Navbar,
+    // fazendo-a desaparecer ao rolar em páginas internas).
+    const dict = await getDictionary(lang as "pt" | "en" | "es");
 
     return (
         <html lang={lang}>
             <head>
-                {/*
-                 * ── Preconnects REMOVIDOS ─────────────────────────────────────
-                 * O Lighthouse reportou os 3 preconnects como "Pré-conexão não
-                 * usada" — estavam prejudicando ao desperdiçar conexões TCP:
-                 *
-                 *  ❌ googletagmanager.com — GTM só carrega após interactive
-                 *  ❌ google-analytics.com — GA só carrega após interactive
-                 *  ❌ fonts.gstatic.com    — next/font serve fontes localmente
-                 *
-                 * Preconnects inutilizados consomem slots que o browser usaria
-                 * para os recursos críticos do caminho de renderização.
-                 */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -112,7 +104,22 @@ export default async function RootLayout({
             </head>
             <body className={`${inter.className} ${montserrat.variable} antialiased bg-white text-slate-900`}>
                 <GlobalSchema lang={lang as "pt" | "en" | "es"} />
+
+                {/*
+                 * ── NAVBAR FORA DO PageTransition ────────────────────────────
+                 * PageTransition usa a Web Animations API com `transform`, o que
+                 * cria um novo "containing block" no CSS. Qualquer `position: fixed`
+                 * dentro desse bloco para de ser relativo ao viewport e passa a ser
+                 * relativo ao elemento animado — fazendo a Navbar sumir ao rolar.
+                 *
+                 * Solução: Navbar fica aqui, no layout, completamente fora da
+                 * animação de transição de página. Os `page.tsx` individuais não
+                 * precisam mais importar ou renderizar a Navbar.
+                 */}
+                <Navbar lang={lang} dict={dict.navbar} />
+
                 <PageTransition>{children}</PageTransition>
+
                 <Analytics />
                 <SpeedInsights />
                 <FloatingElements lang={lang} />

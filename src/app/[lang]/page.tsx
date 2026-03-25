@@ -1,19 +1,9 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { getDictionary } from "@/get-dictionaries";
 import dynamic from "next/dynamic";
 import { SkeletonServices } from "@/components/SkeletonCard";
 
-/*
- * Carregamento lazy com skeleton loaders.
- *
- * Antes: componentes carregavam sem feedback — a página "pulava"
- * ao aparecer o conteúdo, causando CLS (Cumulative Layout Shift).
- *
- * Agora: enquanto o JS carrega, um placeholder animado ocupa o espaço
- * correto — sem pulos, sem piscar em branco.
- */
 const About = dynamic(() => import("@/components/About"), {
     loading: () => (
         <section className="py-24 bg-white">
@@ -60,7 +50,7 @@ export default async function Home({
 
     return (
         <main className="relative">
-            <Navbar lang={lang} dict={dict.navbar} />
+            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <Hero dict={dict.hero} lang={lang} />
             <About dict={dict.about} />
             <Stats dict={dict.stats} lang={lang} />
