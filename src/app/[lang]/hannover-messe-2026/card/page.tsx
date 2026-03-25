@@ -322,11 +322,11 @@ export default async function BusinessCard() {
                         {/* barrel right cap */}
                         <path d="M360,62 Q380,62 380,95 Q380,128 360,128 L360,62 Z" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.4" />
                         {/* port A — elbow left */}
-                        <rect x="98" y="41" width="12" height="20" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
-                        <rect x="98" y="40" width="12" height="12" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
-                        <rect x="109" y="39" width="8" height="14" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.2" />
+                        <rect x="88" y="41" width="12" height="20" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="88" y="40" width="12" height="12" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="99" y="39" width="8" height="14" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.2" />
                         <line x1="168" y1="62" x2="186" y2="62" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
-                        <text x="110" y="32" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="rgba(74,222,128,0.7)" letterSpacing="0.08em">PORT A</text>
+                        <text x="100" y="32" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="rgba(74,222,128,0.7)" letterSpacing="0.08em">PORT A</text>
                         {/* port B — elbow right */}
                         <rect x="308" y="41" width="12" height="20" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
                         <rect x="308" y="40" width="12" height="12" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
