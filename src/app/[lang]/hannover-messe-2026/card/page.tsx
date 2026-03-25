@@ -280,96 +280,89 @@ export default async function BusinessCard() {
                         />
                     </div>
 
-                    {/* ── Hydraulic Cylinder Blueprint Watermark ── */}
+                    {/* ── Hydraulic Cylinder Blueprint ── */}
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 370 205"
+                        viewBox="-10 0 490 180"
                         style={{
                             position: "absolute",
-                            right: "5mm",
+                            left: "50%",
                             top: "50%",
-                            transform: "translateY(-50%)",
-                            width: "52mm",
-                            height: "32mm",
+                            transform: "translate(-50%, -50%)",
+                            width: "70mm",
+                            height: "auto",
                             zIndex: 1,
                             pointerEvents: "none",
-                            opacity: 0.55,
+                            opacity: 0.7,
                         }}
                     >
                         <defs>
-                            <pattern id="hatch" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-                                <line x1="0" y1="0" x2="0" y2="4" stroke="rgba(74,222,128,0.22)" strokeWidth="1" />
-                            </pattern>
-                            <pattern id="hatch2" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
-                                <line x1="0" y1="0" x2="0" y2="3" stroke="rgba(74,222,128,0.18)" strokeWidth="0.8" />
+                            <pattern id="h1" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                                <line x1="0" y1="0" x2="0" y2="5" stroke="rgba(74,222,128,0.22)" strokeWidth="1.2" />
                             </pattern>
                         </defs>
-
-                        {/* center axis dash-dot */}
-                        <line x1="0" y1="102" x2="370" y2="102" stroke="rgba(74,222,128,0.28)" strokeWidth="0.6" strokeDasharray="8,3,1,3" />
-
-                        {/* outer tube */}
-                        <rect x="48" y="70" width="228" height="65" fill="url(#hatch)" rx="2" />
-                        <rect x="48" y="68" width="228" height="12" fill="rgba(0,210,80,0.12)" rx="1" />
-                        <rect x="48" y="125" width="228" height="12" fill="rgba(0,210,80,0.12)" rx="1" />
-                        <rect x="48" y="68" width="228" height="69" rx="2" fill="none" stroke="rgba(74,222,128,0.75)" strokeWidth="1.2" />
-                        <rect x="48" y="80" width="228" height="45" fill="rgba(74,222,128,0.04)" />
-                        <line x1="48" y1="80" x2="276" y2="80" stroke="rgba(74,222,128,0.35)" strokeWidth="0.6" />
-                        <line x1="48" y1="125" x2="276" y2="125" stroke="rgba(74,222,128,0.35)" strokeWidth="0.6" />
-
-                        {/* left end cap */}
-                        <rect x="24" y="56" width="28" height="93" fill="url(#hatch)" rx="2" />
-                        <rect x="24" y="56" width="28" height="93" rx="2" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="1.2" />
-                        <line x1="52" y1="60" x2="52" y2="145" stroke="rgba(74,222,128,0.4)" strokeWidth="0.8" />
-
-                        {/* right end cap / rod gland */}
-                        <rect x="276" y="62" width="28" height="81" fill="url(#hatch)" rx="2" />
-                        <rect x="276" y="62" width="28" height="81" rx="2" fill="none" stroke="rgba(74,222,128,0.8)" strokeWidth="1.2" />
-                        <rect x="278" y="86" width="6" height="33" fill="none" stroke="rgba(74,222,128,0.45)" strokeWidth="0.7" strokeDasharray="2,1.5" />
-                        <line x1="276" y1="65" x2="276" y2="143" stroke="rgba(74,222,128,0.4)" strokeWidth="0.8" />
-
+                        <line x1="-10" y1="95" x2="460" y2="95" stroke="rgba(74,222,128,0.25)" strokeWidth="0.7" strokeDasharray="10,4,2,4" />
+                        {/* left eye */}
+                        <circle cx="38" cy="95" r="28" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.6" />
+                        <circle cx="38" cy="95" r="14" fill="#0F172A" stroke="rgba(74,222,128,0.9)" strokeWidth="1.4" />
+                        {/*<circle cx="38" cy="95" r="3" fill="rgba(74,222,128,0.5)" />*/}
+                        {/* left neck taper */}
+                        {/*<path d="M64,95 L80,82 L80,108 Z" fill="url(#h1)" stroke="rgba(74,222,128,0.8)" strokeWidth="1.3" strokeLinejoin="round" />*/}
+                        {/* barrel left cap */}
+                        <path d="M80,62 Q66,62 66,95 Q66,128 80,128 L80,62 Z" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.4" />
+                        {/* barrel body */}
+                        <rect x="80" y="62" width="280" height="66" fill="url(#h1)" />
+                        <rect x="80" y="62" width="280" height="13" fill="rgba(0,210,80,0.13)" />
+                        <rect x="80" y="115" width="280" height="13" fill="rgba(0,210,80,0.13)" />
+                        <rect x="80" y="75" width="280" height="40" fill="rgba(74,222,128,0.04)" />
+                        <line x1="80" y1="75" x2="360" y2="75" stroke="rgba(74,222,128,0.3)" strokeWidth="0.7" />
+                        <line x1="80" y1="115" x2="360" y2="115" stroke="rgba(74,222,128,0.3)" strokeWidth="0.7" />
+                        <line x1="80" y1="62" x2="360" y2="62" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
+                        <line x1="80" y1="128" x2="360" y2="128" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
+                        {/* barrel right cap */}
+                        <path d="M360,62 Q380,62 380,95 Q380,128 360,128 L360,62 Z" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.4" />
+                        {/* port A — elbow left */}
+                        <rect x="98" y="41" width="12" height="20" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="98" y="40" width="12" height="12" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="109" y="39" width="8" height="14" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.2" />
+                        <line x1="168" y1="62" x2="186" y2="62" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
+                        <text x="110" y="32" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="rgba(74,222,128,0.7)" letterSpacing="0.08em">PORT A</text>
+                        {/* port B — elbow right */}
+                        <rect x="308" y="41" width="12" height="20" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="308" y="40" width="12" height="12" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.3" />
+                        <rect x="301" y="39" width="8" height="14" rx="1" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.2" />
+                        <line x1="168" y1="62" x2="186" y2="62" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
+                        <text x="310" y="32" textAnchor="middle" fontFamily="monospace" fontSize="8" fill="rgba(74,222,128,0.7)" letterSpacing="0.08em">PORT B</text>
                         {/* piston */}
-                        <rect x="148" y="80" width="26" height="45" fill="url(#hatch2)" rx="1" />
-                        <rect x="148" y="80" width="26" height="45" rx="1" fill="none" stroke="rgba(74,222,128,0.9)" strokeWidth="1.3" />
-                        <line x1="148" y1="91" x2="174" y2="91" stroke="rgba(74,222,128,0.5)" strokeWidth="0.8" />
-                        <line x1="148" y1="114" x2="174" y2="114" stroke="rgba(74,222,128,0.5)" strokeWidth="0.8" />
+                        <rect x="90" y="75" width="40" height="40" rx="1" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.9)" strokeWidth="1.4" />
+                        <line x1="228" y1="86" x2="248" y2="86" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
+                        <line x1="228" y1="104" x2="248" y2="104" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
 
-                        {/* piston rod */}
-                        <rect x="174" y="92" width="134" height="21" fill="rgba(74,222,128,0.08)" rx="1" />
-                        <rect x="174" y="92" width="134" height="21" rx="1" fill="none" stroke="rgba(74,222,128,0.85)" strokeWidth="1.1" />
-                        <rect x="305" y="94" width="6" height="17" fill="rgba(74,222,128,0.15)" rx="1" />
+                        <rect x="80" y="80" width="10" height="30" rx="1" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.9)" strokeWidth="1.4" />
+                        <line x1="228" y1="86" x2="248" y2="86" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
+                        <line x1="228" y1="104" x2="248" y2="104" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
 
-                        {/* port A */}
-                        <circle cx="90" cy="68" r="5" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.75)" strokeWidth="0.9" />
-                        <circle cx="90" cy="68" r="2" fill="rgba(74,222,128,0.4)" />
-                        <line x1="90" y1="63" x2="90" y2="42" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
-                        <line x1="81" y1="42" x2="99" y2="42" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
-                        <text x="90" y="37" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="rgba(74,222,128,0.6)" letterSpacing="0.05em">PORT A</text>
-
-                        {/* port B */}
-                        <circle cx="220" cy="137" r="5" fill="rgba(74,222,128,0.12)" stroke="rgba(74,222,128,0.75)" strokeWidth="0.9" />
-                        <circle cx="220" cy="137" r="2" fill="rgba(74,222,128,0.4)" />
-                        <line x1="220" y1="142" x2="220" y2="163" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
-                        <line x1="211" y1="163" x2="229" y2="163" stroke="rgba(74,222,128,0.55)" strokeWidth="0.8" />
-                        <text x="220" y="172" textAnchor="middle" fontFamily="monospace" fontSize="7" fill="rgba(74,222,128,0.6)" letterSpacing="0.05em">PORT B</text>
-
-                        {/* dimension lines */}
-                        <line x1="24" y1="48" x2="308" y2="48" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <line x1="24" y1="44" x2="24" y2="52" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <line x1="308" y1="44" x2="308" y2="52" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <line x1="14" y1="80" x2="14" y2="125" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <line x1="10" y1="80" x2="18" y2="80" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <line x1="10" y1="125" x2="18" y2="125" stroke="rgba(74,222,128,0.22)" strokeWidth="0.5" />
-                        <text x="8" y="104" textAnchor="middle" transform="rotate(-90,8,104)" fontFamily="monospace" fontSize="6" fill="rgba(74,222,128,0.45)" letterSpacing="0.04em">ø BORE</text>
-
-                        {/* stroke arrow */}
-                        <defs>
-                            <marker id="arr" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-                                <path d="M1 1L6 4L1 7" fill="none" stroke="rgba(74,222,128,0.4)" strokeWidth="1.2" strokeLinecap="round" />
-                            </marker>
-                        </defs>
-                        <line x1="52" y1="155" x2="174" y2="155" stroke="rgba(74,222,128,0.3)" strokeWidth="0.6" markerStart="url(#arr)" markerEnd="url(#arr)" />
-                        <text x="113" y="166" textAnchor="middle" fontFamily="monospace" fontSize="6.5" fill="rgba(74,222,128,0.5)" letterSpacing="0.04em">STROKE</text>
+                        <rect x="320" y="75" width="40" height="40" rx="1" fill="rgba(74,222,128,0.15)" stroke="rgba(74,222,128,0.9)" strokeWidth="1.4" />
+                        <line x1="228" y1="86" x2="248" y2="86" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
+                        <line x1="228" y1="104" x2="248" y2="104" stroke="rgba(74,222,128,0.5)" strokeWidth="0.9" />
+                        {/* rod gland */}
+                        <line x1="368" y1="82" x2="368" y2="108" stroke="rgba(74,222,128,0.4)" strokeWidth="0.9" strokeDasharray="3,2" />
+                        {/* haste */}
+                        <rect x="80" y="86" width="340" height="18" rx="1" fill="rgba(74,222,128,0.07)" stroke="rgba(74,222,128,0.9)" strokeWidth="1.4" />
+                        <line x1="380" y1="90" x2="416" y2="90" stroke="rgba(74,222,128,0.2)" strokeWidth="1.2" />
+                        {/* right eye — moved closer */}
+                        <circle cx="442" cy="95" r="22" fill="url(#h1)" stroke="rgba(74,222,128,0.85)" strokeWidth="1.5" />
+                        <circle cx="442" cy="95" r="11" fill="#0F172A" stroke="rgba(74,222,128,0.9)" strokeWidth="1.3" />
+                        {/*<circle cx="442" cy="95" r="3" fill="rgba(74,222,128,0.5)" />*/}
+                        {/* lines */}
+                        <line x1="130" y1="142" x2="320" y2="142" stroke="rgba(74,222,128,0.2)" strokeWidth="0.7" />
+                        <line x1="130" y1="136" x2="130" y2="148" stroke="rgba(74,222,128,0.2)" strokeWidth="0.7" />
+                        <line x1="320" y1="136" x2="320" y2="148" stroke="rgba(74,222,128,0.2)" strokeWidth="0.7" />
+                        <text x="220" y="150" textAnchor="middle" fontFamily="monospace" fontSize="9" fill="rgba(74,222,128,0.7)" letterSpacing="0.05em">STROKE</text>
+                        <line x1="5" y1="75" x2="5" y2="115" stroke="rgba(74,222,128,0.18)" strokeWidth="0.7" />
+                        <line x1="2" y1="75" x2="8" y2="75" stroke="rgba(74,222,128,0.18)" strokeWidth="0.7" />
+                        <line x1="2" y1="115" x2="8" y2="115" stroke="rgba(74,222,128,0.18)" strokeWidth="0.7" />
+                        <text x="52" y="45" textAnchor="middle" transform="rotate(-90,52,98)" fontFamily="monospace" fontSize="9" fill="rgba(74,222,128,0.7)" letterSpacing="0.05em">ø BORE</text>
                     </svg>
 
                     <div className="front-bottom">
