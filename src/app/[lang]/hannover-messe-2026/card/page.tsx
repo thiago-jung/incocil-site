@@ -405,15 +405,20 @@ export default async function BusinessCard() {
                         </div>
 
                         <div className="back-contacts">
-                            <p className="contact-line">
-                                🌐 <strong className="back-url">www.incocil.com</strong>
-                            </p>
-                            <p className="contact-line">
-                                ✉ <strong>incocil@incocil.com</strong>
-                            </p>
-                            <p className="contact-line">
-                                <MessageCircle size={7} /> <strong>+55 51 98446-8231</strong>
-                            </p>
+                            <div className="contact-line">
+                                <span style={{ width: "9px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>🌐</span>
+                                <strong className="back-url">www.incocil.com</strong>
+                            </div>
+                            <div className="contact-line">
+                                <span style={{ width: "9px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>✉</span>
+                                <strong>incocil@incocil.com</strong>
+                            </div>
+                            <div className="contact-line">
+                                <span style={{ width: "9px", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                    <MessageCircle size={7} />
+                                </span>
+                                <strong>+55 51 98446-8231</strong>
+                            </div>
                         </div>
                     </div>
                 </div>
