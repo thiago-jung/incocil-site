@@ -1,3 +1,4 @@
+
 "use client";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
@@ -13,13 +14,18 @@ import { useEffect, useRef } from "react";
  * o primeiro byte. A animação só roda no cliente em navegações
  * subsequentes, usando a Web Animations API nativa (sem dependências).
  */
+
 export default function PageTransition({ children }: { children: React.ReactNode }) {
     const pathname = usePathname();
     const ref = useRef<HTMLDivElement>(null);
     const isFirst = useRef(true);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "instant" });
+        // Não reseta o scroll se a URL tiver um hash (ex: /#servicos)
+        const hasHash = typeof window !== "undefined" && !!window.location.hash;
+        if (!hasHash) {
+            window.scrollTo({ top: 0, behavior: "instant" });
+        }
 
         if (isFirst.current) {
             isFirst.current = false;
