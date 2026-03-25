@@ -67,11 +67,13 @@ export default async function BusinessCard() {
           margin-bottom: 8px;
         }
 
-        /* Card base — 85mm × 54mm */
+        /* Card base — 91mm × 60mm (inclui 3mm de sangria por lado) */
+        /* Linha de corte: 85mm × 54mm (a 3mm de cada borda) */
+        /* Zona segura: conteúdo a ≥ 6mm de cada borda */
         .card {
-          width: 85mm;
-          height: 54mm;
-          //border-radius: 3mm;
+          width: 95mm;
+          height: 65mm;
+          /* sem padding aqui — cada face controla o próprio */
           overflow: hidden;
           box-shadow: 0 8px 32px rgba(0,0,0,0.25);
           flex-shrink: 0;
@@ -84,25 +86,25 @@ export default async function BusinessCard() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 5mm 6mm;
+          padding: 10mm 11mm 10mm 11mm;
         }
 
         .card-front::before {
-          content: '';
-          position: absolute;
-          top: 0; right: 0;
-          width: 28mm; height: 28mm;
-          background: #16a34a;
-          clip-path: polygon(100% 0, 0 0, 100% 100%);
-          opacity: 0.5;
+            content: '';
+            position: absolute;
+            top: -2.5mm; right: -2.5mm;
+            width: 44mm; height: 44mm;
+            background: #16a34a;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            opacity: 0.5;
         }
         .card-front::after {
-          content: '';
-          position: absolute;
-          top: 0; right: 0;
-          width: 14mm; height: 14mm;
-          background: #FACC15;
-          clip-path: polygon(100% 0, 0 0, 100% 100%);
+            content: '';
+            position: absolute;
+            top: -2.5mm; right: -2.5mm;
+            width: 28mm; height: 28mm;
+            background: #FACC15;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
         }
 
         .front-logo { position: relative; z-index: 1; }
@@ -148,18 +150,19 @@ export default async function BusinessCard() {
 
         /* ── BACK ── */
         .card-back {
+            overflow: hidden;
           background: #0F172A;
           display: flex;
           align-items: stretch;
         }
 
         .back-accent {
-          width: 20mm;
-          background: #16a34a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
+            width: 25mm;            /* 5mm sangria esq + 20mm faixa visível */
+            background: #16a34a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .back-content {
@@ -167,7 +170,7 @@ export default async function BusinessCard() {
           display: flex;
           flex-direction: column;
           justify-content: space-between;
-          padding: 5mm 5mm 5mm 4mm;
+          padding: 10mm 11mm 10mm 5mm;
         }
 
         .back-qr-row {
