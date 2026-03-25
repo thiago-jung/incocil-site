@@ -193,8 +193,8 @@ function calcular(tubo: number, haste: number, curso: number, pressao: number): 
     const volAbrir = (areaAbrir * L) / 1000; // L
     const volFechar = (areaFechar * L) / 1000;
 
-    const fAbrir = areaAbrir * P; // Kgf
-    const fFechar = areaFechar * P;
+    const fAbrir = areaAbrir * P * 1.01972; // Kgf (1 bar = 1.01972 kgf/cm²)
+    const fFechar = areaFechar * P * 1.01972;
 
     // Flow at 100 mm/s = 10 cm/s
     const vazaoAbrir = (areaAbrir * 10 * 60) / 1000; // L/min
