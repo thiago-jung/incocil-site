@@ -71,7 +71,7 @@ export default async function BusinessCard() {
         .card {
           width: 85mm;
           height: 54mm;
-          border-radius: 3mm;
+          //border-radius: 3mm;
           overflow: hidden;
           box-shadow: 0 8px 32px rgba(0,0,0,0.25);
           flex-shrink: 0;

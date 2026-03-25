@@ -6,22 +6,12 @@ import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import Image from "next/image";
 
-/**
- * Navbar sem framer-motion
- *
- * O menu mobile antes usava AnimatePresence + motion.div, o que
- * forçava framer-motion a estar no bundle crítico de TODA página.
- * Em mobile emulado (CPU 4x mais lento), parsear framer-motion antes
- * do FCP custava ~200-400ms extras de execução JS.
- *
- * Substituído por CSS transition (max-height + opacity) que:
- *  - Não adiciona nenhuma dependência JS extra
- *  - Funciona identicamente para o usuário
- *  - Deixa o framer-motion ser carregado só quando realmente necessário
- */
-
 const DARK_HERO_PAGES = [
     /^\/[a-z]{2}$/,
+];
+
+// Rotas onde a Navbar não deve aparecer de forma alguma
+const HIDDEN_PAGES = [
     /^\/[a-z]{2}\/hannover-messe/,
 ];
 
@@ -30,11 +20,17 @@ function hasDarkHero(pathname: string | null): boolean {
     return DARK_HERO_PAGES.some((re) => re.test(pathname));
 }
 
+function isHiddenPage(pathname: string | null): boolean {
+    if (!pathname) return false;
+    return HIDDEN_PAGES.some((re) => re.test(pathname));
+}
+
 export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
+    const hidden = isHiddenPage(pathname);
     const darkHero = hasDarkHero(pathname);
     const forceLight = !darkHero;
     const showLight = isScrolled || isOpen || forceLight;
@@ -71,11 +67,12 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
         setIsOpen(false);
     }, [pathname]);
 
+    // Não renderiza nada nas páginas da Hannover
+    if (hidden || !dict) return null;
+
     const navBackground = showLight
         ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
         : "bg-transparent py-5";
-
-    if (!dict) return null;
 
     return (
         <nav className={`fixed w-full z-50 transition-all duration-300 ${navBackground}`}>
@@ -126,11 +123,6 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
                 </div>
             </div>
 
-            {/*
-             * Menu mobile — CSS transition puro (sem framer-motion)
-             * max-h-0 → max-h-[600px] com opacity e overflow-hidden
-             * produz exatamente o mesmo efeito visual sem dependência JS.
-             */}
             <div
                 className={`
                     absolute top-full left-0 w-full bg-white shadow-xl md:hidden
