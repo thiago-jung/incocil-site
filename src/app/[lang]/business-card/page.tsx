@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import PrintButton from "../hannover-messe-2026/card/PrintButton";
 import { Barlow, Barlow_Condensed } from 'next/font/google';
+import ExportButton from "./ExportButton";
 
 
 const barlow = Barlow({
@@ -588,6 +589,8 @@ export default async function BusinessCard({
 
                     </div>
                 </div>
+
+                <ExportButton person={person} />
 
             </div>
         </>
