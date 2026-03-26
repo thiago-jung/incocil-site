@@ -4,7 +4,7 @@ const browser = await puppeteer.launch();
 const page = await browser.newPage();
 
 await page.setViewport({ width: 1200, height: 800, deviceScaleFactor: 3 });
-await page.goto('http://localhost:3000/en/hannover-messe-2026/card', { waitUntil: 'networkidle0' });
+await page.goto('http://localhost:3000/business-card', { waitUntil: 'networkidle0' });
 
 await new Promise(r => setTimeout(r, 2500));
 
@@ -24,7 +24,7 @@ await page.evaluate(() => {
     document.querySelector('.card-back').style.display = 'none';
 });
 // 85 + 3mm sangria cada lado = 91mm | 54 + 3mm cada lado = 60mm
-await page.pdf({ path: 'card-front.pdf', width: '95mm', height: '65mm', printBackground: true });
+await page.pdf({ path: 'card-front-bus.pdf', width: '95mm', height: '65mm', printBackground: true });
 
 // ── Verso ──
 await prepareBody();
@@ -32,6 +32,6 @@ await page.evaluate(() => {
     document.querySelector('.card-front').style.display = 'none';
     document.querySelector('.card-back').style.display = '';
 });
-await page.pdf({ path: 'card-back.pdf', width: '95mm', height: '65mm', printBackground: true });
+await page.pdf({ path: 'card-back-bus.pdf', width: '95mm', height: '65mm', printBackground: true });
 
 await browser.close();

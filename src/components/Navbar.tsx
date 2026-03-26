@@ -13,6 +13,7 @@ const DARK_HERO_PAGES = [
 // Rotas onde a Navbar não deve aparecer de forma alguma
 const HIDDEN_PAGES = [
     /^\/[a-z]{2}\/hannover-messe/,
+    /^\/[a-z]{2}\/business-card/,
 ];
 
 function hasDarkHero(pathname: string | null): boolean {
