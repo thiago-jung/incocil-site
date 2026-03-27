@@ -408,11 +408,11 @@ export async function GET(request: NextRequest) {
         });
 
     } catch (err) {
-        console.error('[business-card/export]', err);
-        return NextResponse.json(
-            { error: 'Falha ao gerar o PDF. Verifique os logs do servidor.' },
-            { status: 500 }
-        );
+        const msg = err instanceof Error ? err.message : String(err);
+        const stack = err instanceof Error ? err.stack : '';
+        console.error('[business-card/export] ERROR:', msg);
+        console.error('[business-card/export] STACK:', stack);
+        return NextResponse.json({ error: msg }, { status: 500 });
     } finally {
         await browser.close();
     }
