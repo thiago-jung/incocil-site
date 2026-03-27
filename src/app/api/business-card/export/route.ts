@@ -4,7 +4,9 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
-import puppeteer, { Browser } from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import type { Browser } from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import JSZip from 'jszip';
 import fs from 'fs';
 import path from 'path';
@@ -368,12 +370,9 @@ export async function GET(request: NextRequest) {
     const slug = person.name.replace(/\s+/g, '-');
 
     const browser = await puppeteer.launch({
+        args: chromium.args,
+        executablePath: await chromium.executablePath(),
         headless: true,
-        args: [
-            '--no-sandbox', '--disable-setuid-sandbox',
-            '--font-render-hinting=none',
-            '--disable-dev-shm-usage', '--disable-gpu',
-        ],
     });
 
     try {
