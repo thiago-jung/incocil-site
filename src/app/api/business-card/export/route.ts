@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import puppeteer from 'puppeteer-core';
 import type { Browser } from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
+import chromium from '@sparticuz/chromium-min';
 import JSZip from 'jszip';
 import fs from 'fs';
 import path from 'path';
@@ -371,7 +371,9 @@ export async function GET(request: NextRequest) {
 
     const browser = await puppeteer.launch({
         args: chromium.args,
-        executablePath: await chromium.executablePath(),
+        executablePath: await chromium.executablePath(
+            'https://github.com/Sparticuz/chromium/releases/download/v131.0.1/chromium-v131.0.1-pack.tar'
+        ),
         headless: true,
     });
 
