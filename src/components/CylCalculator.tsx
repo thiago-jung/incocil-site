@@ -12,6 +12,7 @@ import {
     RotateCcw,
 } from "lucide-react";
 import { track } from "@/lib/analytics";
+import { sendEmailAction } from "@/actions/sendEmail";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Lang = "pt" | "en" | "es";
@@ -448,9 +449,23 @@ export default function CylCalculator({ lang = "pt" }: CylCalculatorProps) {
         return `${t.waGreeting}*${typeLabel}*\n• ${t.waBore}: ${inp.tubo} mm\n• ${t.waRod}: ${inp.haste} mm\n• ${t.waStroke}: ${inp.curso} mm\n• ${t.waPressure}: ${inp.pressao} bar\n\n*${t.waResults}:*\n• ${t.waFExtend}: ${res ? fmtInt(res.fAbrir, lang) : "—"} Kgf\n• ${t.waFRetract}: ${res ? fmtInt(res.fFechar, lang) : "—"} Kgf`;
     }
 
-    function handleCTA() {
+    async function handleCTA() {
         const d = quoteType === "padrao" ? P : E;
         track.whatsappClick("calculadora", `${quoteType}:${d.tubo}mm`);
+
+        // Envia e-mail de notificação (igual ao ProductForm)
+        try {
+            await sendEmailAction({
+                nome: `Lead Calculadora — ${quoteType === "padrao" ? "Padrão" : "Personalizado"}`,
+                email: "",   // sem e-mail do visitante nesse fluxo
+                telefone: "",
+                produto: `Calculadora — ø${d.tubo}mm × ø${d.haste}mm | Curso ${d.curso}mm | ${d.pressao} bar`,
+                mensagem: buildMsg(),
+            });
+        } catch (err) {
+            console.error("[CylCalculator] Erro ao enviar e-mail:", err);
+        }
+
         window.open(`https://wa.me/555184468231?text=${encodeURIComponent(buildMsg())}`, "_blank");
     }
 
