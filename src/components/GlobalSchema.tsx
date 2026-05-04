@@ -113,7 +113,12 @@ export default function GlobalSchema({ lang }: GlobalSchemaProps) {
         alternateName: [
             "INCOCIL",
             "Incocil",
+            "PATROL",
+            "Patrol",
             "PATROL Cilindros",
+            "PATROL Tubos",
+            "Patrol Tubos",
+            "PATROL TUBOS",
             "PATROL Hydraulic Cylinders",
             "Incocil Hydraulic",
             "INCOCIL Brazil",
