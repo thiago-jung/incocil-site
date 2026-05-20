@@ -92,7 +92,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "XCjN7T4wYHU", // Substitua pelo ID real do vídeo do YouTube
         slug: "cilindro-telescopico-4-estagios-190bar",
-        image: "/images/Cilindros-hid2.png",
+        image: "/images/telescopico4estagios_2.jpeg",
         content: "Apresentação de um Cilindro Hidráulico 4 estágios Dupla Ação com alimentação de entrada e saída de óleo no tubo externo. Trabalhando a 190Bar de pressão, este modelo exerce uma força de 1,6Ton no estágio menor e de impressionantes 19Ton no estágio maior."
     },
     {
