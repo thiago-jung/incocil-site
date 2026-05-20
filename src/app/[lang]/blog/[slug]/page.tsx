@@ -50,6 +50,9 @@ export default async function BlogPostPage({
 
     if (!post) notFound();
 
+    // Split content by double newlines to get paragraphs
+    const paragraphs = post.content?.split("\n\n").filter(p => p.trim()) || [];
+
     return (
         <>
             {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
@@ -94,21 +97,24 @@ export default async function BlogPostPage({
                             {post.excerpt}
                         </p>
 
-                        <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-tight">
-                            {lang === "pt" ? "Análise Técnica" : lang === "es" ? "Análisis Técnico" : "Technical Analysis"}
-                        </h3>
-
-                        <div className="mt-6">
-                            {post.content || (
-                                <p>
-                                    {lang === "pt"
-                                        ? "A engenharia por trás da fabricação de cilindros na Incocil segue normas rigorosas de tolerância..."
-                                        : lang === "es"
-                                            ? "La ingeniería detrás de la fabricación de cilindros en Incocil sigue normas rigurosas de tolerancia..."
-                                            : "The engineering behind cylinder manufacturing at Incocil follows strict tolerance standards..."}
-                                </p>
-                            )}
-                        </div>
+                        {/* Render paragraphs */}
+                        {paragraphs.length > 0 ? (
+                            <div className="space-y-6 mt-8">
+                                {paragraphs.map((paragraph, idx) => (
+                                    <p key={idx} className="text-slate-700 leading-relaxed">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        ) : (
+                            <p>
+                                {lang === "pt"
+                                    ? "Conteúdo em breve..."
+                                    : lang === "es"
+                                        ? "Contenido próximamente..."
+                                        : "Content coming soon..."}
+                            </p>
+                        )}
                     </div>
                 </article>
             </main>
