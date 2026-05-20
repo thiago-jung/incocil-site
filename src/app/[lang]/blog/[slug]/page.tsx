@@ -129,7 +129,7 @@ export default async function BlogPostPage({
                                         <img 
                                             src={img} 
                                             alt={`${post.title} - Imagem ${idx + 1}`}
-                                            className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-[28rem] object-cover hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
                                 ))}
