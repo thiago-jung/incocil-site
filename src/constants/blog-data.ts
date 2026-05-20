@@ -116,6 +116,12 @@ export const BLOG_POSTS = [
         type: "artigo",
         slug: "hannover-messe-2026",
         image: "/images/hm2026_1.jpeg",
+        images: [
+        "/images/hm2026_1.jpeg",
+        "/images/hm2026_2.jpeg",
+        "/images/hm2026_3.jpeg",
+        "/images/hm2026_4.jpeg"
+        ],
         content: "A Incocil teve a honra de participar da Hannover Messe 2026 como expositora, integrando um dos maiores e mais importantes eventos industriais do mundo. A presença na feira representou um marco especial na trajetória da empresa, reforçando nosso compromisso com a inovação, a engenharia aplicada e o desenvolvimento de soluções de alta performance para o mercado industrial.\n\nDurante a feira, tivemos a oportunidade de apresentar a experiência acumulada ao longo de mais de quatro décadas na fabricação de cilindros hidráulicos, além de dialogar com clientes, distribuidores, integradores e fabricantes de diferentes países.\n\nEstar presente em um ambiente tão estratégico ampliou nossa visão sobre as tendências que estão moldando o futuro da indústria, especialmente nas áreas de automação, digitalização, conectividade e inteligência artificial aplicada à produção.\n\nA Hannover Messe também evidenciou como a convergência entre mecânica, eletrônica, sensores e software está transformando a forma como os sistemas industriais são concebidos e operados. Para a Incocil, essa experiência reforça a importância de seguir evoluindo não apenas em produtos, mas também em processos, atendimento e capacidade de adaptação às novas exigências do mercado.\n\nMais do que expor nossa marca, participar da feira foi uma oportunidade de fortalecer relacionamentos, absorver conhecimento e confirmar que a engenharia desenvolvida no Brasil está plenamente conectada com as soluções mais modernas do cenário internacional. A experiência vivida em Hannover certamente contribuirá para novos avanços e para o contínuo aprimoramento das soluções que entregamos aos nossos clientes.\n\nA Incocil segue comprometida com a confiabilidade, o desempenho e a inovação, sempre com olhar atento às transformações da indústria e ao desenvolvimento de soluções cada vez mais eficientes, conectadas e preparadas para o futuro."
     },
     {
@@ -127,6 +133,14 @@ export const BLOG_POSTS = [
         type: "artigo",
         slug: "mercopar-2025",
         image: "/images/merco2025_5.jpeg",
+        images: [
+        "/images/merco2025_5.jpeg",
+        "/images/merco2025_1.jpeg",
+        "/images/merco2025_2.jpeg",
+        "/images/merco2025_3.jpeg",
+        "/images/merco2025_4.jpeg",
+        "/images/merco2025_6.jpeg",
+        ],
         content: "A Incocil participou da Mercopar 2025, realizada de 14 a 17 de outubro em Caxias do Sul, em um dos principais encontros da indústria e da inovação na América Latina. Reconhecida como a maior feira de inovação industrial da região, a Mercopar reúne empresas, profissionais e soluções voltadas ao desenvolvimento industrial, à tecnologia e à geração de negócios.\n\nNossa presença no evento representou uma oportunidade importante para fortalecer relacionamentos, acompanhar tendências e ampliar a visão sobre os caminhos que vêm transformando a indústria. Ao longo da feira, tivemos contato com diferentes players do setor, trocas técnicas relevantes e uma percepção ainda mais clara sobre a importância de integrar conhecimento, tecnologia e eficiência nos processos produtivos.\n\nPara a Incocil, participar da Mercopar é mais do que estar em um grande evento: é reafirmar o compromisso com a evolução constante, com a proximidade ao mercado e com o desenvolvimento de soluções que acompanhem as necessidades da indústria atual e futura. Eventos como esse reforçam a importância de ouvir o mercado, observar novas demandas e manter uma postura ativa diante das transformações do setor.\n\nSeguimos confiantes de que experiências como a Mercopar contribuem diretamente para o aprimoramento da nossa atuação e para a construção de novas oportunidades com clientes, parceiros e profissionais da área."
     }
 ];
