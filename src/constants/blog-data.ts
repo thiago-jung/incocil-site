@@ -92,7 +92,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "XCjN7T4wYHU", // Substitua pelo ID real do vídeo do YouTube
         slug: "cilindro-telescopico-4-estagios-190bar",
-        image: "/images/telescopico4estagios_2.jpeg",
+        image: "/images/telecopico4estagios_2.jpeg",
         content: "Apresentação de um Cilindro Hidráulico 4 estágios Dupla Ação com alimentação de entrada e saída de óleo no tubo externo. Trabalhando a 190Bar de pressão, este modelo exerce uma força de 1,6Ton no estágio menor e de impressionantes 19Ton no estágio maior."
     },
     {
@@ -104,7 +104,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "1e6izCgOskY", // Substitua pelo ID real do vídeo do YouTube
         slug: "cilindros-telescopicos-customizados",
-        image: "/images/telescopico4estagios_2.jpeg",
+        image: "/images/telecopico4estagios_2.jpeg",
         content: "Neste desenvolvimento customizado, a engenharia da Incocil focou em possibilitar um pequeno comprimento quando totalmente recolhido, conseguindo atingir um comprimento aberto superior ao seu comprimento fechado (cursos superiores ao tamanho original). É a solução ideal quando se deseja utilizar somente 1 cilindro para grandes cursos ou quando o espaço de instalação é extremamente limitado."
     },
         {
