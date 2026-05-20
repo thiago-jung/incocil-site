@@ -116,6 +116,27 @@ export default async function BlogPostPage({
                             </p>
                         )}
                     </div>
+
+                    {/* Image Gallery */}
+                    {post.images && post.images.length > 0 && (
+                        <div className="mt-16 pt-12 border-t border-slate-200">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-8">
+                                {lang === "pt" ? "Galeria" : lang === "es" ? "Galería" : "Gallery"}
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {post.images.map((img, idx) => (
+                                    <div key={idx} className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                        <img 
+                                            src={img} 
+                                            alt={`${post.title} - Imagem ${idx + 1}`}
+                                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                 </article>
             </main>
 
