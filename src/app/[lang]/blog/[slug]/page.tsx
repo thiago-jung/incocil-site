@@ -86,7 +86,7 @@ export default async function BlogPostPage({
                         <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
                             <img
                                 src={post.image}
-                                className="w-full h-full object-contain"
+                                className="w-full h-full object-cover"
                                 alt={`${post.title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
                             />
                         </div>
@@ -129,7 +129,7 @@ export default async function BlogPostPage({
                                         <img 
                                             src={img} 
                                             alt={`${post.title} - Imagem ${idx + 1}`}
-                                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-64 object-contain hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
                                 ))}
