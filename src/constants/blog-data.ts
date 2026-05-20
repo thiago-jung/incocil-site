@@ -126,7 +126,7 @@ export const BLOG_POSTS = [
         date: "17 Out, 2025",
         type: "artigo",
         slug: "mercopar-2025",
-        image: "/images/merco2025_3.jpeg",
+        image: "/images/merco2025_5.jpeg",
         content: "A Incocil participou da Mercopar 2025, realizada de 14 a 17 de outubro em Caxias do Sul, em um dos principais encontros da indústria e da inovação na América Latina. Reconhecida como a maior feira de inovação industrial da região, a Mercopar reúne empresas, profissionais e soluções voltadas ao desenvolvimento industrial, à tecnologia e à geração de negócios.\n\nNossa presença no evento representou uma oportunidade importante para fortalecer relacionamentos, acompanhar tendências e ampliar a visão sobre os caminhos que vêm transformando a indústria. Ao longo da feira, tivemos contato com diferentes players do setor, trocas técnicas relevantes e uma percepção ainda mais clara sobre a importância de integrar conhecimento, tecnologia e eficiência nos processos produtivos.\n\nPara a Incocil, participar da Mercopar é mais do que estar em um grande evento: é reafirmar o compromisso com a evolução constante, com a proximidade ao mercado e com o desenvolvimento de soluções que acompanhem as necessidades da indústria atual e futura. Eventos como esse reforçam a importância de ouvir o mercado, observar novas demandas e manter uma postura ativa diante das transformações do setor.\n\nSeguimos confiantes de que experiências como a Mercopar contribuem diretamente para o aprimoramento da nossa atuação e para a construção de novas oportunidades com clientes, parceiros e profissionais da área."
     }
 ];
