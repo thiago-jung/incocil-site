@@ -68,7 +68,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "ozOIxbLX0AM", // Substitua pelo ID real do vídeo do YouTube
         slug: "cilindro-telescopico-4-estagios-dupla-acao",
-        image: "/images/Cilindros-hid6.png",
+        image: "/images/telescopico4estagios.jpeg",
         content: "Projeto e fabricação de cilindro hidráulico telescópico, dupla ação (pode ser utilizado na horizontal). O projeto contempla entrada e saída de óleo na lateral do tubo, porém poderiam ser configuradas na extremidade da haste, conforme a necessidade específica do cliente."
     },
     {
@@ -104,7 +104,7 @@ export const BLOG_POSTS = [
         type: "video",
         youtubeId: "1e6izCgOskY", // Substitua pelo ID real do vídeo do YouTube
         slug: "cilindros-telescopicos-customizados",
-        image: "/images/Cilindros-hid5.png",
+        image: "/images/telescopico4estagios_2.jpeg",
         content: "Neste desenvolvimento customizado, a engenharia da Incocil focou em possibilitar um pequeno comprimento quando totalmente recolhido, conseguindo atingir um comprimento aberto superior ao seu comprimento fechado (cursos superiores ao tamanho original). É a solução ideal quando se deseja utilizar somente 1 cilindro para grandes cursos ou quando o espaço de instalação é extremamente limitado."
     },
         {
