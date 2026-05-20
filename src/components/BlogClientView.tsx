@@ -47,16 +47,51 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
         setSelectedVideo({ id: youtubeId, title });
     }
 
+    // Parse date string format "DD Mês, YYYY" to Date object
+    function parseDate(dateStr: string): Date {
+        const months: { [key: string]: number } = {
+            "jan": 0, "janeiro": 0, "january": 0,
+            "fev": 1, "fevereiro": 1, "february": 1,
+            "mar": 2, "março": 2, "march": 2,
+            "abr": 3, "abril": 3, "april": 3,
+            "mai": 4, "maio": 4, "may": 4,
+            "jun": 5, "junho": 5, "june": 5,
+            "jul": 6, "julho": 6, "july": 6,
+            "ago": 7, "agosto": 7, "august": 7,
+            "set": 8, "setembro": 8, "september": 8,
+            "out": 9, "outubro": 9, "october": 9,
+            "nov": 10, "novembro": 10, "november": 10,
+            "dez": 11, "dezembro": 11, "december": 11,
+        };
+    
+        const parts = dateStr.split(" ");
+        const day = parseInt(parts[0]);
+        const monthStr = parts[1].toLowerCase().replace(",", "");
+        const year = parseInt(parts[2]);
+        const month = months[monthStr] ?? 0;
+    
+        return new Date(year, month, day);
+    }
+    
     // Client-side search: title + excerpt + category
     const filteredPosts = useMemo(() => {
-        if (!query.trim()) return BLOG_POSTS;
-        const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        return BLOG_POSTS.filter(post => {
-            const haystack = `${post.title} ${post.excerpt} ${post.category}`
-                .toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "");
-            return haystack.includes(q);
+        let result = BLOG_POSTS;
+        
+        // Apply search filter
+        if (query.trim()) {
+            const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            result = BLOG_POSTS.filter(post => {
+                const haystack = `${post.title} ${post.excerpt} ${post.category}`
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+                return haystack.includes(q);
+            });
+        }
+    
+        // Sort by date descending (newest first)
+        return result.sort((a, b) => {
+            return parseDate(b.date).getTime() - parseDate(a.date).getTime();
         });
     }, [query]);
 
