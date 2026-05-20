@@ -86,7 +86,7 @@ export default async function BlogPostPage({
                         <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
                             <img
                                 src={post.image}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain"
                                 alt={`${post.title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
                             />
                         </div>
