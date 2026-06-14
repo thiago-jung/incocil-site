@@ -39,6 +39,11 @@ export async function generateMetadata({
     };
 }
 
+type ContentBlock =
+    | { type: "text"; content: string }
+    | { type: "heading"; level: 2 | 3; content: string }
+    | { type: "image"; src: string; alt?: string; caption?: string };
+
 export default async function BlogPostPage({
     params,
 }: {
@@ -50,9 +55,11 @@ export default async function BlogPostPage({
 
     if (!post) notFound();
 
+    const paragraphs = post.content?.split("\n\n").filter((p) => p.trim()) || [];
+    const contentBlocks: ContentBlock[] = (post as any).contentBlocks || [];
+
     return (
         <>
-            {/* Navbar foi movida para layout.tsx (fora do PageTransition) */}
             <ReadingProgress />
 
             <main className="min-h-screen bg-white pt-32 pb-20">
@@ -94,22 +101,85 @@ export default async function BlogPostPage({
                             {post.excerpt}
                         </p>
 
-                        <h3 className="text-2xl font-bold text-slate-900 mt-12 mb-4 uppercase tracking-tight">
-                            {lang === "pt" ? "Análise Técnica" : lang === "es" ? "Análisis Técnico" : "Technical Analysis"}
-                        </h3>
-
-                        <div className="mt-6">
-                            {post.content || (
-                                <p>
-                                    {lang === "pt"
-                                        ? "A engenharia por trás da fabricação de cilindros na Incocil segue normas rigorosas de tolerância..."
-                                        : lang === "es"
-                                            ? "La ingeniería detrás de la fabricación de cilindros en Incocil sigue normas rigurosas de tolerancia..."
-                                            : "The engineering behind cylinder manufacturing at Incocil follows strict tolerance standards..."}
-                                </p>
-                            )}
-                        </div>
+                        {/* Renderização com contentBlocks (imagens intercaladas) */}
+                        {contentBlocks.length > 0 ? (
+                            <div className="mt-8">
+                                {contentBlocks.map((block, idx) => {
+                                    if (block.type === "heading") {
+                                        const Tag = block.level === 2 ? "h2" : "h3";
+                                        return (
+                                            <Tag
+                                                key={idx}
+                                                className="text-2xl font-bold text-slate-900 mt-12 mb-4"
+                                            >
+                                                {block.content}
+                                            </Tag>
+                                        );
+                                    }
+                                    if (block.type === "image") {
+                                        return (
+                                            <figure key={idx} className="my-10">
+                                                <img
+                                                    src={block.src}
+                                                    alt={block.alt || post.title}
+                                                    className="w-full rounded-2xl shadow-lg object-cover"
+                                                />
+                                                {block.caption && (
+                                                    <figcaption className="text-center text-sm text-slate-500 mt-3 italic">
+                                                        {block.caption}
+                                                    </figcaption>
+                                                )}
+                                            </figure>
+                                        );
+                                    }
+                                    // type === "text"
+                                    return (
+                                        <p key={idx} className="text-slate-700 leading-relaxed mb-6">
+                                            {block.content}
+                                        </p>
+                                    );
+                                })}
+                            </div>
+                        ) : paragraphs.length > 0 ? (
+                            /* Fallback: renderização legada para posts antigos */
+                            <div className="space-y-6 mt-8">
+                                {paragraphs.map((paragraph, idx) => (
+                                    <p key={idx} className="text-slate-700 leading-relaxed">
+                                        {paragraph}
+                                    </p>
+                                ))}
+                            </div>
+                        ) : (
+                            <p>
+                                {lang === "pt"
+                                    ? "Conteúdo em breve..."
+                                    : lang === "es"
+                                        ? "Contenido próximamente..."
+                                        : "Content coming soon..."}
+                            </p>
+                        )}
                     </div>
+
+                    {/* Galeria legada — só aparece em posts antigos que usam post.images */}
+                    {contentBlocks.length === 0 && post.images && post.images.length > 0 && (
+                        <div className="mt-16 pt-12 border-t border-slate-200">
+                            <h3 className="text-2xl font-bold text-slate-900 mb-8">
+                                {lang === "pt" ? "Galeria" : lang === "es" ? "Galería" : "Gallery"}
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {post.images.map((img, idx) => (
+                                    <div key={idx} className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                                        <img
+                                            src={img}
+                                            alt={`${post.title} - Imagem ${idx + 1}`}
+                                            className="w-full h-[32rem] object-cover hover:scale-105 transition-transform duration-300"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                 </article>
             </main>
 

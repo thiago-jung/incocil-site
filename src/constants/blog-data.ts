@@ -1,5 +1,68 @@
 export const BLOG_POSTS = [
     {
+        id: 12,
+        title: "Cilindros Hidráulicos de Simples Ação: tipos, vantagens e como escolher",
+        excerpt: "Seis anos após o artigo original, uma revisão ampliada — mais completa, mais comentada e com uma indicação clara de qual modelo escolher em cada situação.",
+        category: "Técnico",
+        date: "07 Mai, 2026",
+        type: "artigo",
+        slug: "cilindros-simples-acao-tipos-vantagens-como-escolher",
+        image: "/images/sa-capa.jpg",   // ← substitua pelo nome da sua imagem de capa
+        contentBlocks: [
+            {
+                type: "text",
+                content: "Revisão ampliada do artigo originalmente publicado em 2020. Seis anos depois, reescrevi este texto, mais completo, mais comentado e, desta vez, com uma indicação clara de qual modelo escolher em cada situação."
+            },
+            {
+                type: "heading",
+                level: 2,
+                content: "1. O que é, e o que não é, um cilindro de simples ação"
+            },
+            {
+                type: "text",
+                content: "Um cilindro de simples ação usa a força hidráulica em um único sentido. O retorno, no sentido inverso, é feito por uma ação externa ao cilindro, o peso do próprio equipamento, uma mola ou ar comprimido. Qual dos movimentos será o de \"força\" (avanço ou recolhimento) é uma decisão de projeto do equipamento, definida na concepção, e não uma característica fixa do cilindro hidráulico."
+            },
+            {
+                type: "text",
+                content: "Aqui está o mal-entendido mais comum, e que vale corrigir logo: \"simples\" não quer dizer \"mais barato\" nem \"mais simples por dentro\". Em vários casos, a construção interna de um simples ação é tão ou mais elaborada que a de um dupla ação, o termo se refere apenas a usar a pressão hidráulica em um sentido, não à complexidade do cilindro. Tratar o simples ação como a \"versão econômica\" do dupla ação é um erro de especificação."
+            },
+            {
+                type: "text",
+                content: "O que ele realmente é: uma escolha de engenharia. Quando a aplicação já oferece a força de retorno, gravidade, carga ou mola, você troca o retorno pressurizado por menos componentes, comando hidráulico mais simples e reservatório menor. É uma troca deliberada. O resto deste artigo é sobre quando ela compensa e qual das três construções usar."
+            },
+            {
+                type: "image",
+                src: "/images/sa-img1.jpg",      // ← substitua
+                alt: "Cilindro hidráulico de simples ação",
+                caption: ""                        // ← legenda opcional
+            },
+            {
+                type: "heading",
+                level: 2,
+                content: "2. Como o cilindro retorna, e por que essa é a primeira decisão"
+            },
+            {
+                type: "text",
+                content: "Antes de escolher o tipo de cilindro, há uma decisão que vem primeiro: como ele vai voltar. Como a força hidráulica atua em um só sentido, o retorno depende inteiramente de algo externo, e são três os caminhos."
+            },
+            {
+                type: "text",
+                content: "Gravidade. O mais simples e o mais robusto: o peso do próprio equipamento empurra a haste de volta quando a pressão é aliviada. Não há peça adicional para falhar. Funciona bem quando o cilindro trabalha na vertical ou em ângulo suficiente para que a carga garanta o retorno, levante de caçamba, plataforma, implemento agrícola. Tire o ângulo favorável e tira-se a confiabilidade do método."
+            },
+            {
+                type: "text",
+                content: "Mola, interna ou externa. Quando a montagem é horizontal ou em ângulo que não favorece a gravidade, a mola fornece a força de retorno independente da posição. A interna é compacta e protegida, mas ocupa espaço dentro do cilindro, consome parte da força de avanço e limita o curso. A externa é mais fácil de inspecionar e trocar e dá mais liberdade de curso, mas fica exposta ao ambiente. Em ambos os casos, mola é componente de fadiga: tem vida útil e deve entrar no plano de manutenção."
+            },
+            {
+                type: "image",
+                src: "/images/sa-img2.jpg",      // ← substitua
+                alt: "Métodos de retorno em cilindros de simples ação",
+                caption: ""
+            }
+            // Continue adicionando blocos aqui conforme cola o restante do texto
+        ]
+    },
+    {
         id: 1,
         title: "Cilindro Hidráulico Telescópico Dupla Ação com 3 Estágios",
         excerpt: "Projeto e execução conforme necessidade e demanda. Desenvolvido para trabalhar na horizontal ou vertical com força de atuação em ambos os sentidos.",
