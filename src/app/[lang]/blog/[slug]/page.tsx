@@ -112,16 +112,16 @@ export default async function BlogPostPage({
                             <div className="mt-8">
                                 {contentBlocks.map((block, idx) => {
                                     if (block.type === "heading") {
-                                        const tagMap: Record<number, keyof JSX.IntrinsicElements> = {
+                                        const tagMap: Record<number, "h2" | "h3" | "h4" | "h5"> = {
                                             2: "h2", 3: "h3", 4: "h4", 5: "h5",
                                         };
+                                        const Tag = tagMap[block.level];
                                         const styleMap: Record<number, string> = {
                                             2: "text-2xl font-bold text-slate-900 mt-12 mb-4",
                                             3: "text-xl font-bold text-slate-800 mt-8 mb-3",
                                             4: "text-base font-semibold text-slate-700 mt-6 mb-2",
                                             5: "text-sm font-semibold text-slate-500 mt-4 mb-1 uppercase tracking-wide",
                                         };
-                                        const Tag = tagMap[block.level];
                                         return <Tag key={idx} className={styleMap[block.level]}>{block.content}</Tag>;
                                     }
 
