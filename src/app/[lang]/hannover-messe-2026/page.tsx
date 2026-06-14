@@ -7,7 +7,7 @@ import HannoverLeadForm from "./HannoverLeadForm";
 import FinalCtaButtons from "./FinalCtaButtons";
 
 const STAND_INFO = "Hall 17, D52";
-const FAIR_DATE_START = "2026-04-22";
+const FAIR_DATE_START = "2026-04-20";
 const FAIR_DATE_END = "2026-04-25";
 const WHATSAPP = "555184468231";
 
