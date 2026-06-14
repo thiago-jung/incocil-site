@@ -16,7 +16,7 @@ interface BlogClientViewProps {
 // i18n search strings
 const SEARCH_I18N = {
     pt: {
-        placeholder: "Buscar artigos e vídeos...",
+        placeholder: "Buscar artigos e vÃ­deos...",
         noResults: "Nenhum resultado encontrado para",
         clearSearch: "Limpar busca",
         results: (n: number) => n === 1 ? "1 resultado" : `${n} resultados`,
@@ -28,9 +28,9 @@ const SEARCH_I18N = {
         results: (n: number) => n === 1 ? "1 result" : `${n} results`,
     },
     es: {
-        placeholder: "Buscar artículos y vídeos...",
+        placeholder: "Buscar artÃ­culos y vÃ­deos...",
         noResults: "Sin resultados para",
-        clearSearch: "Limpiar búsqueda",
+        clearSearch: "Limpiar bÃºsqueda",
         results: (n: number) => n === 1 ? "1 resultado" : `${n} resultados`,
     },
 } as const;
@@ -47,12 +47,12 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
         setSelectedVideo({ id: youtubeId, title });
     }
 
-    // Parse date string format "DD Mês, YYYY" to Date object
+    // Parse date string format "DD MÃªs, YYYY" to Date object
     function parseDate(dateStr: string): Date {
         const months: { [key: string]: number } = {
             "jan": 0, "janeiro": 0, "january": 0,
             "fev": 1, "fevereiro": 1, "february": 1,
-            "mar": 2, "março": 2, "march": 2,
+            "mar": 2, "marÃ§o": 2, "march": 2,
             "abr": 3, "abril": 3, "april": 3,
             "mai": 4, "maio": 4, "may": 4,
             "jun": 5, "junho": 5, "june": 5,
@@ -63,20 +63,20 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
             "nov": 10, "novembro": 10, "november": 10,
             "dez": 11, "dezembro": 11, "december": 11,
         };
-    
+
         const parts = dateStr.split(" ");
         const day = parseInt(parts[0]);
         const monthStr = parts[1].toLowerCase().replace(",", "");
         const year = parseInt(parts[2]);
         const month = months[monthStr] ?? 0;
-    
+
         return new Date(year, month, day);
     }
-    
+
     // Client-side search: title + excerpt + category
     const filteredPosts = useMemo(() => {
         let result = BLOG_POSTS;
-        
+
         // Apply search filter
         if (query.trim()) {
             const q = query.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -88,7 +88,7 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                 return haystack.includes(q);
             });
         }
-    
+
         // Sort by date descending (newest first)
         return result.sort((a, b) => {
             return parseDate(b.date).getTime() - parseDate(a.date).getTime();
@@ -106,7 +106,7 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                 </h1>
                 <p className="text-slate-500 text-lg mb-8">{blogDict.subtitle}</p>
 
-                {/* ── Search field ─────────────────────────────────────────── */}
+                {/* â”€â”€ Search field â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
                 <div className="relative max-w-lg">
                     <Search
                         size={18}
@@ -157,17 +157,20 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                 </div>
             )}
 
-            {/* ── Grid ────────────────────────────────────────────────────── */}
+            {/* â”€â”€ Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredPosts.map((post, index) => {
                     const isVideo = post.type === "video";
+                    const thumbSrc = isVideo && post.youtubeId
+                        ? `https://i.ytimg.com/vi/${post.youtubeId}/hqdefault.jpg`
+                        : post.image;
 
                     const cardInner = (
                         <>
                             {/* Thumbnail */}
                             <div className="relative h-56 overflow-hidden">
                                 <Image
-                                    src={post.image}
+                                    src={thumbSrc}
                                     alt={post.title}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
