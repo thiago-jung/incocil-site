@@ -543,6 +543,45 @@
           "Strict visual inspection"
         ]
       }
+    },
+    {
+      "title": "PATROL® Hydraulic Cylinder Line",
+      "slug": "linha-patrol",
+      "image": "/images/incocil-predio.png",
+      "gallery": [
+        "/images/Cilindros-hid1.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid9.jpg",
+        "/images/telescopico4estagios.jpeg"
+      ],
+      "description": "PATROL® is INCOCIL's registered trademark for hydraulic cylinders manufactured in Porto Alegre, Brazil, for over 45 years. Tubes, rods, cylinders and components with traceable quality and national warranty.",
+      "longDescription": "The PATROL® brand represents over four decades of applied hydraulic engineering. Every cylinder manufactured by INCOCIL leaves the factory with a low-relief marking: PATROL logo, identification code, and manufacturing date — guaranteeing traceability and a product developed entirely in-house, from the tube to the seal, without outsourcing any critical process.\n\nWhen you search for PATROL cylinder, PATROL tube or PATROL hydraulic, you are looking for a component with proven identity — not a generic part. PATROL is manufactured exclusively by INCOCIL in Porto Alegre, with domestic steel, in-house honing, and individual hydrostatic testing.",
+      "features": [
+        "Low-relief marking with logo, code and manufacturing date on every cylinder",
+        "Tubes honed in-house — capacity up to ø 500mm",
+        "Rods in 1045 steel with hard chrome and high-precision grinding",
+        "Seals specified by engineering for each application",
+        "Robotic welding on end caps, heads and clevises",
+        "Individual hydrostatic testing before shipment",
+        "National warranty with direct technical support from engineering"
+      ],
+      "applications": [
+        "Agricultural implements (planters, harvesters, sprayers)",
+        "Road equipment (dump trucks, winches, compactors)",
+        "Forestry machinery (processors, cranes, loaders)",
+        "Mining (drilling, loading, material handling)",
+        "General industry (presses, automation, load movement)",
+        "OEM — machine manufacturers requiring cylinders in series"
+      ],
+      "technicalDetails": {
+        "title": "What's behind the PATROL® brand",
+        "content": "PATROL is not just a name — it is a manufacturing standard. Every cylinder in the line leaves with guaranteed traceability: code engraved on the body, seal specification recorded internally, and history available for future maintenance. This allows any technician, anywhere in Brazil, to know exactly what they are disassembling.",
+        "extras": [
+          "Available in single-acting, double-acting and telescopic",
+          "Versions in carbon steel and stainless steel",
+          "Full customization of mounting, stroke and working pressure"
+        ]
+      }
     }
   ]
 }
