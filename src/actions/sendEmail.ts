@@ -7,6 +7,47 @@ function isValidEmail(email: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+async function notifySlack(data: {
+    nome: string;
+    email: string;
+    telefone: string;
+    mensagem: string;
+    produto: string;
+}) {
+    const webhookUrl = process.env.SLACK_LEADS_WEBHOOK_URL;
+    if (!webhookUrl) return;
+
+    try {
+        await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                blocks: [
+                    {
+                        type: "header",
+                        text: { type: "plain_text", text: "🔥 Novo Lead do Site", emoji: true },
+                    },
+                    {
+                        type: "section",
+                        fields: [
+                            { type: "mrkdwn", text: `*Nome:*\n${data.nome}` },
+                            { type: "mrkdwn", text: `*E-mail:*\n${data.email}` },
+                            { type: "mrkdwn", text: `*Telefone:*\n${data.telefone}` },
+                            { type: "mrkdwn", text: `*Interesse:*\n${data.produto}` },
+                        ],
+                    },
+                    {
+                        type: "section",
+                        text: { type: "mrkdwn", text: `*Mensagem:*\n${data.mensagem}` },
+                    },
+                ],
+            }),
+        });
+    } catch (error) {
+        console.error("Erro ao notificar Slack:", error);
+    }
+}
+
 export async function sendEmailAction(data: {
     nome: string;
     email: string;
@@ -38,9 +79,12 @@ Lembrete: O cliente foi redirecionado para o WhatsApp, mas caso ele não tenha e
             `.trim(),
         });
 
+        await notifySlack(data);
+
         return { success: true };
     } catch (error) {
         console.error("Erro ao enviar e-mail:", error);
+        await notifySlack(data);
         return { success: false, error: "Falha ao enviar o e-mail." };
     }
 }
