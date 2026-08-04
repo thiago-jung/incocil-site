@@ -110,9 +110,15 @@ export default async function PaginaProduto({
 
                             <ProductImageGallery images={productImages} alt={produto.title} />
 
-                            <p className="text-xl text-slate-600 leading-relaxed">
-                                {produto.longDescription || produto.description}
-                            </p>
+                            <div className="space-y-4">
+                                {(produto.longDescription || produto.description)
+                                    .split('\n\n')
+                                    .map((paragraph: string, i: number) => (
+                                        <p key={i} className="text-xl text-slate-600 leading-relaxed">
+                                            {paragraph}
+                                        </p>
+                                    ))}
+                            </div>
                         </div>
 
                         {produto.features && (
