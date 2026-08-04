@@ -1,4 +1,5 @@
 "use client";
+import { optInPostHog, optOutPostHog } from "./posthog";
 
 export type ConsentStatus = "accepted" | "rejected" | null;
 
@@ -48,10 +49,15 @@ export function enableAnalytics() {
         analytics_storage: "granted",
         ad_storage: "granted",
     });
+
+    optInPostHog();
 }
 
 export function denyAnalytics() {
     if (typeof window === "undefined") return;
+
+    optOutPostHog();
+
     if (typeof (window as any).gtag !== "function") return;
 
     (window as any).gtag("consent", "update", {

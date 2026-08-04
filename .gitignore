@@ -6,6 +6,7 @@ node_modules/
 # Next.js
 .next/
 out/
+*.tsbuildinfo
 
 # IDEs e Ferramentas
 .vs/
@@ -25,3 +26,4 @@ yarn-error.log*
 .turbo/
 
 .env
+.env*.local

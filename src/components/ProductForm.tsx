@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { sendEmailAction } from "@/actions/sendEmail";
 import { track } from "@/lib/analytics";
+import { identifyLead } from "@/lib/posthog";
 
 interface ProductFormProps {
     productName: string;
@@ -168,6 +169,7 @@ export default function ProductForm({ productName, dict, lang = "pt" }: ProductF
 
         const pagePath = typeof window !== "undefined" ? window.location.pathname : "produto";
         track.formSubmit(productName, pagePath);
+        identifyLead(values.email, { name: values.nome, phone: values.telefone, product: productName });
 
         const textoMensagem = `${dict.whatsapp_greeting} 👋
 ${dict.whatsapp_quote_request}

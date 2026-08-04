@@ -8,6 +8,7 @@ import FloatingElements from "@/components/FloatingElements";
 import PageTransition from "@/components/PageTransition";
 import GlobalSchema from "@/components/GlobalSchema";
 import Navbar from "@/components/Navbar";
+import PostHogProvider from "@/components/PostHogProvider";
 import Script from "next/script";
 
 const inter = Inter({
@@ -122,6 +123,7 @@ export default async function RootLayout({
 
                 <Analytics />
                 <SpeedInsights />
+                <PostHogProvider />
                 <FloatingElements lang={lang} />
 
                 <Script

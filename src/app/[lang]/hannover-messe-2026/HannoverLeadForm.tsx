@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
 import { track } from "@/lib/analytics";
 import { sendEmailAction } from "@/actions/sendEmail";
+import { identifyLead } from "@/lib/posthog";
 
 const STAND_INFO = "Hall 17, D52";
 const WHATSAPP = "555184468231";
@@ -118,6 +119,7 @@ export default function HannoverLeadForm() {
 
         setStatus("loading");
         track.meetingSchedule("hannover-lead-form");
+        identifyLead(values.email, { name: values.name, company: values.company });
 
         try {
             await sendEmailAction({
