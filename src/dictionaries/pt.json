@@ -535,6 +535,45 @@
           "Inspeção visual rigorosa"
         ]
       }
+    },
+    {
+      "title": "Linha PATROL® de Cilindros Hidráulicos",
+      "slug": "linha-patrol",
+      "image": "/images/incocil-predio.png",
+      "gallery": [
+        "/images/Cilindros-hid1.png",
+        "/images/Cilindros-hid3.jpg",
+        "/images/Cilindros-hid9.jpg",
+        "/images/telescopico4estagios.jpeg"
+      ],
+      "description": "PATROL® é a marca registrada da INCOCIL para cilindros hidráulicos fabricados em Porto Alegre há mais de 45 anos. Tubos, hastes, cilindros e componentes com qualidade rastreável e garantia nacional.",
+      "longDescription": "A marca PATROL® representa mais de quatro décadas de engenharia hidráulica aplicada. Cada cilindro fabricado pela INCOCIL sai da fábrica com marcação em baixo-relevo — logotipo PATROL, código de identificação e data de fabricação — garantindo rastreabilidade total e um produto desenvolvido internamente, do tubo à vedação, sem terceirização de nenhum processo crítico. Quando você pesquisa por cilindro PATROL, tubo PATROL ou hidráulico PATROL, está buscando um componente com identidade comprovada, fabricado exclusivamente pela INCOCIL em Porto Alegre, com aço nacional, brunimento próprio e testes hidrostáticos individuais.",
+      "features": [
+        "Marcação em baixo-relevo com logotipo, código e data de fabricação em cada cilindro",
+        "Tubos brunidos internamente na própria fábrica — capacidade até ø 500mm",
+        "Hastes em aço 1045 com cromo duro e retificação de alta precisão",
+        "Vedações especificadas por engenharia para cada aplicação",
+        "Soldagem robotizada nos fundos, cabeçotes e olhais",
+        "Testes hidrostáticos individuais antes da expedição",
+        "Garantia nacional com suporte técnico direto da engenharia"
+      ],
+      "applications": [
+        "Implementos agrícolas (plantadeiras, colhedoras, pulverizadores)",
+        "Equipamentos rodoviários (caçambas, guinchos, compactadores)",
+        "Máquinas florestais (processadoras, guindastes, gruas)",
+        "Mineração (perfuração, carregamento, movimentação)",
+        "Indústria geral (prensas, automação, movimentação de carga)",
+        "OEM — fabricantes de máquinas que precisam de cilindros em série"
+      ],
+      "technicalDetails": {
+        "title": "O que está por trás da marca PATROL®",
+        "content": "A PATROL não é só um nome — é um padrão de fabricação. Todo cilindro da linha sai com rastreabilidade garantida: código gravado no corpo, especificação da vedação registrada internamente, e histórico disponível para manutenção futura. Isso permite que qualquer técnico, em qualquer lugar do Brasil, saiba exatamente o que está desmontando.",
+        "extras": [
+          "Disponível em simples ação, dupla ação e telescópico",
+          "Versões em aço carbono e inoxidável",
+          "Customização total de fixação, curso e pressão de trabalho"
+        ]
+      }
     }
   ]
 }
