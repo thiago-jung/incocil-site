@@ -20,6 +20,11 @@ export default function Footer({ dict, lang }: FooterProps) {
             : lang === "es" ? "Política de Privacidad"
                 : "Política de Privacidade";
 
+    const warrantyLabel =
+        lang === "en" ? "Warranty Terms"
+            : lang === "es" ? "Términos de Garantía"
+                : "Termo de Garantia";
+
     return (
         <footer className="bg-slate-900 text-slate-300 pt-16 pb-8">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
@@ -153,6 +158,19 @@ export default function Footer({ dict, lang }: FooterProps) {
                     >
                         {privacyLabel}
                     </Link>
+
+                    {/* Divider */}
+                    <span className="text-slate-700">·</span>
+
+                    {/* Warranty terms download */}
+                    <a
+                        href="/termo-de-garantia-incocil.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-500 hover:text-slate-300 transition-colors"
+                    >
+                        {warrantyLabel}
+                    </a>
 
                     {/* Divider */}
                     <span className="text-slate-700">·</span>
