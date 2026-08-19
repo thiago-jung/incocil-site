@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { X, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function FeiraPopup({ lang }: { lang: string }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,23 +11,23 @@ export default function FeiraPopup({ lang }: { lang: string }) {
 
     const content = {
         badge: { pt: "Próximo Evento", en: "Upcoming Event", es: "Próximo Evento" },
-        title: { pt: "Visite a INCOCIL® na Feira", en: "Visit INCOCIL® at the Fair", es: "Visite INCOCIL® en la Feria" },
+        title: { pt: "Visite a INCOCIL® na Expointer", en: "Visit INCOCIL® at Expointer", es: "Visite INCOCIL® en la Expointer" },
         desc: {
-            pt: "Estaremos presentes na Hannover Messe 2026. Venha conhecer nossas soluções tecnológicas em cilindros hidráulicos.",
-            en: "We will be present at Hannover Messe 2026. Come and discover our technological solutions in hydraulic cylinders.",
-            es: "Estaremos presentes en Hannover Messe 2026. Venga a conocer nuestras soluciones tecnológicas en cilindros hidráulicos.",
+            pt: "Estaremos na 49ª Expointer, no Parque de Exposições Assis Brasil, em Esteio (RS). Venha conhecer nossas soluções em cilindros hidráulicos.",
+            en: "We will be at the 49th Expointer, at the Assis Brasil Exhibition Park, in Esteio (RS), Brazil. Come and discover our hydraulic cylinder solutions.",
+            es: "Estaremos en la 49ª Expointer, en el Parque de Exposiciones Assis Brasil, en Esteio (RS). Venga a conocer nuestras soluciones en cilindros hidráulicos.",
         },
-        booth: { pt: "Hall 17, D52", en: "Hall 17, D52", es: "Hall 17, D52" },
+        booth: { pt: "29 Ago – 06 Set · Esteio/RS", en: "Aug 29 – Sep 6 · Esteio/RS, Brazil", es: "29 Ago – 06 Sep · Esteio/RS" },
     };
 
     const getLabel = (key: keyof typeof content) =>
         content[key][lang as "pt" | "en" | "es"] || content[key]["pt"];
 
     useEffect(() => {
-        const dataFimFeira = new Date("2026-04-28T23:59:59");
+        const dataFimFeira = new Date("2026-09-06T23:59:59");
         const hoje = new Date();
         const jaFechou = sessionStorage.getItem("popupFeiraFechado");
-        const nasPaginasDaFeira = pathname?.includes("hannover-messe");
+        const nasPaginasDaFeira = pathname?.includes("hannover-messe") || pathname?.includes("expointer");
 
         if (hoje <= dataFimFeira && !jaFechou && !nasPaginasDaFeira) {
             // ── 5500ms em vez de 2000ms ────────────────────────────────────────
@@ -65,9 +66,13 @@ export default function FeiraPopup({ lang }: { lang: string }) {
                     </div>
                     <h3 className="text-xl font-black text-slate-900 mb-2">{getLabel("title")}</h3>
                     <p className="text-slate-600 text-sm mb-4">{getLabel("desc")}</p>
-                    <div className="bg-slate-100 rounded-lg p-3 text-sm font-medium text-slate-800 text-center">
+                    <Link
+                        href={`/${lang}/blog/incocil-49-expointer-2026`}
+                        onClick={handleClose}
+                        className="block bg-slate-100 hover:bg-blue-50 rounded-lg p-3 text-sm font-medium text-slate-800 hover:text-blue-700 text-center transition-colors"
+                    >
                         {getLabel("booth")}
-                    </div>
+                    </Link>
                 </motion.div>
             )}
         </AnimatePresence>

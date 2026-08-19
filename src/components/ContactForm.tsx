@@ -10,7 +10,8 @@ interface ContactViewProps {
 
 function toWhatsAppLink(phone: string) {
     const digits = phone.replace(/\D/g, "");
-    return `https://wa.me/${digits}`;
+    const withCountryCode = digits.startsWith("55") ? digits : `55${digits}`;
+    return `https://wa.me/${withCountryCode}`;
 }
 
 export default function ContactForm({ dict, lang }: ContactViewProps) {
