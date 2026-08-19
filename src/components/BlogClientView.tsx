@@ -165,13 +165,17 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                         ? `https://i.ytimg.com/vi/${post.youtubeId}/hqdefault.jpg`
                         : post.image;
 
+                    const p = post as any;
+                    const title = (lang !== "pt" && p[`title_${lang}`]) || post.title;
+                    const excerpt = (lang !== "pt" && p[`excerpt_${lang}`]) || post.excerpt;
+
                     const cardInner = (
                         <>
                             {/* Thumbnail */}
                             <div className="relative h-56 overflow-hidden">
                                 <Image
                                     src={thumbSrc}
-                                    alt={post.title}
+                                    alt={title}
                                     fill
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -193,10 +197,10 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                             <div className="p-8 flex flex-col flex-1">
                                 <span className="text-slate-400 text-xs font-medium">{post.date}</span>
                                 <h2 className="text-xl font-bold text-slate-900 mt-2 mb-4 group-hover:text-blue-600 transition-colors">
-                                    {post.title}
+                                    {title}
                                 </h2>
                                 <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
-                                    {post.excerpt}
+                                    {excerpt}
                                 </p>
 
                                 <div className="flex items-center gap-2 font-bold text-blue-600 text-sm group-hover:gap-3 transition-all pointer-events-none">

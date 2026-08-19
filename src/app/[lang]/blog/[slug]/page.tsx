@@ -20,9 +20,13 @@ export async function generateMetadata({
 
     if (!post) return { title: "Artigo não encontrado | Blog INCOCIL" };
 
+    const p = post as any;
+    const title = (lang !== "pt" && p[`title_${lang}`]) || post.title;
+    const excerpt = (lang !== "pt" && p[`excerpt_${lang}`]) || post.excerpt;
+
     return {
-        title: post.title,
-        description: post.excerpt,
+        title,
+        description: excerpt,
         alternates: {
             canonical: `${BASE_URL}/${lang}/blog/${slug}`,
             languages: {
@@ -32,9 +36,9 @@ export async function generateMetadata({
             },
         },
         openGraph: {
-            title: `${post.title} | Blog INCOCIL`,
-            description: post.excerpt,
-            images: [{ url: post.image, alt: post.title }],
+            title: `${title} | Blog INCOCIL`,
+            description: excerpt,
+            images: [{ url: post.image, alt: title }],
             type: "article",
         },
     };
@@ -59,8 +63,13 @@ export default async function BlogPostPage({
 
     if (!post) notFound();
 
-    const paragraphs = post.content?.split("\n\n").filter((p) => p.trim()) || [];
-    const contentBlocks: ContentBlock[] = (post as any).contentBlocks || [];
+    const p = post as any;
+    const title = (lang !== "pt" && p[`title_${lang}`]) || post.title;
+    const excerpt = (lang !== "pt" && p[`excerpt_${lang}`]) || post.excerpt;
+    const content = (lang !== "pt" && p[`content_${lang}`]) || post.content;
+
+    const paragraphs = content?.split("\n\n").filter((para: string) => para.trim()) || [];
+    const contentBlocks: ContentBlock[] = p.contentBlocks || [];
 
     return (
         <>
@@ -88,7 +97,7 @@ export default async function BlogPostPage({
                         </div>
 
                         <h1 className="text-4xl md:text-6xl font-black text-slate-900 leading-tight tracking-tighter mb-8">
-                            {post.title}
+                            {title}
                         </h1>
 
                         {post.image && (
@@ -96,7 +105,7 @@ export default async function BlogPostPage({
                                 <img
                                     src={post.image}
                                     className="w-full h-full object-cover"
-                                    alt={`${post.title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
+                                    alt={`${title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
                                 />
                             </div>
                         )}
@@ -104,7 +113,7 @@ export default async function BlogPostPage({
 
                     <div className="prose prose-slate prose-lg max-w-none text-slate-600 leading-relaxed">
                         <p className="text-xl text-slate-900 font-medium mb-8">
-                            {post.excerpt}
+                            {excerpt}
                         </p>
 
                         {/* Renderização com contentBlocks (imagens intercaladas) */}
@@ -186,7 +195,7 @@ export default async function BlogPostPage({
                         ) : paragraphs.length > 0 ? (
                             /* Fallback: renderização legada para posts antigos */
                             <div className="space-y-6 mt-8">
-                                {paragraphs.map((paragraph, idx) => (
+                                {paragraphs.map((paragraph: string, idx: number) => (
                                     <p key={idx} className="text-slate-700 leading-relaxed">
                                         {paragraph}
                                     </p>
