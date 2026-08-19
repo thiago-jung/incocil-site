@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -38,6 +39,13 @@ export default function ImageLightbox({
     alt,
 }: ImageLightboxProps) {
     const [index, setIndex] = useState(initialIndex);
+    const [mounted, setMounted] = useState(false);
+
+    // Só monta o portal no cliente — evita mismatch de hidratação e garante
+    // que document.body já existe.
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     // Sincroniza quando o índice externo muda (ex: troca antes de abrir)
     useEffect(() => {
@@ -75,7 +83,9 @@ export default function ImageLightbox({
         setIndex((i) => (i + 1) % images.length);
     };
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <motion.div
@@ -159,6 +169,7 @@ export default function ImageLightbox({
                     )}
                 </motion.div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 }

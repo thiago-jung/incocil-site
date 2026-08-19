@@ -108,7 +108,7 @@ export default async function PaginaProduto({
                                 {nome}
                             </h1>
 
-                            <ProductImageGallery images={productImages} alt={produto.title} />
+                            <ProductImageGallery key={slug} images={productImages} alt={produto.title} />
 
                             <div className="space-y-4">
                                 {(produto.longDescription || produto.description)
