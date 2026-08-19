@@ -57,11 +57,16 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                         <h4 className="font-bold text-slate-900">{getLabel('commercial')}</h4>
                         <p className="text-sm text-slate-600">{company.phone_fixo}</p>
                     </div>
-                    <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500">
+                    <a
+                        href={toWhatsAppLink(company.phone_whats)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500 hover:shadow-md transition-shadow"
+                    >
                         <MessageCircle className="text-green-500 mb-3" size={24} />
                         <h4 className="font-bold text-slate-900">{getLabel('commercial')}</h4>
                         <p className="text-sm text-slate-600">{company.phone_whats}</p>
-                    </div>
+                    </a>
                     {company.phone_compras && (
                         <a
                             href={toWhatsAppLink(company.phone_compras)}
