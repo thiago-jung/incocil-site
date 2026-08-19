@@ -59,7 +59,7 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                     </div>
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500">
                         <MessageCircle className="text-green-500 mb-3" size={24} />
-                        <h4 className="font-bold text-slate-900">WhatsApp</h4>
+                        <h4 className="font-bold text-slate-900">{getLabel('commercial')}</h4>
                         <p className="text-sm text-slate-600">{company.phone_whats}</p>
                     </div>
                     {company.phone_compras && (
