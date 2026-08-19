@@ -105,6 +105,7 @@ export default async function BlogPostPage({
                                 <img
                                     src={post.image}
                                     className="w-full h-full object-cover"
+                                    style={{ objectPosition: p.imagePosition || "center" }}
                                     alt={`${title} — INCOCIL Cilindros Hidráulicos Porto Alegre`}
                                 />
                             </div>
