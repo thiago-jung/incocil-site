@@ -45,7 +45,7 @@ export default function ProductImageGallery({ images, alt }: ProductImageGallery
                         fill
                         sizes="(max-width: 768px) 100vw, 50vw"
                         priority={currentIndex === 0}
-                        className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                        className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.02]"
                         placeholder="blur"
                         blurDataURL={BLUR_DATA_URL}
                     />

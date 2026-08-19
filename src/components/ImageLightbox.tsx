@@ -105,8 +105,7 @@ export default function ImageLightbox({
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.18 }}
-                        className="relative w-full max-w-5xl"
-                        style={{ aspectRatio: "4/3" }}
+                        className="relative w-full max-w-5xl h-full max-h-[85vh]"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <Image
