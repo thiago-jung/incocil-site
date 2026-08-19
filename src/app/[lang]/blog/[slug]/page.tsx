@@ -69,7 +69,7 @@ export default async function BlogPostPage({
     const content = (lang !== "pt" && p[`content_${lang}`]) || post.content;
 
     const paragraphs = content?.split("\n\n").filter((para: string) => para.trim()) || [];
-    const contentBlocks: ContentBlock[] = p.contentBlocks || [];
+    const contentBlocks: ContentBlock[] = (lang !== "pt" && p[`contentBlocks_${lang}`]) || p.contentBlocks || [];
 
     return (
         <>
@@ -224,7 +224,7 @@ export default async function BlogPostPage({
                                     <div key={idx} className="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                                         <BlogImage
                                             src={img}
-                                            alt={`${post.title} - Imagem ${idx + 1}`}
+                                            alt={`${title} - ${idx + 1}`}
                                             className="w-full h-[32rem] object-cover hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>

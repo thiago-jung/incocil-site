@@ -228,7 +228,7 @@ export default function BlogClientView({ dict, lang }: BlogClientViewProps) {
                         >
                             {isVideo ? (
                                 <button
-                                    onClick={() => openVideo(post.youtubeId ?? "", post.title)}
+                                    onClick={() => openVideo(post.youtubeId ?? "", title)}
                                     className={cardClass}
                                 >
                                     {cardInner}
