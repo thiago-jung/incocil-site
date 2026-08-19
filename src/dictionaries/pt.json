@@ -245,11 +245,9 @@
     {
       "title": "Cilindro Telescópico",
       "slug": "telescopic-hydraulic-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/cilindro-telescopico-1.png",
       "gallery": [
-        "/images/Cilindros-hid2.png",
-        "/images/Cilindros-hid3.jpg",
-        "/images/Cilindros-hid4.png"
+        "/images/cilindro-telescopico-2.png"
       ],
       "description": "Soluções compactas para grandes cursos de atuação, ideal para espaços confinados.",
       "longDescription": "Cilindros de múltiplos estágios que permitem atingir grandes alcances mantendo um comprimento fechado extremamente reduzido e compacto.",

@@ -247,11 +247,9 @@
     {
       "title": "Telescopic Cylinder",
       "slug": "telescopic-hydraulic-cylinder",
-      "image": "/images/Cilindros-hid1.png",
+      "image": "/images/cilindro-telescopico-1.png",
       "gallery": [
-        "/images/Cilindros-hid2.png",
-        "/images/Cilindros-hid3.jpg",
-        "/images/Cilindros-hid4.png"
+        "/images/cilindro-telescopico-2.png"
       ],
       "description": "Compact solutions for long strokes, ideal for confined spaces.",
       "longDescription": "Multi-stage cylinders that allow for long reach while maintaining an extremely reduced and compact closed length.",

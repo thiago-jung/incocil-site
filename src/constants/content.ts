@@ -73,7 +73,7 @@ export const SITE_CONTENT = {
             title: "Cilindro Telescópico",
             slug: "cilindro-hid-telescopico",
             description: "Soluções compactas para grandes cursos de atuação, ideal para espaços confinados.",
-            image: "/images/Cilindros-hid3.jpg",
+            image: "/images/cilindro-telescopico-1.png",
             icon: "TrendingUp",
             longDescription: "Cilindros de múltiplos estágios que permitem atingir grandes alcances mantendo um comprimento fechado extremamente reduzido e compacto.",
             features: [
