@@ -1,11 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, MessageCircle, Wrench, ShoppingCart } from "lucide-react";
 import ProductForm from "@/components/ProductForm";
 
 interface ContactViewProps {
     dict: any;
     lang: string;
+}
+
+function toWhatsAppLink(phone: string) {
+    const digits = phone.replace(/\D/g, "");
+    return `https://wa.me/${digits}`;
 }
 
 export default function ContactForm({ dict, lang }: ContactViewProps) {
@@ -16,6 +21,8 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
         address: { pt: 'Endereço', en: 'Address', es: 'Dirección' },
         generalContact: { pt: 'Contato Geral', en: 'General Contact', es: 'Contacto General' },
         commercial: { pt: 'Comercial', en: 'Sales', es: 'Comercial' },
+        purchasing: { pt: 'Compras', en: 'Purchasing', es: 'Compras' },
+        maintenance: { pt: 'Conserto / Manutenção', en: 'Repair / Maintenance', es: 'Reparación / Mantenimiento' },
         email: { pt: 'E-mail', en: 'Email', es: 'Correo' }
     };
 
@@ -54,6 +61,30 @@ export default function ContactForm({ dict, lang }: ContactViewProps) {
                         <h4 className="font-bold text-slate-900">WhatsApp</h4>
                         <p className="text-sm text-slate-600">{company.phone_whats}</p>
                     </div>
+                    {company.phone_compras && (
+                        <a
+                            href={toWhatsAppLink(company.phone_compras)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500 hover:shadow-md transition-shadow"
+                        >
+                            <ShoppingCart className="text-green-500 mb-3" size={24} />
+                            <h4 className="font-bold text-slate-900">{getLabel('purchasing')}</h4>
+                            <p className="text-sm text-slate-600">{company.phone_compras}</p>
+                        </a>
+                    )}
+                    {company.phone_manutencao && (
+                        <a
+                            href={toWhatsAppLink(company.phone_manutencao)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 border-b-4 border-b-green-500 hover:shadow-md transition-shadow"
+                        >
+                            <Wrench className="text-green-500 mb-3" size={24} />
+                            <h4 className="font-bold text-slate-900">{getLabel('maintenance')}</h4>
+                            <p className="text-sm text-slate-600">{company.phone_manutencao}</p>
+                        </a>
+                    )}
                     <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
                         <Mail className="text-blue-600 mb-3" size={24} />
                         <h4 className="font-bold text-slate-900">{getLabel('email')}</h4>
