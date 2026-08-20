@@ -1,8 +1,12 @@
 /**
  * ProductSchema — JSON-LD para páginas de produto
  *
- * NOTA: aggregateRating removido — dados fictícios são penalizados
- * pelo Google. Reintegre apenas com dados reais de avaliações.
+ * NOTA: aggregateRating e offers removidos — dados fictícios (nota falsa,
+ * preço "0") são penalizados/ignorados pelo Google (Search Console
+ * reportou "Especifique offers, review ou aggregateRating" porque um
+ * preço 0 não conta como oferta válida). Esses produtos são sob
+ * orçamento técnico, sem preço fixo real — só reintegre offers com um
+ * preço real, ou aggregateRating/review com dados reais de avaliação.
  */
 
 const BASE_URL = "https://www.incocil.com";
@@ -39,25 +43,8 @@ export default function ProductSchema({ produto, lang, slug }: ProductSchemaProp
         manufacturer: {
             "@id": `${BASE_URL}/#organization`,
         },
-        offers: {
-            "@type": "Offer",
-            url: productUrl,
-            priceCurrency: "BRL",
-            price: "0",
-            priceSpecification: {
-                "@type": "PriceSpecification",
-                description:
-                    lang === "pt"
-                        ? "Preço mediante cotação técnica"
-                        : lang === "en"
-                            ? "Price upon technical quotation"
-                            : "Precio mediante cotización técnica",
-            },
-            availability: "https://schema.org/InStock",
-            seller: { "@id": `${BASE_URL}/#organization` },
-            areaServed: ["BR", "UY", "AR", "PY", "BO"],
-        },
-        // aggregateRating removido — só reintegre com dados reais vindos de um sistema de reviews
+        // offers e aggregateRating removidos — só reintegre com preço real
+        // ou dados reais de avaliação (ver nota no topo do arquivo)
     };
 
     return (
