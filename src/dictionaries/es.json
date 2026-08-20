@@ -649,7 +649,10 @@
       "title": "Cilindro Hidráulico con Sensor de Posición",
       "slug": "cylinder-with-position-sensor",
       "image": "/images/cilindro-sensor-posicao.png",
-      "gallery": [],
+      "gallery": [
+        "/images/cilindro-sensor-posicao-corte.png",
+        "/images/cilindro-sensor-posicao-detalhe.jpg"
+      ],
       "description": "Cilindros hidráulicos con sensor de posición integrado para lectura continua de la carrera en sistemas automatizados.",
       "longDescription": "Desarrollados para aplicaciones que exigen control preciso de posición en tiempo real, estos cilindros incorporan un sensor interno que informa la posición exacta del vástago al sistema de automatización, eliminando la necesidad de sensores externos y simplificando la instalación eléctrica.",
       "features": [
@@ -731,6 +734,48 @@
         {
           "question": "¿Los cilindros PATROL® se fabrican en acero al carbono o inoxidable?",
           "answer": "Ambos. La línea PATROL está disponible en versiones de acero al carbono e inoxidable, en simple efecto, doble efecto y telescópico, con personalización total de fijación, carrera y presión de trabajo."
+        }
+      ]
+    },
+    {
+      "title": "Cilindro de Nivelación para Motorhomes",
+      "slug": "cilindro-nivelamento-motorhome",
+      "image": "/images/cilindro-nivelamento-motorhome.jpeg",
+      "gallery": [
+        "/images/cilindro-nivelamento-motorhome-linha.png"
+      ],
+      "description": "Cilindro hidráulico de nivelación con base giratoria para motorhomes, remolques y vehículos especiales, garantizando estabilidad y apoyo firme en cualquier terreno.",
+      "longDescription": "Diseñado específicamente para sistemas de nivelación de motorhomes y vehículos especiales, este cilindro cuenta con una base circular articulada que se adapta a terrenos irregulares, garantizando apoyo firme y distribución uniforme de la carga. La fijación superior en brida con perforaciones permite la instalación directa en el chasis, mientras que el vástago cromado de alta resistencia asegura durabilidad incluso con uso frecuente.\n\nFabricado con los mismos estándares de calidad de la línea PATROL®, es indicado tanto para fabricantes de motorhomes (OEM) como para reposición en vehículos ya en uso.",
+      "features": [
+        "Base circular giratoria para apoyo estable en terrenos irregulares",
+        "Fijación superior en brida con perforaciones para instalación en el chasis",
+        "Vástago cromado de alta resistencia al desgaste y a la corrosión",
+        "Carrera dimensionada para una nivelación rápida y segura",
+        "Construcción compacta y robusta para uso en vehículos"
+      ],
+      "applications": [
+        "Motorhomes y casas rodantes",
+        "Remolques y vehículos especiales",
+        "Vehículos de camping y recreación",
+        "Equipos móviles que requieren nivelación y estabilización"
+      ],
+      "technicalDetails": {
+        "title": "Nivelación Segura para Vehículos Especiales",
+        "content": "La base giratoria absorbe pequeñas irregularidades del suelo, distribuyendo la carga de forma uniforme y evitando puntos de tensión que comprometerían la estabilidad del vehículo. El accionamiento hidráulico garantiza una nivelación rápida y precisa, incluso en terrenos inclinados.",
+        "extras": [
+          "Disponible a medida según la carrera, el diámetro y la fijación del vehículo",
+          "Opción de accionamiento individual o en sistema sincronizado (múltiples patas)",
+          "Fabricación con trazabilidad PATROL®"
+        ]
+      },
+      "faq": [
+        {
+          "question": "¿El cilindro de nivelación sirve para cualquier modelo de motorhome?",
+          "answer": "El cilindro se fabrica a medida según la carrera, el diámetro y el tipo de fijación del chasis de cada vehículo, pudiendo adaptarse a motorhomes, remolques y otros vehículos especiales."
+        },
+        {
+          "question": "¿Es posible instalar más de un cilindro para una nivelación sincronizada?",
+          "answer": "Sí, es posible montar un sistema con múltiples patas de apoyo accionadas de forma sincronizada, garantizando una nivelación uniforme en todos los puntos del vehículo."
         }
       ]
     }

@@ -47,6 +47,9 @@ Qualquer geometria, fixação, pressão ou material que o projeto exigir. A INCO
 ### Cilindro Hidráulico com Sensor de Posição
 Sensor de posição integrado ao corpo do cilindro (magnetoestritivo ou potenciométrico), com sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital). Elimina a necessidade de sensores externos e fins de curso adicionais, com leitura contínua e em tempo real do curso da haste. Indicado para máquinas com controle automatizado de posição, linhas com realimentação de processo e sistemas robóticos.
 
+### Cilindro de Nivelamento para Motorhomes
+Cilindro hidráulico de nivelamento com base circular giratória, indicado para motorhomes, trailers e veículos especiais. Fixação superior em flange com furação para instalação no chassi, haste cromada de alta resistência e curso dimensionado para nivelamento rápido e seguro. Disponível sob medida e em sistema sincronizado com múltiplos pés de apoio.
+
 ### Serviços de Manutenção e Recuperação
 - Desmontagem, inspeção e diagnóstico
 - Brunimento de tubo (retifica do diâmetro interno)

@@ -658,7 +658,10 @@
       "title": "Hydraulic Cylinder with Position Sensor",
       "slug": "cylinder-with-position-sensor",
       "image": "/images/cilindro-sensor-posicao.png",
-      "gallery": [],
+      "gallery": [
+        "/images/cilindro-sensor-posicao-corte.png",
+        "/images/cilindro-sensor-posicao-detalhe.jpg"
+      ],
       "description": "Hydraulic cylinders with an integrated position sensor for continuous stroke feedback in automated systems.",
       "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.",
       "features": [
@@ -740,6 +743,48 @@
         {
           "question": "Are PATROL® cylinders made of carbon or stainless steel?",
           "answer": "Both. The PATROL line is available in carbon steel and stainless steel versions, in single-acting, double-acting, and telescopic configurations, with full customization of mounting, stroke, and working pressure."
+        }
+      ]
+    },
+    {
+      "title": "Leveling Cylinder for Motorhomes",
+      "slug": "cilindro-nivelamento-motorhome",
+      "image": "/images/cilindro-nivelamento-motorhome.jpeg",
+      "gallery": [
+        "/images/cilindro-nivelamento-motorhome-linha.png"
+      ],
+      "description": "Hydraulic leveling cylinder with a swiveling base for motorhomes, trailers, and special vehicles, ensuring stability and firm support on any terrain.",
+      "longDescription": "Designed specifically for leveling systems on motorhomes and special vehicles, this cylinder features a circular articulated base that adapts to uneven ground, ensuring firm support and even load distribution. The upper flange mount with bolt holes allows direct installation on the chassis, while the high-strength chrome-plated rod ensures durability even under frequent use.\n\nManufactured to the same quality standards as the PATROL® line, it is suitable both for motorhome manufacturers (OEM) and for replacement on vehicles already in use.",
+      "features": [
+        "Swiveling circular base for stable support on uneven terrain",
+        "Upper flange mount with bolt holes for chassis installation",
+        "High-strength chrome-plated rod resistant to wear and corrosion",
+        "Stroke sized for fast and safe leveling",
+        "Compact, rugged construction for vehicle use"
+      ],
+      "applications": [
+        "Motorhomes and recreational vehicles",
+        "Trailers and special towed vehicles",
+        "Camping and leisure vehicles",
+        "Mobile equipment requiring leveling and stabilization"
+      ],
+      "technicalDetails": {
+        "title": "Safe Leveling for Special Vehicles",
+        "content": "The swiveling base absorbs small ground irregularities, distributing the load evenly and avoiding stress points that would compromise vehicle stability. Hydraulic actuation ensures fast and precise leveling, even on sloped terrain.",
+        "extras": [
+          "Available custom-built according to the vehicle's stroke, diameter, and mounting",
+          "Individual or synchronized multi-leg actuation options",
+          "Manufactured with PATROL® traceability"
+        ]
+      },
+      "faq": [
+        {
+          "question": "Does the leveling cylinder fit any motorhome model?",
+          "answer": "The cylinder is custom-built according to each vehicle's stroke, diameter, and chassis mount type, and can be adapted for motorhomes, trailers, and other special vehicles."
+        },
+        {
+          "question": "Can more than one cylinder be installed for synchronized leveling?",
+          "answer": "Yes, a system with multiple support legs can be assembled and actuated in a synchronized manner, ensuring even leveling at every point of the vehicle."
         }
       ]
     }

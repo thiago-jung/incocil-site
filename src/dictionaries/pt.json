@@ -650,7 +650,10 @@
       "title": "Cilindro Hidráulico com Sensor de Posição",
       "slug": "cylinder-with-position-sensor",
       "image": "/images/cilindro-sensor-posicao.png",
-      "gallery": [],
+      "gallery": [
+        "/images/cilindro-sensor-posicao-corte.png",
+        "/images/cilindro-sensor-posicao-detalhe.jpg"
+      ],
       "description": "Cilindros hidráulicos com sensor de posição integrado para leitura contínua do curso em sistemas automatizados.",
       "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.",
       "features": [
@@ -732,6 +735,48 @@
         {
           "question": "Os cilindros PATROL® são fabricados em aço carbono ou inoxidável?",
           "answer": "Ambos. A linha PATROL está disponível em versões de aço carbono e inoxidável, em simples ação, dupla ação e telescópico, com customização total de fixação, curso e pressão de trabalho."
+        }
+      ]
+    },
+    {
+      "title": "Cilindro de Nivelamento para Motorhomes",
+      "slug": "cilindro-nivelamento-motorhome",
+      "image": "/images/cilindro-nivelamento-motorhome.jpeg",
+      "gallery": [
+        "/images/cilindro-nivelamento-motorhome-linha.png"
+      ],
+      "description": "Cilindro hidráulico de nivelamento com base giratória para motorhomes, trailers e veículos especiais, garantindo estabilidade e apoio firme em qualquer terreno.",
+      "longDescription": "Projetado especificamente para sistemas de nivelamento de motorhomes e veículos especiais, este cilindro conta com base circular articulada que se adapta a terrenos irregulares, garantindo apoio firme e distribuição uniforme de carga. A fixação superior em flange com furação permite instalação direta no chassi, enquanto a haste cromada de alta resistência assegura durabilidade mesmo em uso frequente.\n\nFabricado com os mesmos padrões de qualidade da linha PATROL®, é indicado tanto para fabricantes de motorhomes (OEM) quanto para reposição em veículos já em uso.",
+      "features": [
+        "Base circular giratória para apoio estável em terrenos irregulares",
+        "Fixação superior em flange com furação para instalação no chassi",
+        "Haste cromada de alta resistência ao desgaste e à corrosão",
+        "Curso dimensionado para nivelamento rápido e seguro",
+        "Construção compacta e robusta para uso em veículos"
+      ],
+      "applications": [
+        "Motorhomes e casas sobre rodas",
+        "Trailers e reboques especiais",
+        "Veículos de camping e lazer",
+        "Equipamentos móveis que exigem nivelamento e estabilização"
+      ],
+      "technicalDetails": {
+        "title": "Nivelamento Seguro para Veículos Especiais",
+        "content": "A base giratória absorve pequenas irregularidades do solo, distribuindo a carga de forma uniforme e evitando pontos de tensão que comprometeriam a estabilidade do veículo. O acionamento hidráulico garante nivelamento rápido e preciso, mesmo em terrenos inclinados.",
+        "extras": [
+          "Disponível sob medida conforme curso, diâmetro e fixação do veículo",
+          "Opção de acionamento individual ou em sistema sincronizado (múltiplos pés)",
+          "Fabricação com rastreabilidade PATROL®"
+        ]
+      },
+      "faq": [
+        {
+          "question": "O cilindro de nivelamento serve para qualquer modelo de motorhome?",
+          "answer": "O cilindro é fabricado sob medida conforme o curso, diâmetro e tipo de fixação do chassi de cada veículo, podendo ser adaptado para motorhomes, trailers e outros veículos especiais."
+        },
+        {
+          "question": "É possível instalar mais de um cilindro para nivelamento sincronizado?",
+          "answer": "Sim, é possível montar um sistema com múltiplos pés de apoio acionados de forma sincronizada, garantindo nivelamento uniforme em todos os pontos do veículo."
         }
       ]
     }
