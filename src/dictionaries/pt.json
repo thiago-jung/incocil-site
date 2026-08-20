@@ -537,6 +537,36 @@
       }
     },
     {
+      "title": "Cilindro Hidráulico com Sensor de Posição",
+      "slug": "cylinder-with-position-sensor",
+      "image": "/images/cilindro-sensor-posicao.png",
+      "gallery": [],
+      "description": "Cilindros hidráulicos com sensor de posição integrado para leitura contínua do curso em sistemas automatizados.",
+      "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.",
+      "features": [
+        "Sensor de posição integrado ao corpo do cilindro (magnetoestritivo ou potenciométrico)",
+        "Leitura contínua e em tempo real do curso da haste",
+        "Sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)",
+        "Elimina a necessidade de sensores externos e fins de curso adicionais",
+        "Alta repetibilidade e precisão de posicionamento"
+      ],
+      "applications": [
+        "Máquinas com controle automatizado de posição",
+        "Linhas de produção com realimentação de processo",
+        "Equipamentos de nivelamento e sincronismo",
+        "Sistemas robóticos e de automação industrial"
+      ],
+      "technicalDetails": {
+        "title": "Automação com Feedback de Posição",
+        "content": "O sensor integrado transforma o cilindro em um elemento ativo do sistema de controle, permitindo ajustes finos de velocidade e posição sem a complexidade de sistemas de sensoriamento externo.",
+        "extras": [
+          "Compatível com controladores CLP e CNC",
+          "Vedação protegida contra interferência do sensor",
+          "Projeto sob medida conforme curso e sinal necessários"
+        ]
+      }
+    },
+    {
       "title": "Linha PATROL® de Cilindros Hidráulicos",
       "slug": "linha-patrol",
       "image": "/images/incocil-predio.png",

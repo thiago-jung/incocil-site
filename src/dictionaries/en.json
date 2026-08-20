@@ -545,6 +545,36 @@
       }
     },
     {
+      "title": "Hydraulic Cylinder with Position Sensor",
+      "slug": "cylinder-with-position-sensor",
+      "image": "/images/cilindro-sensor-posicao.png",
+      "gallery": [],
+      "description": "Hydraulic cylinders with an integrated position sensor for continuous stroke feedback in automated systems.",
+      "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.",
+      "features": [
+        "Position sensor integrated into the cylinder body (magnetostrictive or potentiometric)",
+        "Continuous, real-time reading of the rod stroke",
+        "Output signal compatible with PLCs and automation systems (analog or digital)",
+        "Eliminates the need for external sensors and additional limit switches",
+        "High repeatability and positioning accuracy"
+      ],
+      "applications": [
+        "Machines with automated position control",
+        "Production lines with process feedback",
+        "Leveling and synchronization equipment",
+        "Robotic and industrial automation systems"
+      ],
+      "technicalDetails": {
+        "title": "Automation with Position Feedback",
+        "content": "The integrated sensor turns the cylinder into an active element of the control system, allowing fine adjustments of speed and position without the complexity of external sensing systems.",
+        "extras": [
+          "Compatible with PLC and CNC controllers",
+          "Sealing protected against sensor interference",
+          "Custom design according to stroke and signal requirements"
+        ]
+      }
+    },
+    {
       "title": "PATROL® Hydraulic Cylinder Line",
       "slug": "linha-patrol",
       "image": "/images/incocil-predio.png",

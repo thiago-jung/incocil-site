@@ -536,6 +536,36 @@
       }
     },
     {
+      "title": "Cilindro Hidráulico con Sensor de Posición",
+      "slug": "cylinder-with-position-sensor",
+      "image": "/images/cilindro-sensor-posicao.png",
+      "gallery": [],
+      "description": "Cilindros hidráulicos con sensor de posición integrado para lectura continua de la carrera en sistemas automatizados.",
+      "longDescription": "Desarrollados para aplicaciones que exigen control preciso de posición en tiempo real, estos cilindros incorporan un sensor interno que informa la posición exacta del vástago al sistema de automatización, eliminando la necesidad de sensores externos y simplificando la instalación eléctrica.",
+      "features": [
+        "Sensor de posición integrado al cuerpo del cilindro (magnetoestrictivo o potenciométrico)",
+        "Lectura continua y en tiempo real de la carrera del vástago",
+        "Señal de salida compatible con PLC y sistemas de automatización (analógica o digital)",
+        "Elimina la necesidad de sensores externos y fines de carrera adicionales",
+        "Alta repetibilidad y precisión de posicionamiento"
+      ],
+      "applications": [
+        "Máquinas con control automatizado de posición",
+        "Líneas de producción con realimentación de proceso",
+        "Equipos de nivelación y sincronismo",
+        "Sistemas robóticos y de automatización industrial"
+      ],
+      "technicalDetails": {
+        "title": "Automatización con Feedback de Posición",
+        "content": "El sensor integrado convierte al cilindro en un elemento activo del sistema de control, permitiendo ajustes finos de velocidad y posición sin la complejidad de sistemas de sensado externo.",
+        "extras": [
+          "Compatible con controladores PLC y CNC",
+          "Sellado protegido contra interferencia del sensor",
+          "Diseño a medida según carrera y señal necesarios"
+        ]
+      }
+    },
+    {
       "title": "Línea PATROL® de Cilindros Hidráulicos",
       "slug": "linha-patrol",
       "image": "/images/incocil-predio.png",
