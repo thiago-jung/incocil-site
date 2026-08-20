@@ -11,9 +11,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
     const { lang } = await params;
     const titles = {
-        pt: "Política de Privacidade | INCOCIL",
-        en: "Privacy Policy | INCOCIL",
-        es: "Política de Privacidad | INCOCIL",
+        pt: "Política de Privacidade",
+        en: "Privacy Policy",
+        es: "Política de Privacidad",
     };
     return {
         title: titles[lang],

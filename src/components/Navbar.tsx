@@ -57,6 +57,11 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
         : "transition-colors font-medium text-sm whitespace-nowrap text-slate-200 hover:text-white";
 
     const calcLabel = lang === "en" ? "Calculator" : "Calculadora";
+    // URL amigável por idioma (ver rewrites em next.config.ts)
+    const calcHref =
+        lang === "en" ? "/en/hydraulic-cylinder-calculator"
+            : lang === "es" ? "/es/calculadora-cilindros-hidraulicos"
+                : "/pt/calculadora";
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -95,7 +100,7 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
                     <a href={`/${lang}/#servicos`} className={anchorClass}>{dict.products}</a>
                     <Link href={`/${lang}/empresa`} className={linkClass(`/${lang}/empresa`)}>{dict.company}</Link>
                     <Link href={`/${lang}/blog`} className={linkClass(`/${lang}/blog`)}>{dict.blog}</Link>
-                    <Link href={`/${lang}/calculadora`} className={`hidden lg:inline ${linkClass(`/${lang}/calculadora`)}`}>{calcLabel}</Link>
+                    <Link href={calcHref} className={`hidden lg:inline ${linkClass(calcHref)}`}>{calcLabel}</Link>
                     <Link href={`/${lang}/contato`} className={linkClass(`/${lang}/contato`)}>{dict.contact}</Link>
                 </div>
 
@@ -137,7 +142,7 @@ export default function Navbar({ lang, dict }: { lang: string; dict: any }) {
                         { href: `/${lang}`, label: dict.home },
                         { href: `/${lang}/empresa`, label: dict.company },
                         { href: `/${lang}/blog`, label: dict.blog },
-                        { href: `/${lang}/calculadora`, label: calcLabel },
+                        { href: calcHref, label: calcLabel },
                         { href: `/${lang}/contato`, label: dict.contact },
                     ].map(({ href, label }) => (
                         <Link

@@ -44,6 +44,9 @@ Redução controlada de velocidade no final do curso para evitar impacto. Regul�
 ### Cilindros Customizados
 Qualquer geometria, fixação, pressão ou material que o projeto exigir. A INCOCIL já fabricou cilindros para aplicações que nenhum fornecedor padrão conseguia atender.
 
+### Cilindro Hidráulico com Sensor de Posição
+Sensor de posição integrado ao corpo do cilindro (magnetoestritivo ou potenciométrico), com sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital). Elimina a necessidade de sensores externos e fins de curso adicionais, com leitura contínua e em tempo real do curso da haste. Indicado para máquinas com controle automatizado de posição, linhas com realimentação de processo e sistemas robóticos.
+
 ### Serviços de Manutenção e Recuperação
 - Desmontagem, inspeção e diagnóstico
 - Brunimento de tubo (retifica do diâmetro interno)
@@ -72,6 +75,7 @@ Serviço de solda robotizada para fabricação de componentes de precisão.
 
 Artigos e vídeos técnicos publicados pela equipe de engenharia da INCOCIL:
 
+- INCOCIL na 49ª Expointer: mais de 45 anos de experiência em cilindros hidráulicos no maior evento do agro da América Latina — https://www.incocil.com/pt/blog/incocil-49-expointer-2026
 - Cilindros Hidráulicos de Simples Ação: tipos, vantagens e como escolher — https://www.incocil.com/pt/blog/cilindros-simples-acao-tipos-vantagens-como-escolher
 - Cilindro Hidráulico Telescópico Dupla Ação com 3 Estágios — https://www.incocil.com/pt/blog/cilindro-telescopico-dupla-acao-3-estagios
 - Cilindro Hidráulico com Amortecimento Regulável — https://www.incocil.com/pt/blog/cilindro-amortecimento-regulavel
@@ -87,9 +91,13 @@ Artigos e vídeos técnicos publicados pela equipe de engenharia da INCOCIL:
 - Vedações especiais para altas temperaturas, fluidos não convencionais ou ambientes agressivos
 - Capacidade de transformar cilindros existentes (dupla ação → simples ação, standard → haste passante)
 
-## Presença internacional
+## Presença internacional e em feiras
 
-A INCOCIL participou como expositora da **Hannover Messe 2026**, um dos maiores eventos industriais do mundo, reforçando a competitividade da engenharia hidráulica brasileira no cenário internacional.
+A INCOCIL participou como expositora da **Hannover Messe 2026**, um dos maiores eventos industriais do mundo, reforçando a competitividade da engenharia hidráulica brasileira no cenário internacional. A empresa também marca presença na **Expointer**, o maior evento do agronegócio da América Latina, e na **Mercopar**.
+
+## Ferramentas
+
+- Calculadora de Cilindros Hidráulicos (força, volume e vazão): https://www.incocil.com/pt/calculadora
 
 ## Contato e orçamento
 

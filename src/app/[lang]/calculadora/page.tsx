@@ -5,6 +5,14 @@ import { Metadata } from "next";
 
 const BASE_URL = "https://www.incocil.com";
 
+// Rotas amigáveis (ver rewrites em next.config.ts) — mantêm a palavra-chave
+// no idioma correto da URL sem duplicar a página real /calculadora.
+const PRETTY_PATH: Record<"pt" | "en" | "es", string> = {
+    pt: "/pt/calculadora",
+    en: "/en/hydraulic-cylinder-calculator",
+    es: "/es/calculadora-cilindros-hidraulicos",
+};
+
 export async function generateMetadata({
     params,
 }: {
@@ -14,17 +22,17 @@ export async function generateMetadata({
 
     const meta = {
         pt: {
-            title: "Calculadora de Cilindros Hidráulicos | INCOCIL",
+            title: "Calculadora de Cilindros Hidráulicos",
             description:
                 "Calcule força, volume e vazão do seu cilindro hidráulico online. Insira diâmetro, pressão e curso — obtenha o dimensionamento completo em segundos.",
         },
         en: {
-            title: "Hydraulic Cylinder Calculator | INCOCIL",
+            title: "Hydraulic Cylinder Calculator",
             description:
                 "Calculate hydraulic cylinder force, volume, and flow rate online. Enter bore, pressure, and stroke — get complete sizing results in seconds.",
         },
         es: {
-            title: "Calculadora de Cilindros Hidráulicos | INCOCIL",
+            title: "Calculadora de Cilindros Hidráulicos",
             description:
                 "Calcule fuerza, volumen y caudal de su cilindro hidráulico online. Ingrese diámetro, presión y carrera — obtenga el dimensionamiento completo en segundos.",
         },
@@ -36,17 +44,17 @@ export async function generateMetadata({
         title: m.title,
         description: m.description,
         alternates: {
-            canonical: `${BASE_URL}/${lang}/calculadora`,
+            canonical: `${BASE_URL}${PRETTY_PATH[lang]}`,
             languages: {
-                "pt-BR": `${BASE_URL}/pt/calculadora`,
-                "en-US": `${BASE_URL}/en/calculadora`,
-                "es-ES": `${BASE_URL}/es/calculadora`,
+                "pt-BR": `${BASE_URL}${PRETTY_PATH.pt}`,
+                "en-US": `${BASE_URL}${PRETTY_PATH.en}`,
+                "es-ES": `${BASE_URL}${PRETTY_PATH.es}`,
             },
         },
         openGraph: {
             title: m.title,
             description: m.description,
-            url: `${BASE_URL}/${lang}/calculadora`,
+            url: `${BASE_URL}${PRETTY_PATH[lang]}`,
         },
     };
 }
@@ -87,7 +95,7 @@ export default async function CalculadoraPage({
         name: "INCOCIL Hydraulic Cylinder Calculator",
         applicationCategory: "EngineeringApplication",
         operatingSystem: "Web",
-        url: `${BASE_URL}/${lang}/calculadora`,
+        url: `${BASE_URL}${PRETTY_PATH[lang]}`,
         offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
         description: copy.intro,
         author: { "@id": `${BASE_URL}/#organization` },

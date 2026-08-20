@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const locales = ['pt', 'en', 'es'];
 
     // 1. Rotas Estáticas
-    const staticPages = ['', '/empresa', '/blog', '/contato', '/calculadora'];
+    const staticPages = ['', '/empresa', '/blog', '/contato'];
     const staticRoutes = locales.flatMap((lang) =>
         staticPages.map((page) => ({
             url: `${baseUrl}/${lang}${page}`,
@@ -16,6 +16,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: page === '' ? 1 : 0.8,
         }))
     );
+
+    // Calculadora — URL amigável por idioma (ver rewrites em next.config.ts)
+    const calculatorPaths: Record<string, string> = {
+        pt: '/pt/calculadora',
+        en: '/en/hydraulic-cylinder-calculator',
+        es: '/es/calculadora-cilindros-hidraulicos',
+    };
+    const calculatorRoutes = locales.map((lang) => ({
+        url: `${baseUrl}${calculatorPaths[lang]}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+    }));
 
     // 2. Política de privacidade (indexada com noindex, mas no sitemap para consistência)
     const privacyRoutes = locales.map((lang) => ({
@@ -53,5 +66,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }))
     );
 
-    return [...staticRoutes, ...privacyRoutes, hannoverRoute, ...productRoutes, ...blogRoutes];
+    return [...staticRoutes, ...calculatorRoutes, ...privacyRoutes, hannoverRoute, ...productRoutes, ...blogRoutes];
 }

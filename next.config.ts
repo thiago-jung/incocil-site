@@ -2,6 +2,19 @@
 
 const nextConfig = {
 
+    async rewrites() {
+        return [
+            {
+                source: '/en/hydraulic-cylinder-calculator',
+                destination: '/en/calculadora',
+            },
+            {
+                source: '/es/calculadora-cilindros-hidraulicos',
+                destination: '/es/calculadora',
+            },
+        ];
+    },
+
     async headers() {
         return [
             {

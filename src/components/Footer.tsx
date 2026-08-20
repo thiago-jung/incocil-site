@@ -120,7 +120,11 @@ export default function Footer({ dict, lang }: FooterProps) {
                     <ul className="space-y-2 text-sm">
                         <li>
                             <Link
-                                href={`/${lang}/calculadora`}
+                                href={
+                                    lang === "en" ? "/en/hydraulic-cylinder-calculator"
+                                        : lang === "es" ? "/es/calculadora-cilindros-hidraulicos"
+                                            : "/pt/calculadora"
+                                }
                                 className="text-slate-400 hover:text-blue-400 transition-colors"
                             >
                                 {lang === "en" ? "Cylinder Calculator" : lang === "es" ? "Calculadora" : "Calculadora de Cilindros"}
