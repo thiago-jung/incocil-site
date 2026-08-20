@@ -7,12 +7,18 @@ import ProductDetailsAccordion from "@/components/ProductDetailsAccordion";
 import ProductImageGallery from "@/components/ProductImageGallery";
 import ProductViewTracker from "@/components/ProductViewTracker";
 import ProductSchema from "@/components/ProductSchema";
+import ProductFAQ from "@/components/ProductFAQ";
 import Breadcrumb from "@/components/Breadcrumb";
 import RelatedProducts from "@/components/RelatedProducts";
 import ReadingProgress from "@/components/ReadingProgress";
 import { Metadata } from 'next';
+import ptDict from '@/dictionaries/pt.json';
 
 const BASE_URL = 'https://www.incocil.com';
+
+export async function generateStaticParams() {
+    return ptDict.services.map((service) => ({ slug: service.slug }));
+}
 
 export async function generateMetadata({
     params
@@ -145,6 +151,11 @@ export default async function PaginaProduto({
                     </div>
                 </div>
             </div>
+
+            <ProductFAQ
+                faq={produto.faq}
+                label={lang === 'en' ? 'Frequently Asked Questions' : lang === 'es' ? 'Preguntas Frecuentes' : 'Perguntas Frequentes'}
+            />
 
             <RelatedProducts
                 items={relatedItems}

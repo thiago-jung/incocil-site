@@ -212,7 +212,17 @@
           "Special Viton or Premium Polyurethane seals",
           "Integrated position sensor options"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What material is the INCOCIL Stainless Steel Hydraulic Cylinder made of?",
+          "answer": "100% stainless steel — tube, rod, head, and base — for total corrosion resistance in aggressive environments such as agrochemicals, moisture, and marine conditions."
+        },
+        {
+          "question": "Can the stainless steel cylinder include an integrated position sensor?",
+          "answer": "Yes. The stainless steel line is available with integrated position sensor options, along with polished or chromed rods and special Viton or premium polyurethane seals."
+        }
+      ]
     },
     {
       "title": "Master-Slave Cylinder",
@@ -244,7 +254,17 @@
           "High-pressure leak testing",
           "Industrial epoxy paint finish"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "How does the master-slave cylinder synchronism work?",
+          "answer": "The system eliminates the need for expensive external sensors through an intelligent internal hydraulic design, ensuring millimetric synchronism and uniform load distribution between two or more actuators."
+        },
+        {
+          "question": "Where is the master-slave cylinder most commonly used?",
+          "answer": "In large-scale lifting tables, synchronized industrial presses, platform lifting systems, and equipment requiring precision movement."
+        }
+      ]
     },
     {
       "title": "Telescopic Cylinder",
@@ -276,7 +296,17 @@
           "Air bleeding systems",
           "End-of-stroke cushioning"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "How many stages can an INCOCIL telescopic cylinder have?",
+          "answer": "From 2 to 5 stages, depending on the project, allowing for long strokes while maintaining an extremely reduced and compact closed length."
+        },
+        {
+          "question": "What equipment is the telescopic cylinder suited for?",
+          "answer": "Dump trucks, hydraulic freight elevators, extensible platforms, and agricultural machinery with telescopic arms."
+        }
+      ]
     },
     {
       "title": "Single and Double-Acting Cylinder",
@@ -310,7 +340,17 @@
           "Custom painting according to customer standards",
           "Individual pressure test certificate"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What mounting types are available for single and double-acting cylinders?",
+          "answer": "Clevis, flange, and trunnion, with return by gravity, spring, or hydraulic power, depending on the application."
+        },
+        {
+          "question": "What material are the rods made of?",
+          "answer": "1045 steel with hard chrome plating, with H8 precision honed barrels for durability and easy maintenance."
+        }
+      ]
     },
     {
       "title": "Hydraulic Cylinders",
@@ -347,7 +387,17 @@
           "Stress and fatigue analysis",
           "Specialized after-sales support"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Does INCOCIL manufacture custom hydraulic cylinders?",
+          "answer": "Yes, manufacturing is done according to sample or technical drawing, with a wide range of diameters and strokes and engineering support for correct sizing."
+        },
+        {
+          "question": "Which industries use INCOCIL's hydraulic cylinder line?",
+          "answer": "Metallurgical industry, mining sector, construction equipment, and heavy agricultural machinery."
+        }
+      ]
     },
     {
       "title": "Cushioned Cylinder",
@@ -382,7 +432,17 @@
           "Position sensor compatible",
           "Custom technical sizing"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What is adjustable cushioning in INCOCIL cylinders?",
+          "answer": "A system that progressively decelerates the load before the final impact, adjustable via a side screw, unilateral or bilateral, eliminating sudden impacts at the end of the stroke."
+        },
+        {
+          "question": "Is the cushioned cylinder compatible with a position sensor?",
+          "answer": "Yes, it is available in position-sensor-compatible versions as well as stainless steel versions for harsh environments."
+        }
+      ]
     },
     {
       "title": "Pneumatic Cylinders",
@@ -413,7 +473,17 @@
           "Magnetic piston for proximity sensors",
           "Stainless steel versions for sanitary areas"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Can INCOCIL's pneumatic cylinders run lube-free?",
+          "answer": "Yes, lube-free operation is an available option, along with lightweight aluminum or steel construction and low noise level."
+        },
+        {
+          "question": "Is there a stainless steel version of the pneumatic cylinders?",
+          "answer": "Yes, stainless steel versions are available for sanitary areas, with a magnetic piston for proximity sensors and adjustable pneumatic cushioning."
+        }
+      ]
     },
     {
       "title": "Honing Services",
@@ -448,7 +518,17 @@
           "Differentiated deadlines for urgencies",
           "Long-length honing capability"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What is INCOCIL's maximum honing capacity?",
+          "answer": "From ø25.40mm to ø500mm, with strict roughness control (Ra and Rz) and vertical or horizontal honing."
+        },
+        {
+          "question": "Does the honing service correct ovality in cylinder barrels?",
+          "answer": "Yes, the process corrects ovality and tapering, with a mirrored finish for maximum seal life."
+        }
+      ]
     },
     {
       "title": "Maintenance",
@@ -481,7 +561,17 @@
           "High-layer hard chrome on rods",
           "Robotized welding for clevis recovery"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Does a cylinder recovered by INCOCIL get the same warranty as a new one?",
+          "answer": "Yes. Every cylinder undergoes internal honing, complete seal kit replacement, rod recovery, and high-pressure bench testing, receiving the same warranty as a new cylinder."
+        },
+        {
+          "question": "Does INCOCIL perform maintenance on cylinders from other manufacturers?",
+          "answer": "Yes, the maintenance service covers cylinders from any manufacturer, with a technical report issued at the end of the process."
+        }
+      ]
     },
     {
       "title": "Custom Cylinders",
@@ -512,7 +602,17 @@
           "3D drawing for approval",
           "Specific load tests"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Does INCOCIL develop cylinder designs that don't exist off the shelf?",
+          "answer": "Yes, dedicated engineering develops from the sketch to the final product, meeting exact force, stroke, and speed requirements for non-standard applications."
+        },
+        {
+          "question": "Can a single custom unit be manufactured?",
+          "answer": "Yes, manufacturing can be unitary or in batches, depending on the project's needs."
+        }
+      ]
     },
     {
       "title": "Robotic Welding Service",
@@ -542,7 +642,17 @@
           "Automated MIG/MAG process",
           "Strict visual inspection"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Why does INCOCIL use robotic welding in cylinder manufacturing?",
+          "answer": "Because it avoids stress concentration points, drastically increasing the cylinder's lifespan under high pressures, using an automated MIG/MAG process with high repeatability."
+        },
+        {
+          "question": "Is robotic welding also used to recover parts?",
+          "answer": "Yes, it is used in serial manufacturing as well as in the recovery of critical components such as bases, heads, and clevises."
+        }
+      ]
     },
     {
       "title": "Hydraulic Cylinder with Position Sensor",
@@ -572,7 +682,17 @@
           "Sealing protected against sensor interference",
           "Custom design according to stroke and signal requirements"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What type of position sensor is used in INCOCIL cylinders?",
+          "answer": "Magnetostrictive or potentiometric sensors, integrated into the cylinder body, with an output signal compatible with PLCs and automation systems (analog or digital)."
+        },
+        {
+          "question": "Does the position sensor eliminate the need for external limit switches?",
+          "answer": "Yes, the integrated sensor provides continuous, real-time reading of the rod stroke, eliminating the need for external sensors and additional limit switches."
+        }
+      ]
     },
     {
       "title": "PATROL® Hydraulic Cylinder Line",
@@ -611,7 +731,17 @@
           "Versions in carbon steel and stainless steel",
           "Full customization of mounting, stroke and working pressure"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "What does the PATROL® brand from INCOCIL mean?",
+          "answer": "It is INCOCIL's registered trademark for hydraulic cylinders manufactured in Porto Alegre for over 45 years, with a low-relief marking (logo, code, and manufacturing date) that guarantees full traceability."
+        },
+        {
+          "question": "Are PATROL® cylinders made of carbon or stainless steel?",
+          "answer": "Both. The PATROL line is available in carbon steel and stainless steel versions, in single-acting, double-acting, and telescopic configurations, with full customization of mounting, stroke, and working pressure."
+        }
+      ]
     }
   ]
 }

@@ -211,7 +211,17 @@
           "Vedações especiais em Viton ou Poliuretano",
           "Opções com sensores de posição integrados"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "De que material é feito o Cilindro Hidráulico Inox da INCOCIL?",
+          "answer": "100% aço inoxidável — tubo, haste, cabeçote e fundo — para resistência total à corrosão em ambientes agressivos como agroquímicos, umidade e ambientes marítimos."
+        },
+        {
+          "question": "O cilindro inox pode ter sensor de posição integrado?",
+          "answer": "Sim. A linha inox está disponível com opção de sensores de posição integrados, além de hastes polidas ou cromadas e vedações especiais em Viton ou Poliuretano."
+        }
+      ]
     },
     {
       "title": "Cilindro Mestre-Escravo",
@@ -242,7 +252,17 @@
           "Teste de estanqueidade em alta pressão",
           "Acabamento em pintura industrial epóxi"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Como funciona o sincronismo do cilindro mestre-escravo?",
+          "answer": "O sistema elimina a necessidade de sensores externos caros por meio de um design hidráulico interno inteligente, garantindo sincronismo milimétrico e distribuição uniforme de carga entre dois ou mais atuadores."
+        },
+        {
+          "question": "Onde o cilindro mestre-escravo é mais usado?",
+          "answer": "Em mesas elevatórias de grande porte, prensas industriais sincronizadas, sistemas de içamento de plataformas e equipamentos que exigem movimentação de precisão."
+        }
+      ]
     },
     {
       "title": "Cilindro Telescópico",
@@ -273,7 +293,17 @@
           "Sistemas de purga de ar",
           "Amortecimento de final de curso"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Quantos estágios um cilindro telescópico INCOCIL pode ter?",
+          "answer": "De 2 a 5 estágios, conforme o projeto, permitindo grandes cursos de atuação com um comprimento fechado extremamente reduzido e compacto."
+        },
+        {
+          "question": "Para quais equipamentos o cilindro telescópico é indicado?",
+          "answer": "Caminhões basculantes, elevadores hidráulicos de carga, plataformas extensíveis e máquinas agrícolas com braços telescópicos."
+        }
+      ]
     },
     {
       "title": "Cilindro Simples e Dupla Ação",
@@ -306,7 +336,17 @@
           "Pintura personalizada conforme norma do cliente",
           "Certificado de teste de pressão individual"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Quais tipos de fixação estão disponíveis para os cilindros de simples e dupla ação?",
+          "answer": "Olhal, flange e munhão, com retorno por gravidade, mola ou potência hidráulica, conforme a aplicação."
+        },
+        {
+          "question": "Qual o material das hastes desses cilindros?",
+          "answer": "Aço 1045 com cromo duro, com camisas brunidas em precisão H8 para durabilidade e fácil manutenção."
+        }
+      ]
     },
     {
       "title": "Cilindros Hidráulicos",
@@ -342,7 +382,17 @@
           "Análise de esforços e fadiga",
           "Suporte pós-venda especializado"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "A INCOCIL fabrica cilindros hidráulicos sob medida?",
+          "answer": "Sim, a fabricação é feita conforme amostra ou desenho técnico, com ampla gama de diâmetros e cursos e suporte de engenharia para o dimensionamento correto."
+        },
+        {
+          "question": "Quais setores utilizam a linha de cilindros hidráulicos da INCOCIL?",
+          "answer": "Indústria metalúrgica, setor de mineração, equipamentos de construção civil e maquinário agrícola pesado."
+        }
+      ]
     },
     {
       "title": "Cilindro com Amortecimento",
@@ -377,7 +427,17 @@
           "Compatível com sensores de posição",
           "Dimensionamento técnico personalizado"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "O que é o amortecimento regulável nos cilindros INCOCIL?",
+          "answer": "Um sistema que desacelera a carga progressivamente antes do impacto final, ajustável via parafuso lateral, unilateral ou bilateral, eliminando batidas bruscas ao final do curso."
+        },
+        {
+          "question": "O cilindro com amortecimento é compatível com sensor de posição?",
+          "answer": "Sim, está disponível em versões compatíveis com sensores de posição e também em versões inox para ambientes agressivos."
+        }
+      ]
     },
     {
       "title": "Cilindros Pneumáticos - Sob Demanda",
@@ -407,7 +467,17 @@
           "Êmbolo magnético para sensores de proximidade",
           "Versões em INOX para áreas sanitárias"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Os cilindros pneumáticos da INCOCIL podem funcionar sem lubrificação?",
+          "answer": "Sim, o funcionamento isento de lubrificação é uma opção disponível, além de construção leve em alumínio ou aço e baixo nível de ruído."
+        },
+        {
+          "question": "Existe versão inox dos cilindros pneumáticos?",
+          "answer": "Sim, há versões em inox para áreas sanitárias, com êmbolo magnético para sensores de proximidade e amortecimento pneumático regulável."
+        }
+      ]
     },
     {
       "title": "Serviços de Brunimento",
@@ -441,7 +511,17 @@
           "Prazos diferenciados para urgências",
           "Capacidade de brunimento em grandes comprimentos"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Qual a capacidade máxima de brunimento da INCOCIL?",
+          "answer": "De ø 25,40mm até ø 500mm, com controle rigoroso de rugosidade (Ra e Rz) e brunimento vertical ou horizontal."
+        },
+        {
+          "question": "O serviço de brunimento corrige ovalização em camisas de cilindro?",
+          "answer": "Sim, o processo corrige ovalização e conicidade, com acabamento espelhado para máxima vida útil das vedações."
+        }
+      ]
     },
     {
       "title": "Manutenção",
@@ -473,7 +553,17 @@
           "Cromo duro de alta camada nas hastes",
           "Solda robotizada para recuperação de olhais"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Um cilindro recuperado pela INCOCIL tem a mesma garantia de um novo?",
+          "answer": "Sim. Cada cilindro passa por brunimento interno, substituição completa do kit de vedação, recuperação de hastes e teste de bancada em alta pressão, recebendo a mesma garantia de um cilindro novo."
+        },
+        {
+          "question": "A INCOCIL faz manutenção em cilindros de outras marcas?",
+          "answer": "Sim, o serviço de manutenção atende cilindros de qualquer fabricante, com laudo técnico ao final do processo."
+        }
+      ]
     },
     {
       "title": "Cilindros Customizados",
@@ -504,7 +594,17 @@
           "Desenho 3D para aprovação",
           "Testes de carga específicos"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "A INCOCIL desenvolve projetos de cilindros que não existem em linha?",
+          "answer": "Sim, a engenharia dedicada desenvolve desde o rascunho até o produto final, atendendo requisitos exatos de força, curso e velocidade para aplicações não padronizadas."
+        },
+        {
+          "question": "É possível fabricar apenas uma unidade customizada?",
+          "answer": "Sim, a fabricação pode ser unitária ou em lote, conforme a necessidade do projeto."
+        }
+      ]
     },
     {
       "title": "Serviço de Solda Robotizada",
@@ -534,7 +634,17 @@
           "Processo MIG/MAG automatizado",
           "Inspeção visual rigorosa"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Por que a INCOCIL usa solda robotizada na fabricação dos cilindros?",
+          "answer": "Porque evita pontos de concentração de tensão, aumentando drasticamente a vida útil do cilindro sob altas pressões, com processo MIG/MAG automatizado e alta repetibilidade."
+        },
+        {
+          "question": "A solda robotizada é usada também na recuperação de peças?",
+          "answer": "Sim, é utilizada na fabricação em série e também na recuperação de componentes críticos, como fundos, cabeçotes e olhais."
+        }
+      ]
     },
     {
       "title": "Cilindro Hidráulico com Sensor de Posição",
@@ -564,7 +674,17 @@
           "Vedação protegida contra interferência do sensor",
           "Projeto sob medida conforme curso e sinal necessários"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "Que tipo de sensor de posição é usado nos cilindros INCOCIL?",
+          "answer": "Sensores magnetoestritivos ou potenciométricos, integrados ao corpo do cilindro, com sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)."
+        },
+        {
+          "question": "O sensor de posição elimina a necessidade de fins de curso externos?",
+          "answer": "Sim, o sensor integrado fornece leitura contínua e em tempo real do curso da haste, eliminando sensores externos e fins de curso adicionais."
+        }
+      ]
     },
     {
       "title": "Linha PATROL® de Cilindros Hidráulicos",
@@ -603,7 +723,17 @@
           "Versões em aço carbono e inoxidável",
           "Customização total de fixação, curso e pressão de trabalho"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "O que significa a marca PATROL® da INCOCIL?",
+          "answer": "É a marca registrada da INCOCIL para cilindros hidráulicos fabricados em Porto Alegre há mais de 45 anos, com marcação em baixo-relevo (logotipo, código e data de fabricação) que garante rastreabilidade total."
+        },
+        {
+          "question": "Os cilindros PATROL® são fabricados em aço carbono ou inoxidável?",
+          "answer": "Ambos. A linha PATROL está disponível em versões de aço carbono e inoxidável, em simples ação, dupla ação e telescópico, com customização total de fixação, curso e pressão de trabalho."
+        }
+      ]
     }
   ]
 }

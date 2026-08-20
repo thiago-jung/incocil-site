@@ -10,6 +10,10 @@ import { BlogImage } from "@/components/BlogImage";
 
 const BASE_URL = "https://www.incocil.com";
 
+export async function generateStaticParams() {
+    return BLOG_POSTS.map((post) => ({ slug: post.slug }));
+}
+
 export async function generateMetadata({
     params,
 }: {

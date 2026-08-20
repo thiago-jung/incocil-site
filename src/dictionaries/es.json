@@ -210,7 +210,17 @@
           "Sellos especiales en Viton o Poliuretano",
           "Opciones con sensores de posición integrados"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿De qué material está fabricado el Cilindro Hidráulico Inox de INCOCIL?",
+          "answer": "100% acero inoxidable — tubo, vástago, cabezal y fondo — para resistencia total a la corrosión en ambientes agresivos como agroquímicos, humedad y ambientes marítimos."
+        },
+        {
+          "question": "¿El cilindro inox puede tener sensor de posición integrado?",
+          "answer": "Sí. La línea inox está disponible con opción de sensores de posición integrados, además de vástagos pulidos o cromados y sellos especiales en Viton o Poliuretano."
+        }
+      ]
     },
     {
       "title": "Cilindro Maestro-Esclavo",
@@ -241,7 +251,17 @@
           "Prueba de estanqueidad a alta presión",
           "Acabado en pintura industrial epóxica"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Cómo funciona el sincronismo del cilindro maestro-esclavo?",
+          "answer": "El sistema elimina la necesidad de costosos sensores externos mediante un diseño hidráulico interno inteligente, garantizando sincronismo milimétrico y distribución uniforme de carga entre dos o más actuadores."
+        },
+        {
+          "question": "¿Dónde se utiliza más el cilindro maestro-esclavo?",
+          "answer": "En mesas elevadoras de gran tamaño, prensas industriales sincronizadas, sistemas de elevación de plataformas y equipos que requieren movimiento de precisión."
+        }
+      ]
     },
     {
       "title": "Cilindro Telescópico",
@@ -272,7 +292,17 @@
           "Sistemas de purga de aire",
           "Amortiguación de final de carrera"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Cuántas etapas puede tener un cilindro telescópico de INCOCIL?",
+          "answer": "De 2 a 5 etapas, según el proyecto, permitiendo grandes carreras de actuación con una longitud cerrada extremadamente reducida y compacta."
+        },
+        {
+          "question": "¿Para qué equipos es indicado el cilindro telescópico?",
+          "answer": "Camiones basculantes (volquetes), elevadores hidráulicos de carga, plataformas extensibles y máquinas agrícolas con brazos telescópicos."
+        }
+      ]
     },
     {
       "title": "Cilindro de Simple y Doble Efecto",
@@ -305,7 +335,17 @@
           "Pintura personalizada según norma del cliente",
           "Certificado de prueba de presión individual"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Qué tipos de fijación están disponibles para los cilindros de simple y doble efecto?",
+          "answer": "Ojo, brida y muñón, con retorno por gravedad, muelle o potencia hidráulica, según la aplicación."
+        },
+        {
+          "question": "¿De qué material son los vástagos de estos cilindros?",
+          "answer": "Acero 1045 con cromo duro, con camisas bruñidas en precisión H8 para durabilidad y fácil mantenimiento."
+        }
+      ]
     },
     {
       "title": "Cilindro con Amortiguación",
@@ -340,7 +380,17 @@
           "Compatible con sensores de posición",
           "Dimensionamiento técnico personalizado"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Qué es la amortiguación regulable en los cilindros de INCOCIL?",
+          "answer": "Un sistema que desacelera la carga progresivamente antes del impacto final, ajustable mediante tornillo lateral, unilateral o bilateral, eliminando golpes bruscos al final de la carrera."
+        },
+        {
+          "question": "¿El cilindro con amortiguación es compatible con sensor de posición?",
+          "answer": "Sí, está disponible en versiones compatibles con sensores de posición y también en versiones inox para ambientes agresivos."
+        }
+      ]
     },
     {
       "title": "Cilindros Hidráulicos",
@@ -376,7 +426,17 @@
           "Análisis de esfuerzos y fatiga",
           "Soporte posventa especializado"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿INCOCIL fabrica cilindros hidráulicos a medida?",
+          "answer": "Sí, la fabricación se realiza según muestra o diseño técnico, con una amplia gama de diámetros y carreras y soporte de ingeniería para el dimensionamiento correcto."
+        },
+        {
+          "question": "¿Qué sectores utilizan la línea de cilindros hidráulicos de INCOCIL?",
+          "answer": "Industria metalúrgica, sector de minería, equipos de construcción civil y maquinaria agrícola pesada."
+        }
+      ]
     },
     {
       "title": "Cilindros Neumáticos - Bajo Demanda",
@@ -406,7 +466,17 @@
           "Émbolo magnético para sensores de proximidad",
           "Versiones en INOX para áreas sanitarias"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Los cilindros neumáticos de INCOCIL pueden funcionar sin lubricación?",
+          "answer": "Sí, el funcionamiento exento de lubricación es una opción disponible, además de construcción ligera en aluminio o acero y bajo nivel de ruido."
+        },
+        {
+          "question": "¿Existe una versión inox de los cilindros neumáticos?",
+          "answer": "Sí, hay versiones en inox para áreas sanitarias, con émbolo magnético para sensores de proximidad y amortiguación neumática regulable."
+        }
+      ]
     },
     {
       "title": "Servicios de Bruñido",
@@ -440,7 +510,17 @@
           "Plazos diferenciados para urgencias",
           "Capacidad de bruñido en grandes longitudes"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Cuál es la capacidad máxima de bruñido de INCOCIL?",
+          "answer": "De ø 25,40mm hasta ø 500mm, con control riguroso de rugosidad (Ra y Rz) y bruñido vertical u horizontal."
+        },
+        {
+          "question": "¿El servicio de bruñido corrige la ovalización en camisas de cilindro?",
+          "answer": "Sí, el proceso corrige ovalización y conicidad, con acabado espejado para máxima vida útil de los sellos."
+        }
+      ]
     },
     {
       "title": "Mantenimiento",
@@ -472,7 +552,17 @@
           "Cromo duro de alta capa en los vástagos",
           "Soldadura robotizada para recuperación de ojos de articulación"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Un cilindro recuperado por INCOCIL tiene la misma garantía que uno nuevo?",
+          "answer": "Sí. Cada cilindro pasa por bruñido interno, sustitución completa del kit de sellado, recuperación de vástagos y prueba de banco a alta presión, recibiendo la misma garantía que un cilindro nuevo."
+        },
+        {
+          "question": "¿INCOCIL realiza mantenimiento en cilindros de otras marcas?",
+          "answer": "Sí, el servicio de mantenimiento atiende cilindros de cualquier fabricante, con informe técnico al final del proceso."
+        }
+      ]
     },
     {
       "title": "Cilindros Personalizados",
@@ -503,7 +593,17 @@
           "Dibujo 3D para aprobación",
           "Pruebas de carga específicas"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿INCOCIL desarrolla proyectos de cilindros que no existen en línea?",
+          "answer": "Sí, la ingeniería dedicada desarrolla desde el boceto hasta el producto final, cumpliendo con los requisitos exactos de fuerza, carrera y velocidad para aplicaciones no estandarizadas."
+        },
+        {
+          "question": "¿Es posible fabricar una sola unidad personalizada?",
+          "answer": "Sí, la fabricación puede ser unitaria o por lote, según la necesidad del proyecto."
+        }
+      ]
     },
     {
       "title": "Servicio de Soldadura Robotizada",
@@ -533,7 +633,17 @@
           "Proceso MIG/MAG automatizado",
           "Inspección visual rigurosa"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Por qué INCOCIL utiliza soldadura robotizada en la fabricación de los cilindros?",
+          "answer": "Porque evita puntos de concentración de tensiones, aumentando drásticamente la vida útil del cilindro bajo altas presiones, mediante un proceso MIG/MAG automatizado y alta repetibilidad."
+        },
+        {
+          "question": "¿La soldadura robotizada también se usa en la recuperación de piezas?",
+          "answer": "Sí, se utiliza en la fabricación en serie y también en la recuperación de componentes críticos, como fondos, cabezales y ojos de articulación."
+        }
+      ]
     },
     {
       "title": "Cilindro Hidráulico con Sensor de Posición",
@@ -563,7 +673,17 @@
           "Sellado protegido contra interferencia del sensor",
           "Diseño a medida según carrera y señal necesarios"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Qué tipo de sensor de posición se utiliza en los cilindros de INCOCIL?",
+          "answer": "Sensores magnetoestrictivos o potenciométricos, integrados al cuerpo del cilindro, con señal de salida compatible con PLC y sistemas de automatización (analógica o digital)."
+        },
+        {
+          "question": "¿El sensor de posición elimina la necesidad de fines de carrera externos?",
+          "answer": "Sí, el sensor integrado ofrece lectura continua y en tiempo real de la carrera del vástago, eliminando sensores externos y fines de carrera adicionales."
+        }
+      ]
     },
     {
       "title": "Línea PATROL® de Cilindros Hidráulicos",
@@ -602,7 +722,17 @@
           "Versiones en acero al carbono e inoxidable",
           "Personalización total de fijación, carrera y presión de trabajo"
         ]
-      }
+      },
+      "faq": [
+        {
+          "question": "¿Qué significa la marca PATROL® de INCOCIL?",
+          "answer": "Es la marca registrada de INCOCIL para cilindros hidráulicos fabricados en Porto Alegre desde hace más de 45 años, con marcación en bajo relieve (logotipo, código y fecha de fabricación) que garantiza trazabilidad total."
+        },
+        {
+          "question": "¿Los cilindros PATROL® se fabrican en acero al carbono o inoxidable?",
+          "answer": "Ambos. La línea PATROL está disponible en versiones de acero al carbono e inoxidable, en simple efecto, doble efecto y telescópico, con personalización total de fijación, carrera y presión de trabajo."
+        }
+      ]
     }
   ]
 }
