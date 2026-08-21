@@ -652,16 +652,19 @@
       "image": "/images/cilindro-sensor-posicao.png",
       "gallery": [
         "/images/cilindro-sensor-posicao-corte.png",
-        "/images/cilindro-sensor-posicao-detalhe.jpg"
+        "/images/cilindro-sensor-posicao-detalhe.jpg",
+        "/images/cilindro-sensor-posicao-corte-3d.jpg"
       ],
       "description": "Cilindros hidráulicos com sensor de posição integrado para leitura contínua do curso em sistemas automatizados.",
-      "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.",
+      "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.\n\nA haste principal do cilindro é usinada oca (vazada) para acomodar internamente a vareta do sensor sem que ele sofra qualquer esforço mecânico. Na extremidade traseira, um cabeçote reforçado abriga a placa eletrônica e a saída do cabo de sinal. O pistão desliza sobre essa vareta e carrega um anel magnético: o sensor magnetoestritivo lê a posição desse ímã em tempo real, informando a extensão exata da haste ao sistema de automação sem qualquer contato mecânico com as partes móveis.",
       "features": [
         "Sensor de posição integrado ao corpo do cilindro (magnetoestritivo ou potenciométrico)",
         "Leitura contínua e em tempo real do curso da haste",
         "Sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)",
         "Elimina a necessidade de sensores externos e fins de curso adicionais",
-        "Alta repetibilidade e precisão de posicionamento"
+        "Alta repetibilidade e precisão de posicionamento",
+        "Haste vazada que protege a vareta do sensor contra esforço mecânico",
+        "Anel magnético no pistão para leitura contínua da posição, sem contato"
       ],
       "applications": [
         "Máquinas com controle automatizado de posição",
@@ -686,6 +689,10 @@
         {
           "question": "O sensor de posição elimina a necessidade de fins de curso externos?",
           "answer": "Sim, o sensor integrado fornece leitura contínua e em tempo real do curso da haste, eliminando sensores externos e fins de curso adicionais."
+        },
+        {
+          "question": "Como o sensor fica protegido dentro do cilindro?",
+          "answer": "A haste principal é usinada oca (vazada) justamente para acomodar a vareta do sensor em seu interior, sem que ela sofra esforço mecânico. O cabeçote traseiro reforçado abriga a placa eletrônica e a saída do cabo de sinal."
         }
       ]
     },

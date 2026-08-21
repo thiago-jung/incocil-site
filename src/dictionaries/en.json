@@ -660,16 +660,19 @@
       "image": "/images/cilindro-sensor-posicao.png",
       "gallery": [
         "/images/cilindro-sensor-posicao-corte.png",
-        "/images/cilindro-sensor-posicao-detalhe.jpg"
+        "/images/cilindro-sensor-posicao-detalhe.jpg",
+        "/images/cilindro-sensor-posicao-corte-3d.jpg"
       ],
       "description": "Hydraulic cylinders with an integrated position sensor for continuous stroke feedback in automated systems.",
-      "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.",
+      "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.\n\nThe main rod is machined hollow to house the sensor probe internally, so it is never subject to mechanical stress. At the rear end, a reinforced head houses the electronic board and the signal cable outlet. The piston slides over this probe and carries a magnetic ring: the magnetostrictive sensor reads the position of that magnet in real time, reporting the exact rod extension to the automation system with no mechanical contact with moving parts.",
       "features": [
         "Position sensor integrated into the cylinder body (magnetostrictive or potentiometric)",
         "Continuous, real-time reading of the rod stroke",
         "Output signal compatible with PLCs and automation systems (analog or digital)",
         "Eliminates the need for external sensors and additional limit switches",
-        "High repeatability and positioning accuracy"
+        "High repeatability and positioning accuracy",
+        "Hollow rod that shields the sensor probe from mechanical stress",
+        "Magnetic ring on the piston for continuous, contactless position reading"
       ],
       "applications": [
         "Machines with automated position control",
@@ -694,6 +697,10 @@
         {
           "question": "Does the position sensor eliminate the need for external limit switches?",
           "answer": "Yes, the integrated sensor provides continuous, real-time reading of the rod stroke, eliminating the need for external sensors and additional limit switches."
+        },
+        {
+          "question": "How is the sensor protected inside the cylinder?",
+          "answer": "The main rod is machined hollow specifically to house the sensor probe internally, so it never carries mechanical load. The reinforced rear head houses the electronic board and the signal cable outlet."
         }
       ]
     },

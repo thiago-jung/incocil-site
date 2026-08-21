@@ -651,16 +651,19 @@
       "image": "/images/cilindro-sensor-posicao.png",
       "gallery": [
         "/images/cilindro-sensor-posicao-corte.png",
-        "/images/cilindro-sensor-posicao-detalhe.jpg"
+        "/images/cilindro-sensor-posicao-detalhe.jpg",
+        "/images/cilindro-sensor-posicao-corte-3d.jpg"
       ],
       "description": "Cilindros hidráulicos con sensor de posición integrado para lectura continua de la carrera en sistemas automatizados.",
-      "longDescription": "Desarrollados para aplicaciones que exigen control preciso de posición en tiempo real, estos cilindros incorporan un sensor interno que informa la posición exacta del vástago al sistema de automatización, eliminando la necesidad de sensores externos y simplificando la instalación eléctrica.",
+      "longDescription": "Desarrollados para aplicaciones que exigen control preciso de posición en tiempo real, estos cilindros incorporan un sensor interno que informa la posición exacta del vástago al sistema de automatización, eliminando la necesidad de sensores externos y simplificando la instalación eléctrica.\n\nEl vástago principal se mecaniza hueco para alojar internamente la varilla del sensor, sin que esta sufra ningún esfuerzo mecánico. En el extremo trasero, un cabezal reforzado aloja la placa electrónica y la salida del cable de señal. El pistón se desliza sobre esa varilla y lleva un anillo magnético: el sensor magnetoestrictivo lee la posición de ese imán en tiempo real, informando la extensión exacta del vástago al sistema de automatización sin ningún contacto mecánico con las partes móviles.",
       "features": [
         "Sensor de posición integrado al cuerpo del cilindro (magnetoestrictivo o potenciométrico)",
         "Lectura continua y en tiempo real de la carrera del vástago",
         "Señal de salida compatible con PLC y sistemas de automatización (analógica o digital)",
         "Elimina la necesidad de sensores externos y fines de carrera adicionales",
-        "Alta repetibilidad y precisión de posicionamiento"
+        "Alta repetibilidad y precisión de posicionamiento",
+        "Vástago hueco que protege la varilla del sensor contra esfuerzo mecánico",
+        "Anillo magnético en el pistón para lectura continua y sin contacto"
       ],
       "applications": [
         "Máquinas con control automatizado de posición",
@@ -685,6 +688,10 @@
         {
           "question": "¿El sensor de posición elimina la necesidad de fines de carrera externos?",
           "answer": "Sí, el sensor integrado ofrece lectura continua y en tiempo real de la carrera del vástago, eliminando sensores externos y fines de carrera adicionales."
+        },
+        {
+          "question": "¿Cómo queda protegido el sensor dentro del cilindro?",
+          "answer": "El vástago principal se mecaniza hueco justamente para alojar la varilla del sensor en su interior, sin que sufra esfuerzo mecánico. El cabezal trasero reforzado aloja la placa electrónica y la salida del cable de señal."
         }
       ]
     },
