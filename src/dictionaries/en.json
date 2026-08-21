@@ -664,7 +664,7 @@
         "/images/cilindro-sensor-posicao-corte-3d.jpg"
       ],
       "description": "Hydraulic cylinders with an integrated position sensor for continuous stroke feedback in automated systems.",
-      "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.\n\nThe main rod is machined hollow to house the sensor probe internally, so it is never subject to mechanical stress. At the rear end, a reinforced head houses the electronic board and the signal cable outlet. The piston slides over this probe and carries a magnetic ring: the magnetostrictive sensor reads the position of that magnet in real time, reporting the exact rod extension to the automation system with no mechanical contact with moving parts.",
+      "longDescription": "Designed for applications that require precise real-time position control, these cylinders incorporate an internal sensor that reports the exact rod position to the automation system, eliminating the need for external sensors and simplifying wiring.\n\nThe main rod is machined hollow to house the sensor probe internally, so it is never subject to mechanical stress. At the rear end, a reinforced head houses the electronic board and the signal cable outlet. The piston slides over this probe and carries a magnetic ring: the magnetostrictive sensor reads the position of that magnet in real time, reporting the exact rod extension to the automation system with no mechanical contact with moving parts. Being fully enclosed within the cylinder's metal body, the sensor is shielded from external electromagnetic interference, impact, dust and dirt — protected under the harshest field operating conditions.",
       "features": [
         "Position sensor integrated into the cylinder body (magnetostrictive or potentiometric)",
         "Continuous, real-time reading of the rod stroke",
@@ -685,7 +685,7 @@
         "content": "The integrated sensor turns the cylinder into an active element of the control system, allowing fine adjustments of speed and position without the complexity of external sensing systems.",
         "extras": [
           "Compatible with PLC and CNC controllers",
-          "Sealing protected against sensor interference",
+          "Natural electromagnetic shielding: the cylinder's metal body isolates the sensor from external interference",
           "Custom design according to stroke and signal requirements"
         ]
       },
@@ -700,7 +700,7 @@
         },
         {
           "question": "How is the sensor protected inside the cylinder?",
-          "answer": "The main rod is machined hollow specifically to house the sensor probe internally, so it never carries mechanical load. The reinforced rear head houses the electronic board and the signal cable outlet."
+          "answer": "The main rod is machined hollow specifically to house the sensor probe internally, so it never carries mechanical load. The reinforced rear head houses the electronic board and the signal cable outlet. Being fully enclosed by the cylinder's metal body, the sensor is naturally shielded against external electromagnetic interference, impact and dirt."
         }
       ]
     },

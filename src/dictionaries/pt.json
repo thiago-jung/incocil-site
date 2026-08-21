@@ -656,9 +656,9 @@
         "/images/cilindro-sensor-posicao-corte-3d.jpg"
       ],
       "description": "Cilindros hidráulicos com sensor de posição integrado para leitura contínua do curso em sistemas automatizados.",
-      "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.\n\nA haste principal do cilindro é usinada oca (vazada) para acomodar internamente a vareta do sensor sem que ele sofra qualquer esforço mecânico. Na extremidade traseira, um cabeçote reforçado abriga a placa eletrônica e a saída do cabo de sinal. O pistão desliza sobre essa vareta e carrega um anel magnético: o sensor magnetoestritivo lê a posição desse ímã em tempo real, informando a extensão exata da haste ao sistema de automação sem qualquer contato mecânico com as partes móveis.",
+      "longDescription": "Desenvolvidos para aplicações que exigem controle preciso de posição em tempo real, esses cilindros incorporam um sensor interno que informa a posição exata da haste ao sistema de automação, eliminando a necessidade de sensores externos e simplificando a instalação elétrica.\n\nA haste principal do cilindro é usinada oca (vazada) para acomodar internamente a vareta do sensor sem que ele sofra qualquer esforço mecânico. Na extremidade traseira, um cabeçote reforçado abriga a placa eletrônica e a saída do cabo de sinal. O pistão desliza sobre essa vareta e carrega um anel magnético: o sensor magnetostritivo lê a posição desse ímã em tempo real, informando a extensão exata da haste ao sistema de automação sem qualquer contato mecânico com as partes móveis. Por estar totalmente encapsulado dentro do corpo metálico do cilindro, o sensor fica blindado contra interferência eletromagnética externa, impacto, poeira e sujeira — protegido nas condições mais severas de operação em campo.",
       "features": [
-        "Sensor de posição integrado ao corpo do cilindro (magnetoestritivo ou potenciométrico)",
+        "Sensor de posição integrado ao corpo do cilindro (magnetostritivo ou potenciométrico)",
         "Leitura contínua e em tempo real do curso da haste",
         "Sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)",
         "Elimina a necessidade de sensores externos e fins de curso adicionais",
@@ -677,14 +677,14 @@
         "content": "O sensor integrado transforma o cilindro em um elemento ativo do sistema de controle, permitindo ajustes finos de velocidade e posição sem a complexidade de sistemas de sensoriamento externo.",
         "extras": [
           "Compatível com controladores CLP e CNC",
-          "Vedação protegida contra interferência do sensor",
+          "Blindagem eletromagnética natural: o corpo metálico do cilindro isola o sensor de interferências externas",
           "Projeto sob medida conforme curso e sinal necessários"
         ]
       },
       "faq": [
         {
           "question": "Que tipo de sensor de posição é usado nos cilindros INCOCIL?",
-          "answer": "Sensores magnetoestritivos ou potenciométricos, integrados ao corpo do cilindro, com sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)."
+          "answer": "Sensores magnetostritivos ou potenciométricos, integrados ao corpo do cilindro, com sinal de saída compatível com CLPs e sistemas de automação (analógico ou digital)."
         },
         {
           "question": "O sensor de posição elimina a necessidade de fins de curso externos?",
@@ -692,7 +692,7 @@
         },
         {
           "question": "Como o sensor fica protegido dentro do cilindro?",
-          "answer": "A haste principal é usinada oca (vazada) justamente para acomodar a vareta do sensor em seu interior, sem que ela sofra esforço mecânico. O cabeçote traseiro reforçado abriga a placa eletrônica e a saída do cabo de sinal."
+          "answer": "A haste principal é usinada oca (vazada) justamente para acomodar a vareta do sensor em seu interior, sem que ela sofra esforço mecânico. O cabeçote traseiro reforçado abriga a placa eletrônica e a saída do cabo de sinal. Como fica totalmente encapsulado pelo corpo metálico do cilindro, o sensor é naturalmente blindado contra interferência eletromagnética externa, impacto e sujeira."
         }
       ]
     },
